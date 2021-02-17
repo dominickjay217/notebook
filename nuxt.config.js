@@ -19,7 +19,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Dom Jay || Front End Web Developer',
+    title: 'Dom Jay - Front End Web Developer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -87,11 +87,11 @@ export default {
     base: '/',
     linkExactActiveClass: 'navigation__listlink--active',
     extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'custom',
-        path: '*',
-        component: resolve(__dirname, 'pages/404.vue'),
-      })
+      // routes.push({
+      //   name: 'custom',
+      //   path: '*',
+      //   component: resolve(__dirname, 'pages/404.vue'),
+      // })
     },
   },
   extends: ['@nuxtjs/eslint-config-typescript'],

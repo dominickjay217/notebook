@@ -27,6 +27,7 @@ module.exports = {
         htmlWhitespaceSensitivity: 'ignore',
         semi: false,
         singleQuote: true,
+        endOfLine: auto
       },
     ],
   },
