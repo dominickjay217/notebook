@@ -7,7 +7,7 @@
 <script></script>
 
 <style lang="scss">
-@import url('https://use.typekit.net/hgu7qbd.css');
+//@import url('https://use.typekit.net/hgu7qbd.css');
 
 // @font-face {
 //   font-family: 'Wotfard';
@@ -100,9 +100,49 @@ strong {
   }
 }
 
+// Heading styles
+.heading {
+  font-family: 'SaltedMocha-Regular';
+  &--two {
+    text-align: center;
+    font-size: 3rem;
+  }
+}
+
 @keyframes squiggle {
   to {
     stroke-dashoffset: -200;
   }
 }
+
+.content {
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.footer {
+  background-color: var(--color-body);
+  padding: 60px 20px;
+  display: grid;
+  grid-template: repeat(3, 1fr);
+  & .navigation {
+    grid-column: 1 / 3;
+  }
+  & p {
+    font-size: 0.85rem;
+    font-weight: 700;
+    grid-column: 1 / 3;
+    text-align: center;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    /* Very short durations means JavaScript that relies on events still works */
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 </style>

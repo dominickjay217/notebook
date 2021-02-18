@@ -5,6 +5,7 @@ const ctfConfig = getConfigForKeys([
   'CTF_CDA_ACCESS_TOKEN',
   'CTF_CMA_ACCESS_TOKEN',
   'CTF_PERSON_ID',
+  'CTF_ABOUT_PERSON_ID',
 ])
 const { createClient } = require('./plugins/contentful')
 const cdaClient = createClient(ctfConfig)
@@ -82,17 +83,18 @@ export default {
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
+    CTF_ABOUT_PERSON_ID: ctfConfig.CTF_ABOUT_PERSON_ID,
   },
   router: {
     base: '/',
-    linkExactActiveClass: 'navigation__listlink--active',
-    extendRoutes(routes, resolve) {
-      // routes.push({
-      //   name: 'custom',
-      //   path: '*',
-      //   component: resolve(__dirname, 'pages/404.vue'),
-      // })
-    },
+    linkExactActiveClass: 'navigation__link--active',
+    // extendRoutes(routes, resolve) {
+    //   routes.push({
+    //     name: 'Home',
+    //     path: '/',
+    //     component: resolve(__dirname, '/'),
+    //   })
+    // },
   },
   extends: ['@nuxtjs/eslint-config-typescript'],
   layoutTransition: {

@@ -2,38 +2,17 @@
     <header class="header">
         <div class="container">
             <h1 class="header__title heading heading--one">
-                {{ person.fields.name }}
+              <NuxtLink class="header__link" to="/">
+                  {{ person.fields.name }}
+              </NuxtLink>
             </h1>
             <h2 class="header__tagline heading heading--two">
                 {{ person.fields.title }}
             </h2>
-            <ul class="navigation">
-                <li class="navigation__item">
-                <a href="" class="navigation__link">About</a>
-                </li>
-                <span class="dot"></span>
-                <li class="navigation__item">
-                <a href="" class="navigation__link">Blog</a>
-                </li>
-                <span class="dot"></span>
-                <li class="navigation__item">
-                <a href="" class="navigation__link">Contact</a>
-                </li>
-                <span class="dot"></span>
-                <li class="navigation__item">
-                <a
-                    target="__blank"
-                    rel="noopener"
-                    href="https://codepen.io/dominickjay217"
-                    class="navigation__link"
-                >
-                    Creative
-                </a>
-                </li>
-            </ul>
+          <NavigationBar />
         </div>
         <div class="container">
-            <div class="hero">
+            <div class="hero" v-if="isHome">
                 <span class="hero__tagline">
                 “Leave it better than you found it.”
                 </span>
@@ -50,7 +29,89 @@
 </template>
 
 <script>
+import NavigationBar from '~/components/NavigationBar.vue'
+
 export default {
-  props: ['person']
+  props: ['person'],
+  components: {
+    NavigationBar
+  },
+  computed: {
+    isHome() {
+      return this.$route.name === 'index'
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+// Header styles
+.header {
+  padding: 40px 20px 20px;
+  background-color: var(--color-primary);
+  margin-bottom: 40px;
+  margin-top: -140px;
+  &__title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+  }
+  &__tagline {
+    font-size: 0.85rem;
+    text-align: center;
+    font-family: 'Mosk-light';
+    margin-top: 0;
+    color: var(--color-fourth);
+  }
+  &__link,
+  &__link:hover {
+    text-decoration: none;
+    color: currentColor;
+
+  }
+}
+
+//hero
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  align-items: center;
+  &__tagline {
+    padding: 100px 50px 150px;
+    font-size: 5.25rem;
+    font-family: 'SaltedMocha-Regular';
+    transform: rotate(-15deg);
+  }
+  &__image {
+    padding: 100px 50px;
+    margin-left: 50px;
+    transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  /* A mobile version for all devices that is smaller than the smalles iPad */
+  .header {
+    margin-top: 0;
+  }
+
+  .hero {
+    grid-template-columns: repeat(4, 1fr);
+    &__tagline {
+      padding: 20px 0;
+      transform: none;
+      font-size: 4rem;
+      grid-column: 1 / 4;
+    }
+    &__image {
+      padding: 0px;
+      margin-left: 0;
+      -webkit-transform: rotate(5deg);
+      transform: rotate(5deg);
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+</style>
