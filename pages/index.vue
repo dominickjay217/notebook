@@ -61,13 +61,13 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/HeaderBar.vue'
-import NavigationBar from '~/components/NavigationBar.vue'
-import BannerBar from '~/components/BannerBar.vue'
+import HeaderBar from '~/components/Headerbar.vue'
+import NavigationBar from '~/components/Navigationbar.vue'
+import BannerBar from '~/components/Bannerbar.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
-import SocialBar from '~/components/SocialBar.vue'
-import FooterBar from '~/components/FooterBar.vue'
+import SocialBar from '~/components/Socialbar.vue'
+import FooterBar from '~/components/Footerbar.vue'
 
 const client = createClient()
 
