@@ -1333,6 +1333,7 @@ export default {
     &__copy {
       grid-row: 1;
       grid-column: 1 / 8;
+      padding-left: 20px;
     }
     & svg {
       grid-column: 1 / 8;
