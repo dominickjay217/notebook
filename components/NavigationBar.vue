@@ -38,11 +38,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
+  flex-wrap: wrap;
+  margin: 40px 0 20px;
   padding: 0;
   list-style: none;
   &__item {
-    margin: 0 10px;
+    margin: 0 10px 20px;
     position: relative;
   }
   &__link {
