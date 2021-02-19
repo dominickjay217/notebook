@@ -30,21 +30,17 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/Headerbar.vue'
-import BannerBar from '~/components/Bannerbar.vue'
-import BlogPosts from '~/components/BlogPosts.vue'
-import NavigationBar from '~/components/Navigationbar.vue'
-import SocialBar from '~/components/Socialbar.vue'
-import FooterBar from '~/components/Footerbar.vue'
+import HeaderBar from '~/components/HeaderBar.vue'
+import BannerBar from '~/components/BannerBar.vue'
+import SocialBar from '~/components/SocialBar.vue'
+import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
 export default {
   components: {
     HeaderBar,
-    NavigationBar,
     BannerBar,
-    BlogPosts,
     SocialBar,
     FooterBar,
     VueMarkdown,
