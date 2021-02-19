@@ -1308,6 +1308,9 @@ export default {
   }
   & svg {
     grid-column: 1 / 4;
+    width: 100%;
+    grid-row: 1;
+    height: 250px;
     g {
       fill: var(--color-secondary);
     }

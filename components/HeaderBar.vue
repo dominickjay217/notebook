@@ -50,7 +50,7 @@ export default {
   padding: 40px 20px 20px;
   background-color: var(--color-primary);
   margin-bottom: 40px;
-  margin-top: -140px;
+  margin-top: -160px;
   &__title {
     text-align: center;
     font-size: 3rem;
@@ -79,14 +79,17 @@ export default {
   align-items: center;
   &__tagline {
     padding: 100px 50px 150px;
-    font-size: 5.25rem;
+    font-size: 5rem;
     font-family: 'SaltedMocha-Regular';
     transform: rotate(-15deg);
   }
   &__image {
     padding: 100px 50px;
-    margin-left: 50px;
+    margin-left: 40px;
     transform: rotate(5deg);
+    img {
+      width: 100%;
+    }
   }
 }
 

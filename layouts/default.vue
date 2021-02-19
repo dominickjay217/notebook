@@ -88,6 +88,8 @@ strong {
   stroke-dasharray: 100;
   max-width: 150px;
   margin: 40px auto;
+  display: block;
+  width: 100%;
   &--01 {
     stroke: var(--color-fourth);
     animation: squiggle 5s linear infinite;
