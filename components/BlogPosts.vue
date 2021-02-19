@@ -112,6 +112,7 @@ export default {
 .post {
   font-size: 1.25rem;
   display: flex;
+  position: relative;
   &__title {
     text-align: left;
     font-weight: 700;
@@ -122,6 +123,14 @@ export default {
     font-weight: 700;
     color: var(--color-fourth);
     font-size: 1.5rem;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
     &:hover {
       text-decoration: underline;
     }
@@ -136,6 +145,32 @@ export default {
     }
     & span:last-child {
       opacity: 0.5;
+    }
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .post {
+    font-size: 1rem;
+    &__link {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .post {
+    flex-direction: column;
+    justify-content: flex-start;
+    & * {
+      margin-bottom: 10px;
+    }
+    &__date {
+      display: none;
+    }
+    &__link {
+      margin-left: 0;
+      margin-bottom: 0;
     }
   }
 }

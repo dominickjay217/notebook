@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 // Header styles
 .header {
-  padding: 40px 20px 20px;
+  padding: 60px 20px 20px;
   background-color: var(--color-primary);
   margin-bottom: 40px;
   margin-top: -160px;
@@ -97,6 +97,8 @@ export default {
   /* A mobile version for all devices that is smaller than the smalles iPad */
   .header {
     margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .hero {
@@ -113,6 +115,30 @@ export default {
       -webkit-transform: rotate(5deg);
       transform: rotate(5deg);
       grid-column: 4 / 5;
+    }
+  }
+}
+
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .hero {
+    grid-template-columns: repeat(4, 1fr);
+    &__tagline {
+      padding: 20px 0;
+      transform: none;
+      font-size: 3rem;
+      grid-column: 1 / 5;
+      grid-row: 1;
+      z-index: 1;
+    }
+    &__image {
+      padding: 40px 0 0;
+      margin-bottom: 40px;
+      margin-left: 0;
+      -webkit-transform: rotate(5deg);
+      transform: rotate(5deg);
+      grid-column: 3 / 5;
+      grid-row: 1;
     }
   }
 }

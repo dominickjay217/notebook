@@ -1,5 +1,6 @@
 {
-  "name": "my-project",
+  "name": "dom-jay-portfolio",
+  "description": "This is my project",
   "version": "1.0.0",
   "private": true,
   "scripts": {

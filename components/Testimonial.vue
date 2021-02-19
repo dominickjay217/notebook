@@ -1330,6 +1330,9 @@ export default {
 @media (max-width: 640px) and (orientation: portrait) {
 
   .testimonial {
+    &__content {
+      align-items: center;
+    }
     &__copy {
       grid-row: 1;
       grid-column: 1 / 8;

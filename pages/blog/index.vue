@@ -28,7 +28,6 @@ const client = createClient()
 export default {
   components: {
     HeaderBar,
-    NavigationBar,
     BannerBar,
     BlogPosts,
     SocialBar,

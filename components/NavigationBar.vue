@@ -74,10 +74,4 @@ export default {
     }
   }
 }
-
-@media (max-width: 767px) and (orientation: portrait) {
-  .navigation {
-
-  }
-}
 </style>
