@@ -271,4 +271,31 @@ export default {
   }
 }
 
+@media (max-width: 620px) and (orientation: portrait) {
+  .about {
+    &__intro {
+      grid-column: 1 / 10;
+      grid-row: 2;
+    }
+    &__picture {
+      grid-column: 3 / 8;
+      grid-row: 1;
+      padding-top: 0;
+    }
+    &__content {
+      grid-column: 1 / 10;
+    }
+    &__content:nth-child(3) {
+      grid-row: 3;
+    }
+    &__content:nth-child(4) {
+      grid-row: 4;
+    }
+
+  }
+
+}
+
+
+
 </style>

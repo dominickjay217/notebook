@@ -1326,4 +1326,20 @@ export default {
     grid-column: 3 / 8;
   }
 }
+
+@media (max-width: 640px) and (orientation: portrait) {
+
+  .testimonial {
+    &__copy {
+      grid-row: 1;
+      grid-column: 1 / 8;
+    }
+    & svg {
+      grid-column: 1 / 8;
+      opacity: 0.25;
+      grid-row: 1;
+    }
+  }
+
+}
 </style>
