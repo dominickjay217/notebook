@@ -59,6 +59,18 @@ body {
   font-family: 'Poppins', helvetica, arial, sans-serif;
 }
 
+*:focus {
+  outline: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;

@@ -38,11 +38,15 @@
         <section class="content work">
             <h2 class="content__heading heading heading--two">Featured Work</h2>
             <div class="work__image-wrapper">
-                <img
-                    class="work__image"
-                    :src="about.fields.featuredWork.fields.file.url"
-                    :alt="about.fields.featuredWork.fields.title"
-                >
+              <a :href="about.fields.featuredWorkUrl"
+                  target="_blank"
+                  relopener="noopener">
+                  <img
+                      class="work__image"
+                      :src="about.fields.featuredWork.fields.file.url"
+                      :alt="about.fields.featuredWork.fields.title"
+                  >
+                </a>
             </div>
             <h2 class="content__heading heading heading--two">Other Work</h2>
             <ul class="other-work__list">
@@ -82,6 +86,7 @@
       </div>
       <BannerBar :person="person" />
     </main>
+    <ContactBar :person="person" />
     <FooterBar />
     <!-- <code>{{ person.fields }}</code> -->
   </div>
@@ -93,6 +98,7 @@ import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import SocialBar from '~/components/SocialBar.vue'
+import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 import axios from 'axios'
@@ -105,6 +111,7 @@ export default {
     BannerBar,
     Testimonial,
     SocialBar,
+    ContactBar,
     FooterBar,
     VueMarkdown,
   },

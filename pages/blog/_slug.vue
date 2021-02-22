@@ -18,12 +18,14 @@
                     {{ new Date(post.fields.publishDate).getMonth() }}
                 </span>
             </time>
+            <strong class="post__intro">{{ post.fields.description }}</strong>
             <vue-markdown class="post__bodytext">{{post.fields.body}}</vue-markdown>
           </article>
         </section>
       </div>
       <BannerBar :person="person"  />
     </main>
+    <ContactBar :person="person"/>
     <FooterBar />
   </div>
 </template>
@@ -32,6 +34,7 @@
 import { createClient } from '~/plugins/contentful.js'
 import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
+import ContactBar from '~/components/ContactBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
@@ -42,6 +45,7 @@ export default {
     HeaderBar,
     BannerBar,
     SocialBar,
+    ContactBar,
     FooterBar,
     VueMarkdown,
   },
@@ -66,8 +70,12 @@ export default {
 
 <style lang="scss" scoped>
 .post {
+  &__intro {
+    display: block;
+    padding: 20px 0 0;
+  }
   &__bodytext {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 }
 </style>

@@ -55,6 +55,7 @@
       <BannerBar :person="person" />
     </main>
     <!-- <code>{{ person.fields }}</code> -->
+    <ContactBar :person="person" />
     <FooterBar />
   </div>
 </template>
@@ -66,6 +67,7 @@ import BannerBar from '~/components/BannerBar.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
 import SocialBar from '~/components/SocialBar.vue'
+import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 
 const client = createClient()
@@ -77,6 +79,7 @@ export default {
     BlogPosts,
     Testimonial,
     SocialBar,
+    ContactBar,
     FooterBar
   },
   asyncData({ env }) {
