@@ -112,6 +112,9 @@ strong {
     animation: squiggle 5s linear infinite;
     animation-delay: 2s;
   }
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 // Heading styles

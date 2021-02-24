@@ -18,9 +18,22 @@
                 <strong>I love dad jokes, how about one of them instead?</strong>
                 {{ newJoke }}
             </div>
+            <div class="about__content about__content--lastfm">
+              <p>The last song I listened to was
+                <a
+                  target="_blank"
+                  relopener="noopener"
+                  :href="lastfmSongUrl">
+                  <strong>{{ lastfmSong }}</strong>
+                  by
+                  <strong>{{ lastfmArtist }}</strong>
+                  <img :src="lastfmArtwork" alt="">
+                </a>
+              </p>
+            </div>
         </section>
         <svg
-          class="spacer spacer--02"
+          class="spacer spacer--01"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -118,6 +131,11 @@ export default {
   data() {
     return {
       newJoke: null,
+      currentTrack: {},
+      lastfmArtist: localStorage.getItem('artistInfo'),
+      lastfmSong: localStorage.getItem('songInfo'),
+      lastfmSongUrl: localStorage.getItem('songInfoUrl'),
+      lastfmArtwork: localStorage.getItem('albumArtwork')
     }
   },
   mounted() {
@@ -129,6 +147,23 @@ export default {
       })
       .then((response) => {
         this.newJoke = response.data.joke
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    axios
+      .get('https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=86a5b41a85035739e32c576f027c4765&format=json', {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      .then((response) => {
+        this.music = response.data.recenttracks.track
+        console.log(this.music[0].image[0]['#text'])
+        localStorage.setItem('artistInfo', this.music[0].artist['#text'])
+        localStorage.setItem('songInfo', this.music[0].name)
+        localStorage.setItem('songInfoUrl', this.music[0].url)
+        localStorage.setItem('albumArtwork', this.music[0].image[3]['#text'])
       })
       .catch((error) => {
         console.log(error)
@@ -190,6 +225,17 @@ export default {
             & strong {
                 display: block;
                 margin-bottom: 20px;
+            }
+        }
+        &--lastfm {
+            grid-row: 6;
+            grid-column: 3 / 9;
+            & strong {
+                margin-bottom: 20px;
+                font-size: 1rem;
+            }
+            & img {
+              margin: 20px auto;
             }
         }
     }
