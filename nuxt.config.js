@@ -34,6 +34,10 @@ export default {
   plugins: [
   ],
 
+  router: {
+    linkActiveClass: 'navigation__link--active'
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 

@@ -6,31 +6,25 @@
     <main>
       <div class="container">
         <section class="content about">
-            <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
-            <img
-                class="about__picture"
-                :src="person.fields.profileImage.fields.file.url + '?w=1200'"
-                :alt="person.fields.profileImage.fields.title"
-            />
-            <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
-            <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo}}</vue-markdown>
-            <div class="about__content about__content--joke">
-                <strong>I love dad jokes, how about one of them instead?</strong>
-                {{ newJoke }}
-            </div>
-            <div class="about__content about__content--lastfm">
-              <p>The last song I listened to was
-                <a
-                  target="_blank"
-                  relopener="noopener"
-                  :href="lastfmSongUrl">
-                  <strong>{{ lastfmSong }}</strong>
-                  by
-                  <strong>{{ lastfmArtist }}</strong>
-                  <img :src="lastfmArtwork" alt="">
-                </a>
-              </p>
-            </div>
+          <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
+          <img
+            class="about__picture"
+            :src="person.fields.profileImage.fields.file.url + '?w=1200'"
+            :alt="person.fields.profileImage.fields.title"
+          >
+          <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
+          <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown>
+          <div class="about__content about__content--joke">
+            <strong>
+              I love dad jokes, how about one of them instead?
+            </strong>
+            {{ newJoke }}
+          </div>
+          <div class="about__content about__content--lastfm">
+            <p>
+              The last song I listened to was {{ music }}
+            </p>
+          </div>
         </section>
         <svg
           class="spacer spacer--01"
@@ -49,33 +43,39 @@
           />
         </svg>
         <section class="content work">
-            <h2 class="content__heading heading heading--two">Featured Work</h2>
-            <div class="work__image-wrapper">
-              <a :href="about.fields.featuredWorkUrl"
-                  target="_blank"
-                  relopener="noopener">
-                  <img
-                      class="work__image"
-                      :src="about.fields.featuredWork.fields.file.url"
-                      :alt="about.fields.featuredWork.fields.title"
-                  >
-                </a>
-            </div>
-            <h2 class="content__heading heading heading--two">Other Work</h2>
-            <ul class="other-work__list">
-                <li
-                    class="other-work__item"
-                    v-for="otherWork in about.fields.workLink"
-                    :key="otherWork.fields.snippetName"
-                >
-                    <a
-                        class="other-work__link"
-                        :href="otherWork.fields.snippetLink"
-                    >
-                        {{ otherWork.fields.snippetName }}
-                    </a>
-                </li>
-            </ul>
+          <h2 class="content__heading heading heading--two">
+            Featured Work
+          </h2>
+          <div class="work__image-wrapper">
+            <a
+              :href="about.fields.featuredWorkUrl"
+              target="_blank"
+              relopener="noopener"
+            >
+              <img
+                class="work__image"
+                :src="about.fields.featuredWork.fields.file.url"
+                :alt="about.fields.featuredWork.fields.title"
+              >
+            </a>
+          </div>
+          <h2 class="content__heading heading heading--two">
+            Other Work
+          </h2>
+          <ul class="other-work__list">
+            <li
+              v-for="otherWork in about.fields.workLink"
+              :key="otherWork.fields.snippetName"
+              class="other-work__item"
+            >
+              <a
+                class="other-work__link"
+                :href="otherWork.fields.snippetLink"
+              >
+                {{ otherWork.fields.snippetName }}
+              </a>
+            </li>
+          </ul>
         </section>
         <svg
           class="spacer spacer--02"
@@ -101,7 +101,7 @@
     </main>
     <ContactBar :person="person" />
     <FooterBar />
-    <!-- <code>{{ person.fields }}</code> -->
+  <!-- <code>{{ person.fields }}</code> -->
   </div>
 </template>
 
@@ -128,47 +128,6 @@ export default {
     FooterBar,
     VueMarkdown,
   },
-  data() {
-    return {
-      newJoke: null,
-      currentTrack: {},
-      lastfmArtist: localStorage.getItem('artistInfo'),
-      lastfmSong: localStorage.getItem('songInfo'),
-      lastfmSongUrl: localStorage.getItem('songInfoUrl'),
-      lastfmArtwork: localStorage.getItem('albumArtwork')
-    }
-  },
-  mounted() {
-    axios
-      .get('https://icanhazdadjoke.com/', {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      .then((response) => {
-        this.newJoke = response.data.joke
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    axios
-      .get('https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=86a5b41a85035739e32c576f027c4765&format=json', {
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      .then((response) => {
-        this.music = response.data.recenttracks.track
-        console.log(this.music[0].image[0]['#text'])
-        localStorage.setItem('artistInfo', this.music[0].artist['#text'])
-        localStorage.setItem('songInfo', this.music[0].name)
-        localStorage.setItem('songInfoUrl', this.music[0].url)
-        localStorage.setItem('albumArtwork', this.music[0].image[3]['#text'])
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  },
   asyncData({ env }) {
     return Promise.all([
       client.getEntries({
@@ -190,6 +149,49 @@ export default {
         }
       })
       .catch(console.error)
+  },
+  data() {
+    return {
+      newJoke: null,
+      music: this.music,
+    }
+  },
+  computed: {
+    result1: function(){
+        console.log(this.music)
+        return this.music;
+    }
+  },
+  mounted() {
+    this.lastfmMusic()
+    this.intervalFetchData();
+  },
+  methods: {
+    joke: function () {
+        axios
+            .get('https://icanhazdadjoke.com/')
+            .then(response => (this.newJoke = response.data.joke))
+            .catch(error => console.log(error))
+    },
+    lastfmMusic: function () {
+      axios
+        .get('https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=86a5b41a85035739e32c576f027c4765&format=json', {
+          headers: {
+            Accept: 'application/json',
+          },
+        })
+        .then((response) => {
+          this.music = response.data.recenttracks.track
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    intervalFetchData: function () {
+      setInterval(() => {
+        this.lastfmMusic();
+      }, 3000);
+    }
   },
 }
 </script>
