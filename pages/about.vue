@@ -18,12 +18,18 @@
             <strong>
               I love dad jokes, how about one of them instead?
             </strong>
-            {{ newJoke }}
+            <Joke></Joke>
           </div>
           <div class="about__content about__content--lastfm">
             <p>
-              The last song I listened to was {{ music }}
+              The last song I listened to was
             </p>
+              <p v-if="$fetchState.pending">Fetching music information...</p>
+              <p v-else-if="$fetchState.error">Either an error occurred or I've got Disney playing</p>
+              <div v-else>
+                  <strong>{{ music.recenttracks.track[0].name }}</strong> by
+                  <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
+              </div>
           </div>
         </section>
         <svg
@@ -112,6 +118,7 @@ import BannerBar from '~/components/BannerBar.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
+import Joke from '~/components/Joke.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 import axios from 'axios'
@@ -122,6 +129,7 @@ export default {
   components: {
     HeaderBar,
     BannerBar,
+    Joke,
     Testimonial,
     SocialBar,
     ContactBar,
@@ -152,47 +160,17 @@ export default {
   },
   data() {
     return {
-      newJoke: null,
-      music: this.music,
+      music: []
     }
   },
-  computed: {
-    result1: function(){
-        console.log(this.music)
-        return this.music;
-    }
+  async fetch(){
+    this.music = await fetch(
+        'https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=86a5b41a85035739e32c576f027c4765&format=json'
+      ).then(res => res.json())
   },
-  mounted() {
-    this.lastfmMusic()
-    this.intervalFetchData();
-  },
-  methods: {
-    joke: function () {
-        axios
-            .get('https://icanhazdadjoke.com/')
-            .then(response => (this.newJoke = response.data.joke))
-            .catch(error => console.log(error))
-    },
-    lastfmMusic: function () {
-      axios
-        .get('https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=86a5b41a85035739e32c576f027c4765&format=json', {
-          headers: {
-            Accept: 'application/json',
-          },
-        })
-        .then((response) => {
-          this.music = response.data.recenttracks.track
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-    intervalFetchData: function () {
-      setInterval(() => {
-        this.lastfmMusic();
-      }, 3000);
-    }
-  },
+  created() {
+    this.interval = setInterval(() => this.$fetch(), 60000);
+  }
 }
 </script>
 
