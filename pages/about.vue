@@ -21,14 +21,18 @@
             <Joke></Joke>
           </div>
           <div class="about__content about__content--lastfm">
-            <p>
-              The last song I listened to was
-            </p>
               <p v-if="$fetchState.pending">Fetching music information...</p>
               <p v-else-if="$fetchState.error">Either an error occurred or I've got Disney playing</p>
-              <div v-else>
+              <div class="lastfm-info" v-else>
+                <p>
+                  The last song I listened to was
                   <strong>{{ music.recenttracks.track[0].name }}</strong> by
                   <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
+                </p>
+                <div class="lastfm-info__imagewrapper">
+                  <img class="lastfm-info__image" :src="music.recenttracks.track[0].image[3]['#text']" />
+                  <img :src="music.recenttracks.track[0].image[3]['#text']" />
+                </div>
               </div>
           </div>
         </section>
@@ -107,7 +111,6 @@
     </main>
     <ContactBar :person="person" />
     <FooterBar />
-  <!-- <code>{{ person.fields }}</code> -->
   </div>
 </template>
 
@@ -121,7 +124,6 @@ import ContactBar from '~/components/ContactBar.vue'
 import Joke from '~/components/Joke.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
-import axios from 'axios'
 
 const client = createClient()
 
@@ -209,7 +211,8 @@ export default {
         }
         &--lastfm {
             grid-row: 6;
-            grid-column: 3 / 9;
+            grid-column: 1 / 6;
+            padding-top: 60px;
             & strong {
                 margin-bottom: 20px;
                 font-size: 1rem;
@@ -301,6 +304,27 @@ export default {
         grid-column: 1;
         grid-row: 4;
     }
+  }
+}
+
+.lastfm-info {
+  display: flex;
+  align-items: center;
+  &__imagewrapper {
+    position: relative;
+    padding-left: 20px;
+  }
+  & img:last-of-type {
+    position: absolute;
+    top: 0;
+    filter: blur(24px);
+    transform: rotate(4deg);
+  }
+  & .lastfm-info__image {
+    transform: rotate(4deg);
+    z-index: 1;
+    position: relative;
+    // box-shadow: #E3F1F2 0px 0px 0px 3px, #568389 0px 0px 0px 6px, #FE9948 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
   }
 }
 
