@@ -93,7 +93,7 @@ export default {
   }
 }
 
-@media (max-width: 767px) and (orientation: portrait) {
+@media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
   .header {
     margin-top: 0;

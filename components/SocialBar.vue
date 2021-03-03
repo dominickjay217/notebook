@@ -3,7 +3,7 @@
       <li class="social-media__item">
         <a
           :href="person.fields.github"
-          arget="_blank"
+          target="_blank"
           relopener="noopener"
           class="social-media__link"
         >
@@ -14,7 +14,7 @@
       <li class="social-media__item">
         <a
           :href="person.fields.linkedin"
-          arget="_blank"
+          target="_blank"
           relopener="noopener"
           class="social-media__link"
         >
@@ -25,7 +25,7 @@
       <li class="social-media__item">
         <a
           :href="person.fields.twitter"
-          arget="_blank"
+          target="_blank"
           relopener="noopener"
           class="social-media__link"
         >
@@ -67,7 +67,7 @@ export default {
   }
 }
 
-@media (max-width: 767px) and (orientation: portrait) {
+@media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
   .social-media {
     display: none;

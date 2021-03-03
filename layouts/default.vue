@@ -49,6 +49,8 @@
   --color-third: #fe9948;
   --color-fourth: #584945;
   --color-body: rgb(249, 249, 249);
+
+  --container-width: 1100px;
 }
 
 body {
@@ -72,7 +74,7 @@ a:hover {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
 }

@@ -27,4 +27,11 @@ export default {
     }
 }
 
+@media (max-width: 620px) and (orientation: portrait) {
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 </style>

@@ -178,32 +178,34 @@ export default {
 
 <style lang="scss" scoped>
 
+/* Inline #12 | http://localhost:3000/about */
+
 .about {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-gap: 20px;
     &__intro {
-        grid-column: 1 / 7;
+        grid-column: 1 / 4;
         grid-row: 1;
     }
     &__picture {
         padding-top: 50px;
-        grid-column: 7 / 10;
+          grid-column: 4 / 5;
         grid-row: 1 / 3;
     }
     &__content {
         font-size: 1rem;
         &--one {
             grid-row: 2;
-            grid-column: 1 / 5;
+            grid-column: 1/4;
         }
         &--two {
             grid-row: 3;
-            grid-column: 2 / 7;
+            grid-column: 2/4;
         }
         &--joke {
             grid-row: 5;
-            grid-column: 4 / 9;
+            grid-column: 3/5;
             & strong {
                 display: block;
                 margin-bottom: 20px;
@@ -211,7 +213,7 @@ export default {
         }
         &--lastfm {
             grid-row: 6;
-            grid-column: 1 / 6;
+            grid-column: 1/4;
             padding-top: 60px;
             & strong {
                 margin-bottom: 20px;
@@ -324,23 +326,22 @@ export default {
     transform: rotate(4deg);
     z-index: 1;
     position: relative;
-    // box-shadow: #E3F1F2 0px 0px 0px 3px, #568389 0px 0px 0px 6px, #FE9948 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
   }
 }
 
-@media (max-width: 620px) and (orientation: portrait) {
+@media (max-width: 768px) and (orientation: portrait) {
   .about {
     &__intro {
-      grid-column: 1 / 10;
+      grid-column: 1 / 5;
       grid-row: 2;
     }
     &__picture {
-      grid-column: 3 / 8;
+      grid-column: 2 / 4;
       grid-row: 1;
       padding-top: 0;
     }
     &__content {
-      grid-column: 1 / 10;
+      grid-column: 1 / 5;
     }
     &__content:nth-child(3) {
       grid-row: 3;
@@ -349,6 +350,14 @@ export default {
       grid-row: 4;
     }
 
+  }
+
+  .lastfm-info {
+    flex-direction: column;
+    &__imagewrapper {
+      padding-left: 0;
+      padding-top: 40px;
+    }
   }
 
 }

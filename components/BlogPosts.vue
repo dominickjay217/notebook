@@ -1,77 +1,82 @@
 <template>
-    <div>
-        <div v-if="isHome">
-            <ul class="blog-posts">
-                <li
-                    v-for="post in posts.slice(0, 3)"
-                    :key="post.fields.title"
-                    class="blog-posts__item"
-                >
-                    <div class="post">
-                        <time class="post__date">
-                            <span>
-                                {{ new Date(post.fields.publishDate).getDate() }}
-                            </span>
-                            /
-                            <span>
-                                {{ new Date(post.fields.publishDate).getMonth() }}
-                            </span>
-                        </time>
-                        <span class="post__title">{{ post.fields.title }}</span>
-                        <nuxt-link
-                        :to="{
-                            name: 'blog-slug',
-                            params: {
-                            slug: post.fields.slug,
-                            },
-                        }"
-                        class="post__link"
-                        >
-                        Read post
-                        </nuxt-link>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div v-else>
-            <ul class="blog-posts">
-                <li
-                    v-for="post in posts"
-                    :key="post.fields.title"
-                    class="blog-posts__item"
-                >
-                    <div class="post">
-                        <time class="post__date">
-                            <span>
-                                {{ new Date(post.fields.publishDate).getDate() }}
-                            </span>
-                            /
-                            <span>
-                                {{ new Date(post.fields.publishDate).getMonth() }}
-                            </span>
-                        </time>
-                        <span class="post__title">{{ post.fields.title }}</span>
-                        <nuxt-link
-                        :to="{
-                            name: 'blog-slug',
-                            params: {
-                            slug: post.fields.slug,
-                            },
-                        }"
-                        class="post__link"
-                        >
-                        Read post
-                        </nuxt-link>
-                    </div>
-                </li>
-            </ul>
-        </div>
+  <div>
+    <div v-if="isHome">
+      <ul class="blog-posts">
+        <li
+          v-for="post in posts.slice(0, 3)"
+          :key="post.fields.title"
+          class="blog-posts__item"
+        >
+          <div class="post">
+            <time class="post__date">
+              <span>
+                {{ new Date(post.fields.publishDate).getDate() }}
+              </span>
+              /
+              <span>
+                {{ new Date(post.fields.publishDate).getMonth() }}
+              </span>
+            </time>
+            <span class="post__title">{{ post.fields.title }}</span>
+            <nuxt-link
+              :to="{
+                name: 'blog-slug',
+                params: {
+                  slug: post.fields.slug,
+                },
+              }"
+              class="post__link"
+            >
+              Read post
+            </nuxt-link>
+          </div>
+        </li>
+      </ul>
     </div>
+    <div v-else>
+      <ul class="blog-posts">
+        <li
+          v-for="post in posts"
+          :key="post.fields.title"
+          class="blog-posts__item"
+        >
+          <div class="post">
+            <time class="post__date">
+              <span>
+                {{ new Date(post.fields.publishDate).getDate() }}
+              </span>
+              /
+              <span>
+                {{ new Date(post.fields.publishDate).getMonth() }}
+              </span>
+            </time>
+            <span class="post__title">{{ post.fields.title }}</span>
+            <nuxt-link
+              :to="{
+                name: 'blog-slug',
+                params: {
+                  slug: post.fields.slug,
+                },
+              }"
+              class="post__link"
+            >
+              Read post
+            </nuxt-link>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['posts'],
+  props: {
+    'posts': {
+      type: Object,
+      default: null
+    }
+  },
   computed: {
     isHome() {
       return this.$route.name === 'index'

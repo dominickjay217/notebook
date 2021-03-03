@@ -7,25 +7,29 @@
       <div class="container">
         <section class="content post">
           <article class="post__content">
-            <h2 class="post__heading heading heading--two">{{ post.fields.title }}</h2>
+            <h2 class="post__heading heading heading--two">
+              {{ post.fields.title }}
+            </h2>
             <time class="post__date">
               Published at:
-                <span>
-                    {{ new Date(post.fields.publishDate).getDate() }}
-                </span>
-                /
-                <span>
-                    {{ new Date(post.fields.publishDate).getMonth() }}
-                </span>
+              <span>
+                {{ new Date(post.fields.publishDate).getDate() }}
+              </span>
+              /
+              <span>
+                {{ new Date(post.fields.publishDate).getMonth() }}
+              </span>
             </time>
             <strong class="post__intro">{{ post.fields.description }}</strong>
-            <vue-markdown class="post__bodytext">{{post.fields.body}}</vue-markdown>
+            <vue-markdown class="post__bodytext">
+              {{ post.fields.body }}
+            </vue-markdown>
           </article>
         </section>
       </div>
-      <BannerBar :person="person"  />
+      <BannerBar :person="person" />
     </main>
-    <ContactBar :person="person"/>
+    <ContactBar :person="person" />
     <FooterBar />
   </div>
 </template>
@@ -68,7 +72,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post {
   &__intro {
     display: block;
@@ -76,6 +80,21 @@ export default {
   }
   &__bodytext {
     padding: 20px 0;
+    & h3 {
+      font-family: 'SaltedMocha-Regular';
+      font-size: 2.25rem;
+    }
+    & a {
+      font-weight: 700;
+    }
   }
+}
+
+pre {
+  border: 1px solid var(--color-secondary);
+  background: rgba(86, 131, 137, 0.10);
+  padding: 20px;
+  font-size: 1rem;
+  margin: 40px 0;
 }
 </style>
