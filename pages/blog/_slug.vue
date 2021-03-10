@@ -101,6 +101,17 @@ export default {
       border-width: 10px;
       border-image-source: var(--color-border-gradient);
     }
+    blockquote {
+      --color-border-gradient: linear-gradient(to left, var(--color-primary), var(--color-secondary), var(--color-primary));
+      margin: 40px 0;
+      padding: 10px 20px;
+      border: 2px solid;
+      border-image-slice: 1;
+      border-width: 3px;
+      border-image-source: var(--color-border-gradient);
+      border-left: none;
+      border-right: none;
+    }
   }
 }
 

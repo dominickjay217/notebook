@@ -35,6 +35,15 @@
           </span>
       </div>
     </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 1680 40"
+      class="curve"
+      style="bottom: -20px;">
+        <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
+    </svg>
   </header>
 
 </template>
@@ -72,9 +81,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.curve {
+  width: 100%;
+  position: relative;
+}
 // Header styles
 .header {
-  padding: 60px 20px 20px;
+  padding: 60px 0 20px;
   background: var(--color-primary);  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #d3f0f2, var(--color-primary));  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #d3f0f2, var(--color-primary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

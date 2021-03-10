@@ -1,5 +1,14 @@
 <template>
     <div class="content contact" id="contact">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            preserveAspectRatio="none"
+            viewBox="0 0 1680 40"
+            class="curve"
+        >
+            <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"></path>
+        </svg>
         <h3 class="contact__heading">Want to get in touch?</h3>
         <div class="contact__text">
             <span>Want to send me an idea, have a chat, or get me to overwrite the
@@ -13,8 +22,8 @@
     or give me a shout on
             <a class="contact__link"
             target="_blank"
-            relopener="noopener"  :href="person.fields.twitter">Twitter
-            </a>.
+            relopener="noopener"
+            :href="person.fields.twitter">Twitter</a>.
         </div>
     </div>
 </template>
@@ -26,7 +35,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.curve {
+    top: -30px;
+    position: relative;
+    fill: var(--color-body);
+}
 .contact {
+    position: relative;
+    margin-top: -50px;
+    padding-top: 0;
     background: var(--color-body);
     margin-bottom: 0;
     display: flex;
