@@ -14,14 +14,15 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
+  background-color: #fff;
+  z-index: 2;
   overflow: hidden;
-  opacity: 0.25;
   position: relative;
   padding: 42px 0;
-  margin: 40px auto;
   pointer-events: none;
   &__content {
     position: absolute;
+  opacity: 0.25;
     top: 50%;
     transform: translateY(-50%) rotate(-2deg);
     font-size: 0.85rem;

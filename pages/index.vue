@@ -1,9 +1,10 @@
 
 <template>
   <div>
+    <Weather />
     <HeaderBar :person="person" />
-    <BannerBar :person="person" />
     <main>
+      <BannerBar :person="person" />
       <div class="container">
         <section class="content about">
           {{ person.fields.shortBio }}
@@ -42,6 +43,7 @@ import BlogPosts from '~/components/BlogPosts.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
 import Spacer from '~/components/Spacer.vue'
+import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
 
 const client = createClient()
@@ -54,6 +56,7 @@ export default {
     Testimonial,
     SocialBar,
     Spacer,
+    Weather,
     ContactBar,
     FooterBar
   },
@@ -79,6 +82,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+main {
+  padding-top: 40px;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
 .about {
   text-align: center;
   font-size: 1.5rem;

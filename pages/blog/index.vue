@@ -1,8 +1,8 @@
 <template>
   <div>
     <HeaderBar :person="person" />
-    <BannerBar :person="person" />
     <main>
+      <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
             <h3 class="content__heading">I’ve written 31 posts about how I stopped being such a dingus.</h3>

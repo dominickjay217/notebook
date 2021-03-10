@@ -89,10 +89,21 @@ export default {
 // Header styles
 .header {
   padding: 60px 0 20px;
-  background: var(--color-primary);  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #d3f0f2, var(--color-primary));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #d3f0f2, var(--color-primary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  margin-bottom: 40px;
+  background: linear-gradient(to bottom, #d3f0f2, var(--color-primary));
+  //background: linear-gradient(to bottom, #d3f0f2, var(--color-primary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: linear-gradient(to bottom, rgb(55, 46, 46), rgb(60, 59, 59));
+    transition: opacity 5s;
+    transition-delay: 5s;
+    z-index: 0;
+  }
   &__title {
     text-align: center;
     font-size: 3rem;
@@ -109,6 +120,12 @@ export default {
   &__link:hover {
     text-decoration: none;
     color: currentColor;
+  }
+}
+
+.header--dark {
+  &::before {
+    opacity: 1;
   }
 }
 

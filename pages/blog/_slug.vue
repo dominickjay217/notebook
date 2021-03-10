@@ -1,8 +1,8 @@
 <template>
   <div>
     <HeaderBar :person="person" />
-    <BannerBar :person="person" />
     <main>
+      <BannerBar :person="person" />
       <div class="container">
         <section class="content post">
           <article class="post__content">
