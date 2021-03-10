@@ -1304,7 +1304,7 @@ export default {
   &__content {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 20px;
+    grid-gap: var(--grid-gap);
   }
   & svg {
     grid-column: 1 / 4;
@@ -1312,7 +1312,7 @@ export default {
     grid-row: 1;
     height: 250px;
     g {
-      fill: var(--color-secondary);
+      fill: var(--color-secondary); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
     }
   }
   &__copy {

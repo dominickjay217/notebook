@@ -13,7 +13,7 @@
         <li class="navigation__item">
             <a href="#contact" class="navigation__link">Contact</a>
         </li>
-        <li class="navigation__item">
+        <!-- <li class="navigation__item">
             <a
                 target="__blank"
                 rel="noopener"
@@ -22,7 +22,7 @@
             >
                 Creative
             </a>
-        </li>
+        </li> -->
     </ul>
 </template>
 

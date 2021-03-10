@@ -1,12 +1,21 @@
 <template>
     <div class="content contact" id="contact">
-        <div class="contact__text"><a
-          :href="'mailto:' + person.fields.email"
-          target="_blank"
-          relopener="noopener" class="contact__link">Send me an email</a> at hi@dominickjay.com
-or give me a shout on <a class="contact__link"
-          target="_blank"
-          relopener="noopener"  :href="person.fields.twitter">Twitter</a>.</div>
+        <h3 class="contact__heading">Want to get in touch?</h3>
+        <div class="contact__text">
+            <span>Want to send me an idea, have a chat, or get me to overwrite the
+                'inspirational' quotes at the top?
+            </span>
+            <a
+            :href="'mailto:' + person.fields.email"
+            target="_blank"
+            relopener="noopener" class="contact__link">Send me an email
+            </a> at hi@dominickjay.com
+    or give me a shout on
+            <a class="contact__link"
+            target="_blank"
+            relopener="noopener"  :href="person.fields.twitter">Twitter
+            </a>.
+        </div>
     </div>
 </template>
 
@@ -22,8 +31,21 @@ export default {
     margin-bottom: 0;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    &__heading {
+        font-family: var(--font-family-headings);
+        font-size: 2.5rem;
+    }
     &__link {
         font-weight: 700;
+    }
+    &__text {
+        max-width: 992px;
+        & span {
+            display: block;
+            margin-bottom: 20px;
+        }
     }
 }
 

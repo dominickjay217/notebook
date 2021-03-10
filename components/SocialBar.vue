@@ -1,4 +1,5 @@
 <template>
+  <div class="sm-wrapper">
     <ul class="social-media">
       <li class="social-media__item">
         <a
@@ -34,6 +35,7 @@
         </a>
       </li>
     </ul>
+  </div>
 </template>
 
 <script>
@@ -43,34 +45,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sm-wrapper {
+  padding: 20px 0;
+  background-color: var(--color-body);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
 //social-media
 .social-media {
+  display: flex;
+  justify-content: space-around;
+  max-width: 360px;
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 40px;
-  padding-left: 40px;
-  list-style: none;
-  max-width: 70px;
-  &__item {
-    margin-bottom: 20px;
-  }
-  img {
-    max-width: 25px;
-    opacity: 0.5;
-    transition: 0.25s ease-in-out opacity;
-    &:hover {
-      opacity: 1;
+  width: 100%;
+  &__link {
+    img {
+      height: 100%;
+      max-width: 25px;
+      display: inline;
     }
-  }
-}
-
-@media (max-width: 1100px) {
-  /* A mobile version for all devices that is smaller than the smalles iPad */
-  .social-media {
-    display: none;
   }
 }
 

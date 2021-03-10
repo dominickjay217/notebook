@@ -1,17 +1,19 @@
 <template>
   <div>
-    <SocialBar :person="person" />
     <HeaderBar :person="person" />
     <BannerBar :person="person" />
     <main>
       <div class="container">
         <section class="content blog">
+            <h3>I’ve written 31 posts about how I stopped being such a dingus.</h3>
+            <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
             <BlogPosts :posts="posts"/>
         </section>
       </div>
       <BannerBar :person="person"  />
     </main>
     <ContactBar :person="person" />
+    <SocialBar :person="person" />
     <FooterBar />
     <!-- <code>{{ person.fields }}</code> -->
   </div>
@@ -54,5 +56,10 @@ export default {
       })
       .catch(console.error)
   },
+  head() {
+      return {
+        title: 'I Smashed Words Together in ' + this.posts.length + ' Posts'
+      }
+  }
 }
 </script>

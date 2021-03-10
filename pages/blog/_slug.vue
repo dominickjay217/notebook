@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SocialBar :person="person" />
     <HeaderBar :person="person" />
     <BannerBar :person="person" />
     <main>
@@ -21,6 +20,13 @@
               </span>
             </time>
             <strong class="post__intro">{{ post.fields.description }}</strong>
+            <div class="contents">
+              <ol class="content-list">
+                <li class="content-list__item">This is item 1</li>
+                <li class="content-list__item">This is item 2</li>
+                <li class="content-list__item">This is item 3</li>
+              </ol>
+            </div>
             <vue-markdown class="post__bodytext">
               {{ post.fields.body }}
             </vue-markdown>
@@ -30,6 +36,7 @@
       <BannerBar :person="person" />
     </main>
     <ContactBar :person="person" />
+    <SocialBar :person="person" />
     <FooterBar />
   </div>
 </template>
@@ -81,11 +88,18 @@ export default {
   &__bodytext {
     padding: 20px 0;
     & h3 {
-      font-family: 'SaltedMocha-Regular';
+      font-family: var(--font-family-headings);
       font-size: 2.25rem;
     }
     & a {
       font-weight: 700;
+    }
+    img {
+      margin: 5rem auto;
+      border: 8px solid;
+      border-image-slice: 1;
+      border-width: 10px;
+      border-image-source: var(--color-border-gradient);
     }
   }
 }

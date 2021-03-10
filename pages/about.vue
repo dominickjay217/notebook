@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SocialBar :person="person" />
     <HeaderBar :person="person" />
     <BannerBar :person="person" />
     <main>
@@ -36,22 +35,7 @@
               </div>
           </div>
         </section>
-        <svg
-          class="spacer spacer--01"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 55.5 12"
-          style="enable-background: new 0 0 55.5 12;"
-          xml:space="preserve"
-        >
-          <path
-            class="spacer-line"
-            d="M1.4,6c0,0,9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0s9-9,18,0"
-          />
-        </svg>
+        <Spacer spacer-no="2" />
         <section class="content work">
           <h2 class="content__heading heading heading--two">
             Featured Work
@@ -87,22 +71,7 @@
             </li>
           </ul>
         </section>
-        <svg
-          class="spacer spacer--02"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 55.5 12"
-          style="enable-background: new 0 0 55.5 12;"
-          xml:space="preserve"
-        >
-          <path
-            class="spacer-line"
-            d="M1.4,6c0,0,9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0s9-9,18,0"
-          />
-        </svg>
+        <Spacer spacer-no="1" />
         <section class="content testimonial">
           <Testimonial :person="person" />
         </section>
@@ -110,6 +79,7 @@
       <BannerBar :person="person" />
     </main>
     <ContactBar :person="person" />
+    <SocialBar :person="person" />
     <FooterBar />
   </div>
 </template>
@@ -122,6 +92,7 @@ import Testimonial from '~/components/Testimonial.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
 import Joke from '~/components/Joke.vue'
+import Spacer from '~/components/Spacer.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 
@@ -136,6 +107,7 @@ export default {
     SocialBar,
     ContactBar,
     FooterBar,
+    Spacer,
     VueMarkdown,
   },
   asyncData({ env }) {
@@ -183,7 +155,7 @@ export default {
 .about {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
-    grid-gap: 20px;
+    grid-gap: var(--grid-gap);;
     &__intro {
         grid-column: 1 / 4;
         grid-row: 1;
@@ -229,7 +201,7 @@ export default {
 .work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    grid-gap: var(--grid-gap);;
     & .heading:first-child {
         grid-column: 1 / 3;
         grid-row: 1;

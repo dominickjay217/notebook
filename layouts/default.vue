@@ -24,7 +24,7 @@
 }
 
 @font-face {
-  font-family: 'SaltedMocha-Regular';
+  font-family: var(--font-family-headings);
   font-display: swap;
   src: url('~assets/fonts/SaltedMocha-Regular.otf') format('truetype');
 }
@@ -48,9 +48,23 @@
   --color-secondary: #568389;
   --color-third: #fe9948;
   --color-fourth: #584945;
-  --color-body: rgb(249, 249, 249);
+  --color-body: #f9f9f9;
+  --color-border-gradient: linear-gradient(to left, var(--color-fourth), var(--color-third));
 
   --container-width: 1100px;
+  --grid-gap: 20px;
+
+  --font-family-body: 'Poppins', helvetica, arial, sans-serif;
+  --font-family-headings: 'SaltedMocha-Regular';
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    /* Very short durations means JavaScript that relies on events still works */
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 body {
@@ -58,7 +72,7 @@ body {
   padding: 0;
   margin: 0;
   line-height: 1.7;
-  font-family: 'Poppins', helvetica, arial, sans-serif;
+  font-family: var(--font-family-body);
 }
 
 *:focus {
@@ -121,7 +135,7 @@ strong {
 
 // Heading styles
 .heading {
-  font-family: 'SaltedMocha-Regular';
+  font-family: var(--font-family-headings);
   &--two {
     text-align: center;
     font-size: 3rem;
@@ -137,22 +151,6 @@ strong {
 .content {
   padding: 40px 0;
   margin-bottom: 40px;
-}
-
-.footer {
-  background-color: var(--color-body);
-  padding: 60px 20px;
-  display: grid;
-  grid-template: repeat(3, 1fr);
-  & .navigation {
-    grid-column: 1 / 3;
-  }
-  & p {
-    font-size: 0.85rem;
-    font-weight: 700;
-    grid-column: 1 / 3;
-    text-align: center;
-  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

@@ -1,71 +1,73 @@
 <template>
   <div>
-    <div v-if="isHome">
-      <ul class="blog-posts">
-        <li
-          v-for="post in posts.slice(0, 3)"
-          :key="post.fields.title"
-          class="blog-posts__item"
-        >
-          <div class="post">
-            <time class="post__date">
-              <span>
-                {{ new Date(post.fields.publishDate).getDate() }}
-              </span>
-              /
-              <span>
-                {{ new Date(post.fields.publishDate).getMonth() }}
-              </span>
-            </time>
-            <span class="post__title">{{ post.fields.title }}</span>
-            <nuxt-link
-              :to="{
-                name: 'blog-slug',
-                params: {
-                  slug: post.fields.slug,
-                },
-              }"
-              class="post__link"
-            >
-              Read post
-            </nuxt-link>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      <ul class="blog-posts">
-        <li
-          v-for="post in posts"
-          :key="post.fields.title"
-          class="blog-posts__item"
-        >
-          <div class="post">
-            <time class="post__date">
-              <span>
-                {{ new Date(post.fields.publishDate).getDate() }}
-              </span>
-              /
-              <span>
-                {{ new Date(post.fields.publishDate).getMonth() }}
-              </span>
-            </time>
-            <span class="post__title">{{ post.fields.title }}</span>
-            <nuxt-link
-              :to="{
-                name: 'blog-slug',
-                params: {
-                  slug: post.fields.slug,
-                },
-              }"
-              class="post__link"
-            >
-              Read post
-            </nuxt-link>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul
+      v-if="isHome"
+      class="blog-posts blog-posts--home"
+    >
+      <li
+        v-for="post in posts.slice(0, 3)"
+        :key="post.fields.title"
+        class="blog-posts__item"
+      >
+        <div class="post">
+          <time class="post__date">
+            <span>
+              {{ new Date(post.fields.publishDate).getDate() }}
+            </span>
+            /
+            <span>
+              {{ new Date(post.fields.publishDate).getMonth() }}
+            </span>
+          </time>
+          <span class="post__title">{{ post.fields.title }}</span>
+          <nuxt-link
+            :to="{
+              name: 'blog-slug',
+              params: {
+                slug: post.fields.slug,
+              },
+            }"
+            class="post__link"
+          >
+            Read post
+          </nuxt-link>
+        </div>
+      </li>
+    </ul>
+    <ul
+      v-else
+      class="blog-posts"
+    >
+      <li
+        v-for="post in posts"
+        :key="post.fields.title"
+        class="blog-posts__item"
+      >
+        <div class="post">
+          <time class="post__date">
+            <span>
+              {{ new Date(post.fields.publishDate).getDate() }}
+            </span>
+            /
+            <span>
+              {{ new Date(post.fields.publishDate).getMonth() }}
+            </span>
+          </time>
+          <span class="post__title">{{ post.fields.title }}</span>
+          <nuxt-link
+            :to="{
+              name: 'blog-slug',
+              params: {
+                slug: post.fields.slug,
+              },
+            }"
+            class="post__link"
+          >
+            Read post
+          </nuxt-link>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -106,8 +108,6 @@ export default {
   padding: 0;
   margin: 0;
   &__item {
-    padding: 40px 0;
-    border-bottom: 1px solid var(--color-secondary);
     &:last-child {
       border-bottom: 0;
     }
@@ -118,6 +118,14 @@ export default {
   font-size: 1.25rem;
   display: flex;
   position: relative;
+  align-items: center;
+  border: 5px solid transparent;
+  border-image-slice: 1;
+  border-width: 5px;
+  padding: 20px;
+  &:hover {
+    border-image-source: var(--color-border-gradient);
+  }
   &__title {
     text-align: left;
     font-weight: 700;
@@ -127,7 +135,9 @@ export default {
     text-decoration: none;
     font-weight: 700;
     color: var(--color-fourth);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     &::after {
       content: "";
       position: absolute;
