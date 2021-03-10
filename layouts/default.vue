@@ -50,6 +50,7 @@
   --color-fourth: #584945;
   --color-body: #f9f9f9;
   --color-border-gradient: linear-gradient(to left, var(--color-fourth), var(--color-third));
+  --color-font: #212121;
 
   --container-width: 1100px;
   --grid-gap: 20px;
@@ -73,6 +74,11 @@ body {
   margin: 0;
   line-height: 1.7;
   font-family: var(--font-family-body);
+  overflow-x: hidden;
+}
+
+body.template--dark {
+  --color-font: var(--color-primary);
 }
 
 *:focus {

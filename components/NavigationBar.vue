@@ -42,6 +42,8 @@ export default {
   margin: 40px 0 20px;
   padding: 0;
   list-style: none;
+  position: relative;
+  z-index: 2;
   &__item {
     margin: 0 10px 20px;
     position: relative;
@@ -50,7 +52,7 @@ export default {
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Mosk-light';
-    color: #212121;
+    color: var(--color-font);
     padding: 10px 20px;
     &:hover,
     &--active {

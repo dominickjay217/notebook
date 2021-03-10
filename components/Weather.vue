@@ -1,5 +1,38 @@
 <template>
-    <div class="weather">
+    <div class="weather" ref="main">
+        <span ref="box" :key="i" class="box star" v-for="i in 10">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                <path style="fill:silver;" d="M234.528,465.989l-92.881,33.029c-30.456,10.83-62.291-12.299-61.402-44.612l2.71-98.542
+                    c0.405-14.735-4.281-29.159-13.27-40.842L9.571,236.894c-19.712-25.619-7.552-63.043,23.454-72.183l94.556-27.874
+                    c14.139-4.168,26.409-13.083,34.742-25.242l55.729-81.315c18.274-26.664,57.624-26.664,75.898,0l55.729,81.315
+                    c8.333,12.159,20.603,21.074,34.742,25.242l94.556,27.874c31.006,9.14,43.165,46.564,23.454,72.183l-60.114,78.129
+                    c-8.989,11.683-13.676,26.107-13.27,40.842l2.71,98.542c0.889,32.312-30.946,55.442-61.402,44.612l-92.881-33.029
+                    C263.583,461.05,248.417,461.05,234.528,465.989z"/>
+                <g>
+                    <ellipse style="fill:silver;" cx="176.73" cy="240.901" rx="29.25" ry="23.292"/>
+                    <ellipse style="fill:silver;" cx="335.27" cy="240.901" rx="29.25" ry="23.292"/>
+                </g>
+                <g>
+                    <path style="fill:#495059;" d="M181.622,220.903c-4.142,0-7.5-3.358-7.5-7.5v-12.554c0-4.142,3.358-7.5,7.5-7.5s7.5,3.358,7.5,7.5
+                        v12.554C189.122,217.545,185.764,220.903,181.622,220.903z"/>
+                    <path style="fill:#495059;" d="M256,244.199L256,244.199c-11.703,0-21.19-9.487-21.19-21.19v-15.406
+                        c0-3.195,2.59-5.785,5.785-5.785h30.812c3.195,0,5.785,2.59,5.785,5.785v15.406C277.19,234.712,267.703,244.199,256,244.199z"/>
+                    <path style="fill:#495059;" d="M330.378,220.903c-4.142,0-7.5-3.358-7.5-7.5v-12.554c0-4.142,3.358-7.5,7.5-7.5s7.5,3.358,7.5,7.5
+                        v12.554C337.878,217.545,334.52,220.903,330.378,220.903z"/>
+                </g>
+                <g>
+                    <path style="opacity:0.15;fill:#C97B00;enable-background:new    ;" d="M464.06,286.761
+                        c-82.854,16.931-235.911-12.638-381.468,82.271l-2.348,85.374c-0.889,32.312,30.946,55.442,61.402,44.611l92.881-33.029
+                        c13.889-4.939,29.055-4.939,42.944,0l92.881,33.029c30.456,10.83,62.291-12.299,61.402-44.611l-2.71-98.542
+                        c-0.405-14.735,4.281-29.159,13.27-40.842L464.06,286.761z"/>
+                    <path style="opacity:0.15;fill:#C97B00;enable-background:new    ;" d="M232.306,16.814c-5.442,3.266-10.335,7.749-14.254,13.467
+                        l-55.729,81.315c-8.333,12.159-20.603,21.074-34.742,25.242l-94.557,27.873c-31.005,9.14-43.165,46.564-23.454,72.183
+                        l60.114,78.129c8.989,11.683,13.676,26.107,13.27,40.842l-2.71,98.542c-0.889,32.312,30.946,55.442,61.402,44.611l92.881-33.029
+                        c13.889-4.939,29.055-4.939,42.944,0l92.881,33.029c20.958,7.453,42.568-1.176,53.719-17.812
+                        C94.032,317.922,174.934,107.147,232.306,16.814z"/>
+                </g>
+            </svg>
+        </span>
         <div class="theme-toggle__container">
             <input class="theme-toggle__input" type="checkbox" id="switch" name="theme" />
             <label class="theme-toggle__label" for="switch">{{ label }}</label>
@@ -69,6 +102,22 @@
 
 <script>
 export default {
+    async mounted() {
+        // wait for $refs to be available
+        await this.$nextTick()
+
+        this.$refs.box.forEach(box => {
+            box.style.left = Math.random() * (this.$refs.main.clientWidth - box.clientWidth) + 'px'
+            box.style.top = Math.random() * (this.$refs.main.clientHeight - box.clientHeight) + 'px'
+        })
+
+        if (document.cookie.indexOf('darkMode') > -1 ) {
+            document.querySelector(".header").classList.toggle("header--dark");
+            document.querySelector("body").classList.toggle("template--dark");
+            document.querySelector(".moon").classList.toggle("moon--go-away");
+            document.querySelector(".sun").classList.toggle("sun--go-away");
+        }
+    },
     data: function() {
         return {
             label: "Toggle",
@@ -77,25 +126,20 @@ export default {
     },
     methods: {
         toggleClass: function() {
-        document.cookie = "darkMode=True";
-        document.querySelector("body").classList.toggle("template--dark");
-        document
-            .querySelector(".header")
-            .classList.toggle("header--dark");
-        document
-            .querySelector(".sun")
-            .classList.toggle("sun--go-away");
-        document
-            .querySelector(".moon")
-            .classList.toggle("moon--go-away");
-        document
-            .querySelector(".theme-toggle__input")
-            .classList.toggle("theme-toggle__input--checked");
-            if (document.querySelector(".template--dark") !== null) {
-                document.cookie = "darkMode=True";
+            if (document.cookie.indexOf('darkMode') > -1 ) {
+                document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                setTimeout(() => {
+                    document.querySelector("body").classList.remove("template--dark");
+                    document.querySelector(".header").classList.remove("header--dark");
+                    document.querySelector(".sun").classList.remove("sun--go-away");
+                    document.querySelector(".moon").classList.add("moon--go-away");
+                }, 750);
             } else {
-                document.cookie =
-                "darkMode=True; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+                document.cookie = "darkMode=True; SameSite=None; Secure";
+                document.querySelector("body").classList.add("template--dark");
+                document.querySelector(".header").classList.add("header--dark");
+                document.querySelector(".sun").classList.add("sun--go-away");
+                document.querySelector(".moon").classList.remove("moon--go-away");
             }
         }
     }
@@ -119,8 +163,14 @@ export default {
     }
 
     .weather {
-        position: relative;
+        position: absolute;
         z-index: 2;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     .sun {
@@ -154,6 +204,44 @@ export default {
         &--go-away {
             top: 100vh;
             transition: top 5s ease-in-out;
+        }
+    }
+
+    .star {
+        position: absolute;
+        max-width: 20px;
+        opacity: 1;
+        transition: opacity 5s ease-in-out;
+        transition-delay: 2.5s;
+        animation: twinkle 2s infinite;
+    }
+
+    @keyframes twinkle {
+        0% {
+            transform: scale(1)
+        }
+        50% {
+            transform: scale(1.25)
+        }
+        100% {
+            transform: scale(1)
+        }
+    }
+
+    body:not(.template--dark) .star {
+        opacity: 0;
+        transition: opacity 5s ease-in-out;
+    }
+
+    @media (max-width: 640px) {
+        .moon,
+        .sun {
+            top: 20px;
+            left: 20px;
+            max-width: 50px;
+        }
+        .star {
+            max-width: 10px;
         }
     }
 

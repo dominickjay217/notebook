@@ -85,6 +85,7 @@ export default {
 .curve {
   width: 100%;
   position: relative;
+  z-index: 2;
 }
 // Header styles
 .header {
@@ -99,7 +100,7 @@ export default {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: linear-gradient(to bottom, rgb(55, 46, 46), rgb(60, 59, 59));
+    background: linear-gradient(to top, #283E51, #0A2342);
     transition: opacity 5s;
     transition-delay: 5s;
     z-index: 0;
@@ -108,18 +109,23 @@ export default {
     text-align: center;
     font-size: 3rem;
     margin: 0;
+    position: relative;
+    z-index: 2;
   }
   &__tagline {
     font-size: 0.85rem;
     text-align: center;
     font-family: 'Mosk-light';
     margin-top: 0;
-    color: var(--color-fourth);
+    color: var(--color-font);
+    position: relative;
+    z-index: 2;
   }
   &__link,
   &__link:hover {
+    position: relative;
+    color: var(--color-font);
     text-decoration: none;
-    color: currentColor;
   }
 }
 
@@ -137,6 +143,7 @@ export default {
   align-items: center;
   position: relative;
   &__tagline {
+    color: var(--color-font);
     padding: 80px 50px 40px;
     font-size: 4.5rem;
     font-family: var(--font-family-headings);
@@ -147,6 +154,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
+    z-index: 2;
     & span {
       min-height: 300px;
     }
@@ -163,17 +172,10 @@ export default {
         transition: .25s cubic-bezier(0.19, 1, 0.22, 1) transform;
       }
       & svg path {
-        fill: #212121;
+        fill: var(--color-font);
       }
     }
   }
-}
-
-.me {
-  position: absolute;
-  max-width: 100px;
-  top: 20px;
-  left: 20px;
 }
 
 @media (max-width: 1100px) {
