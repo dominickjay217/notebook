@@ -83,13 +83,6 @@ export default {
 
 <style lang="scss" scoped>
 
-main {
-  padding-top: 40px;
-  position: relative;
-  z-index: 2;
-  background-color: #fff;
-}
-
 .about {
   text-align: center;
   font-size: 1.5rem;
