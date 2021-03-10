@@ -89,4 +89,14 @@ sw.*
 # Vim swap files
 *.swp
 
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# Contentful configs
 .contentful.json
+
+# data
+data
