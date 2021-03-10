@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Weather />
     <HeaderBar :person="person" />
     <main>
       <BannerBar :person="person" />
@@ -26,6 +27,7 @@ import BannerBar from '~/components/BannerBar.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
+import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
 const client = createClient()
 
@@ -36,6 +38,7 @@ export default {
     BlogPosts,
     SocialBar,
     ContactBar,
+    Weather,
     FooterBar
   },
   asyncData({ env }) {

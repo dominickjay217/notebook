@@ -239,6 +239,9 @@ export default {
             top: 20px;
             left: 20px;
             max-width: 50px;
+            &--go-away {
+                top: 100vh;
+            }
         }
         .star {
             max-width: 10px;

@@ -93,6 +93,13 @@ a:hover {
   text-decoration: none;
 }
 
+main {
+  padding-top: 40px;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;

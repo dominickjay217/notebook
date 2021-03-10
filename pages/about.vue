@@ -1,8 +1,9 @@
 <template>
   <div>
+    <Weather />
     <HeaderBar :person="person" />
     <main>
-      <BannerBar :person="person" />
+    <BannerBar :person="person" />
       <div class="container">
         <section class="content about">
           <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
@@ -93,6 +94,7 @@ import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
 import Joke from '~/components/Joke.vue'
 import Spacer from '~/components/Spacer.vue'
+import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 
@@ -108,6 +110,7 @@ export default {
     ContactBar,
     FooterBar,
     Spacer,
+    Weather,
     VueMarkdown,
   },
   asyncData({ env }) {
