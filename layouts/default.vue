@@ -7,21 +7,6 @@
 <script></script>
 
 <style lang="scss">
-//@import url('https://use.typekit.net/hgu7qbd.css');
-
-// @font-face {
-//   font-family: 'Wotfard';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-display: swap;
-//   src: url('~assets/fonts/Wotfard-Light.ttf') format('truetype');
-// }
-
-@font-face {
-  font-family: 'Mosk-Light';
-  font-display: swap;
-  src: url('~assets/fonts/Mosk-Light.ttf') format('truetype');
-}
 
 @font-face {
   font-family: var(--font-family-headings);
@@ -34,14 +19,6 @@
   font-display: swap;
   src: url('~assets/fonts/Poppins-Light.ttf') format('truetype');
 }
-
-// @font-face {
-//   font-family: 'Wotfard-Strong';
-//   font-style: normal;
-//   font-weight: var(--font-weight-bold);
-//   font-display: swap;
-//   src: url('~assets/fonts/Wotfard-Bold.ttf') format('truetype');
-// }
 
 :root {
   --color-primary: #e3f1f2;

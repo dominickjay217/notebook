@@ -51,7 +51,7 @@ export default {
   &__link {
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'Mosk-light';
+    font-family: var(--font-family-body);
     color: var(--color-font);
     padding: 10px 20px;
     &:hover,

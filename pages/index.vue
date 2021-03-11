@@ -87,7 +87,7 @@ export default {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: 'Mosk-light';
+  font-family: var(--font-family-body);
 }
 
 .blog {

@@ -36,9 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .curve {
-    top: -30px;
+    top: 50px;
     position: relative;
-    fill: var(--color-body);
+    fill: #fff;
+    transform: rotate(180deg);
+    z-index: 2;
+    margin-bottom: 40px;
 }
 .contact {
     position: relative;
@@ -63,6 +66,18 @@ export default {
             display: block;
             margin-bottom: 20px;
         }
+    }
+}
+
+.template--dark {
+    & .contact {
+        --dark: #0A2342;
+        background: var(--dark);
+        color: var(--color-primary);
+    }
+    .contact .curve {
+        --dark: #0A2342;
+        background: var(--dark);
     }
 }
 

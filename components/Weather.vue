@@ -1,6 +1,6 @@
 <template>
     <div class="weather" ref="main">
-        <span ref="box" :key="i" class="box star" v-for="i in 10">
+        <span ref="box" :key="i" class="box star" v-for="i in 21">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
                 <path style="fill:silver;" d="M234.528,465.989l-92.881,33.029c-30.456,10.83-62.291-12.299-61.402-44.612l2.71-98.542
                     c0.405-14.735-4.281-29.159-13.27-40.842L9.571,236.894c-19.712-25.619-7.552-63.043,23.454-72.183l94.556-27.874
@@ -93,7 +93,9 @@
                             C345.224,60.193,342.432,61.937,339.488,61.937z"/>
                     </g>
                 </svg>
-                <svg @click="toggleClass()" class="moon moon--go-away" id="Layer_1" enable-background="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m248.5 0c-66.377 0-128.781 25.849-175.716 72.784-46.935 46.936-72.784 109.34-72.784 175.716s25.849 128.78 72.784 175.716c46.935 46.935 109.339 72.784 175.716 72.784 17.487 0 34.693-1.812 51.418-5.313v-486.374c-16.725-3.501-33.931-5.313-51.418-5.313z" fill="#d4d4d5"/><path d="m497 248.5c0-66.376-25.849-128.78-72.784-175.716-34.57-34.57-77.538-57.683-124.298-67.471-46.761 9.788-89.728 32.901-124.298 67.471-46.935 46.936-72.784 109.34-72.784 175.716s25.849 128.78 72.784 175.716c34.57 34.57 77.538 57.683 124.298 67.471 46.761-9.788 89.728-32.901 124.298-67.471 46.935-46.936 72.784-109.34 72.784-175.716z" fill="#efedee"/><ellipse cx="169.331" cy="220.763" fill="#ff8e9e" rx="29.212" ry="23.263" transform="matrix(1 .003 -.003 1 .693 -.529)"/><ellipse cx="327.669" cy="221.259" fill="#ff8e9e" rx="29.212" ry="23.263" transform="matrix(-1 -.003 .003 -1 654.644 443.544)"/><path d="m184 178.5c-4.142 0-7.5 3.358-7.5 7.5v10c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-10c0-4.142-3.358-7.5-7.5-7.5z" fill="#313d40"/><path d="m312 178.5c-4.142 0-7.5 3.358-7.5 7.5v10c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-10c0-4.142-3.358-7.5-7.5-7.5z" fill="#313d40"/><path d="m267.735 207.234c-3.737-1.789-8.215-.206-10.001 3.531-1.666 3.484-5.291 5.735-9.234 5.735s-7.568-2.251-9.234-5.735c-1.787-3.737-6.266-5.317-10.001-3.531-3.737 1.787-5.318 6.265-3.531 10.001 4.144 8.666 13.08 14.265 22.766 14.265s18.623-5.599 22.766-14.265c1.787-3.736.206-8.215-3.531-10.001z" fill="#313d40"/><g fill="#d4d4d5"><circle cx="396.336" cy="296.5" r="45"/><circle cx="176.335" cy="116.5" r="30"/><circle cx="304.5" cy="413.5" r="15"/></g><circle cx="60" cy="248.5" fill="#b9bbbc" r="15"/><circle cx="366.336" cy="101.5" fill="#d4d4d5" r="15"/><path d="m175.962 424.553-61.848-101.686c-14.638 10.941-24.114 28.408-24.114 48.089 0 33.137 26.863 60 60 60 9.437 0 18.019-2.521 25.962-6.403-.227-.226.227.227 0 0z" fill="#b9bbbc"/><path d="m210.001 370.956c0-33.137-26.863-60-60-60-13.456 0-25.878 4.43-35.886 11.911 11.814 37.841 33.016 72.854 61.848 101.686.227.227-.228-.226 0 0 19.95-9.748 34.038-29.896 34.038-53.597z" fill="#d4d4d5"/><path d="m40.416 40.416c4.627-1.191 8.983-3.058 12.956-5.49 4.837-2.96 4.837-9.892 0-12.852-3.973-2.431-8.329-4.298-12.956-5.489-1.191-4.627-3.058-8.983-5.49-12.956-2.96-4.837-9.892-4.837-12.852 0-2.432 3.973-4.298 8.329-5.49 12.957-4.627 1.191-8.983 3.058-12.956 5.489-4.837 2.96-4.837 9.892 0 12.852 3.973 2.432 8.329 4.299 12.956 5.49 1.191 4.627 3.058 8.983 5.49 12.956 2.96 4.837 9.892 4.837 12.852 0 2.432-3.974 4.299-8.33 5.49-12.957z" fill="#ffce71"/><path d="m440.465 440.615c6.494-1.672 12.608-4.292 18.184-7.705 6.789-4.155 6.789-13.883 0-18.038-5.576-3.413-11.69-6.033-18.184-7.704-1.672-6.494-4.292-12.608-7.705-18.185-4.155-6.789-13.883-6.789-18.038 0-3.413 5.576-6.033 11.69-7.705 18.185-6.494 1.672-12.608 4.292-18.184 7.704-6.789 4.155-6.789 13.883 0 18.038 5.576 3.413 11.69 6.033 18.184 7.705 1.672 6.494 4.292 12.607 7.705 18.184 4.155 6.789 13.883 6.789 18.038 0 3.413-5.577 6.033-11.691 7.705-18.184z" fill="#ffce71"/></svg>
+                <svg @click="toggleClass()" class="moon moon--go-away" id="Layer_1" enable-background="new 0 0 497 497" height="512" viewBox="0 0 497 497" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m248.5 0c-66.377 0-128.781 25.849-175.716 72.784-46.935 46.936-72.784 109.34-72.784 175.716s25.849 128.78 72.784 175.716c46.935 46.935 109.339 72.784 175.716 72.784 17.487 0 34.693-1.812 51.418-5.313v-486.374c-16.725-3.501-33.931-5.313-51.418-5.313z" fill="#d4d4d5"/><path d="m497 248.5c0-66.376-25.849-128.78-72.784-175.716-34.57-34.57-77.538-57.683-124.298-67.471-46.761 9.788-89.728 32.901-124.298 67.471-46.935 46.936-72.784 109.34-72.784 175.716s25.849 128.78 72.784 175.716c34.57 34.57 77.538 57.683 124.298 67.471 46.761-9.788 89.728-32.901 124.298-67.471 46.935-46.936 72.784-109.34 72.784-175.716z" fill="#efedee"/><ellipse cx="169.331" cy="220.763" fill="#ff8e9e" rx="29.212" ry="23.263" transform="matrix(1 .003 -.003 1 .693 -.529)"/><ellipse cx="327.669" cy="221.259" fill="#ff8e9e" rx="29.212" ry="23.263" transform="matrix(-1 -.003 .003 -1 654.644 443.544)"/>
+                <path id="moon-eye--left" d="m184 178.5c-4.142 0-7.5 3.358-7.5 7.5v10c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-10c0-4.142-3.358-7.5-7.5-7.5z" fill="#313d40"/>
+                <path id="moon-eye--right" d="m312 178.5c-4.142 0-7.5 3.358-7.5 7.5v10c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-10c0-4.142-3.358-7.5-7.5-7.5z" fill="#313d40"/><path d="m267.735 207.234c-3.737-1.789-8.215-.206-10.001 3.531-1.666 3.484-5.291 5.735-9.234 5.735s-7.568-2.251-9.234-5.735c-1.787-3.737-6.266-5.317-10.001-3.531-3.737 1.787-5.318 6.265-3.531 10.001 4.144 8.666 13.08 14.265 22.766 14.265s18.623-5.599 22.766-14.265c1.787-3.736.206-8.215-3.531-10.001z" fill="#313d40"/><g fill="#d4d4d5"><circle cx="396.336" cy="296.5" r="45"/><circle cx="176.335" cy="116.5" r="30"/><circle cx="304.5" cy="413.5" r="15"/></g><circle cx="60" cy="248.5" fill="#b9bbbc" r="15"/><circle cx="366.336" cy="101.5" fill="#d4d4d5" r="15"/><path d="m175.962 424.553-61.848-101.686c-14.638 10.941-24.114 28.408-24.114 48.089 0 33.137 26.863 60 60 60 9.437 0 18.019-2.521 25.962-6.403-.227-.226.227.227 0 0z" fill="#b9bbbc"/><path d="m210.001 370.956c0-33.137-26.863-60-60-60-13.456 0-25.878 4.43-35.886 11.911 11.814 37.841 33.016 72.854 61.848 101.686.227.227-.228-.226 0 0 19.95-9.748 34.038-29.896 34.038-53.597z" fill="#d4d4d5"/><path d="m40.416 40.416c4.627-1.191 8.983-3.058 12.956-5.49 4.837-2.96 4.837-9.892 0-12.852-3.973-2.431-8.329-4.298-12.956-5.489-1.191-4.627-3.058-8.983-5.49-12.956-2.96-4.837-9.892-4.837-12.852 0-2.432 3.973-4.298 8.329-5.49 12.957-4.627 1.191-8.983 3.058-12.956 5.489-4.837 2.96-4.837 9.892 0 12.852 3.973 2.432 8.329 4.299 12.956 5.49 1.191 4.627 3.058 8.983 5.49 12.956 2.96 4.837 9.892 4.837 12.852 0 2.432-3.974 4.299-8.33 5.49-12.957z" fill="#ffce71"/><path d="m440.465 440.615c6.494-1.672 12.608-4.292 18.184-7.705 6.789-4.155 6.789-13.883 0-18.038-5.576-3.413-11.69-6.033-18.184-7.704-1.672-6.494-4.292-12.608-7.705-18.185-4.155-6.789-13.883-6.789-18.038 0-3.413 5.576-6.033 11.69-7.705 18.185-6.494 1.672-12.608 4.292-18.184 7.704-6.789 4.155-6.789 13.883 0 18.038 5.576 3.413 11.69 6.033 18.184 7.705 1.672 6.494 4.292 12.607 7.705 18.184 4.155 6.789 13.883 6.789 18.038 0 3.413-5.577 6.033-11.691 7.705-18.184z" fill="#ffce71"/></svg>
                 <div class="accessibility">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </span>
         </div>
@@ -102,22 +104,7 @@
 
 <script>
 export default {
-    async mounted() {
-        // wait for $refs to be available
-        await this.$nextTick()
 
-        this.$refs.box.forEach(box => {
-            box.style.left = Math.random() * (this.$refs.main.clientWidth - box.clientWidth) + 'px'
-            box.style.top = Math.random() * (this.$refs.main.clientHeight - box.clientHeight) + 'px'
-        })
-
-        if (document.cookie.indexOf('darkMode') > -1 ) {
-            document.querySelector(".header").classList.toggle("header--dark");
-            document.querySelector("body").classList.toggle("template--dark");
-            document.querySelector(".moon").classList.toggle("moon--go-away");
-            document.querySelector(".sun").classList.toggle("sun--go-away");
-        }
-    },
     data: function() {
         return {
             label: "Toggle",
@@ -125,24 +112,74 @@ export default {
         };
     },
     methods: {
+
+        makeStars: function(dark) {
+            if (dark == true) {
+                console.log('show stars')
+                this.$refs.box.forEach(box => {
+                    box.style.left = Math.random() * (this.$refs.main.clientWidth - box.clientWidth) + 'px'
+                    box.style.top = Math.random() * (this.$refs.main.clientHeight - box.clientHeight) + 'px'
+                    box.style.opacity = '1';
+                })
+            } else {
+                console.log('hide stars')
+                this.$refs.box.forEach(box => {
+                    box.style.opacity = '0';
+                })
+            }
+        },
+
         toggleClass: function() {
+
+            const sun = document.querySelector(".sun");
+            const moon = document.querySelector(".moon");
+
             if (document.cookie.indexOf('darkMode') > -1 ) {
                 document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                setTimeout(() => {
-                    document.querySelector("body").classList.remove("template--dark");
-                    document.querySelector(".header").classList.remove("header--dark");
-                    document.querySelector(".sun").classList.remove("sun--go-away");
-                    document.querySelector(".moon").classList.add("moon--go-away");
-                }, 750);
+                console.log('cookie destroyed')
+                document.querySelector("body").classList.remove("template--dark");
+                document.querySelector(".header").classList.remove("header--dark");
+                sun.style.opacity = '1';
+                sun.classList.remove("sun--go-away");
+                sun.style.transition = "all 5s";
+                moon.classList.add("moon--go-away");
+                moon.style.transition = "all 5s";
+                this.makeStars(false);
             } else {
                 document.cookie = "darkMode=True; SameSite=None; Secure";
+                console.log('cookie set')
                 document.querySelector("body").classList.add("template--dark");
                 document.querySelector(".header").classList.add("header--dark");
-                document.querySelector(".sun").classList.add("sun--go-away");
-                document.querySelector(".moon").classList.remove("moon--go-away");
+                sun.classList.add("sun--go-away");
+                sun.style.transition = "all 5s";
+                moon.style.opacity = '1';
+                moon.style.transition = "all 5s";
+                moon.classList.remove("moon--go-away");
+                this.makeStars(true);
             }
         }
-    }
+    },
+    async mounted() {
+        // wait for $refs to be available
+        await this.$nextTick()
+
+        const sun = document.querySelector(".sun");
+        const moon = document.querySelector(".moon");
+
+        if (document.cookie.indexOf('darkMode') > -1 ) {
+            console.log('cookie set')
+            document.querySelector(".header").classList.add("header--dark");
+            document.querySelector("body").classList.add("template--dark");
+            this.makeStars(true);
+            moon.classList.remove("moon--go-away");
+            sun.style.opacity = '0';
+            sun.classList.add("sun--go-away");
+        } else {
+            console.log('cookie not set');
+            this.makeStars(false);
+            moon.style.opacity = '0';
+        }
+    },
 }
 </script>
 
@@ -177,16 +214,13 @@ export default {
         cursor: pointer;
         max-width: 100px;
         position: absolute;
-        top: 20px;
+        bottom: calc(100% - 120px);
         left: 40px;
-        transition: top 5s ease-in-out;
-        transition-delay: 2.5s;
         &:focus {
             transform: scale(1.1);
         }
         &--go-away {
-            top: 100vh;
-            transition: top 5s ease-in-out;
+            bottom: 0;
         }
     }
 
@@ -194,26 +228,23 @@ export default {
         cursor: pointer;
         max-width: 100px;
         position: absolute;
-        top: 20px;
+        bottom: calc(100% - 120px);
         left: 40px;
-        transition: top 5s ease-in-out;
-        transition-delay: 2.5s;
         &:focus {
             transform: scale(1.1);
         }
         &--go-away {
-            top: 100vh;
-            transition: top 5s ease-in-out;
+            bottom: 0;
         }
     }
 
     .star {
         position: absolute;
         max-width: 20px;
-        opacity: 1;
-        transition: opacity 5s ease-in-out;
-        transition-delay: 2.5s;
+        width: 100%;
+        transition: 5s ease-in-out opacity;
         animation: twinkle 2s infinite;
+        opacity: 0;
     }
 
     @keyframes twinkle {
@@ -226,11 +257,6 @@ export default {
         100% {
             transform: scale(1)
         }
-    }
-
-    body:not(.template--dark) .star {
-        opacity: 0;
-        transition: opacity 5s ease-in-out;
     }
 
     @media (max-width: 640px) {
