@@ -96,7 +96,7 @@ sw.*
 dist
 
 # Contentful configs
-#.contentful.json
+.contentful.json
 
 # data
 data
