@@ -57,7 +57,7 @@ export default {
       list: [
         {
           taglineSizeLg: '8.5rem',
-          taglineSizeSm: '4.5rem',
+          taglineSizeSm: '2.5rem',
           text: `Has a lot of ideas`,
         },
         {
@@ -150,8 +150,6 @@ export default {
   &::before {
     opacity: 1;
   }
-  & .header__link {
-  }
 }
 
 //hero
@@ -168,7 +166,6 @@ export default {
     font-weight: 900;
     text-align: center;
     min-height: 400px;
-    // transform: rotate(-5deg);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -211,8 +208,10 @@ export default {
       padding: 20px 0;
       transform: none;
       grid-column: 1 / 4;
+      justify-content: flex-start;
       & span {
         font-size: var(--taglineSizeSm);
+        min-height: auto;
       }
     }
     &__image {
