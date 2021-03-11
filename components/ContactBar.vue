@@ -12,7 +12,7 @@
         <h3 class="contact__heading">Want to get in touch?</h3>
         <div class="contact__text">
             <span>Want to send me an idea, have a chat, or get me to overwrite the
-                'inspirational' quotes at the top?
+            'inspirational' quotes at the top?
             </span>
             <a
             :href="'mailto:' + person.fields.email"
