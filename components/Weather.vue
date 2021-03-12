@@ -8,7 +8,7 @@
             <label class="theme-toggle__label" for="switch">{{ label }}</label>
             <span class="theme-toggle__icon">
                 <svg @click="toggleClass()" class="sun" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
-                    <path style="fill:#FC9F65;" d="M507.384,247.159l-65.971-45.971c-8.184-5.703-17.266-9.337-26.583-10.977
+                    <path id="sunwaves" style="fill:#FC9F65;" d="M507.384,247.159l-65.971-45.971c-8.184-5.703-17.266-9.337-26.583-10.977
                         c5.429-7.748,9.281-16.74,11.035-26.559l14.143-79.155c1.319-7.384-5.12-13.823-12.504-12.504l-79.155,14.142
                         c-9.819,1.754-18.811,5.606-26.559,11.035c-1.64-9.318-5.275-18.399-10.977-26.583L264.842,4.616
                         c-4.288-6.154-13.395-6.154-17.683,0l-45.971,65.971c-5.703,8.184-9.337,17.265-10.977,26.583
@@ -36,7 +36,7 @@
                     </g>
                     <path style="opacity:0.08;enable-background:new    ;" d="M217.314,108.801c-65.302,17.116-113.482,76.529-113.482,147.2
                         c0,84.04,68.128,152.168,152.169,152.168c30.053,0,58.068-8.716,81.663-23.752C143.684,368.06,127.593,174.323,217.314,108.801z"/>
-                    <g>
+                    <g id="small-sunwaves">
                         <path style="fill:#FC9F65;" d="M172.512,61.937c-2.943,0-5.735-1.744-6.932-4.632l-10.33-24.939
                             c-1.586-3.827,0.231-8.214,4.059-9.799c3.826-1.585,8.214,0.233,9.799,4.059l10.33,24.939c1.586,3.827-0.231,8.214-4.059,9.799
                             C174.441,61.753,173.469,61.937,172.512,61.937z"/>
@@ -99,33 +99,58 @@ export default {
             }
         },
 
+        makeLight: function(sun, moon) {
+            document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            console.log('cookie destroyed')
+            document.querySelector("body").classList.remove("template--dark");
+            document.querySelector(".header").classList.remove("header--dark");
+            sun.style.opacity = '1';
+            sun.classList.remove("sun--go-away");
+            sun.style.transition = "all 5s";
+            moon.classList.add("moon--go-away");
+            moon.style.transition = "all 5s";
+            this.makeStars(false);
+        },
+
+        makeDark: function(sun, moon) {
+            document.cookie = "darkMode=True; SameSite=None; Secure";
+            console.log('cookie set')
+            document.querySelector("body").classList.add("template--dark");
+            document.querySelector(".header").classList.add("header--dark");
+            sun.classList.add("sun--go-away");
+            sun.style.transition = "all 5s";
+            moon.style.opacity = '1';
+            moon.style.transition = "all 5s";
+            moon.classList.remove("moon--go-away");
+            this.makeStars(true);
+        },
+
         toggleClass: function() {
 
             const sun = document.querySelector(".sun");
             const moon = document.querySelector(".moon");
 
             if (document.cookie.indexOf('darkMode') > -1 ) {
-                document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                console.log('cookie destroyed')
-                document.querySelector("body").classList.remove("template--dark");
-                document.querySelector(".header").classList.remove("header--dark");
-                sun.style.opacity = '1';
-                sun.classList.remove("sun--go-away");
-                sun.style.transition = "all 5s";
-                moon.classList.add("moon--go-away");
-                moon.style.transition = "all 5s";
-                this.makeStars(false);
+                this.makeLight(sun, moon);
+                document.cookie = "clickedLightMode=True; SameSite=None; Secure";
             } else {
-                document.cookie = "darkMode=True; SameSite=None; Secure";
-                console.log('cookie set')
-                document.querySelector("body").classList.add("template--dark");
-                document.querySelector(".header").classList.add("header--dark");
-                sun.classList.add("sun--go-away");
-                sun.style.transition = "all 5s";
-                moon.style.opacity = '1';
-                moon.style.transition = "all 5s";
-                moon.classList.remove("moon--go-away");
-                this.makeStars(true);
+                document.cookie = "clickedDarkMode=True; SameSite=None; Secure";
+                this.makeDark(sun, moon)
+            }
+        },
+
+        checkTime: function() {
+            var date = new Date();
+            var current_hour = date.getHours();
+            const sun = document.querySelector(".sun");
+            const moon = document.querySelector(".moon");
+
+            if (current_hour > 20 && current_hour < 7) {
+                this.makeDark(sun, moon);
+                document.cookie = "Nighttime=True; SameSite=None; Secure";
+            } else {
+                this.makeLight(sun, moon);
+                document.cookie = "Daytime=True; SameSite=None; Secure";
             }
         }
     },
@@ -135,6 +160,8 @@ export default {
 
         const sun = document.querySelector(".sun");
         const moon = document.querySelector(".moon");
+
+        // this.checkTime(sun, moon);
 
         if (document.cookie.indexOf('darkMode') > -1 ) {
             console.log('cookie set')
@@ -221,6 +248,30 @@ export default {
             background: radial-gradient(var(--color-primary), transparent 75%);
             border-radius: 100%;
         }
+    }
+
+    #sunwaves,
+    #small-sunwaves {
+        animation: sunburst 15s linear infinite;
+        transition: 5s ease-in-out transform;
+        transform-origin: center;
+    }
+
+    @keyframes sunburst {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
     }
 
     @keyframes twinkle {
