@@ -125,10 +125,11 @@ export default {
   display: flex;
   position: relative;
   align-items: center;
-  border: 5px solid transparent;
+  padding: 20px;
   border-image-slice: 1;
   border-width: 5px;
-  padding: 20px;
+  border-style: solid;
+  border-color: transparent;
   &:hover {
     border-image-source: var(--color-border-gradient);
   }

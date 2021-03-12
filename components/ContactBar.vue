@@ -77,7 +77,7 @@ export default {
     }
     .contact .curve {
         --dark: #0A2342;
-        background: var(--dark);
+        background: linear-gradient(to top, #fff 1px, var(--dark) 2px);
     }
 }
 
