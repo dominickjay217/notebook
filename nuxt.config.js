@@ -1,15 +1,16 @@
-const config = require('./.contentful.json')
+// const config = require('./.contentful.json')
+const env = require('dotenv').config()
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: config.CTF_PERSON_ID,
-    CTF_ABOUT_PERSON_ID: config.CTF_ABOUT_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: process.env.CTF_PERSON_ID,
+    CTF_ABOUT_PERSON_ID: process.env.CTF_ABOUT_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
