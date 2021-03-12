@@ -108,10 +108,11 @@ export default {
       --color-border-gradient: linear-gradient(to left, var(--color-primary), var(--color-secondary), var(--color-primary));
       margin: 40px 0;
       padding: 10px 20px;
-      border: 2px solid;
-      border-image-slice: 1;
-      border-width: 3px;
-      border-image-source: var(--color-border-gradient);
+      border: 2px solid transparent;
+      background: linear-gradient(#fff, #fff),
+                  var(--color-border-gradient);
+      background-origin: padding-box, border-box;
+      background-repeat: no-repeat; /* this is important */
       border-left: none;
       border-right: none;
     }

@@ -126,12 +126,17 @@ export default {
   position: relative;
   align-items: center;
   padding: 20px;
-  border: 8px solid;
-  border-image-slice: 1;
-  border-width: 10px;
-  border-image-source: var(--color-border-gradient);
+  background: linear-gradient(#fff, #fff),
+              var(--color-border-gradient);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat; /* this is important */
+  border: 5px solid #fff;
   &:hover {
-    border-image-source: var(--color-border-gradient);
+    background: linear-gradient(#fff, #fff),
+              var(--color-border-gradient);
+    border: 5px solid transparent;
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat;
   }
   &__title {
     text-align: left;
