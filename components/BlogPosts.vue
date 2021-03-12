@@ -126,10 +126,10 @@ export default {
   position: relative;
   align-items: center;
   padding: 20px;
+  border: 8px solid;
   border-image-slice: 1;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent;
+  border-width: 10px;
+  border-image-source: var(--color-border-gradient);
   &:hover {
     border-image-source: var(--color-border-gradient);
   }
