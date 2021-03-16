@@ -150,8 +150,6 @@ export default {
         const sun = document.querySelector(".sun");
         const moon = document.querySelector(".moon");
 
-        //this.checkTime(sun, moon);
-
         if (document.cookie.indexOf('darkMode') > -1 ) {
             console.log('cookie set')
             document.querySelector(".header").classList.add("header--dark");
