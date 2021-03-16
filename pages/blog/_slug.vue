@@ -119,6 +119,10 @@ export default {
   }
 }
 
+.template--dark .post__content {
+  color: var(--color-font);
+}
+
 pre {
   border: 1px solid var(--color-secondary);
   background: rgba(86, 131, 137, 0.10);

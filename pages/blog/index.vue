@@ -68,11 +68,16 @@ export default {
 </script>
 
 <style lang="scss">
-h3 {
-
-}
 
 p {
   margin-bottom: 60px;
+}
+
+.template--dark h3 {
+  color: var(--color-font);
+}
+
+.template--dark p {
+  color: var(--color-font);
 }
 </style>

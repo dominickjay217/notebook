@@ -43,6 +43,11 @@ export default {
     z-index: 2;
     margin-bottom: 40px;
 }
+
+.template--dark .curve {
+  fill: #222;
+}
+
 .contact {
     position: relative;
     margin-top: -50px;

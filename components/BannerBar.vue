@@ -28,4 +28,9 @@ export default {
     font-size: 0.85rem;
   }
 }
+
+.template--dark .banner {
+  background-color: #222;
+  color: #fff;
+}
 </style>

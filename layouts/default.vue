@@ -77,6 +77,10 @@ main {
   background-color: #fff;
 }
 
+.template--dark main {
+  background-color: #222;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -130,6 +134,10 @@ strong {
     text-align: center;
     font-size: 3rem;
   }
+}
+
+.template--dark .heading {
+  color: #fff;
 }
 
 @keyframes squiggle {

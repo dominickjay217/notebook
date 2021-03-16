@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .testimonial {
   &__content {
@@ -32,6 +32,10 @@ export default {
   &__copy:first-child {
     grid-column: 3 / 8;
   }
+}
+
+.template--dark .testimonial {
+  color: var(--color-font);
 }
 
 @media (max-width: 640px) and (orientation: portrait) {

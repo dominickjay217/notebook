@@ -41,7 +41,7 @@
       preserveAspectRatio="none"
       viewBox="0 0 1680 40"
       class="curve">
-        <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
+        <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"></path>
     </svg>
   </header>
 
@@ -105,7 +105,13 @@ export default {
   position: relative;
   z-index: 2;
   bottom: -25px;
+  fill: #fff;
 }
+
+.template--dark .curve {
+  fill: #222;
+}
+
 // Header styles
 .header {
   padding: 60px 0 20px;

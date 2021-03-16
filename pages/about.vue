@@ -201,6 +201,10 @@ export default {
     }
 }
 
+.template--dark .about {
+  color: var(--color-font);
+}
+
 .work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -254,6 +258,10 @@ export default {
             text-decoration: underline;
         }
     }
+}
+
+.template--dark .other-work__link {
+  color: var(--color-font);
 }
 
 @media (max-width: 992px) {

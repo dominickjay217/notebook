@@ -90,6 +90,10 @@ export default {
   font-family: var(--font-family-body);
 }
 
+.template--dark .about {
+  color: #fff;
+}
+
 .blog {
   &__link {
     text-decoration: none;
@@ -111,6 +115,13 @@ export default {
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.template--dark .blog__link {
+  color: #fff;
+  & svg {
+      fill: #fff;
   }
 }
 

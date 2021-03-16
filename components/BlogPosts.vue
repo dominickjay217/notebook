@@ -185,6 +185,26 @@ export default {
   }
 }
 
+.template--dark .post {
+  background: linear-gradient(#222, #222), var(--color-border-gradient);
+  border: 5px solid #222;
+  &:hover {
+    background: linear-gradient(#222, #222),
+              var(--color-border-gradient);
+    border: 5px solid transparent;
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat;
+  }
+  &__link,
+  &__title,
+  &__date {
+    color: #fff;
+    & svg {
+      fill: #fff;
+    }
+  }
+}
+
 @media (max-width: 767px) and (orientation: portrait) {
   .post {
     font-size: 1rem;
