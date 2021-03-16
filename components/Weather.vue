@@ -113,8 +113,7 @@ export default {
         },
 
         makeDark: function(sun, moon) {
-            document.cookie = "darkMode=True; SameSite=None; Secure";
-            console.log('cookie set')
+            // document.cookie = "darkMode=True; SameSite=None; Secure";
             document.querySelector("body").classList.add("template--dark");
             document.querySelector(".header").classList.add("header--dark");
             sun.classList.add("sun--go-away");
@@ -132,27 +131,17 @@ export default {
 
             if (document.cookie.indexOf('darkMode') > -1 ) {
                 this.makeLight(sun, moon);
+                document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "clickedDarkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 document.cookie = "clickedLightMode=True; SameSite=None; Secure";
             } else {
+                document.cookie = "clickedLightMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 document.cookie = "clickedDarkMode=True; SameSite=None; Secure";
+                document.cookie = "darkMode=True; SameSite=None; Secure";
                 this.makeDark(sun, moon)
             }
         },
 
-        checkTime: function() {
-            var date = new Date();
-            var current_hour = date.getHours();
-            const sun = document.querySelector(".sun");
-            const moon = document.querySelector(".moon");
-
-            if (current_hour > 20 && current_hour < 7) {
-                this.makeDark(sun, moon);
-                document.cookie = "Nighttime=True; SameSite=None; Secure";
-            } else {
-                this.makeLight(sun, moon);
-                document.cookie = "Daytime=True; SameSite=None; Secure";
-            }
-        }
     },
     async mounted() {
         // wait for $refs to be available
@@ -161,7 +150,7 @@ export default {
         const sun = document.querySelector(".sun");
         const moon = document.querySelector(".moon");
 
-        // this.checkTime(sun, moon);
+        //this.checkTime(sun, moon);
 
         if (document.cookie.indexOf('darkMode') > -1 ) {
             console.log('cookie set')
