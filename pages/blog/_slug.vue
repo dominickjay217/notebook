@@ -44,12 +44,12 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
+import FooterBar from '~/components/FooterBar.vue'
+import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Weather from '~/components/Weather.vue'
-import FooterBar from '~/components/FooterBar.vue'
 import VueMarkdown from 'vue-markdown'
 const client = createClient()
 

@@ -36,29 +36,29 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
-import Testimonial from '~/components/Testimonial.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
-import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
-import Spacer from '~/components/Spacer.vue'
-import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
+import HeaderBar from '~/components/HeaderBar.vue'
+import SocialBar from '~/components/SocialBar.vue'
+import Spacer from '~/components/Spacer.vue'
+import Testimonial from '~/components/Testimonial.vue'
+import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
 export default {
   components: {
-    HeaderBar,
     BannerBar,
     BlogPosts,
+    ContactBar,
+    FooterBar,
+    HeaderBar,
     Testimonial,
     SocialBar,
     Spacer,
     Weather,
-    ContactBar,
-    FooterBar
   },
   asyncData({ env }) {
     return Promise.all([
