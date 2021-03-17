@@ -85,14 +85,12 @@ export default {
 
         makeStars: function(dark) {
             if (dark == true) {
-                console.log('show stars')
                 this.$refs.box.forEach(box => {
                     box.style.left = Math.random() * (this.$refs.main.clientWidth - box.clientWidth) + 'px'
                     box.style.top = Math.random() * (this.$refs.main.clientHeight - box.clientHeight) + 'px'
                     box.style.opacity = '1';
                 })
             } else {
-                console.log('hide stars')
                 this.$refs.box.forEach(box => {
                     box.style.opacity = '0';
                 })
@@ -101,7 +99,6 @@ export default {
 
         makeLight: function(sun, moon) {
             document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            console.log('cookie destroyed')
             document.querySelector("body").classList.remove("template--dark");
             document.querySelector(".header").classList.remove("header--dark");
             sun.style.opacity = '1';
@@ -151,7 +148,6 @@ export default {
         const moon = document.querySelector(".moon");
 
         if (document.cookie.indexOf('darkMode') > -1 ) {
-            console.log('cookie set')
             document.querySelector(".header").classList.add("header--dark");
             document.querySelector("body").classList.add("template--dark");
             this.makeStars(true);
@@ -159,7 +155,6 @@ export default {
             sun.style.opacity = '0';
             sun.classList.add("sun--go-away");
         } else {
-            console.log('cookie not set');
             this.makeStars(false);
             moon.style.opacity = '0';
         }
@@ -276,8 +271,8 @@ export default {
     @media (max-width: 640px) {
         .moon,
         .sun {
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
             max-width: 50px;
             &--go-away {
                 top: 100vh;

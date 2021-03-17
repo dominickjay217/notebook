@@ -1,11 +1,5 @@
 <template>
   <header class="header">
-    <!-- <span class="me">
-      <img
-          :src="person.fields.profileImage.fields.file.url + '?w=1200'"
-          :alt="person.fields.profileImage.fields.title"
-      />
-    </span> -->
     <div class="container">
       <h1 class="header__title heading heading--one">
         <NuxtLink
@@ -171,7 +165,6 @@ export default {
     font-family: var(--font-family-headings);
     font-weight: 900;
     text-align: center;
-    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -185,6 +178,7 @@ export default {
       border: 0;
       background-color: transparent;
       max-width: 65px;
+      width: 100%;
       margin-top: 20px;
       align-self: center;
       cursor: pointer;
@@ -203,13 +197,13 @@ export default {
 @media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
   .header {
+    padding-top: 80px;
     margin-top: 0;
     padding-left: 0;
     padding-right: 0;
   }
 
   .hero {
-    grid-template-columns: repeat(4, 1fr);
     &__tagline {
       padding: 20px 0;
       transform: none;

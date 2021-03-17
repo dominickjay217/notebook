@@ -6,7 +6,7 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
-            <h3 class="content__heading">I’ve written 31 posts about how I stopped being such a dingus.</h3>
+            <h3 class="content__heading">I’ve written {{ this.posts.length }} posts about how I stopped being such a dingus.</h3>
             <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
             <BlogPosts :posts="posts"/>
         </section>
@@ -69,9 +69,9 @@ export default {
 
 <style lang="scss">
 
-p {
-  margin-bottom: 60px;
-}
+// p {
+//   margin-bottom: 60px;
+// }
 
 .template--dark h3 {
   color: var(--color-font);

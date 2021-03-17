@@ -67,6 +67,7 @@ export default {
     }
     &__text {
         max-width: 992px;
+        padding: 0 20px;
         & span {
             display: block;
             margin-bottom: 20px;
