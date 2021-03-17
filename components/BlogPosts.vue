@@ -216,10 +216,14 @@ export default {
 
 @media (max-width: 640px) and (orientation: portrait) {
   .post {
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     & * {
       margin-bottom: 10px;
+    }
+    &__title {
+      max-width: 250px;
+      padding-right: 20px;
     }
     &__date {
       display: none;
@@ -227,6 +231,9 @@ export default {
     &__link {
       margin-left: 0;
       margin-bottom: 0;
+      & svg {
+        max-width: 25px;
+      }
     }
   }
 }
