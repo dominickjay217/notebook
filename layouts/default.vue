@@ -8,16 +8,13 @@
 
 <style lang="scss">
 
-@font-face {
-  font-family: var(--font-family-headings);
-  font-display: swap;
-  src: url('~assets/fonts/SaltedMocha-Regular.otf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap');
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: var(--font-family-headings);
+  src: url("/static/fonts/SaltedMocha-Regular.woff") format("woff"),
+        url("/static/fonts/SaltedMocha-Regular.ttf")  format("truetype");
   font-display: swap;
-  src: url('~assets/fonts/Poppins-Light.ttf') format('truetype');
 }
 
 :root {
