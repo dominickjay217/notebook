@@ -12,8 +12,8 @@
 
 @font-face {
   font-family: var(--font-family-headings);
-  src: url("/static/fonts/SaltedMocha-Regular.woff") format("woff"),
-        url("/static/fonts/SaltedMocha-Regular.ttf")  format("truetype");
+  src: url("/fonts/SaltedMocha-Regular.woff") format("woff"),
+        url("/fonts/SaltedMocha-Regular.ttf")  format("truetype");
   font-display: swap;
 }
 
