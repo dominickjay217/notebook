@@ -214,6 +214,7 @@ export default {
         }
         &--go-away {
             bottom: 0;
+            pointer-events: none;
         }
     }
 

@@ -111,7 +111,7 @@ export default {
 
 .blog-posts {
   list-style: none;
-  padding: 0;
+  padding: 40px 0 0;
   margin: 0;
   &__item {
     &:last-child {
@@ -125,18 +125,11 @@ export default {
   display: flex;
   position: relative;
   align-items: center;
-  padding: 20px;
-  background: linear-gradient(#fff, #fff),
-              var(--color-border-gradient);
-  background-origin: padding-box, border-box;
-  background-repeat: no-repeat; /* this is important */
-  border: 5px solid #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
   &:hover {
-    background: linear-gradient(#fff, #fff),
-              var(--color-border-gradient);
-    border: 5px solid transparent;
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+    border: 2px solid var(--color-secondary);
   }
   &__title {
     text-align: left;
@@ -186,14 +179,8 @@ export default {
 }
 
 .template--dark .post {
-  background: linear-gradient(#222, #222), var(--color-border-gradient);
-  border: 5px solid #222;
   &:hover {
-    background: linear-gradient(#222, #222),
-              var(--color-border-gradient);
-    border: 5px solid transparent;
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+    border: 2px solid var(--color-third);
   }
   &__title {
       padding-right: 20px;
