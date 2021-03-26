@@ -9,15 +9,12 @@ module.exports = {
   },
   extends: [
     'plugin:vue/recommended',
-    //'@nuxtjs/eslint-config-typescript',
-    //'prettier/vue',
-    //'plugin:prettier/recommended',
   ],
   plugins: [
   ],
   // add your custom rules here
   rules: {
-    "vue/singleline-html-element-content-newline": ["error", {
+    "vue/singleline-html-element-content-newline": [1, {
       "ignoreWhenNoAttributes": true,
       "ignoreWhenEmpty": true,
       "ignores": ["vue-markdown"]
