@@ -1,48 +1,11 @@
 <template>
   <div>
     <ul
-      v-if="isHome"
-      class="blog-posts blog-posts--home"
-    >
-      <li
-        v-for="post in posts.slice(0, 3)"
-        :key="post.fields.title"
-        class="blog-posts__item"
-      >
-        <div class="post">
-          <time class="post__date">
-            <span>
-              {{ new Date(post.fields.publishDate).getDate() }}
-            </span>
-            /
-            <span>
-              {{ new Date(post.fields.publishDate).getMonth() }}
-            </span>
-          </time>
-          <span class="post__title">{{ post.fields.title }}</span>
-          <nuxt-link
-            :to="{
-              name: 'blog-slug',
-              params: {
-                slug: post.fields.slug,
-              },
-            }"
-            class="post__link"
-          >
-            <span>Read post</span>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-              <g><path d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987   C40.691,62.648,13.124,69.887,12.851,69.957z"/></g><g><polygon points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025  "/></g>
-            </svg>
-          </nuxt-link>
-        </div>
-      </li>
-    </ul>
-    <ul
-      v-else
+      :class="[isHome ? 'blog-posts--home' : '']"
       class="blog-posts"
     >
       <li
-        v-for="post in posts"
+        v-for="post in blogPosts"
         :key="post.fields.title"
         class="blog-posts__item"
       >
@@ -67,8 +30,26 @@
             class="post__link"
           >
             <span>Read post</span>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-              <g><path d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987   C40.691,62.648,13.124,69.887,12.851,69.957z"/></g><g><polygon points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025  "/></g>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 100 125"
+              enable-background="new 0 0 100 100"
+              xml:space="preserve"
+            >
+              <g>
+                <path
+                  d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987C40.691,62.648,13.124,69.887,12.851,69.957z"
+                />
+              </g>
+              <g>
+                <polygon
+                  points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025"
+                />
+              </g>
             </svg>
           </nuxt-link>
         </div>
@@ -85,9 +66,18 @@ export default {
       default: null
     }
   },
+  data() {
+    return {
+      object: this.posts, // your original data
+      limit: 3 // or any number you wish to limit to
+    }
+  },
   computed: {
     isHome() {
       return this.$route.name === 'index'
+    },
+    blogPosts(){
+      return this.isHome ? this.posts.slice(0, this.limit) : this.posts
     }
   }
 }
@@ -127,9 +117,9 @@ export default {
   align-items: center;
   padding: 10px;
   margin-bottom: 20px;
-  border: 2px solid transparent;
+  border: 4px solid transparent;
   &:hover {
-    border: 2px solid var(--color-secondary);
+    border: 4px solid var(--color-secondary);
   }
   &__title {
     text-align: left;
@@ -180,7 +170,7 @@ export default {
 
 .template--dark .post {
   &:hover {
-    border: 2px solid var(--color-third);
+    border: 4px solid var(--color-third);
   }
   &__title {
       padding-right: 20px;

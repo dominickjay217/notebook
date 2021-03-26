@@ -102,8 +102,7 @@ export default {
       margin: 40px 0;
       padding: 10px 20px;
       border: 2px solid transparent;
-      background: linear-gradient(#fff, #fff),
-                  var(--color-border-gradient);
+      background: linear-gradient(#fff, #fff), var(--color-border-gradient);
       background-origin: padding-box, border-box;
       background-repeat: no-repeat; /* this is important */
       border-left: none;

@@ -1,5 +1,8 @@
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :class="[isHome ? 'header-thick' : 'header-thin']"
+  >
     <div class="container">
       <h1 class="header__title heading heading--one">
         <NuxtLink
@@ -67,7 +70,6 @@
     >
       <path
         d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"
-        fill="#fff"
       />
     </svg>
   </header>

@@ -6,9 +6,9 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
-          <h3 class="content__heading">I’ve written {{ this.posts.length }} posts about how I stopped being such a dingus.</h3>
-          <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
-          <BlogPosts :posts="posts"/>
+          <h3 class="content__heading">I’ve written {{ posts.length }} posts about development and setups.</h3>
+          <p>I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.</p>
+          <BlogPosts :posts="posts" />
         </section>
       </div>
       <BannerBar :person="person" />
@@ -16,7 +16,6 @@
     <ContactBar :person="person" />
     <SocialBar :person="person" />
     <FooterBar />
-    <!-- <code>{{ person.fields }}</code> -->
   </div>
 </template>
 
@@ -68,10 +67,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-// p {
-//   margin-bottom: 60px;
-// }
 
 .template--dark h3 {
   color: var(--color-font);
