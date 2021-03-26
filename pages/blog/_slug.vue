@@ -21,13 +21,6 @@
               </span>
             </time>
             <strong class="post__intro">{{ post.fields.description }}</strong>
-            <div class="contents">
-              <ol class="content-list">
-                <li class="content-list__item">This is item 1</li>
-                <li class="content-list__item">This is item 2</li>
-                <li class="content-list__item">This is item 3</li>
-              </ol>
-            </div>
             <vue-markdown class="post__bodytext">
               {{ post.fields.body }}
             </vue-markdown>

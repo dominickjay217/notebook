@@ -6,12 +6,12 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
-            <h3 class="content__heading">I’ve written {{ this.posts.length }} posts about how I stopped being such a dingus.</h3>
-            <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
-            <BlogPosts :posts="posts"/>
+          <h3 class="content__heading">I’ve written {{ this.posts.length }} posts about how I stopped being such a dingus.</h3>
+          <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
+          <BlogPosts :posts="posts"/>
         </section>
       </div>
-      <BannerBar :person="person"  />
+      <BannerBar :person="person" />
     </main>
     <ContactBar :person="person" />
     <SocialBar :person="person" />

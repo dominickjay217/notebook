@@ -3,7 +3,7 @@
     <Weather />
     <HeaderBar :person="person" />
     <main>
-    <BannerBar :person="person" />
+      <BannerBar :person="person" />
       <div class="container">
         <section class="content about">
           <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
@@ -22,22 +22,38 @@
             <strong>
               I love dad jokes, how about one of them instead?
             </strong>
-            <Joke></Joke>
+            <Joke />
           </div>
           <div class="about__content about__content--lastfm">
-              <p v-if="$fetchState.pending">Fetching music information...</p>
-              <p v-else-if="$fetchState.error">Either an error occurred or I've got Disney playing</p>
-              <div class="lastfm-info" v-else>
-                <p>
-                  The last song I listened to was
-                  <strong>{{ music.recenttracks.track[0].name }}</strong> by
-                  <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
-                </p>
-                <div class="lastfm-info__imagewrapper">
-                  <img class="lastfm-info__image" :src="music.recenttracks.track[0].image[3]['#text']" />
-                  <img :src="music.recenttracks.track[0].image[3]['#text']" />
-                </div>
+            <p
+              v-if="$fetchState.pending"
+            >
+              Fetching music information...
+            </p>
+            <p
+              v-else-if="$fetchState.error"
+            >
+              Either an error occurred or I've got Disney playing
+            </p>
+            <div
+              v-else
+              class="lastfm-info"
+            >
+              <p>
+                The last song I listened to was
+                <strong>{{ music.recenttracks.track[0].name }}</strong> by
+                <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
+              </p>
+              <div class="lastfm-info__imagewrapper">
+                <img
+                  class="lastfm-info__image"
+                  :src="music.recenttracks.track[0].image[3]['#text']"
+                >
+                <img
+                  :src="music.recenttracks.track[0].image[3]['#text']"
+                >
               </div>
+            </div>
           </div>
         </section>
         <Spacer spacer-no="2" />

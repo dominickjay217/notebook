@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  props: ['person'],
+  props: {
+    'person': {
+      type: Object,
+      default: null
+    }
+  },
 }
 </script>
 

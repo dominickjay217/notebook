@@ -1,29 +1,30 @@
 <template>
-    <ul class="navigation">
-        <li class="navigation__item">
-            <NuxtLink class="navigation__link" to="/about">
-                About
-            </NuxtLink>
-        </li>
-        <li class="navigation__item">
-            <NuxtLink class="navigation__link" to="/blog">
-                Blog
-            </NuxtLink>
-        </li>
-        <li class="navigation__item">
-            <a href="#contact" class="navigation__link">Contact</a>
-        </li>
-        <!-- <li class="navigation__item">
-            <a
-                target="__blank"
-                rel="noopener"
-                href="https://codepen.io/dominickjay217"
-                class="navigation__link"
-            >
-                Creative
-            </a>
-        </li> -->
-    </ul>
+  <ul class="navigation">
+    <li class="navigation__item">
+      <NuxtLink
+        class="navigation__link"
+        to="/about"
+      >
+        About
+      </NuxtLink>
+    </li>
+    <li class="navigation__item">
+      <NuxtLink
+        class="navigation__link"
+        to="/blog"
+      >
+        Blog
+      </NuxtLink>
+    </li>
+    <li class="navigation__item">
+      <a
+        href="#contact"
+        class="navigation__link"
+      >
+        Contact
+      </a>
+    </li>
+  </ul>
 </template>
 
 <script>

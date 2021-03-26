@@ -1,7 +1,7 @@
 <template>
-    <div>
-        {{ newJoke }}
-    </div>
+  <div>
+    {{ newJoke }}
+  </div>
 </template>
 
 <script>
