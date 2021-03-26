@@ -7,17 +7,8 @@
       <div class="container">
         <section class="content about">
           <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
-          <img
-            class="about__picture"
-            :src="person.fields.profileImage.fields.file.url + '?w=1200'"
-            :alt="person.fields.profileImage.fields.title"
-          >
           <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
           <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown>
-          <img
-            class="about__picture about__picture--two"
-            src="images/insp1.png"
-          >
           <div class="about__content about__content--joke">
             <strong>
               I love dad jokes, how about one of them instead?
@@ -173,24 +164,19 @@ export default {
 
 <style lang="scss" scoped>
 
-/* Inline #12 | http://localhost:3000/about */
-
 .about {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
-    //grid-template-rows: repeat(5, minmax(50px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
     &__intro {
-        grid-column: span 2;
+        grid-column: span 4;
     }
     &__picture {
         grid-column: 4 / span 1;
         object-fit: cover;
-        // grid-row: 1 / 3;
         &--two {
           align-self: center;
-          // grid-row: 3 / 3;
           grid-column: 2 / 3;
         }
     }
@@ -199,7 +185,6 @@ export default {
         padding-bottom: 40px;
         align-self: center;
         &--one {
-            // grid-row: 2;
             grid-column: 1 / 4;
         }
         &--two {
@@ -207,7 +192,7 @@ export default {
             grid-column: 2 / 4;
         }
         &--joke {
-            // grid-row: 5;
+            grid-row: 5;
             grid-column: 3 / 5;
             align-self: center;
             & strong {
@@ -216,7 +201,7 @@ export default {
             }
         }
         &--lastfm {
-            grid-row: 5;
+            grid-row: 6;
             grid-column: 1/4;
             padding-top: 60px;
             & strong {

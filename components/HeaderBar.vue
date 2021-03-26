@@ -149,53 +149,38 @@
     top: 0;
     left: 0;
     width: 100%;
-    position: relative;
-    z-index: 2;
-    bottom: -25px;
+    height: 100%;
+    opacity: 0;
+    background: linear-gradient(to top, #283E51, #0A2342);
+    z-index: 0;
   }
 
-  // Header styles
-  .header {
-    padding: 60px 0 20px;
-    background: linear-gradient(to bottom, #d3f0f2, var(--color-primary));
+  &__title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
 
-    //background: linear-gradient(to bottom, #d3f0f2, var(--color-primary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      background: linear-gradient(to top, #283E51, #0A2342);
-      z-index: 0;
-    }
+  &__tagline {
+    font-size: 0.85rem;
+    text-align: center;
+    font-family: var(--font-family-body);
+    margin-top: 0;
+    color: var(--color-font);
+    position: relative;
+    z-index: 2;
+  }
 
-    &__title {
-      text-align: center;
-      font-size: 3rem;
-      margin: 0;
-      position: relative;
-      z-index: 2;
-    }
+  &__link,
+  &__link:hover {
+    position: relative;
+    color: var(--color-font);
+    text-decoration: none;
+  }
+}
 
-    &__tagline {
-      font-size: 0.85rem;
-      text-align: center;
-      font-family: var(--font-family-body);
-      margin-top: 0;
-      color: var(--color-font);
-      position: relative;
-      z-index: 2;
-    }
-
-    &__link,
-    &__link:hover {
-      position: relative;
-      color: var(--color-font);
-      text-decoration: none;
-      
 .header--dark {
   &::before {
     opacity: 1;
@@ -241,12 +226,14 @@
       }
     }
   }
+}
 
-  .header--dark {
-    &::before {
-      opacity: 1;
-    }
-    
+.header--dark {
+  &::before {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
   .header {
@@ -302,63 +289,64 @@
       }
     }
   }
+}
 
-  @media (max-width: 1100px) {
+@media (max-width: 1100px) {
 
-    /* A mobile version for all devices that is smaller than the smalles iPad */
-    .header {
-      margin-top: 0;
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .hero {
-      grid-template-columns: repeat(4, 1fr);
-
-      &__tagline {
-        padding: 20px 0;
-        transform: none;
-        grid-column: 1 / 4;
-        justify-content: flex-start;
-
-        & span {
-          font-size: var(--taglineSizeSm);
-          min-height: auto;
-        }
-      }
-
-      &__image {
-        padding: 0px;
-        margin-left: 0;
-        -webkit-transform: rotate(5deg);
-        transform: rotate(5deg);
-        grid-column: 4 / 5;
-      }
-    }
+  /* A mobile version for all devices that is smaller than the smalles iPad */
+  .header {
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
+  .hero {
+    grid-template-columns: repeat(4, 1fr);
 
-  @media (max-width: 640px) and (orientation: portrait) {
-    .hero {
-      grid-template-columns: repeat(4, 1fr);
+    &__tagline {
+      padding: 20px 0;
+      transform: none;
+      grid-column: 1 / 4;
+      justify-content: flex-start;
 
-      &__tagline {
-        padding: 20px 0;
-        transform: none;
-        font-size: 3rem;
-        grid-column: 1 / 5;
-        grid-row: 1;
-      }
-
-      &__image {
-        padding: 40px 0 0;
-        margin-bottom: 40px;
-        margin-left: 0;
-        -webkit-transform: rotate(5deg);
-        transform: rotate(5deg);
-        grid-column: 3 / 5;
-        grid-row: 1;
+      & span {
+        font-size: var(--taglineSizeSm);
+        min-height: auto;
       }
     }
+
+    &__image {
+      padding: 0px;
+      margin-left: 0;
+      -webkit-transform: rotate(5deg);
+      transform: rotate(5deg);
+      grid-column: 4 / 5;
+    }
   }
+}
+
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .hero {
+    grid-template-columns: repeat(4, 1fr);
+
+    &__tagline {
+      padding: 20px 0;
+      transform: none;
+      font-size: 3rem;
+      grid-column: 1 / 5;
+      grid-row: 1;
+    }
+
+    &__image {
+      padding: 40px 0 0;
+      margin-bottom: 40px;
+      margin-left: 0;
+      -webkit-transform: rotate(5deg);
+      transform: rotate(5deg);
+      grid-column: 3 / 5;
+      grid-row: 1;
+    }
+  }
+}
 </style>
