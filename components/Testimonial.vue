@@ -31,7 +31,6 @@ export default {
     margin-bottom: 20px;
     position: relative;
     padding: 0 20px;
-    padding-left: 60px;
     grid-column: 1 / 8;
   }
   &__copy:first-child {
