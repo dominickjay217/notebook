@@ -6,13 +6,16 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content about">
+          <!-- eslint-disable-next-line prettier/prettier -->
           <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
           <img
             class="about__picture"
             :src="person.fields.profileImage.fields.file.url + '?w=1200'"
             :alt="person.fields.profileImage.fields.title"
           >
+          <!-- eslint-disable-next-line prettier/prettier -->
           <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
+          <!-- eslint-disable-next-line prettier/prettier -->
           <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown>
           <div class="about__content about__content--joke">
             <strong>
