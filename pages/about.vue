@@ -14,6 +14,10 @@
           >
           <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
           <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown>
+          <img
+            class="about__picture about__picture--two"
+            src="images/insp1.png"
+          >
           <div class="about__content about__content--joke">
             <strong>
               I love dad jokes, how about one of them instead?
@@ -103,31 +107,31 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
-import Testimonial from '~/components/Testimonial.vue'
-import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
-import Joke from '~/components/Joke.vue'
-import Spacer from '~/components/Spacer.vue'
-import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
+import HeaderBar from '~/components/HeaderBar.vue'
+import Joke from '~/components/Joke.vue'
+import SocialBar from '~/components/SocialBar.vue'
+import Spacer from '~/components/Spacer.vue'
+import Testimonial from '~/components/Testimonial.vue'
 import VueMarkdown from 'vue-markdown'
+import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
 export default {
   components: {
-    HeaderBar,
     BannerBar,
+    ContactBar,
+    FooterBar,
+    HeaderBar,
     Joke,
     Testimonial,
     SocialBar,
-    ContactBar,
-    FooterBar,
     Spacer,
-    Weather,
     VueMarkdown,
+    Weather,
   },
   asyncData({ env }) {
     return Promise.all([
@@ -173,37 +177,46 @@ export default {
 
 .about {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-    grid-gap: var(--grid-gap);;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    //grid-template-rows: repeat(5, minmax(50px, 1fr));
+    grid-auto-flow: dense;
+    grid-gap: var(--grid-gap);
     &__intro {
-        grid-column: 1 / 4;
-        grid-row: 1;
+        grid-column: span 2;
     }
     &__picture {
-        padding-top: 50px;
-          grid-column: 4 / 5;
-        grid-row: 1 / 3;
+        grid-column: 4 / span 1;
+        object-fit: cover;
+        // grid-row: 1 / 3;
+        &--two {
+          align-self: center;
+          // grid-row: 3 / 3;
+          grid-column: 2 / 3;
+        }
     }
     &__content {
         font-size: 1rem;
+        padding-bottom: 40px;
+        align-self: center;
         &--one {
-            grid-row: 2;
-            grid-column: 1/4;
+            // grid-row: 2;
+            grid-column: 1 / 4;
         }
         &--two {
             grid-row: 3;
-            grid-column: 2/4;
+            grid-column: 2 / 4;
         }
         &--joke {
-            grid-row: 5;
-            grid-column: 3/5;
+            // grid-row: 5;
+            grid-column: 3 / 5;
+            align-self: center;
             & strong {
                 display: block;
                 margin-bottom: 20px;
             }
         }
         &--lastfm {
-            grid-row: 6;
+            grid-row: 5;
             grid-column: 1/4;
             padding-top: 60px;
             & strong {
@@ -215,6 +228,10 @@ export default {
             }
         }
     }
+}
+
+.template--dark .about {
+  color: var(--color-font);
 }
 
 .work {
@@ -272,6 +289,10 @@ export default {
     }
 }
 
+.template--dark .other-work__link {
+  color: var(--color-font);
+}
+
 @media (max-width: 992px) {
   .work {
     grid-template-columns: repeat(1, 1fr);
@@ -320,37 +341,60 @@ export default {
   }
 }
 
+@media (max-width: 1024px) and (orientation: landscape) {
+  .about {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    &__intro {
+      grid-column: span 3;
+    }
+  }
+}
+
 @media (max-width: 768px) and (orientation: portrait) {
   .about {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     &__intro {
       grid-column: 1 / 5;
       grid-row: 2;
     }
     &__picture {
-      grid-column: 2 / 4;
+      grid-column: 1 / 4;
       grid-row: 1;
       padding-top: 0;
+      margin: 0 auto;
+      &--two {
+        grid-row: 3;
+      }
     }
     &__content {
       grid-column: 1 / 5;
     }
     &__content:nth-child(3) {
-      grid-row: 3;
+      grid-row: 4;
     }
     &__content:nth-child(4) {
-      grid-row: 4;
+      grid-row: 5;
+    }
+    &__content--joke {
+      grid-row: 6;
+    }
+    &__content--lastfm {
+      grid-row: 7;
     }
 
   }
 
   .lastfm-info {
-    flex-direction: column;
+    align-items: flex-start;
     &__imagewrapper {
-      padding-left: 0;
-      padding-top: 40px;
+      padding-top: 10px;
+      max-width: 250px;
+      width: 100%;
+    }
+    p {
+      max-width: 350px;
     }
   }
-
 }
 
 

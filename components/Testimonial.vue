@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .testimonial {
   &__content {
@@ -34,8 +34,12 @@ export default {
     grid-column: 1 / 8;
   }
   &__copy:first-child {
-    grid-column: 3 / 8;
+    grid-column: 1 / 8;
   }
+}
+
+.template--dark .testimonial {
+  color: var(--color-font);
 }
 
 @media (max-width: 640px) and (orientation: portrait) {
@@ -48,11 +52,6 @@ export default {
       grid-row: 1;
       grid-column: 1 / 8;
       padding-left: 20px;
-    }
-    & svg {
-      grid-column: 1 / 8;
-      opacity: 0.25;
-      grid-row: 1;
     }
   }
 

@@ -8,16 +8,13 @@
 
 <style lang="scss">
 
-@font-face {
-  font-family: var(--font-family-headings);
-  font-display: swap;
-  src: url('~assets/fonts/SaltedMocha-Regular.otf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap');
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: var(--font-family-headings);
+  src: url("/fonts/SaltedMocha-Regular.woff") format("woff"),
+        url("/fonts/SaltedMocha-Regular.ttf")  format("truetype");
   font-display: swap;
-  src: url('~assets/fonts/Poppins-Light.ttf') format('truetype');
 }
 
 :root {
@@ -77,6 +74,10 @@ main {
   background-color: #fff;
 }
 
+.template--dark main {
+  background-color: #222;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -130,6 +131,10 @@ strong {
     text-align: center;
     font-size: 3rem;
   }
+}
+
+.template--dark .heading {
+  color: #fff;
 }
 
 @keyframes squiggle {

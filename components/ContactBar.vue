@@ -41,8 +41,13 @@ export default {
     fill: #fff;
     transform: rotate(180deg);
     z-index: 2;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 }
+
+.template--dark .curve {
+  fill: #222;
+}
+
 .contact {
     position: relative;
     margin-top: -50px;
@@ -62,6 +67,7 @@ export default {
     }
     &__text {
         max-width: 992px;
+        padding: 0 20px;
         & span {
             display: block;
             margin-bottom: 20px;
@@ -70,14 +76,14 @@ export default {
 }
 
 .template--dark {
+    --dark: #0A2342;
     & .contact {
         --dark: #0A2342;
         background: var(--dark);
         color: var(--color-primary);
     }
     .contact .curve {
-        --dark: #0A2342;
-        background: linear-gradient(to top, #fff 1px, var(--dark) 2px);
+        background: var(--dark);
     }
 }
 

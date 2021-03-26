@@ -29,7 +29,7 @@
             }"
             class="post__link"
           >
-            Read post
+            <span>Read post</span>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
               <g><path d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987   C40.691,62.648,13.124,69.887,12.851,69.957z"/></g><g><polygon points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025  "/></g>
             </svg>
@@ -66,7 +66,7 @@
             }"
             class="post__link"
           >
-            Read post
+            <span>Read post</span>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
               <g><path d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987   C40.691,62.648,13.124,69.887,12.851,69.957z"/></g><g><polygon points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025  "/></g>
             </svg>
@@ -111,7 +111,7 @@ export default {
 
 .blog-posts {
   list-style: none;
-  padding: 0;
+  padding: 40px 0 0;
   margin: 0;
   &__item {
     &:last-child {
@@ -125,18 +125,11 @@ export default {
   display: flex;
   position: relative;
   align-items: center;
-  padding: 20px;
-  background: linear-gradient(#fff, #fff),
-              var(--color-border-gradient);
-  background-origin: padding-box, border-box;
-  background-repeat: no-repeat; /* this is important */
-  border: 5px solid #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
   &:hover {
-    background: linear-gradient(#fff, #fff),
-              var(--color-border-gradient);
-    border: 5px solid transparent;
-    background-origin: padding-box, border-box;
-    background-repeat: no-repeat;
+    border: 2px solid var(--color-secondary);
   }
   &__title {
     text-align: left;
@@ -185,6 +178,23 @@ export default {
   }
 }
 
+.template--dark .post {
+  &:hover {
+    border: 2px solid var(--color-third);
+  }
+  &__title {
+      padding-right: 20px;
+  }
+  &__link,
+  &__title,
+  &__date {
+    color: #fff;
+    & svg {
+      fill: #fff;
+    }
+  }
+}
+
 @media (max-width: 767px) and (orientation: portrait) {
   .post {
     font-size: 1rem;
@@ -196,10 +206,13 @@ export default {
 
 @media (max-width: 640px) and (orientation: portrait) {
   .post {
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     & * {
       margin-bottom: 10px;
+    }
+    &__title {
+      max-width: 250px;
     }
     &__date {
       display: none;
@@ -207,6 +220,9 @@ export default {
     &__link {
       margin-left: 0;
       margin-bottom: 0;
+      & span {
+        display: none;
+      }
     }
   }
 }

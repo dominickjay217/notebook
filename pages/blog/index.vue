@@ -6,11 +6,9 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
-          <h3 class="content__heading">
-            I’ve written 31 posts about how I stopped being such a dingus.
-          </h3>
+          <h3 class="content__heading">I’ve written {{ this.posts.length }} posts about how I stopped being such a dingus.</h3>
           <p>I write about building strong teams, healthier working lives, effective habits, and more. In these posts, I share actionable strategies written from real experience.</p>
-          <BlogPosts :posts="posts" />
+          <BlogPosts :posts="posts"/>
         </section>
       </div>
       <BannerBar :person="person" />
@@ -24,13 +22,13 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import HeaderBar from '~/components/HeaderBar.vue'
 import BannerBar from '~/components/BannerBar.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
-import SocialBar from '~/components/SocialBar.vue'
 import ContactBar from '~/components/ContactBar.vue'
-import Weather from '~/components/Weather.vue'
 import FooterBar from '~/components/FooterBar.vue'
+import HeaderBar from '~/components/HeaderBar.vue'
+import SocialBar from '~/components/SocialBar.vue'
+import Weather from '~/components/Weather.vue'
 const client = createClient()
 
 export default {
@@ -70,11 +68,16 @@ export default {
 </script>
 
 <style lang="scss">
-h3 {
 
+// p {
+//   margin-bottom: 60px;
+// }
+
+.template--dark h3 {
+  color: var(--color-font);
 }
 
-p {
-  margin-bottom: 60px;
+.template--dark p {
+  color: var(--color-font);
 }
 </style>

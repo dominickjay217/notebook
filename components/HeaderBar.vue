@@ -126,7 +126,28 @@
 </script>
 
 <style lang="scss" scoped>
-  .curve {
+
+.curve {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  bottom: -25px;
+  fill: #fff;
+}
+
+.template--dark .curve {
+  fill: #222;
+}
+
+// Header styles
+.header {
+  padding: 60px 0 20px;
+  background: linear-gradient(to bottom, #d3f0f2, var(--color-primary));
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -174,6 +195,50 @@
       position: relative;
       color: var(--color-font);
       text-decoration: none;
+      
+.header--dark {
+  &::before {
+    opacity: 1;
+  }
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: var(--grid-gap);;
+  align-items: center;
+  position: relative;
+  &__tagline {
+    color: var(--color-font);
+    padding: 80px 50px 40px;
+    font-family: var(--font-family-headings);
+    font-weight: 900;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+    & span {
+      min-height: 300px;
+      font-size: var(--taglineSizeLg);
+    }
+    &-refresh {
+      border: 0;
+      background-color: transparent;
+      max-width: 65px;
+      width: 100%;
+      margin-top: 20px;
+      align-self: center;
+      cursor: pointer;
+      transition: .25s cubic-bezier(0.19, 1, 0.22, 1) transform;
+      &:hover {
+        transform: scale(1.1) rotate(180deg);
+        transition: .25s cubic-bezier(0.19, 1, 0.22, 1) transform;
+      }
+      & svg path {
+        fill: var(--color-font);
+      }
     }
   }
 
@@ -181,6 +246,14 @@
     &::before {
       opacity: 1;
     }
+    
+@media (max-width: 1100px) {
+  /* A mobile version for all devices that is smaller than the smalles iPad */
+  .header {
+    padding-top: 80px;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   //hero
@@ -188,10 +261,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: var(--grid-gap);
-    ;
     align-items: center;
     position: relative;
-
     &__tagline {
       color: var(--color-font);
       padding: 80px 50px 40px;
