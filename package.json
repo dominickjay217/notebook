@@ -16,6 +16,7 @@
     "babel-runtime": "^6.26.0",
     "contentful": "^8.1.7",
     "core-js": "^3.8.3",
+    "gsap": "^3.6.1",
     "nuxt": "^2.14.12",
     "vue-markdown": "^2.2.4"
   },
@@ -27,6 +28,7 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.5.0",
     "node-sass": "^5.0.0",
+    "nuxt-gsap-module": "^1.2.1",
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "webpack": "^4.44.2"

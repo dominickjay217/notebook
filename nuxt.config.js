@@ -26,6 +26,9 @@ export default {
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js' }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

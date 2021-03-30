@@ -57,7 +57,7 @@ export default {
     VueMarkdown,
   },
   asyncData({ env, params }) {
-        return Promise.all([
+    return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_PERSON_ID
       }),
@@ -88,7 +88,7 @@ export default {
       font-size: 2.25rem;
     }
     & a {
-      font-weight: 700;
+      font-weight: 500;
     }
     img {
       margin: 5rem auto;

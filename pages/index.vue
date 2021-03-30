@@ -43,10 +43,10 @@
             </svg>
           </NuxtLink>
         </section>
-        <Spacer spacer-no="2" />
-        <section class="content testimonial">
+        <!-- <Spacer spacer-no="2" /> -->
+        <!-- <section class="content testimonial">
           <Testimonial :person="person" />
-        </section>
+        </section> -->
       </div>
       <BannerBar :person="person" />
     </main>
@@ -66,7 +66,7 @@ import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
-import Testimonial from '~/components/Testimonial.vue'
+// import Testimonial from '~/components/Testimonial.vue'
 import Weather from '~/components/Weather.vue'
 
 const client = createClient()
@@ -78,7 +78,6 @@ export default {
     ContactBar,
     FooterBar,
     HeaderBar,
-    Testimonial,
     SocialBar,
     Spacer,
     Weather,
@@ -107,9 +106,10 @@ export default {
 <style lang="scss" scoped>
 
 .about {
+  margin: 40px auto;
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   font-family: var(--font-family-body);
 }
 

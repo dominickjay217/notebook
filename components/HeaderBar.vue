@@ -22,10 +22,13 @@
         v-if="isHome"
         class="hero"
       >
-        <span class="hero__tagline">
-          <span :style="'--taglineSizeLg:' + taglineSizeLg + '; --taglineSizeSm:' + taglineSizeSm">{{ tagline }}</span>
-          <button
-            class="hero__tagline-refresh"
+        <span class="hero__fact">
+          <span :style="'--factSizeLg:' + factSizeLg + '; --factSizeSm:' + factSizeSm">
+            Leave it better than you found it
+          </span>
+          <p>This is a place of <span class="typing"><span>{{ fact }}</span></span></p>
+          <!-- <button
+            class="hero__fact-refresh"
             @click="refreshTagline"
           >
             <svg
@@ -57,7 +60,7 @@
                 </g>
               </g>
             </svg>
-          </button>
+          </button> -->
         </span>
       </div>
     </div>
@@ -90,25 +93,21 @@
     },
     data() {
       return {
-        list: [{
-            taglineSizeLg: '8.5rem',
-            taglineSizeSm: '2.5rem',
-            text: `Has a lot of ideas`,
+        list: [
+          {
+            factSizeLg: '3rem',
+            factSizeSm: '3rem',
+            text: `Experimenting`,
           },
           {
-            taglineSizeLg: '4.5rem',
-            taglineSizeSm: '2.5rem',
-            text: `Talk is cheap. Show me the code`,
-          },
-          {
-            taglineSizeLg: '4.5rem',
-            taglineSizeSm: '2.5rem',
-            text: `Leave it better than you found it`,
+            factSizeLg: '3rem',
+            factSizeSm: '3rem',
+            text: `Writing`,
           },
         ],
-        tagline: 'Leave it better than you found it',
-        taglineSizeLg: '4.5rem',
-        taglineSizeSm: '2.5rem',
+        fact: 'Learning',
+        factSizeLg: '3rem',
+        factSizeSm: '3rem',
       }
     },
     computed: {
@@ -116,18 +115,16 @@
         return this.$route.name === 'index'
       }
     },
-    methods: {
-      refreshTagline() {
+    mounted () {
+      setInterval(() => {
         var chosenNumber = Math.floor(Math.random() * this.list.length);
-        this.tagline = this.list[chosenNumber].text;
-        this.taglineSizeSm = this.list[chosenNumber].taglineSizeSm;
-        this.taglineSizeLg = this.list[chosenNumber].taglineSizeLg;
-      }
+        this.fact = this.list[chosenNumber].text;
+      }, 3000);
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .curve {
   width: 100%;
@@ -169,10 +166,14 @@
     font-size: 0.85rem;
     text-align: center;
     font-family: var(--font-family-body);
+    font-weight: 300;
     margin-top: 0;
     color: var(--color-font);
     position: relative;
     z-index: 2;
+    & p {
+      font-family: var(--font-family-body);
+    }
   }
 
   &__link,
@@ -195,38 +196,138 @@
   grid-gap: var(--grid-gap);;
   align-items: center;
   position: relative;
-  &__tagline {
+  margin: 0 0 20px;
+  &__fact {
     color: var(--color-font);
-    padding: 80px 50px 40px;
-    font-family: var(--font-family-headings);
+    padding: 0;
+    font-family: var(--font-family-body);
     font-weight: 900;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-end;
     position: relative;
     z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    &::before {
+      content: "";
+      border-top: 1px solid var(--color-secondary);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      animation: borderTopGrow 2s forwards;
+    }
     & span {
-      min-height: 300px;
-      font-size: var(--taglineSizeLg);
-    }
-    &-refresh {
-      border: 0;
-      background-color: transparent;
-      max-width: 65px;
-      width: 100%;
-      margin-top: 20px;
-      align-self: center;
-      cursor: pointer;
-      transition: .25s cubic-bezier(0.19, 1, 0.22, 1) transform;
-      &:hover {
-        transform: scale(1.1) rotate(180deg);
-        transition: .25s cubic-bezier(0.19, 1, 0.22, 1) transform;
-      }
-      & svg path {
-        fill: var(--color-font);
+      --color-secondary-light: #325d63;
+      --backgroundGradient: rgba(0, 0, 0, 0) linear-gradient(var(--color-secondary), var(--color-secondary-light)) repeat scroll 0% 0% padding-box text;
+      font-size: var(--factSizeLg);
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      background: var(--backgroundGradient);
+      -webkit-text-fill-color: transparent;
+      &::after {
+        content: "";
+        border-right: 1px solid var(--color-secondary);
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 0;
+        animation: borderRightGrow 2s forwards 2s;
       }
     }
+    & p  {
+      font-size: 0.85rem;
+      font-weight: 300;
+      max-width: 50%;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+      &::before {
+        content: "";
+        border-top: 1px solid var(--color-secondary);
+        border-bottom: 1px solid var(--color-secondary);
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        animation: borderTopBottomGrow 2s forwards 4s;
+      }
+      &::after {
+        content: "";
+        border-left: 1px solid var(--color-secondary);
+        border-right: 1px solid var(--color-secondary);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 0;
+        animation: borderSidesGrow 2s forwards 6s;
+      }
+    }
+  }
+}
+
+.template--dark .hero__fact span {
+      --color-third-light: #fcb276;
+      --backgroundGradient: rgba(0, 0, 0, 0) linear-gradient(var(--color-third), var(--color-third-light)) repeat scroll 0% 0% padding-box text;
+}
+
+@keyframes borderTopGrow {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes borderBottomGrow {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes borderRightGrow {
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes borderLeftGrow {
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes borderTopBottomGrow {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes borderSidesGrow {
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes textColorReveal {
+  100% {
+    color: var(--color-font);
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -252,13 +353,11 @@
     grid-gap: var(--grid-gap);
     align-items: center;
     position: relative;
-    &__tagline {
+    &__fact {
       color: var(--color-font);
-      padding: 80px 50px 40px;
-      font-family: var(--font-family-headings);
+      padding: 0;
       font-weight: 900;
       text-align: center;
-      min-height: 400px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -266,29 +365,28 @@
       z-index: 2;
 
       & span {
-        min-height: 300px;
-        font-size: var(--taglineSizeLg);
+        font-size: var(--factSizeLg);
       }
 
-      &-refresh {
-        --transition: 2s cubic-bezier(0.19, 1, 0.22, 1) transform;
-        border: 0;
-        background-color: transparent;
-        max-width: 65px;
-        margin-top: 20px;
-        align-self: center;
-        cursor: pointer;
-        transition: var(--transition);
+      // &-refresh {
+      //   --transition: 2s cubic-bezier(0.19, 1, 0.22, 1) transform;
+      //   border: 0;
+      //   background-color: transparent;
+      //   max-width: 65px;
+      //   margin-top: 20px;
+      //   align-self: center;
+      //   cursor: pointer;
+      //   transition: var(--transition);
 
-        &:hover {
-          transform: scale(1.1) rotate(180deg);
-          transition: var(--transition);
-        }
+      //   &:hover {
+      //     transform: scale(1.1) rotate(180deg);
+      //     transition: var(--transition);
+      //   }
 
-        & svg path {
-          fill: var(--color-font);
-        }
-      }
+      //   & svg path {
+      //     fill: var(--color-font);
+      //   }
+      // }
     }
   }
 }
@@ -305,14 +403,13 @@
   .hero {
     grid-template-columns: repeat(4, 1fr);
 
-    &__tagline {
-      padding: 20px 0;
+    &__fact {
       transform: none;
       grid-column: 1 / 4;
       justify-content: flex-start;
 
       & span {
-        font-size: var(--taglineSizeSm);
+        font-size: var(--factSizeSm);
         min-height: auto;
       }
     }
@@ -332,8 +429,7 @@
   .hero {
     grid-template-columns: repeat(4, 1fr);
 
-    &__tagline {
-      padding: 20px 0;
+    &__fact {
       transform: none;
       font-size: 3rem;
       grid-column: 1 / 5;
@@ -349,6 +445,32 @@
       grid-column: 3 / 5;
       grid-row: 1;
     }
+  }
+}
+
+.hero__fact .typing {
+  color: currentColor;
+  padding: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  & span  {
+    padding: 0;
+    max-width: 0;
+    overflow: hidden;
+    animation: typingRevealer 15s infinite 8s;
+    &::after {
+      content: none;
+    }
+  }
+}
+
+@keyframes typingRevealer {
+  10% {
+    max-width: 20ch;
+  }
+  30% {
+    max-width: 0;
   }
 }
 </style>

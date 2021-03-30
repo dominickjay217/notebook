@@ -62,7 +62,7 @@
 export default {
   props: {
     'posts': {
-      type: Object,
+      type: Array,
       default: null
     }
   },
@@ -123,7 +123,7 @@ export default {
   }
   &__title {
     text-align: left;
-    font-weight: 700;
+    font-weight: 300;
   }
   &__link {
     margin-left: auto;
@@ -159,12 +159,8 @@ export default {
     justify-content: flex-start;
     margin-right: 40px;
     min-width: 50px;
-    & span {
-      font-weight: 700;
-    }
-    & span:last-child {
-      opacity: 0.5;
-    }
+    font-weight: 300;
+    opacity: 0.5;
   }
 }
 

@@ -40,7 +40,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 40px 0 20px;
+  margin: 40px 0 60px;
   padding: 0;
   list-style: none;
   position: relative;
@@ -55,6 +55,7 @@ export default {
     font-family: var(--font-family-body);
     color: var(--color-font);
     padding: 10px 20px;
+    font-weight: 300;
     &:hover,
     &--active {
       &::before,

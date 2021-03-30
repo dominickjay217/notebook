@@ -424,6 +424,8 @@ export default {
         width: 100%;
         transition: 5s ease-in-out opacity;
         animation: twinkle 2s infinite;
+        transform: scale(1);
+        transform-origin: center;
         opacity: 0;
         &-icon {
             width: 8px;
@@ -458,14 +460,9 @@ export default {
     }
 
     @keyframes twinkle {
-        0% {
-            transform: scale(1)
-        }
         50% {
-            transform: scale(1.25)
-        }
-        100% {
-            transform: scale(1)
+            transform: scale(1.15);
+            transform-origin: center;
         }
     }
 

@@ -262,7 +262,7 @@ export default {
     }
     &__link {
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 500;
         color: var(--color-fourth);
         text-align: left;
         width: 100%;
