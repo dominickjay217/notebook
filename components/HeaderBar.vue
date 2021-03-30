@@ -26,7 +26,7 @@
           <span :style="'--factSizeLg:' + factSizeLg + '; --factSizeSm:' + factSizeSm">
             Leave it better than you found it
           </span>
-          <p>This is a place of <span class="typing"><span>{{ fact }}</span></span></p>
+          <p>This is a place of <span class="typing">{{ fact }}</span></p>
           <!-- <button
             class="hero__fact-refresh"
             @click="refreshTagline"
@@ -119,7 +119,7 @@
       setInterval(() => {
         var chosenNumber = Math.floor(Math.random() * this.list.length);
         this.fact = this.list[chosenNumber].text;
-      }, 3000);
+      }, 15000);
     }
   }
 </script>
@@ -221,13 +221,21 @@
     }
     & span {
       --color-secondary-light: #325d63;
-      --backgroundGradient: rgba(0, 0, 0, 0) linear-gradient(var(--color-secondary), var(--color-secondary-light)) repeat scroll 0% 0% padding-box text;
+      --backgroundGradient: linear-gradient(var(--color-secondary), var(--color-secondary-light));
       font-size: var(--factSizeLg);
       padding: 40px 20px;
+      width: auto;
+      text-align: center;
       position: relative;
       overflow: hidden;
       background: var(--backgroundGradient);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+      text-fill-color: transparent;
+      color: var(--color-secondary);
       &::after {
         content: "";
         border-right: 1px solid var(--color-secondary);
@@ -242,6 +250,7 @@
       font-size: 0.85rem;
       font-weight: 300;
       max-width: 50%;
+      text-align: left;
       margin: 0;
       padding: 20px;
       position: relative;
@@ -274,7 +283,7 @@
 
 .template--dark .hero__fact span {
       --color-third-light: #fcb276;
-      --backgroundGradient: rgba(0, 0, 0, 0) linear-gradient(var(--color-third), var(--color-third-light)) repeat scroll 0% 0% padding-box text;
+      --backgroundGradient: linear-gradient(var(--color-third), var(--color-third-light));
 }
 
 @keyframes borderTopGrow {
@@ -366,27 +375,9 @@
 
       & span {
         font-size: var(--factSizeLg);
+        width: 100%;
+        text-align: center;
       }
-
-      // &-refresh {
-      //   --transition: 2s cubic-bezier(0.19, 1, 0.22, 1) transform;
-      //   border: 0;
-      //   background-color: transparent;
-      //   max-width: 65px;
-      //   margin-top: 20px;
-      //   align-self: center;
-      //   cursor: pointer;
-      //   transition: var(--transition);
-
-      //   &:hover {
-      //     transform: scale(1.1) rotate(180deg);
-      //     transition: var(--transition);
-      //   }
-
-      //   & svg path {
-      //     fill: var(--color-font);
-      //   }
-      // }
     }
   }
 }
@@ -401,18 +392,10 @@
   }
 
   .hero {
-    grid-template-columns: repeat(4, 1fr);
 
-    &__fact {
-      transform: none;
-      grid-column: 1 / 4;
-      justify-content: flex-start;
-
-      & span {
-        font-size: var(--factSizeSm);
-        min-height: auto;
-      }
-    }
+    // & span {
+    //   font-size: var(--factSizeSm);
+    // }
 
     &__image {
       padding: 0px;
@@ -420,6 +403,10 @@
       -webkit-transform: rotate(5deg);
       transform: rotate(5deg);
       grid-column: 4 / 5;
+    }
+    &__fact p {
+      max-width: none;
+      width: 100%;
     }
   }
 }
@@ -454,23 +441,35 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  & span  {
-    padding: 0;
-    max-width: 0;
-    overflow: hidden;
-    animation: typingRevealer 15s infinite 8s;
-    &::after {
-      content: none;
-    }
+  padding: 0;
+  overflow: hidden;
+  animation: typingRevealer 15s infinite 8s;
+  background: none;
+  -webkit-text-fill-color: var(--color-secondary);
+  color: var(--color-secondary);
+  font-weight: 700;
+  &::after {
+    content: none;
   }
 }
 
+
+
+.header--dark .typing {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: var(--color-third);
+  color: var(--color-third);
+}
+
 @keyframes typingRevealer {
-  10% {
-    max-width: 20ch;
+  0% {
+    opacity: 1;
   }
-  30% {
-    max-width: 0;
+  85% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
   }
 }
 </style>
