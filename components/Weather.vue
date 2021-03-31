@@ -441,7 +441,6 @@ export default {
         -webkit-font-smoothing: subpixel-antialiased;
         animation: twinkle 2s infinite;
         transform: scale(1) translate3d( 0, 0, 0) perspective(1px);
-        transform-origin: center;
         opacity: 0;
         &-icon {
             width: 8px;
