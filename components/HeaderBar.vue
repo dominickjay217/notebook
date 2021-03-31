@@ -224,6 +224,7 @@
       --backgroundGradient: linear-gradient(var(--color-secondary), var(--color-secondary-light));
       padding: 40px 20px;
       width: auto;
+      font-size: 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -411,12 +412,13 @@
 
     &__fact {
       transform: none;
-      font-size: 3rem;
       grid-column: 1 / 5;
       grid-row: 1;
       font-size: 2rem;
       & span  {
         text-align: left;
+        font-size: 1.85rem;
+        padding: 20px;
       }
     }
 
@@ -445,6 +447,7 @@
   -webkit-text-fill-color: var(--color-secondary);
   color: var(--color-secondary);
   font-weight: 700;
+  font-size: 1rem;
   &::after {
     content: none;
   }

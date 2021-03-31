@@ -79,4 +79,10 @@ export default {
   }
 }
 
+@media (max-width: 640px) {
+  .navigation {
+    margin: 20px auto;
+  }
+}
+
 </style>
