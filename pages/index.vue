@@ -43,14 +43,9 @@
             </svg>
           </NuxtLink>
         </section>
-        <!-- <Spacer spacer-no="2" /> -->
-        <!-- <section class="content testimonial">
-          <Testimonial :person="person" />
-        </section> -->
       </div>
       <BannerBar :person="person" />
-    </main>
-    <!-- <code>{{ person.fields }}</code> -->
+    </main
     <ContactBar :person="person" />
     <SocialBar :person="person" />
     <FooterBar />

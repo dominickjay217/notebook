@@ -9,7 +9,7 @@
         >
             <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"></path>
         </svg>
-        <h3 class="contact__heading">Want to get in touch?</h3>
+        <h3 class="contact__heading">Talk to me</h3>
         <div class="contact__text">
             <span>Want to send me an idea, have a chat, or get me to overwrite the
             'inspirational' quote at the top?
@@ -58,12 +58,13 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     &__heading {
         font-family: var(--font-family-headings);
         font-size: 2.5rem;
     }
     &__link {
-        font-weight: 700;
+        font-weight: 500;
     }
     &__text {
         max-width: 992px;

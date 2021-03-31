@@ -9,7 +9,21 @@
       :key="i"
       class="star"
     >
-      <div class="star-icon" />
+      <!-- <div class="star-icon" /> -->
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="url(#paint0_radial)"/>
+        <path d="M11 1L13.2451 7.90983H20.5106L14.6327 12.1803L16.8779 19.0902L11 14.8197L5.12215 19.0902L7.36729 12.1803L1.48944 7.90983H8.75486L11 1Z" fill="url(#paint1_radial)"/>
+        <defs>
+        <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(11)">
+        <stop/>
+        <stop offset="1" stop-color="#E3F1F2" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(10)">
+        <stop stop-color="#E3F1F2"/>
+        <stop offset="1" stop-color="#E3F1F2" stop-opacity="0"/>
+        </radialGradient>
+        </defs>
+        </svg>
     </span>
     <div class="theme-toggle__container">
       <input
@@ -315,7 +329,7 @@ export default {
             document.querySelector(".header").classList.add("header--dark");
             sun.classList.add("sun--go-away");
             sun.style.transition = "all 5s";
-            moon.style.opacity = '1';
+            moon.style.opacity = '0.5';
             moon.style.transition = "all 5s";
             moon.classList.remove("moon--go-away");
             this.makeStars(true);
@@ -423,8 +437,10 @@ export default {
         max-width: 20px;
         width: 100%;
         transition: 5s ease-in-out opacity;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
         animation: twinkle 2s infinite;
-        transform: scale(1);
+        transform: scale(1) translate3d( 0, 0, 0) perspective(1px);
         transform-origin: center;
         opacity: 0;
         &-icon {
