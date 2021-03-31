@@ -38,10 +38,12 @@
               <div class="lastfm-info__imagewrapper">
                 <img
                   class="lastfm-info__image"
+                  loading=lazy
                   :src="music.recenttracks.track[0].image[3]['#text']"
                 >
                 <img
                   :src="music.recenttracks.track[0].image[3]['#text']"
+                  loading=lazy
                 >
               </div>
             </div>
@@ -60,6 +62,7 @@
             >
               <img
                 class="work__image"
+                loading=lazy
                 :src="about.fields.featuredWork.fields.file.url"
                 :alt="about.fields.featuredWork.fields.title"
               >
