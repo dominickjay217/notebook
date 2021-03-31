@@ -23,7 +23,7 @@
         class="hero"
       >
         <span class="hero__fact">
-          <span :style="'--factSizeLg:' + factSizeLg + '; --factSizeSm:' + factSizeSm">
+          <span>
             Leave it better than you found it
           </span>
           <p>This is a place of <span class="typing">{{ fact }}</span></p>
@@ -222,7 +222,6 @@
     & span {
       --color-secondary-light: #325d63;
       --backgroundGradient: linear-gradient(var(--color-secondary), var(--color-secondary-light));
-      font-size: var(--factSizeLg);
       padding: 40px 20px;
       width: auto;
       text-align: center;
@@ -374,7 +373,6 @@
       z-index: 2;
 
       & span {
-        font-size: var(--factSizeLg);
         width: 100%;
         text-align: center;
       }
@@ -392,11 +390,6 @@
   }
 
   .hero {
-
-    // & span {
-    //   font-size: var(--factSizeSm);
-    // }
-
     &__image {
       padding: 0px;
       margin-left: 0;
@@ -421,6 +414,10 @@
       font-size: 3rem;
       grid-column: 1 / 5;
       grid-row: 1;
+      font-size: 2rem;
+      & span  {
+        text-align: left;
+      }
     }
 
     &__image {
@@ -461,15 +458,15 @@
   color: var(--color-third);
 }
 
-@keyframes typingRevealer {
-  0% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-  }
-}
+// @keyframes typingRevealer {
+//   0% {
+//     opacity: 1;
+//   }
+//   85% {
+//     opacity: 1;
+//   }
+//   90% {
+//     opacity: 0;
+//   }
+// }
 </style>

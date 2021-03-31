@@ -24,36 +24,6 @@ export default {
       type: String,
       default: null
     }
-  },
-  mounted() {
-    // this.boxRotation()
-  },
-
-  methods: {
-    // boxRotation() {
-    //   var radius = 8;
-    //   TweenMax.staggerFromTo('.spacer--1 #spacer-blob', 4 ,{
-    //     cycle: {
-    //       attr:function(i) {
-    //         var r = i*160;
-    //         return {
-    //           transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
-    //         }
-    //       }
-    //     }
-    //   },{
-    //     cycle: {
-    //       attr:function(i) {
-    //         var r = i*90+360;
-    //         return {
-    //           transform:'rotate('+r+') translate('+radius+',0.1) rotate('+(-r)+')'
-    //         }
-    //       }
-    //     },
-    //     ease:Linear.easeNone,
-    //     repeat:-1
-    //   });
-    // }
   }
 }
 </script>
