@@ -45,7 +45,7 @@
         </section>
       </div>
       <BannerBar :person="person" />
-    </main
+    </main>
     <ContactBar :person="person" />
     <SocialBar :person="person" />
     <FooterBar />
