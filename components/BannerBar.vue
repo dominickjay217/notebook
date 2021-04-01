@@ -22,7 +22,7 @@ export default {
   pointer-events: none;
   &__content {
     position: absolute;
-  opacity: 0.25;
+    opacity: 0.25;
     top: 50%;
     transform: translateY(-50%) rotate(-2deg);
     font-size: 0.85rem;
@@ -32,5 +32,11 @@ export default {
 .template--dark .banner {
   background-color: #222;
   color: #fff;
+}
+
+@media (max-width: 640px) {
+  .banner {
+    padding: 20px 0;
+  }
 }
 </style>

@@ -10,7 +10,9 @@ export default {
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: process.env.CTF_PERSON_ID,
     CTF_ABOUT_PERSON_ID: process.env.CTF_ABOUT_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+    CTF_CPA_ACCESS_TOKEN: process.env.CTF_CPA_ACCESS_TOKEN,
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
