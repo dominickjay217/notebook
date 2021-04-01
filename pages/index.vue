@@ -12,12 +12,12 @@
         <Spacer spacer-no="1" />
         <section class="content blog">
           <h2 class="content__heading heading heading--two">
-            Latest Posts
+            Recently Published
           </h2>
           <BlogPosts :posts="posts" />
           <NuxtLink
             class="blog__link"
-            to="/blog"
+            to="/writing"
           >
             View all posts
             <svg
@@ -103,7 +103,8 @@ export default {
 .about {
   margin: 40px auto;
   text-align: center;
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
+  font-size: var(--step-0);
   font-weight: 500;
   font-family: var(--font-family-body);
 }

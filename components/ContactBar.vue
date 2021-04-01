@@ -61,7 +61,8 @@ export default {
     text-align: center;
     &__heading {
         font-family: var(--font-family-headings);
-        font-size: 2.5rem;
+        // font-size: 2.5rem;
+        font-size: var(--step-3);
     }
     &__link {
         font-weight: 500;

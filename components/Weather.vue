@@ -329,7 +329,7 @@ export default {
             document.querySelector(".header").classList.add("header--dark");
             sun.classList.add("sun--go-away");
             sun.style.transition = "all 5s";
-            moon.style.opacity = '0.5';
+            moon.style.opacity = '1';
             moon.style.transition = "all 5s";
             moon.classList.remove("moon--go-away");
             this.makeStars(true);

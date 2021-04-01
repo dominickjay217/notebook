@@ -19,12 +19,12 @@ body { margin: 0; }
 
 /* Switch to rem units for headings */
 /* @@@ Initial values are based on existing browser defaults */
-h1 { font-size: 3rem; }
+/* h1 { font-size: 3rem; }
 h2 { font-size: 1.85rem; }
 h3 { font-size: 1.17rem; }
 h4 { font-size: 1.00rem; }
 h5 { font-size: 0.83rem; }
-h6 { font-size: 0.67rem; }
+h6 { font-size: 0.67rem; } */
 
 /* Keep h1 margins consistent, even when nested */
 h1 { margin: 0.67em 0; }

@@ -60,7 +60,7 @@ export default {
   },
   head() {
       return {
-        title: 'I Smashed Words Together in ' + this.posts.length + ' Posts'
+        title: "I’ve Written " + this.posts.length + " Posts About How I Am Not Batman"
       }
   }
 }
@@ -72,7 +72,7 @@ export default {
   color: var(--color-font);
 }
 
-.template--dark p {
+.template--dark * {
   color: var(--color-font);
 }
 </style>

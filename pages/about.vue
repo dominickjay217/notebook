@@ -174,6 +174,7 @@ export default {
     grid-gap: var(--grid-gap);
     &__intro {
         grid-column: span 4;
+        font-size: var(--step--1);
     }
     &__picture {
         grid-column: 4 / span 1;
@@ -184,7 +185,7 @@ export default {
         }
     }
     &__content {
-        font-size: 1rem;
+        // font-size: 1rem;
         padding-bottom: 40px;
         align-self: center;
         &--one {
@@ -209,7 +210,7 @@ export default {
             padding-top: 60px;
             & strong {
                 margin-bottom: 20px;
-                font-size: 1rem;
+                // font-size: 1rem;
             }
             & img {
               margin: 20px auto;
@@ -314,7 +315,7 @@ export default {
   align-items: center;
   &__imagewrapper {
     position: relative;
-    padding-left: 20px;
+    padding-left: 40px;
   }
   & img:last-of-type {
     position: absolute;

@@ -131,7 +131,7 @@
   position: relative;
   z-index: 2;
   bottom: -25px;
-  fill: #fff;
+  fill: var(--color-body);
 }
 
 .template--dark .curve {
@@ -157,7 +157,8 @@
   &__title {
     text-align: center;
     font-size: 3rem;
-    margin: 0;
+    font-size: var(--step-3);
+    margin: 0 auto 10px;
     position: relative;
     z-index: 2;
   }
@@ -225,6 +226,7 @@
       padding: 40px 20px;
       width: auto;
       font-size: 3rem;
+      font-size: var(--step-3);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -248,6 +250,7 @@
     }
     & p  {
       font-size: 0.85rem;
+      font-size: var(--step--3);
       font-weight: 300;
       max-width: 50%;
       text-align: left;
@@ -414,10 +417,8 @@
       transform: none;
       grid-column: 1 / 5;
       grid-row: 1;
-      font-size: 2rem;
       & span  {
         text-align: left;
-        font-size: 1.85rem;
         padding: 20px;
       }
     }
@@ -437,28 +438,27 @@
 .hero__fact .typing {
   color: currentColor;
   padding: 0;
-  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0;
-  overflow: hidden;
   animation: typingRevealer 15s infinite 8s;
-  background: none;
-  -webkit-text-fill-color: var(--color-secondary);
-  color: var(--color-secondary);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: var(--step--3);
   &::after {
     content: none;
   }
 }
 
-
-
 .header--dark .typing {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: var(--color-third);
   color: var(--color-third);
+}
+
+@media (max-width: 640px) {
+  .hero__fact p,
+  .hero__fact .typing {
+    font-size: var(--step--2);
+  }
 }
 
 // @keyframes typingRevealer {

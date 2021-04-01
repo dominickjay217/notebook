@@ -22,7 +22,7 @@
           <span class="post__title">{{ post.fields.title }}</span>
           <nuxt-link
             :to="{
-              name: 'blog-slug',
+              name: 'writing-slug',
               params: {
                 slug: post.fields.slug,
               },
@@ -30,27 +30,6 @@
             class="post__link"
           >
             <span>Read post</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 100 125"
-              enable-background="new 0 0 100 100"
-              xml:space="preserve"
-            >
-              <g>
-                <path
-                  d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987C40.691,62.648,13.124,69.887,12.851,69.957z"
-                />
-              </g>
-              <g>
-                <polygon
-                  points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025"
-                />
-              </g>
-            </svg>
           </nuxt-link>
         </div>
       </li>
@@ -112,6 +91,7 @@ export default {
 
 .post {
   font-size: 1.25rem;
+  font-size: var(--step--1);
   display: flex;
   position: relative;
   align-items: center;
@@ -130,7 +110,7 @@ export default {
     text-decoration: none;
     font-weight: 700;
     color: var(--color-fourth);
-    font-size: 1rem;
+    font-size: var(--step--2);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;
@@ -145,13 +125,6 @@ export default {
     }
     &:hover {
       text-decoration: underline;
-    }
-    & svg {
-      max-width: 50px;
-      transform: rotate(26deg);
-      top: 6px;
-      position: relative;
-      margin-left: 6px;
     }
   }
   &__date {
@@ -181,34 +154,16 @@ export default {
   }
 }
 
-@media (max-width: 767px) and (orientation: portrait) {
-  .post {
-    font-size: 1rem;
-    &__link {
-      font-size: 1rem;
-    }
-  }
-}
-
 @media (max-width: 640px) and (orientation: portrait) {
   .post {
     justify-content: space-between;
     align-items: center;
-    & * {
-      margin-bottom: 10px;
-    }
-    &__title {
-      max-width: 250px;
-    }
     &__date {
       display: none;
     }
     &__link {
       margin-left: 0;
       margin-bottom: 0;
-      & span {
-        display: none;
-      }
     }
   }
 }

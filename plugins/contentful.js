@@ -13,7 +13,7 @@ module.exports = {
       accessToken: config.CTF_CPA_ACCESS_TOKEN
     }
 
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'live') {
       options.host = 'cdn.contentful.com'
       options.accessToken = config.CTF_CDA_ACCESS_TOKEN
     }

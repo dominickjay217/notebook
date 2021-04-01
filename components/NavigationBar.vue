@@ -11,9 +11,9 @@
     <li class="navigation__item">
       <NuxtLink
         class="navigation__link"
-        to="/blog"
+        to="/writing"
       >
-        Blog
+        Writing
       </NuxtLink>
     </li>
     <li class="navigation__item">
@@ -63,7 +63,6 @@ export default {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 1.5rem;
       }
       &::before {
         content: '{';
@@ -81,7 +80,7 @@ export default {
 
 @media (max-width: 640px) {
   .navigation {
-    margin: 20px auto;
+    margin: 40px auto 20px;
   }
 }
 
