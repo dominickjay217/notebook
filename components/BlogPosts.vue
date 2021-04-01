@@ -19,7 +19,9 @@
               {{ new Date(post.fields.publishDate).getMonth() }}
             </span>
           </time>
-          <span class="post__title">{{ post.fields.title }}</span>
+          <span class="post__title">
+            {{ post.fields.title }}
+          </span>
           <nuxt-link
             :to="{
               name: 'writing-slug',
@@ -104,6 +106,8 @@ export default {
   &__title {
     text-align: left;
     font-weight: 300;
+    flex: 1;
+    padding-right: 20px;
   }
   &__link {
     margin-left: auto;
