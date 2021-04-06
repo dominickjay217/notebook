@@ -21,6 +21,7 @@
   --color-primary: #e3f1f2;
   --color-secondary: #568389;
   --color-third: #fe9948;
+  --color-third-light: #fcb276;
   --color-fourth: #584945;
   --color-body: #f9f9f9;
   --color-border-gradient: linear-gradient(to left, var(--color-fourth), var(--color-third));
@@ -133,15 +134,20 @@ body.template--dark {
 }
 
 *:focus {
-  outline: var(--main-color);
+  outline: 2px dashed var(--color-fourth);
 }
 
 a {
-  color: var(--main-color);
+  color: currentColor;
+  text-decoration: none;
+  transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1) ,color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: inset 0 -0.07em 0 var(--color-third, --color-third-light);
+  padding: 0 5px;
 }
 
 a:hover {
   text-decoration: none;
+  box-shadow: inset 0 -1.25em 0 var(--color-third, --color-third-light);
 }
 
 main {
