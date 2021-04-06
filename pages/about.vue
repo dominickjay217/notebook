@@ -6,16 +6,16 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content about">
-          <vue-markdown class="about__intro">{{ about.fields.aboutIntro }}</vue-markdown>
-          <vue-markdown class="about__content about__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
-          <vue-markdown class="about__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown>
-          <div class="about__content about__content--joke">
+          <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown>
+          <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
+          <!-- <vue-markdown class="about-me__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown> -->
+          <div class="about-me__content about-me__content--joke">
             <strong>
               I love dad jokes, how about one of them instead?
             </strong>
             <Joke />
           </div>
-          <div class="about__content about__content--lastfm">
+          <div class="about-me__content about-me__content--lastfm">
             <p
               v-if="$fetchState.pending"
             >
@@ -82,6 +82,10 @@
                 :href="otherWork.fields.snippetLink"
               >
                 {{ otherWork.fields.snippetName }}
+                <svg width="85" height="10" viewBox="0 0 85 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047" stroke="black"/>
+                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z" fill="black"/>
+                </svg>
               </a>
             </li>
           </ul>
@@ -165,9 +169,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-.about {
+p {
+  padding-bottom: 40px;
+}
+
+.about-me {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
@@ -189,15 +197,29 @@ export default {
         padding-bottom: 40px;
         align-self: center;
         &--one {
-            grid-column: 1 / 4;
-        }
-        &--two {
-            grid-row: 3;
-            grid-column: 2 / 4;
+            grid-column: 1 / 5;
+            grid-template-columns: subgrid;
+            display: grid;
+            grid-row: 2;
+            & p:first-child  {
+              grid-column: 1 / 4;
+            }
+            & p:nth-child(2) {
+              grid-column: 2 / 4;
+            }
+            & p:nth-child(3) {
+              grid-column: 1 / 4;
+            }
+            & p:nth-child(4) {
+              grid-column: 3 / 5;
+            }
+            & p:last-child {
+              padding-bottom: 0;
+            }
         }
         &--joke {
-            grid-row: 5;
-            grid-column: 3 / 5;
+            grid-row: 3;
+            grid-column: 2 / 4;
             align-self: center;
             & strong {
                 display: block;
@@ -205,7 +227,7 @@ export default {
             }
         }
         &--lastfm {
-            grid-row: 6;
+            grid-row: 4;
             grid-column: 1/4;
             padding-top: 60px;
             & strong {
@@ -219,7 +241,7 @@ export default {
     }
 }
 
-.template--dark .about {
+.template--dark .about-me {
   color: var(--color-font);
 }
 
@@ -237,7 +259,7 @@ export default {
     }
     &__image {
         filter: grayscale(100%);
-        transition: .25s ease-in-out all;
+        transition: .25s ease-in-out filter;
         &:hover {
             filter: grayscale(0);
         }
@@ -245,6 +267,9 @@ export default {
             max-height: 850px;
             overflow: hidden;
             grid-column: 1 / 3;
+            & a {
+              box-shadow: none;
+            }
         }
     }
 }
@@ -265,16 +290,25 @@ export default {
         }
     }
     &__link {
-        text-decoration: none;
         font-weight: 500;
         color: var(--color-fourth);
-        text-align: left;
+        box-shadow: none;
         width: 100%;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 20px;
-        &:hover {
-            text-decoration: underline;
+        & svg {
+          max-width: 50px;
+          position: relative;
+          transition: transform 270ms cubic-bezier(0.77, 0, 0.175, 1);
         }
+        &:hover {
+          box-shadow: none;
+          & svg {
+            transform: translateX(5px);
+          }
+      }
     }
 }
 

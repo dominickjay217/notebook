@@ -61,7 +61,6 @@ import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
-// import Testimonial from '~/components/Testimonial.vue'
 import Weather from '~/components/Weather.vue'
 
 const client = createClient()
@@ -103,7 +102,6 @@ export default {
 .about {
   margin: 40px auto;
   text-align: center;
-  // font-size: 1.5rem;
   font-size: var(--step-0);
   font-weight: 500;
   font-family: var(--font-family-body);
@@ -115,10 +113,7 @@ export default {
 
 .blog {
   &__link {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--color-fourth);
-    text-align: center;
+    box-shadow: none;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -130,9 +125,6 @@ export default {
       top: 6px;
       position: relative;
       margin-left: 6px;
-    }
-    &:hover {
-      text-decoration: underline;
     }
   }
 }

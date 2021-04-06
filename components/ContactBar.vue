@@ -17,8 +17,7 @@
             <a
             :href="'mailto:' + person.fields.email"
             target="_blank"
-            relopener="noopener" class="contact__link">Send me an email
-            </a> at hi@dominickjay.com
+            relopener="noopener" class="contact__link">Send me an email</a> at hi@dominickjay.com
     or give me a shout on
             <a class="contact__link"
             target="_blank"
@@ -65,7 +64,7 @@ export default {
         font-size: var(--step-3);
     }
     &__link {
-        font-weight: 500;
+        // font-weight: 500;
     }
     &__text {
         max-width: 992px;

@@ -67,16 +67,10 @@ export default {
 <style lang="scss" scoped>
 .blog {
   &__link {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--color-fourth);
     text-align: center;
     width: 100%;
     display: block;
     padding: 20px 0;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -110,25 +104,15 @@ export default {
     padding-right: 20px;
   }
   &__link {
+    font-weight: 500;
     margin-left: auto;
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--color-fourth);
-    font-size: var(--step--2);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    box-shadow: none;
     display: flex;
     align-items: center;
     &::after {
       content: "";
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    &:hover {
-      text-decoration: underline;
+      inset: 0;
     }
   }
   &__date {
@@ -148,13 +132,9 @@ export default {
   &__title {
       padding-right: 20px;
   }
-  &__link,
   &__title,
   &__date {
     color: #fff;
-    & svg {
-      fill: #fff;
-    }
   }
 }
 

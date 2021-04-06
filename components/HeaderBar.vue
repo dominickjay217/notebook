@@ -180,8 +180,7 @@
   &__link,
   &__link:hover {
     position: relative;
-    color: var(--color-font);
-    text-decoration: none;
+    box-shadow: none;
   }
 }
 
@@ -273,10 +272,7 @@
         border-left: 1px solid var(--color-secondary);
         border-right: 1px solid var(--color-secondary);
         position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        inset: 0;
         height: 0;
         animation: borderSidesGrow 2s forwards 6s;
       }

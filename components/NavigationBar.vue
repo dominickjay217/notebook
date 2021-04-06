@@ -1,35 +1,40 @@
 <template>
   <ul class="navigation">
-    <li class="navigation__item">
+    <li
+      class="navigation__item"
+      :key="item.title"
+      v-for="item in this.navigationItems"
+    >
       <NuxtLink
         class="navigation__link"
-        to="/about"
+        :to="item.route"
       >
-        About
+        {{ item.title.toUpperCase() }}
       </NuxtLink>
-    </li>
-    <li class="navigation__item">
-      <NuxtLink
-        class="navigation__link"
-        to="/writing"
-      >
-        Writing
-      </NuxtLink>
-    </li>
-    <li class="navigation__item">
-      <a
-        href="#contact"
-        class="navigation__link"
-      >
-        Contact
-      </a>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      navigationItems: [
+          {
+            title: 'About',
+            route: '/about',
+          },
+          {
+            title: 'Writing',
+            route: '/writing',
+          },
+          {
+            title: 'Contact',
+            route: '#contact',
+          },
+      ]
+    }
+  },
 }
 </script>
 
@@ -50,12 +55,9 @@ export default {
     position: relative;
   }
   &__link {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: var(--font-family-body);
-    color: var(--color-font);
     padding: 10px 20px;
-    font-weight: 300;
+    box-shadow: none;
+    letter-spacing: 0.5px;
     &:hover,
     &--active {
       &::before,

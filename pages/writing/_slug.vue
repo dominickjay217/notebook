@@ -10,7 +10,9 @@
             <h2 class="post__heading heading heading--two">
               {{ post.fields.title }}
             </h2>
-            <strong class="post__subheading">{{ post.fields.subheading }}</strong>
+            <strong class="post__subheading">
+              {{ post.fields.subheading }}
+            </strong>
             <vue-markdown class="post__bodytext">
               {{ post.fields.body }}
             </vue-markdown>
@@ -110,8 +112,6 @@ time {
     display: block;
     text-align: center;
   }
-  &__bodytext {
-  }
   strong {
     font-weight: 700;
     color: var(--color-secondary);
@@ -137,7 +137,8 @@ time {
     }
   }
   a {
-    font-weight: 900;
+    font-weight: 500;
+    color: var(--color-font);
   }
   h3 {
     font-size: var(--step-0);
@@ -150,6 +151,9 @@ time {
     -moz-text-fill-color: transparent;
     text-fill-color: transparent;
     color: var(--color-secondary);
+  }
+  iframe {
+    margin: 40px auto;
   }
   code {
     background: #d3d3d3 none repeat scroll 0% 0%;
@@ -166,8 +170,7 @@ time {
   }
   pre code {
     display: block;
-    padding: 30px 10px;
-    // font-size: 0.85rem;
+    padding: 30px 20px;
     font-size: var(--step--2);
   }
   img {
