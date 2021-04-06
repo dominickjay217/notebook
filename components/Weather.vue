@@ -9,21 +9,7 @@
       :key="i"
       class="star"
     >
-      <!-- <div class="star-icon" /> -->
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="url(#paint0_radial)"/>
-        <path d="M11 1L13.2451 7.90983H20.5106L14.6327 12.1803L16.8779 19.0902L11 14.8197L5.12215 19.0902L7.36729 12.1803L1.48944 7.90983H8.75486L11 1Z" fill="url(#paint1_radial)"/>
-        <defs>
-        <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(11)">
-        <stop/>
-        <stop offset="1" stop-color="#E3F1F2" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(10)">
-        <stop stop-color="#E3F1F2"/>
-        <stop offset="1" stop-color="#E3F1F2" stop-opacity="0"/>
-        </radialGradient>
-        </defs>
-        </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"  xmlns:v="https://vecta.io/nano"><path d="M11 0l2.47 7.601h7.992l-6.466 4.698 2.47 7.601L11 15.202l-6.466 4.698 2.47-7.601L.538 7.601H8.53L11 0z" fill="url(#A)"/><path d="M11 1l2.245 6.91h7.265l-5.878 4.27 2.245 6.91L11 14.82 5.122 19.09l2.245-6.91-5.878-4.27h7.265L11 1z" fill="url(#B)"/><defs><radialGradient id="A" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(11)"><stop/><stop offset="1" stop-color="#e3f1f2" stop-opacity="0"/></radialGradient><radialGradient id="B" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11 11) rotate(90) scale(10)"><stop stop-color="#e3f1f2"/><stop offset="1" stop-color="#e3f1f2" stop-opacity="0"/></radialGradient></defs></svg>
     </span>
     <div class="theme-toggle__container">
       <input
@@ -267,7 +253,6 @@
 
 <script>
 export default {
-
     data: function() {
         return {
             label: "Toggle",
@@ -312,7 +297,7 @@ export default {
         },
 
         makeLight: function(sun, moon) {
-            document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
             document.querySelector("body").classList.remove("template--dark");
             document.querySelector(".header").classList.remove("header--dark");
             sun.style.opacity = '1';
@@ -342,11 +327,11 @@ export default {
 
             if (document.cookie.indexOf('darkMode') > -1 ) {
                 this.makeLight(sun, moon);
-                document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                document.cookie = "clickedDarkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "darkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
+                document.cookie = "clickedDarkMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
                 document.cookie = "clickedLightMode=True; SameSite=None; Secure";
             } else {
-                document.cookie = "clickedLightMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "clickedLightMode=True; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
                 document.cookie = "clickedDarkMode=True; SameSite=None; Secure";
                 document.cookie = "darkMode=True; SameSite=None; Secure";
                 this.makeDark(sun, moon)
