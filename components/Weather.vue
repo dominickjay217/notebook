@@ -253,12 +253,6 @@
 
 <script>
 export default {
-    data: function() {
-        return {
-            label: "Toggle",
-            isActive: true
-        };
-    },
     async mounted() {
         // wait for $refs to be available
         await this.$nextTick()
@@ -309,7 +303,6 @@ export default {
         },
 
         makeDark: function(sun, moon) {
-            // document.cookie = "darkMode=True; SameSite=None; Secure";
             document.querySelector("body").classList.add("template--dark");
             document.querySelector(".header").classList.add("header--dark");
             sun.classList.add("sun--go-away");

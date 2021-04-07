@@ -171,10 +171,6 @@ export default {
 
 <style lang="scss">
 
-p {
-  padding-bottom: 40px;
-}
-
 .about-me {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
@@ -201,6 +197,9 @@ p {
             grid-template-columns: subgrid;
             display: grid;
             grid-row: 2;
+            & p {
+              padding-bottom: 40px;
+            }
             & p:first-child  {
               grid-column: 1 / 4;
             }
