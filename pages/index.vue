@@ -103,12 +103,9 @@ export default {
   margin: 40px auto;
   text-align: center;
   font-size: var(--step-0);
-  font-weight: 500;
-  font-family: var(--font-family-body);
-}
-
-.template--dark .about {
-  color: #fff;
+  font-weight: var(--fw-base-m);
+  font-family: var(--ff-base);
+  color: var(--ff-color);
 }
 
 .blog {
@@ -119,6 +116,7 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+    color: var(--ff-color);
     & svg {
       max-width: 50px;
       transform: rotate(26deg);
@@ -129,11 +127,10 @@ export default {
   }
 }
 
-.template--dark .blog__link {
-  color: #fff;
-  & svg {
-      fill: #fff;
-  }
-}
+// .template--dark .blog__link {
+//   & svg {
+//       fill: #fff;
+//   }
+// }
 
 </style>

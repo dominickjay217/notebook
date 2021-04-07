@@ -37,12 +37,12 @@ export default {
     grid-column: 1 / 8;
   }
   &__quote-symb {
-    font-weight: 500;
+    font-weight: var(--fw-base-m);
   }
 }
 
 .template--dark .testimonial {
-  color: var(--color-font);
+  color: var(--ff-color);
 }
 
 @media (max-width: 640px) and (orientation: portrait) {

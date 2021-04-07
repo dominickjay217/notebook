@@ -118,7 +118,7 @@ export default {
 
 .template--dark .sm-wrapper {
   background: linear-gradient(to top, #283E51, #0A2342);
-  color: var(--color-primary);
+  color: var(--clr-primary);
   & .social-media__link {
     fill: white;
   }

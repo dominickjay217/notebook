@@ -37,14 +37,10 @@ export default {
 .curve {
     top: 50px;
     position: relative;
-    fill: #fff;
+    fill: var(--curve-fill);
     transform: rotate(180deg);
     z-index: 2;
     margin-bottom: 80px;
-}
-
-.template--dark .curve {
-  fill: #222;
 }
 
 .contact {
@@ -59,12 +55,8 @@ export default {
     align-items: center;
     text-align: center;
     &__heading {
-        font-family: var(--font-family-headings);
-        // font-size: 2.5rem;
+        font-family: var(--ff-alt-alpha);
         font-size: var(--step-3);
-    }
-    &__link {
-        // font-weight: 500;
     }
     &__text {
         max-width: 992px;
@@ -81,7 +73,7 @@ export default {
     & .contact {
         --dark: #0A2342;
         background: var(--dark);
-        color: var(--color-primary);
+        color: var(--clr-primary);
     }
     .contact .curve {
         background: var(--dark);

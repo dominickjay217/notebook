@@ -58,37 +58,6 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-	--background: #efefef;
-  --color-dark: #141414;
-  --color-light: #efefef;
-  --button-background: var(--color-dark);
-  --button-color: var(--color-light);
-	--color-mode: 'light';
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-mode: 'dark';
-	}
-
-  :root:not([data-user-color-scheme]) {
-    --button-color: var(--color-dark);
-    --button-background: var(--color-light);
-    --background: var(--color-dark);
-    --text-color: var(--color-light);
-  }
-}
-
-[data-user-color-scheme='dark'] {
-  --button-color: var(--color-dark);
-  --button-background: var(--color-light);
-	--background: var(--color-dark);
-}
-
-.header {
-  background: var(--background);
-}
 
 .theme-toggle {
   position: relative;

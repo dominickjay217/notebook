@@ -69,10 +69,10 @@ export default {
 <style lang="scss">
 
 .template--dark h3 {
-  color: var(--color-font);
+  color: var(--ff-color);
 }
 
 .template--dark * {
-  color: var(--color-font);
+  color: var(--ff-color);
 }
 </style>

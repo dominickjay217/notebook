@@ -27,7 +27,7 @@ export default {
   & p {
     // font-size: 0.85rem;
     font-size: var(--step--3);
-    font-weight: 500;
+    font-weight: var(--fw-base-m);
     grid-column: 1 / 4;
     text-align: center;
   }
@@ -35,6 +35,6 @@ export default {
 
 .template--dark .footer {
   background: #283E51;
-  color: var(--color-primary);
+  color: var(--clr-primary);
 }
 </style>

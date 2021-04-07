@@ -11,38 +11,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
 
 @font-face {
-  font-family: var(--font-family-headings);
+  font-family: var(--ff-alt-alpha);
   src: url("/fonts/SaltedMocha-Regular.woff") format("woff"),
         url("/fonts/SaltedMocha-Regular.ttf")  format("truetype");
   font-display: swap;
 }
 
 :root {
-  --color-primary: #e3f1f2;
-  --color-secondary: #568389;
-  --color-third: #fe9948;
-  --color-third-light: #fcb276;
-  --color-fourth: #584945;
-  --color-body: #f9f9f9;
-  --color-border-gradient: linear-gradient(to left, var(--color-fourth), var(--color-third));
-  --color-font: #212121;
+  --clr-base:    #f9f9f9;
+  --clr-base-lt: #ffffff;
+  --clr-base-dk: #222222;
+
+  --clr-primary: #e3f1f2;
+  --clr-primary-lt: #f4fafa;
+  --clr-primary-dk: #9dced2;
+
+  --clr-secondary: #283e51;
+  --clr-secondary-lt: #304b62;
+  --clr-secondary-dk: #203140;
+
+  --clr-third: #fe9948;
+  --clr-third-lt: #fcb276;
+  --clr-third-dk: #fe7d15;
+
+  --clr-fourth: #584945;
+  --clr-fourth-lt: #665550;
+  --clr-fourth-dk: #4a3d3a;
+
+  --clr-fifth: #568389;
+  --clr-fifth-lt: #609299;
+  --clr-fifth-dk: #4c7479;
+
+
+
+  --main-background: var(--clr-base);
+  --header-background: linear-gradient(to bottom, var(--clr-primary-lt), var(--clr-primary));
+  --banner-background: var(--clr-base);
+  --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
+  --curve-fill: var(--clr-base);
+  --hero-fact: linear-gradient(var(--clr-fifth-lt), var(--clr-fifth-dk));
+  --lnk-box-shdw: inset 0 -0.07em 0 var(--clr-third), var(--clr-third-lt);
+  --lnk-box-shdw-hover: inset 0 -1.25em 0 var(--clr-third), var(--clr-third-lt);
+
+  /* Transitions */
+
+  --trn-bs: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+
+  --ff-color: --clr-base-dk;
+  --ff-color-link: --clr-third;
+  --ff-base: 'Poppins', helvetica, arial, sans-serif;
+  --ff-alt-alpha: 'SaltedMocha-Regular';
+  --fw-base: 300;
+  --fw-base-m: 500;
+  --fw-base-lg: 700;
+  --fw-base-xl: 900;
+
+	--color-mode: 'light';
 
   --container-width: 1100px;
   --grid-gap: 20px;
 
-  --font-family-body: 'Poppins', helvetica, arial, sans-serif;
-  --font-family-headings: 'SaltedMocha-Regular';
-}
-
-:root {
   --fluid-min-width: 326;
   --fluid-max-width: 1140;
-
   --fluid-screen: 100vw;
   --fluid-bp: calc(
     (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
       (var(--fluid-max-width) - var(--fluid-min-width))
   );
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-mode: 'dark';
+	}
+
+  :root:not([data-user-color-scheme]) {
+    --curve-fill: #222;
+    --banner-background: var(--clr-base-dk);
+    --main-background: var(--clr-base-dk);
+    --header-background: linear-gradient(to bottom, var(--clr-primary), var(--clr-primary-dk));
+    --ff-color: var(--clr-base-lt);
+    --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
+  }
+}
+
+[data-user-color-scheme='dark'] {
+  --curve-fill: #222;
+  --banner-background: var(--clr-base-dk);
+  --main-background: var(--clr-base-dk);
+  --header-background: linear-gradient(to bottom, var(--clr-secondary-lt), var(--clr-secondary));
+  --ff-color: var(--clr-base-lt);
+  --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
 }
 
 @media screen and (min-width: 1140px) {
@@ -121,45 +180,35 @@
 
 body {
   font: var(--step-0)/1.6;
-  font-weight: 300;
+  font-weight: var(--fw-base);
   padding: 0;
   margin: 0;
-  font-family: var(--font-family-body);
+  font-family: var(--ff-base);
   overflow-x: hidden;
 }
 
-body.template--dark {
-  --color-font: var(--color-primary);
-  --background: #222;
-}
-
 *:focus {
-  outline: 2px dashed var(--color-fourth);
+  outline: 2px dashed var(--clr-fourth);
 }
 
 a {
-  color: currentColor;
+  color: var(--ff-color);
   text-decoration: none;
-  transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1) ,color 270ms cubic-bezier(0.77, 0, 0.175, 1);
-  box-shadow: inset 0 -0.07em 0 var(--color-third, --color-third-light);
+  transition: var(--trn-bs);
+  box-shadow: var(--lnk-box-shdw);
   padding: 0 5px;
 }
 
 a:hover {
   text-decoration: none;
-  box-shadow: inset 0 -1.25em 0 var(--color-third, --color-third-light);
+  box-shadow: var(--lnk-box-shdw-hover);
 }
 
 main {
   padding-top: 40px;
   position: relative;
   z-index: 2;
-  background-color: var(--color-body);
-}
-
-.template--dark main {
-  --color-body: #222;
-  background-color: var(--color-body);
+  background-color: var(--main-background);
 }
 
 .container {
@@ -180,45 +229,13 @@ main {
   position: absolute;
 }
 
-strong {
-  // font-size: 1.25rem;
-}
-
-.spacer {
-  fill: none;
-  stroke-width: 2;
-  stroke-miterlimit: 10;
-  stroke-dasharray: 100;
-  max-width: 150px;
-  margin: 40px auto;
-  display: block;
-  width: 100%;
-  &--01 {
-    stroke: var(--color-fourth);
-    animation: squiggle 5s linear infinite;
-    animation-delay: 1s;
-  }
-  &--02 {
-    stroke: var(--color-third);
-    animation: squiggle 5s linear infinite;
-    animation-delay: 2s;
-  }
-  &:hover {
-    animation-play-state: paused;
-  }
-}
-
-// Heading styles
 .heading {
-  font-family: var(--font-family-headings);
+  font-family: var(--ff-alt-alpha);
+  color: var(--ff-color);
   &--two {
     text-align: center;
     font-size: var(--step-3);
   }
-}
-
-.template--dark .heading {
-  color: #fff;
 }
 
 @keyframes squiggle {
@@ -230,15 +247,6 @@ strong {
 .content {
   padding: 40px 0;
   margin-bottom: 40px;
-}
-
-@media screen and (prefers-reduced-motion: reduce) {
-  * {
-    /* Very short durations means JavaScript that relies on events still works */
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
 }
 
 </style>

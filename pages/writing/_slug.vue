@@ -82,24 +82,24 @@ time {
   display: block;
   & span {
     display: block;
-    font-weight: 900;
+    font-weight: var(--fw-base-xl);
     opacity: 0.5;
   }
   & .post__datetime {
     opacity: 1;
-    font-weight: 500;
+    font-weight: var(--fw-base-m);
   }
 }
 
 .template--dark time {
-  color: var(--color-primary);
+  color: var(--clr-primary);
 }
 
 .post {
-  --color-secondary-light: rgba(158, 205, 213, 0.25);
-  --backgroundGradient: linear-gradient(var(--color-secondary), #325d63);
+  --clr-fifth-light: rgba(158, 205, 213, 0.25);
+  --backgroundGradient: linear-gradient(var(--clr-fifth), #325d63);
   &__subheading {
-    font-weight: 700;
+    font-weight: var(--fw-base-lg);
     background: var(--backgroundGradient);
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -107,14 +107,14 @@ time {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     text-fill-color: transparent;
-    color: var(--color-secondary);
+    color: var(--clr-fifth);
     margin-bottom: 40px;
     display: block;
     text-align: center;
   }
   strong {
-    font-weight: 700;
-    color: var(--color-secondary);
+    font-weight: var(--fw-base-lg);
+    color: var(--clr-fifth);
   }
   aside {
     position: relative;
@@ -122,9 +122,9 @@ time {
     margin-top: 48px;
     margin-bottom: 64px;
     border-left: 3px solid;
-    border-left-color: var(--color-secondary);
+    border-left-color: var(--clr-fifth);
     border-radius: 6px 6px 6px 3px;
-    background-color: var(--color-secondary-light);
+    background-color: var(--clr-fifth-light);
     & i {
       position: absolute;
       top: 0px;
@@ -133,16 +133,16 @@ time {
       padding: 8px;
       background: #fff;
       border-radius: 50%;
-      color: var(--color-secondary);
+      color: var(--clr-fifth);
     }
   }
   a {
-    font-weight: 500;
-    color: var(--color-font);
+    font-weight: var(--fw-base-m);
+    color: var(--ff-color);
   }
   h3 {
     font-size: var(--step-0);
-    font-weight: 700;
+    font-weight: var(--fw-base-lg);
     background: var(--backgroundGradient);
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -150,7 +150,7 @@ time {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     text-fill-color: transparent;
-    color: var(--color-secondary);
+    color: var(--clr-fifth);
   }
   iframe {
     margin: 40px auto;
@@ -159,7 +159,7 @@ time {
     background: #d3d3d3 none repeat scroll 0% 0%;
     padding: 4px 6px;
     display: inline;
-    color: var(--color-font);
+    color: var(--ff-color);
     margin: 0 1px;
     font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     border-radius: 3px;
@@ -206,7 +206,7 @@ time {
 }
 
 .template--dark .post code {
-  --color-font: #212121;
+  --ff-color: #212121;
 }
 // .post {
 //   &__intro {
@@ -216,11 +216,11 @@ time {
 //   &__bodytext {
 //     padding: 20px 0;
 //     & h3 {
-//       font-family: var(--font-family-headings);
+//       font-family: var(--ff-alt-alpha);
 //       font-size: 2.25rem;
 //     }
 //     & a {
-//       font-weight: 500;
+//       font-weight: var(--fw-base-m);
 //     }
 //     img {
 //       margin: 5rem auto;
@@ -230,7 +230,7 @@ time {
 //       border-image-source: var(--color-border-gradient);
 //     }
 //     blockquote {
-//       --color-border-gradient: linear-gradient(to left, var(--color-primary), var(--color-secondary), var(--color-primary));
+//       --color-border-gradient: linear-gradient(to left, var(--clr-primary), var(--clr-fifth), var(--clr-primary));
 //       margin: 40px 0;
 //       padding: 10px 20px;
 //       border: 2px solid transparent;
@@ -244,11 +244,11 @@ time {
 // }
 
 // .template--dark .post__content {
-//   color: var(--color-font);
+//   color: var(--ff-color);
 // }
 
 // pre {
-//   border: 1px solid var(--color-secondary);
+//   border: 1px solid var(--clr-fifth);
 //   background: rgba(86, 131, 137, 0.10);
 //   padding: 20px;
 //   font-size: 1rem;

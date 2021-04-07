@@ -71,6 +71,7 @@ export default {
     width: 100%;
     display: block;
     padding: 20px 0;
+    color: var(--ff-color);
   }
 }
 
@@ -94,17 +95,18 @@ export default {
   padding: 10px;
   margin-bottom: 20px;
   border: 4px solid transparent;
+  color: var(--ff-color);
   &:hover {
-    border: 4px solid var(--color-secondary);
+    border: 4px solid var(--clr-fifth);
   }
   &__title {
     text-align: left;
-    font-weight: 300;
+    font-weight: var(--fw-base);
     flex: 1;
     padding-right: 20px;
   }
   &__link {
-    font-weight: 500;
+    font-weight: var(--fw-base-m);
     margin-left: auto;
     box-shadow: none;
     display: flex;
@@ -120,21 +122,8 @@ export default {
     justify-content: flex-start;
     margin-right: 40px;
     min-width: 50px;
-    font-weight: 300;
+    font-weight: var(--fw-base);
     opacity: 0.5;
-  }
-}
-
-.template--dark .post {
-  &:hover {
-    border: 4px solid var(--color-third);
-  }
-  &__title {
-      padding-right: 20px;
-  }
-  &__title,
-  &__date {
-    color: #fff;
   }
 }
 

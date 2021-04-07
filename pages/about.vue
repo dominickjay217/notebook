@@ -189,7 +189,6 @@ export default {
         }
     }
     &__content {
-        // font-size: 1rem;
         padding-bottom: 40px;
         align-self: center;
         &--one {
@@ -241,7 +240,7 @@ export default {
 }
 
 .template--dark .about-me {
-  color: var(--color-font);
+  color: var(--ff-color);
 }
 
 .work {
@@ -283,14 +282,14 @@ export default {
     }
     &__item {
         padding: 0;
-        border-bottom: 1px solid var(--color-secondary);
+        border-bottom: 1px solid var(--clr-fifth);
         &:last-child {
             border-bottom: 0;
         }
     }
     &__link {
-        font-weight: 500;
-        color: var(--color-fourth);
+        font-weight: var(--fw-base-m);
+        color: var(--clr-fourth);
         box-shadow: none;
         width: 100%;
         display: flex;
@@ -312,7 +311,7 @@ export default {
 }
 
 .template--dark .other-work__link {
-  color: var(--color-font);
+  color: var(--ff-color);
 }
 
 @media (max-width: 992px) {
