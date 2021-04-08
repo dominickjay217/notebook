@@ -250,7 +250,7 @@ time {
 // pre {
 //   border: 1px solid var(--clr-fifth);
 //   background: rgba(86, 131, 137, 0.10);
-//   padding: 20px;
+//   padding: var(--padding-df);
 //   font-size: 1rem;
 //   margin: 40px 0;
 // }

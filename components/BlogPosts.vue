@@ -70,14 +70,14 @@ export default {
     text-align: center;
     width: 100%;
     display: block;
-    padding: 20px 0;
+    padding: var(--padding-tb);
     color: var(--ff-color);
   }
 }
 
 .blog-posts {
   list-style: none;
-  padding: 40px 0 0;
+  padding: calc(var(--padding-df) * 2) 0 0;
   margin: 0;
   &__item {
     &:last-child {
@@ -87,23 +87,23 @@ export default {
 }
 
 .post {
-  font-size: 1.25rem;
+  --border-width: 4px;
   font-size: var(--step--1);
   display: flex;
+  place-content: var(--center);
   position: relative;
-  align-items: center;
-  padding: 10px;
+  padding: calc((var(--padding-df) / 2));
   margin-bottom: 20px;
-  border: 4px solid transparent;
+  border: var(--border-width) solid transparent;
   color: var(--ff-color);
   &:hover {
-    border: 4px solid var(--clr-fifth);
+    border: var(--border-width) solid var(--clr-fifth);
   }
   &__title {
     text-align: left;
     font-weight: var(--fw-base);
     flex: 1;
-    padding-right: 20px;
+    padding-right: var(--padding-df);
   }
   &__link {
     font-weight: var(--fw-base-m);
@@ -130,7 +130,7 @@ export default {
 @media (max-width: 640px) and (orientation: portrait) {
   .post {
     justify-content: space-between;
-    align-items: center;
+    place-content: var(--center);
     &__date {
       display: none;
     }

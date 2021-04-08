@@ -233,7 +233,7 @@
       max-width: 50%;
       text-align: left;
       margin: 0;
-      padding: 20px;
+      padding: var(--padding-df);
       position: relative;
       &::before {
         content: "";
@@ -389,7 +389,7 @@
       grid-row: 1;
       & span  {
         text-align: left;
-        padding: 20px;
+        padding: var(--padding-df);
       }
     }
 

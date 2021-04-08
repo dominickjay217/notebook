@@ -17,15 +17,15 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  background-color: var(--color-body);
-  padding: 20px;
+  background-color: var(--footer-background);
+  color: var(--ff-color);
+  padding: var(--padding-df);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   & .navigation {
     grid-column: 1 / 4;
   }
   & p {
-    // font-size: 0.85rem;
     font-size: var(--step--3);
     font-weight: var(--fw-base-m);
     grid-column: 1 / 4;

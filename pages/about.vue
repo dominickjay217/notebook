@@ -179,6 +179,7 @@ export default {
     &__intro {
         grid-column: span 4;
         font-size: var(--step--1);
+        color: var(--ff-color);
     }
     &__picture {
         grid-column: 4 / span 1;
@@ -191,13 +192,14 @@ export default {
     &__content {
         padding-bottom: 40px;
         align-self: center;
+        color: var(--ff-color);
         &--one {
             grid-column: 1 / 5;
             grid-template-columns: subgrid;
             display: grid;
             grid-row: 2;
             & p {
-              padding-bottom: 40px;
+              padding-bottom: calc(var(--padding-df) * 2);
             }
             & p:first-child  {
               grid-column: 1 / 4;
@@ -239,14 +241,10 @@ export default {
     }
 }
 
-.template--dark .about-me {
-  color: var(--ff-color);
-}
-
 .work {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--grid-gap);;
+    grid-gap: var(--grid-gap);
     & .heading:first-child {
         grid-column: 1 / 3;
         grid-row: 1;
@@ -289,17 +287,20 @@ export default {
     }
     &__link {
         font-weight: var(--fw-base-m);
-        color: var(--clr-fourth);
+        color: var(--other-work-link);
         box-shadow: none;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px;
+        padding: var(--padding-df);
         & svg {
           max-width: 50px;
           position: relative;
           transition: transform 270ms cubic-bezier(0.77, 0, 0.175, 1);
+          & path {
+            fill: var(--ff-color);
+          }
         }
         &:hover {
           box-shadow: none;

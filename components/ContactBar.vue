@@ -47,7 +47,8 @@ export default {
     position: relative;
     margin-top: -50px;
     padding-top: 0;
-    background: var(--color-body);
+    background-color: var(--footer-background);
+    color: var(--ff-color);
     margin-bottom: 0;
     display: flex;
     justify-content: center;
@@ -65,18 +66,6 @@ export default {
             display: block;
             margin-bottom: 20px;
         }
-    }
-}
-
-.template--dark {
-    --dark: #0A2342;
-    & .contact {
-        --dark: #0A2342;
-        background: var(--dark);
-        color: var(--clr-primary);
-    }
-    .contact .curve {
-        background: var(--dark);
     }
 }
 
