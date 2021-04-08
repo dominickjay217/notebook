@@ -1,25 +1,23 @@
-const { getConfigForKeys } = require('./lib/config.js')
-const ctfConfig = getConfigForKeys([
-  'CTF_BLOG_POST_TYPE_ID',
-  'CTF_SPACE_ID',
-  'CTF_CDA_ACCESS_TOKEN',
-  'CTF_CMA_ACCESS_TOKEN',
-  'CTF_PERSON_ID',
-])
-const { createClient } = require('./plugins/contentful')
-const cdaClient = createClient(ctfConfig)
-const cmaContentful = require('contentful-management')
-const cmaClient = cmaContentful.createClient({
-  accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN,
-})
+// const config = require('./.contentful.json')
+const env = require('dotenv').config()
 
 export default {
-  mode: 'spa',
-  /*
-   ** Headers of the page
-   */
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
+  env: {
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: process.env.CTF_PERSON_ID,
+    CTF_ABOUT_PERSON_ID: process.env.CTF_ABOUT_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
+    CTF_CPA_ACCESS_TOKEN: process.env.CTF_CPA_ACCESS_TOKEN,
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY,
+  },
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Dom Jay || Front End Web Developer',
+    title: 'Dominick Jay | Front End Web Developer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -29,74 +27,35 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: ['@/static/css/remedy.css'],
+
   target: 'static',
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: true,
-  /*
-   ** Global CSS
-   */
-  css: ['@/assets/css/remedy.css'],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ['~/plugins/contentful'],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [],
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** Run ESLINT on save
-     */
-    extend(config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        })
-      }
-    },
-    postcss: {
-      preset: {
-        autoprefixer: {
-          grid: false,
-        },
-      },
-    },
-  },
-  env: {
-    CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
-  },
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+  ],
+
   router: {
-    base: '/',
-    linkExactActiveClass: 'navigation__listlink--active',
-    extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'custom',
-        path: '*',
-        component: resolve(__dirname, 'pages/404.vue'),
-      })
-    },
+    linkActiveClass: 'navigation__link--active'
   },
-  extends: ['@nuxtjs/eslint-config-typescript'],
-  layoutTransition: {
-    name: 'fade',
-    mode: 'out-in',
-  },
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    ['@nuxtjs/eslint-module', {
+      fix: true
+    }]
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+  ],
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
 }

@@ -2,32 +2,22 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true,
+    node: true
   },
   parserOptions: {
-    parser: 'babel-eslint',
-    // parser: '@typescript-eslint/parser'
+    parser: 'babel-eslint'
   },
   extends: [
     'plugin:vue/recommended',
-    //'@nuxtjs/eslint-config-typescript',
-    'prettier/vue',
-    'plugin:prettier/recommended',
   ],
-  // required to lint *.vue files
-  plugins: ['vue'],
+  plugins: [
+  ],
   // add your custom rules here
   rules: {
-    semi: [2, 'never'],
-    'no-console': 'off',
-    'vue/max-attributes-per-line': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        htmlWhitespaceSensitivity: 'ignore',
-        semi: false,
-        singleQuote: true,
-      },
-    ],
-  },
+    "vue/singleline-html-element-content-newline": [1, {
+      "ignoreWhenNoAttributes": true,
+      "ignoreWhenEmpty": true,
+      "ignores": ["vue-markdown"]
+    }]
+  }
 }
