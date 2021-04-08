@@ -131,6 +131,7 @@ export default {
   .post {
     justify-content: space-between;
     place-content: var(--center);
+    padding: 0;
     &__date {
       display: none;
     }

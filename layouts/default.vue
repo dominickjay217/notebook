@@ -78,6 +78,7 @@
   --fw-base-m: 500;
   --fw-base-lg: 700;
   --fw-base-xl: 900;
+  --ff-lh: 1.6;
 
 	--color-mode: 'light';
 
@@ -231,12 +232,13 @@
 }
 
 body {
-  font: var(--step-0)/1.6;
+  font: var(--step-0)/var(--ff-lh);
   font-weight: var(--fw-base);
   padding: 0;
   margin: 0;
   font-family: var(--ff-base);
   overflow-x: hidden;
+
 }
 
 *:focus {

@@ -5,12 +5,12 @@
     <main>
       <BannerBar :person="person" />
       <div class="container">
-        <section class="content about">
+        <section class="content about-me">
           <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown>
           <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
           <div class="about-me__content about-me__content--joke">
             <strong>
-              I love dad jokes, how about one of them instead?
+              I love dad jokes, how about-me one of them instead?
             </strong>
             <Joke />
           </div>
@@ -199,10 +199,8 @@ export default {
         align-self: center;
         color: var(--ff-color);
         &--one {
-            grid-column: 1 / 5;
             grid-template-columns: subgrid;
             display: grid;
-            grid-row: 2;
             & p {
               padding-bottom: calc(var(--padding-df) * 2);
             }
@@ -319,10 +317,6 @@ export default {
     }
 }
 
-.template--dark .other-work__link {
-  color: var(--ff-color);
-}
-
 @media (max-width: 992px) {
   .work {
     grid-template-columns: repeat(1, 1fr);
@@ -372,7 +366,7 @@ export default {
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-  .about {
+  .about-me {
     grid-template-columns: repeat(3, minmax(100px, 1fr));
     &__intro {
       grid-column: span 3;
@@ -380,12 +374,12 @@ export default {
   }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .about {
+@media (max-width: 768px) {
+  .about-me {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     &__intro {
       grid-column: 1 / 5;
-      grid-row: 2;
+      grid-row: 1;
     }
     &__picture {
       grid-column: 1 / 4;
@@ -398,6 +392,11 @@ export default {
     }
     &__content {
       grid-column: 1 / 5;
+      &--one {
+        & p {
+          grid-column: 1 / 5 !important;
+        }
+      }
     }
     &__content:nth-child(3) {
       grid-row: 4;

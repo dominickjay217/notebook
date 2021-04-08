@@ -56,7 +56,7 @@ export default {
     }
     &__copy {
       grid-row: 1;
-      padding-left: var(--padding-df);
+      padding: 0;
     }
   }
 
