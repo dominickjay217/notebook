@@ -45,7 +45,9 @@
 
 
   --main-background: var(--clr-base);
-  --header-background: linear-gradient(to bottom, var(--clr-primary-lt), var(--clr-primary));
+  --header-background: linear-gradient(to bottom, var(--clr-primary-lt) 0%, var(--clr-primary) 33%,
+  var(--clr-secondary-lt) 66%, var(--clr-secondary) 100%);
+  --header-background-position: 0 0;
   --footer-background: var(--clr-base-lt);
   --banner-background: var(--clr-base);
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
@@ -85,6 +87,13 @@
   --padding-tb: var(--padding-df) 0;
   --padding-lr: 0 var(--padding-df);
 
+  --weather-bottom: 100vh;
+  --weather-top: 0;
+  --trn-star: .5s ease-in-out opacity;
+  --star-opacity: 0;
+  --moon-position: var(--weather-bottom);
+  --sun-position: var(--weather-top);
+
   --center: center;
 
   --fluid-min-width: 326;
@@ -104,8 +113,8 @@
   :root:not([data-user-color-scheme]) {
     --curve-fill: var(--clr-base-dk);
     --banner-background: var(--clr-base-dk);
+    --header-background-position: 0 100%;
     --main-background: var(--clr-base-dk);
-    --header-background: linear-gradient(to bottom, var(--clr-primary), var(--clr-primary-dk));
     --ff-color: var(--clr-base-lt);
     --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
     --footer-background: var(--clr-secondary-dk);
@@ -117,6 +126,9 @@
     --aside-background: rgba(254, 153, 72, 0.15);
     --aside-border: var(--clr-third-dk);
     --aside-icon: var(--clr-third-dk);
+    --star-opacity: 1;
+    --moon-position: var(--weather-top);
+    --sun-position: var(--weather-bottom);
   }
 }
 
@@ -124,7 +136,7 @@
   --curve-fill: var(--clr-base-dk);
   --banner-background: var(--clr-base-dk);
   --main-background: var(--clr-base-dk);
-  --header-background: linear-gradient(to bottom, var(--clr-secondary-lt), var(--clr-secondary));
+  --header-background-position: 0 100%;
   --ff-color: var(--clr-base-lt);
   --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
   --footer-background: var(--clr-secondary-dk);
@@ -136,6 +148,9 @@
   --aside-background: rgba(254, 153, 72, 0.15);
   --aside-border: var(--clr-third-dk);
   --aside-icon: var(--clr-third-dk);
+  --star-opacity: 1;
+  --moon-position: var(--weather-top);
+  --sun-position: var(--weather-bottom);
 }
 
 @media screen and (min-width: 1140px) {

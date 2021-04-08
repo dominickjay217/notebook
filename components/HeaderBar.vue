@@ -108,6 +108,9 @@
 .header {
   padding: 60px 0 20px;
   background: var(--header-background);
+  background-size: 400% 400%;
+  background-position: var(--header-background-position);
+  transition: 2s ease-in-out background-position;
 
   &__title {
     font-family: var(--ff-alt-alpha);
@@ -153,6 +156,7 @@
     color: var(--hero-fact);
     padding: 0;
     font-family: var(--ff-base);
+    font-family: var(--ff-variable);
     font-weight: var(--fw-base-xl);
     display: flex;
     flex-direction: column;
@@ -161,7 +165,7 @@
     position: relative;
     z-index: 2;
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: -.5px;
     &::before {
       content: "";
       border-top: 1px solid var(--clr-fifth);

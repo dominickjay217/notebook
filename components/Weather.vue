@@ -276,6 +276,7 @@ export default {
     // wait for $refs to be available
     await this.$nextTick()
     this.makeStars();
+    this.applySetting();
   },
   methods: {
 
@@ -335,12 +336,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-:root {
-  --weather-position: 0;
-  --trn-star: .5s ease-in-out opacity;
-}
-
 .theme-toggle {
   position: relative;
   z-index: 1;
@@ -355,9 +350,8 @@ export default {
     top: 20px;
     left: 20px;
     width: 100px;
-    height: 50px;
-    background: var(--button-background);
-    color: var(--button-color);
+    height: 100px;
+    background: transparent;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -373,7 +367,7 @@ export default {
   max-width: 100px;
   position: absolute;
   left: 20px;
-  top: var(--weather-position);
+  top: var(--sun-position);
   transition: 2.5s ease-in-out top;
   & #sunwaves {
     animation: sunburst 30s linear infinite;
@@ -388,12 +382,11 @@ export default {
 }
 
 .moon {
-  --weather-position: 100vh;
   pointer-events: none;
   max-width: 100px;
   position: absolute;
   left: 20px;
-  top: var(--weather-position);
+  top: var(--moon-position);
   transition: 2.5s ease-in-out top;
 }
 
@@ -406,27 +399,13 @@ export default {
   -webkit-font-smoothing: subpixel-antialiased;
   animation: twinkle 2s infinite;
   transform: scale(1) translate3d( 0, 0, 0) perspective(1px);
-  opacity: 0;
+  opacity: var(--star-opacity);
   transition: var(--trn-star);
   &-icon {
       width: 8px;
       height: 8px;
       background: radial-gradient(var(--color-primary), transparent 75%);
       border-radius: 100%;
-  }
-}
-
-[data-user-color-scheme='dark'] {
-  .moon {
-    --weather-position: 0;
-  }
-
-  .sun {
-    --weather-position: 100vh;
-  }
-
-  .star {
-    opacity: 1;
   }
 }
 
