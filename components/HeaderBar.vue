@@ -111,6 +111,7 @@
   background-size: 400% 400%;
   background-position: var(--header-background-position);
   transition: 2s ease-in-out background-position;
+  transition-delay: var(--header-background-delay);
 
   &__title {
     font-family: var(--ff-alt-alpha);

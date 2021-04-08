@@ -93,6 +93,7 @@
   --star-opacity: 0;
   --moon-position: var(--weather-bottom);
   --sun-position: var(--weather-top);
+  --header-background-delay: 0s;
 
   --center: center;
 
@@ -129,6 +130,7 @@
     --star-opacity: 1;
     --moon-position: var(--weather-top);
     --sun-position: var(--weather-bottom);
+    --header-background-delay: 0s;
   }
 }
 
@@ -151,6 +153,7 @@
   --star-opacity: 1;
   --moon-position: var(--weather-top);
   --sun-position: var(--weather-bottom);
+  --header-background-delay: 0s;
 }
 
 @media screen and (min-width: 1140px) {

@@ -425,5 +425,12 @@ export default {
     }
 }
 
+@media (max-width: 640px) {
+  .sun,
+  .moon,
+  .button {
+    max-width: 50px;
+  }
+}
 
 </style>
