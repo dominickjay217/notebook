@@ -91,16 +91,12 @@ time {
   }
 }
 
-.template--dark time {
-  color: var(--clr-primary);
-}
-
 .post {
-  --clr-fifth-light: rgba(158, 205, 213, 0.25);
-  --backgroundGradient: linear-gradient(var(--clr-fifth), #325d63);
+
+  color: var(--ff-color);
   &__subheading {
     font-weight: var(--fw-base-lg);
-    background: var(--backgroundGradient);
+    background: var(--blog-gradient);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -114,7 +110,7 @@ time {
   }
   strong {
     font-weight: var(--fw-base-lg);
-    color: var(--clr-fifth);
+    color: var(--blog-ff-strong);
   }
   aside {
     position: relative;
@@ -122,18 +118,18 @@ time {
     margin-top: 48px;
     margin-bottom: 64px;
     border-left: 3px solid;
-    border-left-color: var(--clr-fifth);
+    border-left-color: var(--aside-border);
     border-radius: 6px 6px 6px 3px;
-    background-color: var(--clr-fifth-light);
+    background-color: var(--aside-background);
     & i {
       position: absolute;
       top: 0px;
       left: 0px;
       transform: translate(-50%, -50%);
       padding: 8px;
-      background: #fff;
+      background: var(--main-background);
       border-radius: 50%;
-      color: var(--clr-fifth);
+      color: var(--aside-icon);
     }
   }
   a {
@@ -143,7 +139,7 @@ time {
   h3 {
     font-size: var(--step-0);
     font-weight: var(--fw-base-lg);
-    background: var(--backgroundGradient);
+    background: var(--blog-gradient);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -161,7 +157,7 @@ time {
     display: inline;
     color: var(--ff-color);
     margin: 0 1px;
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-family: var(--ff-code);
     border-radius: 3px;
   }
   pre {
@@ -186,72 +182,4 @@ time {
   }
 }
 
-.template--dark .post__subheading,
-.template--dark .post h3 {
-  --color-third-light: #fcb276;
-  --backgroundGradient: linear-gradient(var(--color-third), var(--color-third-light));
-}
-
-.template--dark .post__bodytext strong {
-  color: var(--color-third);
-}
-
-.template--dark .post__bodytext .aside {
-  border-left-color: var(--color-third);
-  background-color: rgba(252, 178, 118, 0.15);
-  & i {
-    background-color: #222;
-    color: var(--color-third);
-  }
-}
-
-.template--dark .post code {
-  --ff-color: #212121;
-}
-// .post {
-//   &__intro {
-//     display: block;
-//     padding: 20px 0 0;
-//   }
-//   &__bodytext {
-//     padding: 20px 0;
-//     & h3 {
-//       font-family: var(--ff-alt-alpha);
-//       font-size: 2.25rem;
-//     }
-//     & a {
-//       font-weight: var(--fw-base-m);
-//     }
-//     img {
-//       margin: 5rem auto;
-//       border: 8px solid;
-//       border-image-slice: 1;
-//       border-width: 10px;
-//       border-image-source: var(--color-border-gradient);
-//     }
-//     blockquote {
-//       --color-border-gradient: linear-gradient(to left, var(--clr-primary), var(--clr-fifth), var(--clr-primary));
-//       margin: 40px 0;
-//       padding: 10px 20px;
-//       border: 2px solid transparent;
-//       background: linear-gradient(#fff, #fff), var(--color-border-gradient);
-//       background-origin: padding-box, border-box;
-//       background-repeat: no-repeat; /* this is important */
-//       border-left: none;
-//       border-right: none;
-//     }
-//   }
-// }
-
-// .template--dark .post__content {
-//   color: var(--ff-color);
-// }
-
-// pre {
-//   border: 1px solid var(--clr-fifth);
-//   background: rgba(86, 131, 137, 0.10);
-//   padding: var(--padding-df);
-//   font-size: 1rem;
-//   margin: 40px 0;
-// }
 </style>

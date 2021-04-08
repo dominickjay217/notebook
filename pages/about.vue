@@ -8,7 +8,6 @@
         <section class="content about">
           <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown>
           <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
-          <!-- <vue-markdown class="about-me__content about__content--two">{{ about.fields.aboutSectionTwo }}</vue-markdown> -->
           <div class="about-me__content about-me__content--joke">
             <strong>
               I love dad jokes, how about one of them instead?
@@ -83,8 +82,8 @@
               >
                 {{ otherWork.fields.snippetName }}
                 <svg width="85" height="10" viewBox="0 0 85 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047" stroke="black"/>
-                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z" fill="black"/>
+                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047"/>
+                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z"/>
                 </svg>
               </a>
             </li>
@@ -299,7 +298,11 @@ export default {
           position: relative;
           transition: transform 270ms cubic-bezier(0.77, 0, 0.175, 1);
           & path {
-            fill: var(--ff-color);
+            fill: var(--other-work-link);
+            &:first-child {
+              stroke: var(--other-work-link);
+              fill: none;
+            }
           }
         }
         &:hover {

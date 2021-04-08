@@ -67,12 +67,8 @@ export default {
 </script>
 
 <style lang="scss">
-
-.template--dark h3 {
-  color: var(--ff-color);
-}
-
-.template--dark * {
+.blog h3,
+.blog p  {
   color: var(--ff-color);
 }
 </style>

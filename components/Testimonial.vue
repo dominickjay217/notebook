@@ -30,19 +30,12 @@ export default {
   &__copy {
     margin-bottom: 20px;
     position: relative;
-    padding: 0 20px;
-    grid-column: 1 / 8;
-  }
-  &__copy:first-child {
-    grid-column: 1 / 8;
+    padding: var(--padding-lr);
+    color: var(--ff-color);
   }
   &__quote-symb {
     font-weight: var(--fw-base-m);
   }
-}
-
-.template--dark .testimonial {
-  color: var(--ff-color);
 }
 
 @media (max-width: 640px) and (orientation: portrait) {
@@ -53,8 +46,7 @@ export default {
     }
     &__copy {
       grid-row: 1;
-      grid-column: 1 / 8;
-      padding-left: 20px;
+      padding-left: var(--padding-df);
     }
   }
 

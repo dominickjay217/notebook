@@ -34,7 +34,7 @@ export default {
       const colorMode = '--color-mode';
       let currentSetting = localStorage.getItem(colorTheme);
       switch (currentSetting) {
-        case "null":
+        case null:
           currentSetting = this.getSetting(colorMode) === 'dark' ? 'light' : 'dark';
           break;
         case 'light':

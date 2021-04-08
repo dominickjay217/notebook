@@ -58,6 +58,7 @@ export default {
     padding: 10px 20px;
     box-shadow: none;
     letter-spacing: 0.5px;
+    transition: none;
     &:hover,
     &--active {
       &::before,

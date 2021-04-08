@@ -51,10 +51,16 @@
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
   --curve-fill: var(--clr-base);
   --hero-fact: linear-gradient(var(--clr-fifth-lt), var(--clr-fifth-dk));
-  --lnk-box-shdw: inset 0 -0.07em 0 var(--clr-third), var(--clr-third-lt);
-  --lnk-box-shdw-hover: inset 0 -1.25em 0 var(--clr-third), var(--clr-third-lt);
+  --lnk-box-shdw: inset 0 -0.07em 0 var(--clr-third);
+  --lnk-box-shdw-hover: inset 0 -1.25em 0 var(--clr-third);
   --social-media-icon: var(--clr-base-dk);
   --other-work-link: var(--clr-fourth);
+  --blog-gradient: linear-gradient(var(--clr-fifth), var(--clr-fifth-dk));
+  --blog-ff-strong: var(--clr-fifth);
+  --focus-outline-clr: var(--clr-base-dk);
+  --aside-background: rgba(96, 146, 153, 0.15);
+  --aside-border: var(--clr-fifth-dk);
+  --aside-icon: var(--clr-fifth-dk);
 
   /* Transitions */
 
@@ -64,6 +70,7 @@
   --ff-color-link: --clr-third;
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
   --ff-alt-alpha: 'SaltedMocha-Regular';
+  --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   --fw-base: 300;
   --fw-base-m: 500;
   --fw-base-lg: 700;
@@ -94,7 +101,7 @@
 	}
 
   :root:not([data-user-color-scheme]) {
-    --curve-fill: #222;
+    --curve-fill: var(--clr-base-dk);
     --banner-background: var(--clr-base-dk);
     --main-background: var(--clr-base-dk);
     --header-background: linear-gradient(to bottom, var(--clr-primary), var(--clr-primary-dk));
@@ -103,11 +110,17 @@
     --footer-background: var(--clr-secondary-dk);
     --social-media-icon: var(--clr-base-lt);
     --other-work-link: var(--ff-color);
+    --blog-gradient: linear-gradient(var(--clr-third), var(--clr-third-lt));
+    --blog-ff-strong: var(--clr-third);
+    --focus-outline-clr: var(--clr-base-lt);
+    --aside-background: rgba(254, 153, 72, 0.15);
+    --aside-border: var(--clr-third-dk);
+    --aside-icon: var(--clr-third-dk);
   }
 }
 
 [data-user-color-scheme='dark'] {
-  --curve-fill: #222;
+  --curve-fill: var(--clr-base-dk);
   --banner-background: var(--clr-base-dk);
   --main-background: var(--clr-base-dk);
   --header-background: linear-gradient(to bottom, var(--clr-secondary-lt), var(--clr-secondary));
@@ -116,6 +129,12 @@
   --footer-background: var(--clr-secondary-dk);
   --social-media-icon: var(--clr-base-lt);
   --other-work-link: var(--ff-color);
+  --blog-gradient: linear-gradient(var(--clr-third), var(--clr-third-lt));
+  --blog-ff-strong: var(--clr-third);
+  --focus-outline-clr: var(--clr-base-lt);
+  --aside-background: rgba(254, 153, 72, 0.15);
+  --aside-border: var(--clr-third-dk);
+  --aside-icon: var(--clr-third-dk);
 }
 
 @media screen and (min-width: 1140px) {
@@ -202,7 +221,7 @@ body {
 }
 
 *:focus {
-  outline: 2px dashed var(--clr-fourth);
+  outline: 2px dashed var(--focus-outline-clr);
 }
 
 a {

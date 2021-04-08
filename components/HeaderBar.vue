@@ -168,6 +168,7 @@
   &__link:hover {
     position: relative;
     box-shadow: none;
+    transition: none;
   }
 }
 
