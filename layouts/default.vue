@@ -127,7 +127,7 @@
     --aside-background: rgba(254, 153, 72, 0.15);
     --aside-border: var(--clr-third-dk);
     --aside-icon: var(--clr-third-dk);
-    --star-opacity: 1;
+    --star-opacity: 0.5;
     --moon-position: var(--weather-top);
     --sun-position: var(--weather-bottom);
     --header-background-delay: 0s;
@@ -150,7 +150,7 @@
   --aside-background: rgba(254, 153, 72, 0.15);
   --aside-border: var(--clr-third-dk);
   --aside-icon: var(--clr-third-dk);
-  --star-opacity: 1;
+  --star-opacity: 0.5;
   --moon-position: var(--weather-top);
   --sun-position: var(--weather-bottom);
   --header-background-delay: 0s;
