@@ -6,7 +6,9 @@
       <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
-          <h3 class="content__heading">I’ve written {{ posts.length }} posts about development and setups.</h3>
+          <h3 class="content__heading">
+            I’ve written {{ posts.length }} posts about development and setups.
+          </h3>
           <p>I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.</p>
           <BlogPosts :posts="posts" />
         </section>

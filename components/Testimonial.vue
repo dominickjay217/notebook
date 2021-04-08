@@ -2,7 +2,17 @@
   <div class="testimonial__content">
     <div class="testimonial__copy">
       <p>
-        <span class="testimonial__quote-symb">"</span>{{ person.fields.testimonials[Math.floor((Math.random() * person.fields.testimonials.length))].fields.jobTestimonial }}<span class="testimonial__quote-symb">"</span>
+        <span
+          class="testimonial__quote-symb"
+        >
+          "
+        </span>
+        {{ person.fields.testimonials[Math.floor((Math.random() * person.fields.testimonials.length))].fields.jobTestimonial }}
+        <span
+          class="testimonial__quote-symb"
+        >
+          "
+        </span>
       </p>
     </div>
   </div>

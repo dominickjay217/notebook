@@ -155,7 +155,7 @@ time {
     background: #d3d3d3 none repeat scroll 0% 0%;
     padding: 4px 6px;
     display: inline;
-    color: var(--ff-color);
+    color: var(--code-font-color);
     margin: 0 1px;
     font-family: var(--ff-code);
     border-radius: 3px;

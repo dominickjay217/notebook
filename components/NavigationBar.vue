@@ -1,9 +1,9 @@
 <template>
   <ul class="navigation">
     <li
-      class="navigation__item"
+      v-for="item in navigationItems"
       :key="item.title"
-      v-for="item in this.navigationItems"
+      class="navigation__item"
     >
       <NuxtLink
         class="navigation__link"

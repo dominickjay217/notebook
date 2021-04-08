@@ -61,6 +61,7 @@
   --aside-background: rgba(96, 146, 153, 0.15);
   --aside-border: var(--clr-fifth-dk);
   --aside-icon: var(--clr-fifth-dk);
+  --code-font-color: var(--clr-base-dk);
 
   /* Transitions */
 

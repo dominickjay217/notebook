@@ -37,12 +37,12 @@
               <div class="lastfm-info__imagewrapper">
                 <img
                   class="lastfm-info__image"
-                  loading=lazy
+                  loading="lazy"
                   :src="music.recenttracks.track[0].image[3]['#text']"
                 >
                 <img
                   :src="music.recenttracks.track[0].image[3]['#text']"
-                  loading=lazy
+                  loading="lazy"
                 >
               </div>
             </div>
@@ -61,7 +61,7 @@
             >
               <img
                 class="work__image"
-                loading=lazy
+                loading="lazy"
                 :src="about.fields.featuredWork.fields.file.url"
                 :alt="about.fields.featuredWork.fields.title"
               >
@@ -81,9 +81,15 @@
                 :href="otherWork.fields.snippetLink"
               >
                 {{ otherWork.fields.snippetName }}
-                <svg width="85" height="10" viewBox="0 0 85 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047"/>
-                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z"/>
+                <svg
+                  width="85"
+                  height="10"
+                  viewBox="0 0 85 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047" />
+                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z" />
                 </svg>
               </a>
             </li>
@@ -231,7 +237,6 @@ export default {
             padding-top: 60px;
             & strong {
                 margin-bottom: 20px;
-                // font-size: 1rem;
             }
             & img {
               margin: 20px auto;
