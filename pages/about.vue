@@ -197,6 +197,7 @@ export default {
         &--one {
             grid-template-columns: subgrid;
             display: grid;
+            grid-column: 1 / 5;
             & p {
               padding-bottom: calc(var(--padding-df) * 2);
             }
