@@ -20,6 +20,7 @@ export default {
   background-color: var(--footer-background);
   color: var(--ff-color);
   padding: var(--padding-df);
+  padding-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   & .navigation {

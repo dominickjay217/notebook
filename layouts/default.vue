@@ -302,6 +302,9 @@ main {
 .content {
   padding: 40px 0;
   margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 </style>

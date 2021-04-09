@@ -1,30 +1,39 @@
 <template>
-    <div class="content contact" id="contact">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 1680 40"
-            class="curve"
-        >
-            <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"></path>
-        </svg>
-        <h3 class="contact__heading">Talk to me</h3>
-        <div class="contact__text">
-            <span>Want to send me an idea, have a chat, or get me to overwrite the
-            'inspirational' quote at the top?
-            </span>
-            <a
-            :href="'mailto:' + person.fields.email"
-            target="_blank"
-            relopener="noopener" class="contact__link">Send me an email</a> at hi@dominickjay.com
-    or give me a shout on
-            <a class="contact__link"
-            target="_blank"
-            relopener="noopener"
-            :href="person.fields.twitter">Twitter</a>.
-        </div>
+  <div
+    id="contact"
+    class="content contact"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      preserveAspectRatio="none"
+      viewBox="0 0 1680 40"
+      class="curve"
+    >
+      <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" />
+    </svg>
+    <h3 class="contact__heading">
+      Talk to me
+    </h3>
+    <div class="contact__text">
+      <span>Want to send me an idea, have a chat, or get me to overwrite the
+        'inspirational' quote at the top?
+      </span>
+      <a
+        :href="'mailto:' + person.fields.email"
+        target="_blank"
+        relopener="noopener"
+        class="contact__link"
+      >Send me an email</a> at hi@dominickjay.com
+      or give me a shout on
+      <a
+        class="contact__link"
+        target="_blank"
+        relopener="noopener"
+        :href="person.fields.twitter"
+      >Twitter</a>.
     </div>
+  </div>
 </template>
 
 <script>
@@ -35,17 +44,17 @@ export default {
 
 <style lang="scss" scoped>
 .curve {
-    top: 50px;
+    top: 0;
     position: relative;
     fill: var(--curve-fill);
     transform: rotate(180deg);
     z-index: 2;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .contact {
     position: relative;
-    margin-top: -50px;
+    margin-top: 0;
     padding-top: 0;
     background-color: var(--footer-background);
     color: var(--ff-color);
