@@ -59,6 +59,9 @@ export default {
     box-shadow: none;
     letter-spacing: 0.5px;
     transition: none;
+    &:hover {
+      color: var(--ff-color);
+    }
     &:hover,
     &--active {
       &::before,

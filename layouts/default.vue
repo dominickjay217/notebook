@@ -54,7 +54,7 @@
   --curve-fill: var(--clr-base);
   --hero-fact: linear-gradient(var(--clr-fifth-lt), var(--clr-fifth-dk));
   --lnk-box-shdw: inset 0 -0.07em 0 var(--clr-third);
-  --lnk-box-shdw-hover: inset 0 -1.25em 0 var(--clr-third);
+  --lnk-box-shdw-hover: inset 0 -1.5em 0 var(--clr-third);
   --social-media-icon: var(--clr-base-dk);
   --other-work-link: var(--clr-fourth);
   --blog-gradient: linear-gradient(var(--clr-fifth), var(--clr-fifth-dk));
@@ -69,8 +69,8 @@
 
   --trn-bs: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 
-  --ff-color: --clr-base-dk;
-  --ff-color-link: --clr-third;
+  --ff-color: var(--clr-base-dk);
+  --ff-color-link-hover: var(--clr-base-dk);
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
   --ff-alt-alpha: 'SaltedMocha-Regular';
   --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
@@ -256,6 +256,7 @@ a {
 a:hover {
   text-decoration: none;
   box-shadow: var(--lnk-box-shdw-hover);
+  color: var(--ff-color-link-hover);
 }
 
 main {

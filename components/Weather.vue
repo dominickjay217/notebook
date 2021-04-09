@@ -219,52 +219,12 @@
         />
       </svg>
       <span
-        v-for="i in 51"
+        v-for="i in 81"
         ref="box"
         :key="i"
         class="star"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          fill="none"
-          xmlns:v="https://vecta.io/nano"
-        >
-          <path
-            d="M11 0l2.47 7.601h7.992l-6.466 4.698 2.47 7.601L11 15.202l-6.466 4.698 2.47-7.601L.538 7.601H8.53L11 0z"
-            fill="url(#A)"
-          /><path
-            d="M11 1l2.245 6.91h7.265l-5.878 4.27 2.245 6.91L11 14.82 5.122 19.09l2.245-6.91-5.878-4.27h7.265L11 1z"
-            fill="url(#B)"
-          /><defs><radialGradient
-            id="A"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientUnits="userSpaceOnUse"
-            gradientTransform="translate(11 11) rotate(90) scale(11)"
-          >
-            <stop /><stop
-              offset="1"
-              stop-color="#e3f1f2"
-              stop-opacity="0"
-            />
-          </radialGradient><radialGradient
-            id="B"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientUnits="userSpaceOnUse"
-            gradientTransform="translate(11 11) rotate(90) scale(10)"
-          >
-            <stop stop-color="#e3f1f2" /><stop
-              offset="1"
-              stop-color="#e3f1f2"
-              stop-opacity="0"
-            />
-          </radialGradient></defs>
-        </svg>
+        <span class="star-icon" />
       </span>
     </div>
   </div>
@@ -402,10 +362,11 @@ export default {
   opacity: var(--star-opacity);
   transition: var(--trn-star);
   &-icon {
-      width: 8px;
-      height: 8px;
-      background: radial-gradient(var(--color-primary), transparent 75%);
+      width: 4px;
+      height: 4px;
+      background: radial-gradient(var(--clr-primary), transparent 75%);
       border-radius: 100%;
+      display: block;
   }
 }
 

@@ -3,7 +3,6 @@
     <Weather />
     <HeaderBar :person="person" />
     <main>
-      <BannerBar :person="person" />
       <div class="container">
         <section class="content blog">
           <h3 class="content__heading">
@@ -13,7 +12,6 @@
           <BlogPosts :posts="posts" />
         </section>
       </div>
-      <BannerBar :person="person" />
     </main>
     <ContactBar :person="person" />
     <SocialBar :person="person" />
@@ -23,7 +21,6 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
-import BannerBar from '~/components/BannerBar.vue'
 import BlogPosts from '~/components/BlogPosts.vue'
 import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
@@ -35,7 +32,6 @@ const client = createClient()
 export default {
   components: {
     HeaderBar,
-    BannerBar,
     BlogPosts,
     SocialBar,
     ContactBar,
