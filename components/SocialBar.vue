@@ -2,9 +2,9 @@
   <div class="sm-wrapper">
     <ul class="social-media">
       <li
-        class="social-media__item"
-        :key="item.title"
         v-for="item in this.socialItems"
+        :key="item.title"
+        class="social-media__item"
       >
         <a
           :href="item.href"
@@ -12,10 +12,18 @@
           relopener="noopener"
           class="social-media__link"
         >
-          <span class="accessibility">{{ item.title }}</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" v-html="item.image"></svg>
+          <span class="accessibility">
+            {{ item.title }}
+          </span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            v-html="item.image"
+          />
         </a>
-
       </li>
     </ul>
   </div>
@@ -64,6 +72,7 @@ export default {
   margin: 0 auto;
   display: flex;
   place-content: var(--center);
+  z-index: 1;
 }
 
 .social-media {

@@ -23,6 +23,7 @@ export default {
   padding-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  z-index: 1;
   & .navigation {
     grid-column: 1 / 4;
   }

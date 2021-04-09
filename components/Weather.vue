@@ -299,7 +299,7 @@ export default {
 .theme-toggle {
   position: relative;
   z-index: 1;
-  top: 20px;
+  top: 40px;
   &__container {
     position: absolute;
     inset: 0;
@@ -308,7 +308,7 @@ export default {
   & .button {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 40px;
     width: 100px;
     height: 100px;
     background: transparent;
@@ -326,7 +326,7 @@ export default {
   pointer-events: none;
   max-width: 100px;
   position: absolute;
-  left: 20px;
+  left: 60px;
   top: var(--sun-position);
   transition: 2.5s ease-in-out top;
   & #sunwaves {
@@ -345,7 +345,7 @@ export default {
   pointer-events: none;
   max-width: 100px;
   position: absolute;
-  left: 20px;
+  left: 60px;
   top: var(--moon-position);
   transition: 2.5s ease-in-out top;
 }

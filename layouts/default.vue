@@ -235,10 +235,11 @@ body {
   font: var(--step-0)/var(--ff-lh);
   font-weight: var(--fw-base);
   padding: 0;
+  padding-top: var(--padding-df);
   margin: 0;
   font-family: var(--ff-base);
   overflow-x: hidden;
-
+  background-color: var(--main-background);
 }
 
 *:focus {

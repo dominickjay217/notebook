@@ -100,18 +100,23 @@
   width: 100%;
   position: relative;
   z-index: 2;
-  bottom: -25px;
+  bottom: -32px;
   fill: var(--curve-fill);
 }
 
 // Header styles
 .header {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
   padding: 60px 0 20px;
   background: var(--header-background);
   background-size: 400% 400%;
   background-position: var(--header-background-position);
   transition: 2s ease-in-out background-position;
   transition-delay: var(--header-background-delay);
+  position: relative;
+  overflow: hidden;
 
   &__title {
     font-family: var(--ff-alt-alpha);

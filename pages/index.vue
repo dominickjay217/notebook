@@ -19,27 +19,6 @@
             to="/writing"
           >
             View all posts
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 100 125"
-              enable-background="new 0 0 100 100"
-              xml:space="preserve"
-            >
-              <g>
-                <path
-                  d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987C40.691,62.648,13.124,69.887,12.851,69.957z"
-                />
-              </g>
-              <g>
-                <polygon
-                  points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025"
-                />
-              </g>
-            </svg>
           </NuxtLink>
         </section>
       </div>

@@ -64,6 +64,7 @@ export default {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    z-index: 1;
     &__heading {
         font-family: var(--ff-alt-alpha);
         font-size: var(--step-3);
