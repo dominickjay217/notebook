@@ -12,8 +12,8 @@
 
 @font-face {
   font-family: var(--ff-alt-alpha);
-  src: url("/fonts/SaltedMocha-Regular.woff") format("woff"),
-        url("/fonts/SaltedMocha-Regular.ttf")  format("truetype");
+  src: url("/fonts/TheSecret-Regular.woff") format("woff"),
+        url("/fonts/TheSecret-Regular.ttf")  format("truetype");
   font-display: swap;
 }
 
@@ -72,7 +72,7 @@
   --ff-color: var(--clr-base-dk);
   --ff-color-link-hover: var(--clr-base-dk);
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
-  --ff-alt-alpha: 'SaltedMocha-Regular';
+  --ff-alt-alpha: 'Autography';
   --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   --fw-base: 300;
   --fw-base-m: 500;

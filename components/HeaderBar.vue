@@ -148,6 +148,7 @@
     position: relative;
     box-shadow: none;
     transition: none;
+    color: currentColor;
   }
 }
 

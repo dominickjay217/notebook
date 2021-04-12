@@ -88,8 +88,10 @@ time {
 }
 
 .post {
-
   color: var(--ff-color);
+  &__heading {
+    font-family: var(--ff-base);
+  }
   &__subheading {
     font-weight: var(--fw-base-lg);
     background: var(--blog-gradient);
@@ -131,6 +133,24 @@ time {
   a {
     font-weight: var(--fw-base-m);
     color: var(--ff-color);
+  }
+  ol {
+    counter-reset: section;
+    list-style: none;
+    padding-left: var(--padding-df);
+    & li {
+      position: relative;
+    }
+    & li::before {
+    counter-increment: section;
+      content: "0" counter(section);
+      left: -16px;
+      position: relative;
+      font-weight: var(--fw-base-lg);
+      opacity: 0.5;
+      font-size: var(--step--3);
+      margin-right: -5px;
+    }
   }
   h3 {
     font-size: var(--step-0);
