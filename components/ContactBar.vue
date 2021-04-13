@@ -13,7 +13,7 @@
       <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" />
     </svg>
     <h3 class="contact__heading">
-      Talk to me
+      Talk to Me
     </h3>
     <div class="contact__text">
       <span>Want to send me an idea, have a chat, or get me to overwrite the

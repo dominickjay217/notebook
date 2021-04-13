@@ -307,8 +307,9 @@ export default {
         }
         &:hover {
           box-shadow: none;
+          color: var(--ff-color);
           & svg {
-            transform: translateX(5px);
+            transform: translateX(10px);
           }
       }
     }

@@ -100,3 +100,5 @@ dist
 
 # data
 data
+# Local Netlify folder
+.netlify

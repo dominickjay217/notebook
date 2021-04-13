@@ -78,7 +78,7 @@
   --fw-base-m: 500;
   --fw-base-lg: 700;
   --fw-base-xl: 900;
-  --ff-lh: 1.6;
+  --ff-lh: 1.8;
 
 	--color-mode: 'light';
 
