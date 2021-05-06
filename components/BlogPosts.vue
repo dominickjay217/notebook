@@ -22,6 +22,9 @@
           <span class="post__title">
             {{ post.fields.title }}
           </span>
+          <span class="post__description">
+            {{ post.fields.description }}
+          </span>
           <nuxt-link
             :to="{
               name: 'writing-slug',
@@ -87,23 +90,50 @@ export default {
   }
 }
 
+.blog-posts--writing::before {
+  content: "";
+  height: calc(66% - 500px);
+  width: calc(50% + 30vw);
+  left: -30vw;
+  background-color: #304b62;
+  position: absolute;
+  top: 500px;
+  transform: skew(15deg);
+  opacity: 0.5;
+}
+
+.blog-posts--writing::after {
+  content: "";
+  height: calc(66% - 500px);
+  width: calc(50% + 30vw);
+  right: -30vw;
+  background-color: #fcb276;
+  position: absolute;
+  top: 250px;
+  transform: skew(15deg);
+  z-index: 0;
+  opacity: 0.5;
+}
+
 .post {
   --border-width: 4px;
   font-size: var(--step-0);
+  background-color: var(--clr-base);
   display: flex;
-  place-content: var(--center);
+  gap: var(--grid-gap);
+  justify-content: space-between;
   position: relative;
   padding: calc((var(--padding-df) / 2));
   margin-bottom: 20px;
   border: var(--border-width) solid transparent;
   color: var(--ff-color);
   transition: var(--trn-default);
+  text-align: left;
   &:hover {
     border: var(--border-width) solid var(--clr-fifth);
   }
   &__title {
-    text-align: left;
-    font-weight: var(--fw-base);
+    font-weight: var(--fw-base-m);
     flex: 1;
     padding-right: var(--padding-df);
   }
@@ -129,19 +159,42 @@ export default {
   }
 }
 
+.blog-posts--home {
+  .post__description {
+    display: none;
+  }
+}
+
 .blog-posts--writing {
+  --box-shadow: rgba(32, 49, 64, 0.1);
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   grid-gap: var(--grid-gap);
+  border-radius: 20px;
   & .post {
     flex-direction: column;
     height: 100%;
+    box-shadow: 0px 8px 16px 0px var(--box-shadow);
+    z-index: 1;
     &__date {
       font-size: var(--step--1);
     }
     &__link {
       margin-left: 0;
       padding: 0;
+    }
+    &__title {
+      padding-right: 0;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .blog-posts--writing .post {
+    height: auto;
+    &__description {
+      display: block;
     }
   }
 }

@@ -45,7 +45,7 @@ export default {
   position: relative;
   z-index: 2;
   &__item {
-    margin: 0;
+    margin: 0 10px;
     position: relative;
   }
   &__link {

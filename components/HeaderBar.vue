@@ -326,12 +326,17 @@
 }
 
 @media (max-width: 992px) {
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .header .container:first-child {
     flex-direction: column;
   }
   .header__title {
     font-size: var(--step-0);
     align-self: flex-start;
+    padding: 0;
   }
   .hero__fact {
     & p {

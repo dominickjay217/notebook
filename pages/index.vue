@@ -83,7 +83,7 @@ export default {
 <style lang="scss">
 
 .about {
-  margin: 40px auto;
+  margin: 20px auto;
   text-align: left;
   font-family: var(--ff-base);
   color: var(--ff-color);
