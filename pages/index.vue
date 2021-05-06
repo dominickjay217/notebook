@@ -105,13 +105,8 @@ export default {
 }
 
 .blog {
+  text-align: center;
   &__link {
-    box-shadow: none;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
     color: var(--ff-color);
     & svg {
       max-width: 50px;
