@@ -28,15 +28,10 @@ export default {
     grid-column: 1 / 4;
   }
   & p {
-    font-size: var(--step--3);
+    font-size: var(--step--2);
     font-weight: var(--fw-base-m);
     grid-column: 1 / 4;
     text-align: center;
   }
-}
-
-.template--dark .footer {
-  background: #283E51;
-  color: var(--clr-primary);
 }
 </style>
