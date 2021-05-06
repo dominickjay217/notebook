@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul
-      :class="[isHome ? 'blog-posts--home' : '']"
+      :class="[isHome ? 'blog-posts--home' : 'blog-posts--writing']"
       class="blog-posts"
     >
       <li
@@ -126,6 +126,23 @@ export default {
     min-width: 50px;
     font-weight: var(--fw-base);
     opacity: 0.5;
+  }
+}
+
+.blog-posts--writing {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: var(--grid-gap);
+  & .post {
+    flex-direction: column;
+    height: 100%;
+    &__date {
+      font-size: var(--step--1);
+    }
+    &__link {
+      margin-left: 0;
+      padding: 0;
+    }
   }
 }
 

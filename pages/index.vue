@@ -26,6 +26,7 @@
             View all posts
           </NuxtLink>
         </section>
+        <Spacer spacer-no="2" />
       </div>
     </main>
     <ContactBar :person="person" />
