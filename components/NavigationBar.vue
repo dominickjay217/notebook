@@ -67,6 +67,7 @@ export default {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        font-weight: var(--fw-base);
       }
       &::before {
         content: '{';

@@ -205,7 +205,7 @@ export default {
               grid-column: 1 / 4;
             }
             & p:nth-child(2) {
-              grid-column: 2 / 4;
+              grid-column: 2 / 5;
             }
             & p:nth-child(3) {
               grid-column: 1 / 4;

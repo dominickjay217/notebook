@@ -331,7 +331,7 @@
   }
   .header__title {
     font-size: var(--step-0);
-    align-self: flex-end;
+    align-self: flex-start;
   }
   .hero__fact {
     & p {
