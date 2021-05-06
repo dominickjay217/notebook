@@ -67,11 +67,12 @@ export default {
     z-index: 1;
     &__heading {
         font-family: var(--ff-alt-alpha);
-        font-size: var(--step-3);
+        font-size: var(--step-4);
     }
     &__text {
         max-width: 992px;
         padding: 0 20px;
+        font-size: var(--step--1);
         & span {
             display: block;
             margin-bottom: 20px;

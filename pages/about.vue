@@ -177,7 +177,7 @@ export default {
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
-    font-size: var(--step--1);
+    font-size: var(--step-0);
     &__intro {
         grid-column: span 4;
         color: var(--ff-color);
@@ -287,6 +287,7 @@ export default {
     &__link {
         font-weight: var(--fw-base-m);
         color: var(--other-work-link);
+        font-size: var(--step-0);
         box-shadow: none;
         width: 100%;
         display: flex;

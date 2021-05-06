@@ -309,7 +309,7 @@ main {
   color: var(--ff-color);
   &--two {
     text-align: center;
-    font-size: var(--step-3);
+    font-size: var(--step-4);
   }
 }
 
