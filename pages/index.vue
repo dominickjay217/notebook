@@ -1,12 +1,12 @@
 
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
         <section class="content about">
-          {{ person.fields.shortBio }}
+          <vue-markdown>{{ person.fields.shortBio }}</vue-markdown>
         </section>
         <Spacer spacer-no="1" />
         <section class="content blog">
@@ -37,7 +37,7 @@ import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
-import Weather from '~/components/Weather.vue'
+//import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
@@ -49,7 +49,7 @@ export default {
     HeaderBar,
     SocialBar,
     Spacer,
-    Weather,
+    //Weather,
   },
   asyncData({ env }) {
     return Promise.all([

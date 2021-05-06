@@ -89,9 +89,6 @@ time {
 
 .post {
   color: var(--ff-color);
-  &__heading {
-    font-family: var(--ff-base);
-  }
   &__subheading {
     font-weight: var(--fw-base-lg);
     background: var(--blog-gradient);

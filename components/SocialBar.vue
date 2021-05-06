@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 .sm-wrapper {
   padding: var(--padding-tb);
-  background-color: var(--footer-background);
+  //background-color: var(--footer-background);
   color: var(--ff-color);
   margin: 0 auto;
   display: flex;

@@ -307,7 +307,7 @@ export default {
   }
   & .button {
     position: absolute;
-    top: 20px;
+    top: var(--weather-top);
     left: 40px;
     width: 100px;
     height: 100px;
@@ -326,7 +326,7 @@ export default {
   pointer-events: none;
   max-width: 100px;
   position: absolute;
-  left: 60px;
+  left: 40px;
   top: var(--sun-position);
   transition: 2.5s ease-in-out top;
   & #sunwaves {
@@ -345,7 +345,7 @@ export default {
   pointer-events: none;
   max-width: 100px;
   position: absolute;
-  left: 60px;
+  left: 40px;
   top: var(--moon-position);
   transition: 2.5s ease-in-out top;
 }

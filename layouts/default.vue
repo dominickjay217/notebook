@@ -12,8 +12,8 @@
 
 @font-face {
   font-family: var(--ff-alt-alpha);
-  src: url("/fonts/TheSecret-Regular.woff") format("woff"),
-        url("/fonts/TheSecret-Regular.ttf")  format("truetype");
+  src: url("/fonts/choplin-medium.woff") format("woff"),
+        url("/fonts/choplin-medium.otf")  format("truetype");
   font-display: swap;
 }
 
@@ -67,6 +67,7 @@
 
   /* Transitions */
 
+  --trn-default: .25s ease-in-out all;
   --trn-bs: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 
   --ff-color: var(--clr-base-dk);
@@ -254,7 +255,6 @@ body {
   line-height: var(--ff-lh);
   font-weight: var(--fw-base);
   padding: 0;
-  padding-top: var(--padding-df);
   margin: 0;
   font-family: var(--ff-base);
   overflow-x: hidden;
@@ -265,7 +265,14 @@ body {
   outline: 2px dashed var(--focus-outline-clr);
 }
 
+b,
+strong {
+  font-family: var(--ff-alt-alpha);
+  letter-spacing: 0.5px;
+}
+
 a {
+  font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
   transition: var(--trn-bs);
@@ -309,7 +316,8 @@ main {
   color: var(--ff-color);
   &--two {
     text-align: center;
-    font-size: var(--step-4);
+    font-size: var(--step-3);
+    letter-spacing: -0.5px;
   }
 }
 

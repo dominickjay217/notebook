@@ -12,11 +12,13 @@
           {{ person.fields.name }}
         </NuxtLink>
       </h1>
+      <NavigationBar />
+    </div>
+    <!-- <div class="container">
       <h2 class="header__tagline heading heading--two">
         {{ person.fields.title }}
       </h2>
-      <NavigationBar />
-    </div>
+    </div> -->
     <div class="container">
       <div
         v-if="isHome"
@@ -106,10 +108,10 @@
 
 // Header styles
 .header {
-  margin-left: 20px;
-  margin-right: 20px;
-  border-radius: 20px;
-  padding: 60px 0 20px;
+  // margin-left: 20px;
+  // margin-right: 20px;
+  // border-radius: 20px;
+  padding: var(--padding-df);
   background: var(--header-background);
   background-size: 400% 400%;
   background-position: var(--header-background-position);
@@ -117,16 +119,21 @@
   transition-delay: var(--header-background-delay);
   position: relative;
   overflow: hidden;
-
+  & > .container:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__title {
     font-family: var(--ff-alt-alpha);
     text-align: center;
-    font-size: 3rem;
-    font-size: var(--step-5);
-    margin: 0 auto 10px;
+    padding: var(--padding-lr);
+    font-size: var(--step-2);
     position: relative;
     z-index: 2;
     color: var(--ff-color);
+    letter-spacing: -0.5px;
+    opacity: 0.85;
   }
 
   &__tagline {
@@ -295,28 +302,11 @@
   }
 }
 
-.header--dark {
-  &::before {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
-  .header {
-    padding-top: 80px;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
 
-  //hero
   .hero {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: var(--grid-gap);
-    align-items: center;
-    position: relative;
+    margin: 40px 0;
     &__fact {
       color: var(--ff-color);
       padding: 0;
@@ -329,39 +319,31 @@
       z-index: 2;
 
       & span {
-        width: 100%;
         text-align: center;
       }
     }
   }
 }
 
-@media (max-width: 1100px) {
-
-  /* A mobile version for all devices that is smaller than the smalles iPad */
-  .header {
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
+@media (max-width: 992px) {
+  .header .container:first-child {
+    flex-direction: column;
   }
-
-  .hero {
-    &__image {
-      padding: 0px;
-      margin-left: 0;
-      -webkit-transform: rotate(5deg);
-      transform: rotate(5deg);
-      grid-column: 4 / 5;
-    }
-    &__fact p {
+  .header__title {
+    font-size: var(--step-0);
+    align-self: flex-end;
+  }
+  .hero__fact {
+    & p {
       max-width: none;
-      width: 100%;
     }
   }
 }
 
-
 @media (max-width: 640px) and (orientation: portrait) {
+  .header .container:first-child {
+    flex-direction: column;
+  }
   .hero {
     grid-template-columns: repeat(4, 1fr);
 

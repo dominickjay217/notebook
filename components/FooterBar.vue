@@ -1,6 +1,5 @@
 <template>
   <footer class="footer">
-    <NavigationBar />
     <p>© 2015–Today / Copyright Dominick Jay. All rights reserved.</p>
   </footer>
 </template>
@@ -10,14 +9,13 @@ import NavigationBar from '~/components/NavigationBar.vue'
 
 export default {
   components: {
-    NavigationBar,
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .footer {
-  background-color: var(--footer-background);
+  //background-color: var(--footer-background);
   color: var(--ff-color);
   padding: var(--padding-df);
   padding-bottom: 40px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -48,7 +48,7 @@
           </div>
         </section>
         <Spacer spacer-no="2" />
-        <section class="content work">
+        <!-- <section class="content work">
           <h2 class="content__heading heading heading--two">
             Featured Work
           </h2>
@@ -94,7 +94,7 @@
             </li>
           </ul>
         </section>
-        <Spacer spacer-no="1" />
+        <Spacer spacer-no="1" /> -->
         <section class="content testimonial">
           <Testimonial :person="person" />
         </section>
@@ -116,7 +116,7 @@ import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import VueMarkdown from 'vue-markdown'
-import Weather from '~/components/Weather.vue'
+//import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
@@ -130,7 +130,7 @@ export default {
     SocialBar,
     Spacer,
     VueMarkdown,
-    Weather,
+    //Weather,
   },
   asyncData({ env }) {
     return Promise.all([
@@ -317,6 +317,9 @@ export default {
 }
 
 @media (max-width: 992px) {
+  .about-me {
+    grid-template-columns: repeat(1, 1fr);
+  }
   .work {
     grid-template-columns: repeat(1, 1fr);
     & .heading {

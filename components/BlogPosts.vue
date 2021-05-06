@@ -67,6 +67,7 @@ export default {
 <style lang="scss" scoped>
 .blog {
   &__link {
+    font-family: var(--ff-alt-alpha);
     text-align: center;
     width: 100%;
     display: block;
@@ -96,6 +97,7 @@ export default {
   margin-bottom: 20px;
   border: var(--border-width) solid transparent;
   color: var(--ff-color);
+  transition: var(--trn-default);
   &:hover {
     border: var(--border-width) solid var(--clr-fifth);
   }
