@@ -177,9 +177,9 @@ export default {
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
+    font-size: var(--step--1);
     &__intro {
         grid-column: span 4;
-        font-size: var(--step--1);
         color: var(--ff-color);
     }
     &__picture {

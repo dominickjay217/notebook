@@ -59,6 +59,7 @@ export default {
     box-shadow: none;
     letter-spacing: 0.5px;
     transition: none;
+    font-size: var(--step--1);
     &:hover {
       color: var(--ff-color);
     }

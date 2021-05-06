@@ -16,7 +16,7 @@
             </span>
             /
             <span>
-              {{ new Date(post.fields.publishDate).getMonth() }}
+              {{ new Date(post.fields.publishDate).getMonth() + 1 }}
             </span>
           </time>
           <span class="post__title">
@@ -88,7 +88,7 @@ export default {
 
 .post {
   --border-width: 4px;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   display: flex;
   place-content: var(--center);
   position: relative;

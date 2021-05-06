@@ -122,7 +122,7 @@
     font-family: var(--ff-alt-alpha);
     text-align: center;
     font-size: 3rem;
-    font-size: var(--step-3);
+    font-size: var(--step-5);
     margin: 0 auto 10px;
     position: relative;
     z-index: 2;

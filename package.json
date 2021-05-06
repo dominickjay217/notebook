@@ -19,6 +19,7 @@
     "gsap": "^3.6.1",
     "netlify-cli": "^3.13.10",
     "nuxt": "^2.14.12",
+    "twitter": "^1.7.1",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "eslint-plugin-vue": "^7.5.0",
     "node-sass": "^5.0.0",
     "nuxt-gsap-module": "^1.2.1",
+    "nuxt-purgecss": "^1.0.0",
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "webpack": "^4.44.2"

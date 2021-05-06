@@ -68,5 +68,6 @@ export default {
 .blog h3,
 .blog p  {
   color: var(--ff-color);
+  font-size: var(--step-0);
 }
 </style>

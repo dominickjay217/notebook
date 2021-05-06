@@ -137,19 +137,20 @@ time {
   ol {
     counter-reset: section;
     list-style: none;
-    padding-left: var(--padding-df);
+    margin-left: 0;
     & li {
       position: relative;
+      margin-left: 25px;
     }
     & li::before {
-    counter-increment: section;
+      counter-increment: section;
       content: "0" counter(section);
-      left: -16px;
-      position: relative;
+      position: absolute;
       font-weight: var(--fw-base-lg);
       opacity: 0.5;
-      font-size: var(--step--3);
-      margin-right: -5px;
+      font-size: var(--step--2);
+      left: -25px;
+      top: 5px;
     }
   }
   h3 {
@@ -169,7 +170,7 @@ time {
   }
   code {
     background: #d3d3d3 none repeat scroll 0% 0%;
-    padding: 4px 6px;
+    padding: 2px 6px;
     display: inline;
     color: var(--code-font-color);
     margin: 0 1px;
