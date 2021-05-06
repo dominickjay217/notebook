@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -37,7 +37,7 @@ import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
-import Weather from '~/components/Weather.vue'
+//import Weather from '~/components/Weather.vue'
 import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
@@ -47,7 +47,7 @@ export default {
     SocialBar,
     ContactBar,
     FooterBar,
-    Weather,
+    //Weather,
     VueMarkdown,
   },
   asyncData({ env, params }) {
