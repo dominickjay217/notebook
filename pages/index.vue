@@ -6,7 +6,12 @@
     <main>
       <div class="container">
         <section class="content about">
-          <vue-markdown>{{ person.fields.shortBio }}</vue-markdown>
+          <p>
+            Hey! I’m Dom <span class="wave-emoji">
+              👋
+            </span>
+          </p>
+          <vue-markdown class="about-intro">{{ person.fields.shortBio }}</vue-markdown>
         </section>
         <Spacer spacer-no="1" />
         <section class="content blog">
@@ -37,6 +42,7 @@ import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
+import VueMarkdown from 'vue-markdown'
 //import Weather from '~/components/Weather.vue'
 
 const client = createClient()
@@ -49,6 +55,7 @@ export default {
     HeaderBar,
     SocialBar,
     Spacer,
+    VueMarkdown,
     //Weather,
   },
   asyncData({ env }) {
@@ -72,15 +79,29 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .about {
   margin: 40px auto;
-  text-align: center;
-  font-size: var(--step-0);
-  font-weight: var(--fw-base-m);
+  text-align: left;
   font-family: var(--ff-base);
   color: var(--ff-color);
+  font-weight: var(--fw-base-lg);
+  font-size: var(--step-0);
+  & > p:first-child {
+    opacity: 0.85;
+    font-weight: var(--fw-base-m);
+    text-align: left;
+  }
+  &-intro {
+    font-weight: var(--fw-base-lg);
+    & p strong {
+      color: var(--clr-third);
+      padding: 0 5px;
+      font-size: var(--step-1);
+      font-style: italic;
+    }
+  }
 }
 
 .blog {
