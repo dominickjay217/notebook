@@ -12,8 +12,7 @@
 
 @font-face {
   font-family: var(--ff-alt-alpha);
-  src: url("/fonts/choplin-medium.woff") format("woff"),
-        url("/fonts/choplin-medium.otf")  format("truetype");
+  src: url("/fonts/choplin-medium.otf")  format("truetype");
   font-display: swap;
 }
 

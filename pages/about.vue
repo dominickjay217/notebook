@@ -9,7 +9,7 @@
           <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
           <div class="about-me__content about-me__content--joke">
             <strong>
-              I love dad jokes, how about-me one of them instead?
+              I love dad jokes, how about one of them instead?
             </strong>
             <Joke />
           </div>
