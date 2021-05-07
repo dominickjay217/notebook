@@ -118,7 +118,7 @@ export default {
 .post {
   --border-width: 4px;
   font-size: var(--step-0);
-  background-color: var(--clr-base);
+  background-color: var(--post-bg);
   display: flex;
   gap: var(--grid-gap);
   justify-content: space-between;

@@ -55,8 +55,8 @@ export default {
     transition: none;
     font-family: var(--ff-alt-alpha);
     font-size: var(--step-0);
-    font-weight: var(--fw-base-lg);
-    text-transform: capitalize;
+    font-weight: var(--fw-base-m);
+    letter-spacing: -0.5px;
     &:hover {
       color: var(--ff-color);
     }

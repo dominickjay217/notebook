@@ -1,7 +1,7 @@
 <template>
   <header
     class="header"
-    :class="[isHome ? 'header-thick' : 'header-thin']"
+    :class="[isHome ? 'header--thick' : 'header--thin']"
   >
     <div class="container">
       <h1 class="header__title heading heading--one">
@@ -113,12 +113,29 @@
   // border-radius: 20px;
   padding: var(--padding-df);
   background: var(--header-background);
-  background-size: 400% 400%;
+  background-image: url("/images/bg.png");
+  // background-size: 400% 400%;
+  background-size: cover;
   background-position: var(--header-background-position);
   transition: 2s ease-in-out background-position;
   transition-delay: var(--header-background-delay);
   position: relative;
   overflow: hidden;
+  &--thick {
+    background-position: var(--header-background-position);
+  }
+  &--thin {
+    background-position: var(--header-background-position-thin);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--header-gradient-fill) 90%);
+  }
   & > .container:first-child {
     display: flex;
     justify-content: space-between;
@@ -126,6 +143,7 @@
   }
   &__title {
     font-family: var(--ff-alt-alpha);
+    font-weight: var(--fw-base-m);
     text-align: center;
     padding: var(--padding-lr);
     font-size: var(--step-2);
@@ -387,28 +405,4 @@
   }
 }
 
-.header--dark .typing {
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: var(--color-third);
-  color: var(--color-third);
-}
-
-@media (max-width: 640px) {
-  .hero__fact p,
-  .hero__fact .typing {
-    font-size: var(--step--2);
-  }
-}
-
-// @keyframes typingRevealer {
-//   0% {
-//     opacity: 1;
-//   }
-//   85% {
-//     opacity: 1;
-//   }
-//   90% {
-//     opacity: 0;
-//   }
-// }
 </style>

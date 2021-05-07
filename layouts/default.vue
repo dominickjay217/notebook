@@ -48,6 +48,7 @@
   --header-background: linear-gradient(to bottom, var(--clr-primary-lt) 0%, var(--clr-primary) 33%,
   var(--clr-secondary-lt) 66%, var(--clr-secondary) 100%);
   --header-background-position: 0 0;
+  --header-background-position-thin: 0 50%;
   --footer-background: var(--clr-base-lt);
   --banner-background: var(--clr-base);
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
@@ -96,6 +97,8 @@
   --moon-position: var(--weather-bottom);
   --sun-position: var(--weather-top);
   --header-background-delay: 0s;
+  --header-gradient-fill: var(--clr-base);
+  --post-bg: var(--clr-base);
 
   --center: center;
 
@@ -114,9 +117,11 @@
 	}
 
   :root:not([data-user-color-scheme]) {
+    --header-gradient-fill: var(--clr-base-dk);
     --curve-fill: var(--clr-base-dk);
     --banner-background: var(--clr-base-dk);
-    --header-background-position: 0 100%;
+    --header-background-position: 0 50%;
+    --header-background-position-thin: 0 0;
     --main-background: var(--clr-base-dk);
     --ff-color: var(--clr-base-lt);
     --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
@@ -133,6 +138,7 @@
     --moon-position: var(--weather-top);
     --sun-position: var(--weather-bottom);
     --header-background-delay: 0s;
+    --post-bg: var(--clr-base-dk);
   }
 }
 
