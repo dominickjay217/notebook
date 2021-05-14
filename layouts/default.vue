@@ -339,4 +339,10 @@ main {
   }
 }
 
+@media (max-width: 640px) {
+  .content {
+    padding: 20px 0;
+  }
+}
+
 </style>
