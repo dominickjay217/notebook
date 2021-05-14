@@ -60,24 +60,7 @@ export default {
     '@nuxtjs/axios'
   ],
 
-  feed: [
-    // A default feed configuration object
-    {
-      path: '/feed.xml', // The route to your feed.
-      async create(feed) {
-        feed.options = {
-          title: 'My blog',
-          link: 'https://dominickjay.com/feed.xml',
-          description: 'This is my personal feed!'
-        }
-        const posts = await (axios.get('https://dominickjay.com/writing')).data;
-
-      }, // The create function (see below)
-      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
-      type: 'rss2', // Can be: rss2, atom1, json1
-      data: ['Some additional data'] // Will be passed as 2nd argument to `create` function
-    }
-  ]
+  feed: []
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
 }

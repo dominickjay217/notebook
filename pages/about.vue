@@ -163,7 +163,6 @@ export default {
     }
   },
   async fetch(){
-    console.log(posts)
     this.music = await fetch(
         'https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key='+ process.env.LASTFM_API_KEY + '&format=json'
       ).then(res => res.json())
