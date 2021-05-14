@@ -1,4 +1,9 @@
+import fetch from 'node-fetch'
+import dotenv from 'dotenv'
 import Twitter from 'twitter'
+import { decode } from 'html-entities'
+
+dotenv.config()
 
 const twitter = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -38,7 +43,7 @@ const prepareStatusText = note => {
 
     // strip html tags and decode entities
     let text = note.content.trim().replace(/<[^>]+>/g, '')
-    text = entities.decode(text)
+    text = decode(text)
 
     // truncate note text if its too long for a tweet.
     if (text.length > maxLength) {
