@@ -90,30 +90,30 @@ export default {
   }
 }
 
-.blog-posts--writing::before {
-  content: "";
-  height: calc(66% - 500px);
-  width: calc(50% + 30vw);
-  left: -30vw;
-  background-color: #304b62;
-  position: absolute;
-  top: 500px;
-  transform: skew(15deg);
-  opacity: 0.5;
-}
+// .blog-posts--writing::before {
+//   content: "";
+//   height: calc(66% - 500px);
+//   width: calc(50% + 30vw);
+//   left: -30vw;
+//   background-color: #304b62;
+//   position: absolute;
+//   top: 500px;
+//   transform: skew(15deg);
+//   opacity: 0.5;
+// }
 
-.blog-posts--writing::after {
-  content: "";
-  height: calc(66% - 500px);
-  width: calc(50% + 30vw);
-  right: -30vw;
-  background-color: #fcb276;
-  position: absolute;
-  top: 250px;
-  transform: skew(15deg);
-  z-index: 0;
-  opacity: 0.5;
-}
+// .blog-posts--writing::after {
+//   content: "";
+//   height: calc(66% - 500px);
+//   width: calc(50% + 30vw);
+//   right: -30vw;
+//   background-color: #fcb276;
+//   position: absolute;
+//   top: 250px;
+//   transform: skew(15deg);
+//   z-index: 0;
+//   opacity: 0.5;
+// }
 
 .post {
   --border-width: 4px;
