@@ -23,7 +23,7 @@ async function getPosts() {
       path: "/content/v1/spaces/d44h62nxqp3d",
       method: "POST",
       headers: {
-        Authorization: "Bearer dUjzSFbIxzlJwDDYOdvaIxsaBdqoZ7UpkyBT6GeuQBQ",
+        Authorization: "Bearer eeqGkkQqdNdxsPE8vxGK2yBjZctkKYf2w6vb6Gr3IEg",
         "Content-Type": "application/json",
       },
     };
