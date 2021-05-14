@@ -1,5 +1,6 @@
 // const config = require('./.contentful.json')
 const env = require('dotenv').config()
+import axios from 'axios'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -55,7 +56,28 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/feed',
+    '@nuxtjs/axios'
   ],
+
+  feed: [
+    // A default feed configuration object
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: 'My blog',
+          link: 'localhost:3000/feed.xml',
+          description: 'This is my personal feed!'
+        }
+        const posts = await (axios.get('localhost:3000/writing')).data;
+
+      }, // The create function (see below)
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+      data: ['Some additional data'] // Will be passed as 2nd argument to `create` function
+    }
+  ]
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
 }

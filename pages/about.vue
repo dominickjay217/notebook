@@ -118,6 +118,7 @@ import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import VueMarkdown from 'vue-markdown'
+import axios from 'axios'
 //import Weather from '~/components/Weather.vue'
 
 const client = createClient()
@@ -162,6 +163,8 @@ export default {
     }
   },
   async fetch(){
+    const posts = await (axios.get('https://dominickjay.com/writing')).data;
+    console.log(posts)
     this.music = await fetch(
         'https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key='+ process.env.LASTFM_API_KEY + '&format=json'
       ).then(res => res.json())
