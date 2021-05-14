@@ -1,12 +1,4 @@
-
-exports.handler = async () => {
-    return fetch('https://dominickjay.com/.netlify/functions/rss')
-        .then(response => response.json())
-        .then(processNotes)
-        .catch(err => ({
-            statusCode: 422,
-            body: String(err)
-        }))}
+import Twitter from 'twitter'
 
 const twitter = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -71,3 +63,12 @@ const publishNote = async note => {
         }
     }
 }
+
+exports.handler = async () => {
+    return fetch('https://dominickjay.com/.netlify/functions/rss')
+        .then(response => response.json())
+        .then(processNotes)
+        .catch(err => ({
+            statusCode: 422,
+            body: String(err)
+        }))}
