@@ -292,7 +292,6 @@ a:hover {
 }
 
 main {
-  padding-top: 40px;
   position: relative;
   z-index: 2;
   background-color: var(--main-background);
