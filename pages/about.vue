@@ -381,6 +381,7 @@ export default {
 
 @media (max-width: 768px) {
   .about-me {
+    padding-top: 0;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     &__intro {
       grid-column: 1 / 5;
