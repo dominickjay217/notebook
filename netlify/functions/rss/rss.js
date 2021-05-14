@@ -55,14 +55,14 @@ function buildRssItems(items) {
 
   return items
     .map((item) => {
-      const hasText = item.text;
+      const hasText = item.title;
       const hasLink = item.link;
-      const titleMaybeTruncated = hasText && item.text.length > truncateLength ? "..." : "";
+      const titleMaybeTruncated = hasText && item.title.length > truncateLength ? "..." : "";
       const title = hasText
-        ? `${item.text.slice(0, truncateLength)}${titleMaybeTruncated}`
+        ? `${item.title.slice(0, truncateLength)}${titleMaybeTruncated}`
         : "New post";
       const maybeLink = hasLink ? ` - ${item.link}` : "";
-      const description = hasText ? `${item.text}${maybeLink}` : "";
+      const description = hasText ? `${item.description}${maybeLink}` : "";
 
       return `
         <item>
