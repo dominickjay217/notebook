@@ -33,7 +33,9 @@
                 <strong>{{ music.recenttracks.track[0].name }}</strong> by
                 <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
               </p>
-              <div class="lastfm-info__imagewrapper">
+              <div
+                class="lastfm-info__imagewrapper"
+              >
                 <img
                   class="lastfm-info__image"
                   loading="lazy"

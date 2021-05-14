@@ -1,7 +1,6 @@
 <template>
   <div
     id="joke"
-    @click="play"
   >
     {{ newJoke }}
   </div>
