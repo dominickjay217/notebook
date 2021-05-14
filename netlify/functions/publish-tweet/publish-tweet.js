@@ -1,53 +1,73 @@
-require('dotenv').config();
 
-const Twitter = require('twitter');
+exports.handler = async () => {
+    return fetch('https://dominickjay.com/.netlify/functions/rss')
+        .then(response => response.json())
+        .then(processNotes)
+        .catch(err => ({
+            statusCode: 422,
+            body: String(err)
+        }))}
 
-const T = new Twitter({
-  consumer_key: process.env.TWITTER_API_KEY,
-  consumer_secret: process.env.TWITTER_BEARER_TOKEN,
-  access_token_key: process.env.TWITTER_API_KEY,
-  access_token_secret: process.env.TWITTER_SECRET_KEY
-});
+const twitter = new Twitter({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
 
-var today = new Date();
-var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+const processNotes = async notes => {
+    // assume the last note was not yet syndicated
+    const latestNote = notes[0]
 
-function handler ({headers, body}, context, callback) {
-  let promise = new Promise((resolve, reject) => {
-    base('Devtips').select({
-      filterByFormula: `date = "${date}" `,
-    }).eachPage(function page(records, fetchNextPage) {
-      records.forEach(function(record) {
-        resolve(record)
-      });
-    }, function done(error) {
-      console.log(error)
-    });
-  })
-
-  promise.then(function(record) {
-    if(!(record.fields.used == "true")) {
-      let id = record.id;
-      let message = record.fields.message;
-      let article = record.fields.article;
-      let tag = record.fields.tag.split(',').join('');
-      let tweet = `${message} ${article} ${tag}`;
-      T.post('statuses/update', {status: tweet}, function(error, tweet, response) {
-        if (!error) {
-          base('Devtips').update(id, {
-            "used": "true"
-          })
-          callback(null,{
-            statusCode: 200,
-            body: "Success"
-          })
+    // check if the override flag for this note is set
+    if (!latestNote.syndicate) {
+        return {
+            statusCode: 400,
+            body: 'Latest note has disabled syndication.'
         }
-      });
     }
-  })
-  .catch(function(error) {
-    console.log('Error-->', error)
-  })
+
+    // check twitter for any tweets containing note URL.
+    // if there are none, publish it.
+    const search = await twitter.get('search/tweets', { q: latestNote.url })
+    if (search.statuses && search.statuses.length === 0) {
+        return publishNote(latestNote)
+    } else {
+        return {
+            statusCode: 400,
+            body: 'Latest note was already syndicated.'
+        }
+    }
 }
 
-exports.handler = handler;
+// Prepare the content string for tweet format
+const prepareStatusText = note => {
+    const maxLength = 200
+
+    // strip html tags and decode entities
+    let text = note.content.trim().replace(/<[^>]+>/g, '')
+    text = entities.decode(text)
+
+    // truncate note text if its too long for a tweet.
+    if (text.length > maxLength) {
+        text = text.substring(0, maxLength) + '...'
+    }
+
+    // include the note url at the end.
+    text = text + ' ' + note.url
+    return text
+}
+
+// Push a new note to Twitter
+const publishNote = async note => {
+    const statusText = prepareStatusText(note)
+    const tweet = await twitter.post('statuses/update', {
+        status: statusText
+    })
+    if (tweet) {
+        return {
+            statusCode: 200,
+            body: `Note ${note.date} successfully posted to Twitter.`
+        }
+    }
+}
