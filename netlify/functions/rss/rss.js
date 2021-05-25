@@ -1,4 +1,7 @@
 const https = require("https");
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 async function getPosts() {
   return new Promise((resolve, reject) => {
@@ -20,10 +23,10 @@ async function getPosts() {
     const options = {
       protocol: "https:",
       hostname: "graphql.contentful.com",
-      path: "/content/v1/spaces/d44h62nxqp3d",
+      path: "'/content/v1/spaces/' + process.env.CTF_SPACE_ID",
       method: "POST",
       headers: {
-        Authorization: "Bearer eeqGkkQqdNdxsPE8vxGK2yBjZctkKYf2w6vb6Gr3IEg",
+        Authorization: "'Bearer ' + process.env.TWITTER_CONSUMER_KEY",
         "Content-Type": "application/json",
       },
     };
