@@ -436,7 +436,7 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .header .container:first-child {
+  .header .container:nth-child(2) {
     flex-direction: column;
   }
   .header__title {
@@ -452,7 +452,7 @@
 }
 
 @media (max-width: 640px) and (orientation: portrait) {
-  .header .container:first-child {
+  .header .container:nth-child(2) {
     flex-direction: column;
   }
   .hero {
