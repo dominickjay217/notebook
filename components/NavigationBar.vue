@@ -9,7 +9,7 @@
         class="navigation__link"
         :to="item.route"
       >
-        {{ item.title.toUpperCase() }}
+        {{ item.title }}
       </NuxtLink>
     </li>
   </ul>
@@ -27,11 +27,7 @@ export default {
           {
             title: 'Writing',
             route: '/writing',
-          },
-          {
-            title: 'Contact',
-            route: '#contact',
-          },
+          }
       ]
     }
   },
@@ -42,23 +38,25 @@ export default {
 
 .navigation {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  margin: 40px 0 60px;
-  padding: 0;
+  padding: var(--padding-df);
   list-style: none;
   position: relative;
   z-index: 2;
   &__item {
-    margin: 0 0 20px;
+    margin: 0 10px;
     position: relative;
   }
   &__link {
-    padding: 10px 20px;
+    padding: var(--padding-lr);
     box-shadow: none;
     letter-spacing: 0.5px;
     transition: none;
+    font-family: var(--ff-alt-alpha);
+    font-size: var(--step-0);
+    font-weight: var(--fw-base-m);
+    letter-spacing: -0.5px;
     &:hover {
       color: var(--ff-color);
     }
@@ -69,6 +67,7 @@ export default {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        font-weight: var(--fw-base);
       }
       &::before {
         content: '{';
@@ -84,9 +83,12 @@ export default {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 992px) {
   .navigation {
-    margin: 40px auto 20px;
+    margin: 0;
+    &__link {
+      font-size: var(--step-1);
+    }
   }
 }
 

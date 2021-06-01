@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    id="joke"
+  >
     {{ newJoke }}
   </div>
 </template>
@@ -27,7 +29,7 @@ export default {
       .catch((error) => {
         console.log(error)
       })
-  },
+  }
 }
 
 </script>

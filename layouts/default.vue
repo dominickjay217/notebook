@@ -12,8 +12,7 @@
 
 @font-face {
   font-family: var(--ff-alt-alpha);
-  src: url("/fonts/SaltedMocha-Regular.woff") format("woff"),
-        url("/fonts/SaltedMocha-Regular.ttf")  format("truetype");
+  src: url("/fonts/choplin-medium.otf")  format("truetype");
   font-display: swap;
 }
 
@@ -48,6 +47,7 @@
   --header-background: linear-gradient(to bottom, var(--clr-primary-lt) 0%, var(--clr-primary) 33%,
   var(--clr-secondary-lt) 66%, var(--clr-secondary) 100%);
   --header-background-position: 0 0;
+  --header-background-position-thin: 0 50%;
   --footer-background: var(--clr-base-lt);
   --banner-background: var(--clr-base);
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
@@ -67,18 +67,19 @@
 
   /* Transitions */
 
+  --trn-default: .25s ease-in-out all;
   --trn-bs: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 
   --ff-color: var(--clr-base-dk);
   --ff-color-link-hover: var(--clr-base-dk);
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
-  --ff-alt-alpha: 'SaltedMocha-Regular';
+  --ff-alt-alpha: 'Choplin';
   --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   --fw-base: 300;
   --fw-base-m: 500;
   --fw-base-lg: 700;
   --fw-base-xl: 900;
-  --ff-lh: 1.6;
+  --ff-lh: 1.8;
 
 	--color-mode: 'light';
 
@@ -95,6 +96,8 @@
   --moon-position: var(--weather-bottom);
   --sun-position: var(--weather-top);
   --header-background-delay: 0s;
+  --header-gradient-fill: var(--clr-base);
+  --post-bg: var(--clr-base);
 
   --center: center;
 
@@ -113,9 +116,11 @@
 	}
 
   :root:not([data-user-color-scheme]) {
+    --header-gradient-fill: var(--clr-base-dk);
     --curve-fill: var(--clr-base-dk);
     --banner-background: var(--clr-base-dk);
-    --header-background-position: 0 100%;
+    --header-background-position: 0 50%;
+    --header-background-position-thin: 0 0;
     --main-background: var(--clr-base-dk);
     --ff-color: var(--clr-base-lt);
     --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
@@ -132,6 +137,7 @@
     --moon-position: var(--weather-top);
     --sun-position: var(--weather-bottom);
     --header-background-delay: 0s;
+    --post-bg: var(--clr-base-dk);
   }
 }
 
@@ -163,61 +169,79 @@
   }
 }
 
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,5120,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
 :root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 5120;
 
-  --f--3-min: 10.42;
-  --f--3-max: 12.29;
-  --step--3: calc(
-    ((var(--f--3-min) / 16) * 1rem) + (var(--f--3-max) - var(--f--3-min)) *
-      var(--fluid-bp)
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
   );
+}
 
-  --f--2-min: 12.50;
+@media screen and (min-width: 5120px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f--2-min: 11.11;
   --f--2-max: 15.36;
   --step--2: calc(
     ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
       var(--fluid-bp)
   );
 
-  --f--1-min: 15.00;
+  --f--1-min: 13.33;
   --f--1-max: 19.20;
   --step--1: calc(
     ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
       var(--fluid-bp)
   );
 
-  --f-0-min: 18.00;
+  --f-0-min: 16.00;
   --f-0-max: 24.00;
   --step-0: calc(
     ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
       var(--fluid-bp)
   );
 
-  --f-1-min: 21.60;
+  --f-1-min: 19.20;
   --f-1-max: 30.00;
   --step-1: calc(
     ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
       var(--fluid-bp)
   );
 
-  --f-2-min: 25.92;
+  --f-2-min: 23.04;
   --f-2-max: 37.50;
   --step-2: calc(
     ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
       var(--fluid-bp)
   );
 
-  --f-3-min: 31.10;
+  --f-3-min: 27.65;
   --f-3-max: 46.88;
   --step-3: calc(
     ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
       var(--fluid-bp)
   );
 
-  --f-4-min: 37.32;
+  --f-4-min: 33.18;
   --f-4-max: 58.59;
   --step-4: calc(
     ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-5-min: 39.81;
+  --f-5-max: 73.24;
+  --step-5: calc(
+    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
       var(--fluid-bp)
   );
 }
@@ -232,20 +256,28 @@
 }
 
 body {
-  font: var(--step-0)/var(--ff-lh);
+  font-size: var(--step-0);
+  line-height: var(--ff-lh);
   font-weight: var(--fw-base);
   padding: 0;
   margin: 0;
   font-family: var(--ff-base);
   overflow-x: hidden;
-
+  background-color: var(--main-background);
 }
 
 *:focus {
   outline: 2px dashed var(--focus-outline-clr);
 }
 
+b,
+strong {
+  font-family: var(--ff-alt-alpha);
+  letter-spacing: 0.5px;
+}
+
 a {
+  font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
   transition: var(--trn-bs);
@@ -260,7 +292,6 @@ a:hover {
 }
 
 main {
-  padding-top: 40px;
   position: relative;
   z-index: 2;
   background-color: var(--main-background);
@@ -290,6 +321,7 @@ main {
   &--two {
     text-align: center;
     font-size: var(--step-3);
+    letter-spacing: -0.5px;
   }
 }
 
@@ -304,6 +336,12 @@ main {
   margin-bottom: 40px;
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 20px 0;
   }
 }
 

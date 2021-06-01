@@ -1,4 +1,3 @@
-// const config = require('./.contentful.json')
 const env = require('dotenv').config()
 
 export default {
@@ -55,7 +54,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/feed',
+    '@nuxtjs/axios'
   ],
+
+  feed: []
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
 }

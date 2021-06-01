@@ -1,12 +1,17 @@
 
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
         <section class="content about">
-          {{ person.fields.shortBio }}
+          <p>
+            Hey! I’m Dom <span class="wave-emoji">
+              👋
+            </span>
+          </p>
+          <vue-markdown class="about-intro">{{ person.fields.shortBio }}</vue-markdown>
         </section>
         <Spacer spacer-no="1" />
         <section class="content blog">
@@ -19,29 +24,9 @@
             to="/writing"
           >
             View all posts
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 100 125"
-              enable-background="new 0 0 100 100"
-              xml:space="preserve"
-            >
-              <g>
-                <path
-                  d="M12.851,69.957l-0.296-1.163c0.271-0.069,27.657-7.272,73.057-38.662l0.683,0.987C40.691,62.648,13.124,69.887,12.851,69.957z"
-                />
-              </g>
-              <g>
-                <polygon
-                  points="83.766,36.421 82.723,35.829 85.339,31.225 79.953,31.225 79.953,30.025 87.4,30.025"
-                />
-              </g>
-            </svg>
           </NuxtLink>
         </section>
+        <Spacer spacer-no="2" />
       </div>
     </main>
     <ContactBar :person="person" />
@@ -58,7 +43,8 @@ import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
-import Weather from '~/components/Weather.vue'
+import VueMarkdown from 'vue-markdown'
+//import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
@@ -70,7 +56,8 @@ export default {
     HeaderBar,
     SocialBar,
     Spacer,
-    Weather,
+    VueMarkdown,
+    //Weather,
   },
   asyncData({ env }) {
     return Promise.all([
@@ -93,25 +80,34 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .about {
-  margin: 40px auto;
-  text-align: center;
-  font-size: var(--step-0);
-  font-weight: var(--fw-base-m);
+  margin: 20px auto;
+  text-align: left;
   font-family: var(--ff-base);
   color: var(--ff-color);
+  font-weight: var(--fw-base-lg);
+  font-size: var(--step-0);
+  & > p:first-child {
+    opacity: 0.85;
+    font-weight: var(--fw-base-m);
+    text-align: left;
+  }
+  &-intro {
+    font-weight: var(--fw-base-lg);
+    & p strong {
+      color: var(--clr-third);
+      padding: 0 5px;
+      font-size: var(--step-1);
+      font-style: italic;
+    }
+  }
 }
 
 .blog {
+  text-align: center;
   &__link {
-    box-shadow: none;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
     color: var(--ff-color);
     & svg {
       max-width: 50px;

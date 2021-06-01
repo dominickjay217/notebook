@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -37,7 +37,7 @@ import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
-import Weather from '~/components/Weather.vue'
+//import Weather from '~/components/Weather.vue'
 import VueMarkdown from 'vue-markdown'
 const client = createClient()
 
@@ -47,7 +47,7 @@ export default {
     SocialBar,
     ContactBar,
     FooterBar,
-    Weather,
+    //Weather,
     VueMarkdown,
   },
   asyncData({ env, params }) {
@@ -88,7 +88,6 @@ time {
 }
 
 .post {
-
   color: var(--ff-color);
   &__subheading {
     font-weight: var(--fw-base-lg);
@@ -132,6 +131,25 @@ time {
     font-weight: var(--fw-base-m);
     color: var(--ff-color);
   }
+  ol {
+    counter-reset: section;
+    list-style: none;
+    margin-left: 0;
+    & li {
+      position: relative;
+      margin-left: 25px;
+    }
+    & li::before {
+      counter-increment: section;
+      content: "0" counter(section);
+      position: absolute;
+      font-weight: var(--fw-base-lg);
+      opacity: 0.5;
+      font-size: var(--step--2);
+      left: -25px;
+      top: 5px;
+    }
+  }
   h3 {
     font-size: var(--step-0);
     font-weight: var(--fw-base-lg);
@@ -149,7 +167,7 @@ time {
   }
   code {
     background: #d3d3d3 none repeat scroll 0% 0%;
-    padding: 4px 6px;
+    padding: 2px 6px;
     display: inline;
     color: var(--code-font-color);
     margin: 0 1px;

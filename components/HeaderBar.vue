@@ -1,8 +1,9 @@
 <template>
   <header
     class="header"
-    :class="[isHome ? 'header-thick' : 'header-thin']"
+    :class="[isHome ? 'header--thick' : 'header--thin']"
   >
+    <div class="canvas" />
     <div class="container">
       <h1 class="header__title heading heading--one">
         <NuxtLink
@@ -12,11 +13,13 @@
           {{ person.fields.name }}
         </NuxtLink>
       </h1>
+      <NavigationBar />
+    </div>
+    <!-- <div class="container">
       <h2 class="header__tagline heading heading--two">
         {{ person.fields.title }}
       </h2>
-      <NavigationBar />
-    </div>
+    </div> -->
     <div class="container">
       <div
         v-if="isHome"
@@ -86,6 +89,84 @@
       }
     },
     mounted () {
+
+      const canvas = document.getElementsByClassName("canvas")[0];
+
+      function randomRgbaString() {
+          const colors = ['rgba(252, 178, 118, 0.35)', 'rgba(96, 146, 153, 0.25)', 'rgba(157, 206, 210, 0.25)', 'rgba(254, 125, 21, 0.25)'],
+                randomColor = Math.floor(Math.random() * colors.length);
+          return colors[randomColor];
+      }
+
+      function randomStroke() {
+        for (let x = 0; x < 30; x++) {
+          const stroke = randomRgbaString();
+          return stroke;
+        }
+      }
+
+      function getRandomXPosition() {
+        const width = screen.width,
+              x = Math.floor(Math.random() * width);
+        return x;
+      }
+
+      function getRandomYPosition() {
+        const height = canvas.offsetHeight,
+              y = Math.floor(Math.random() * height);
+        return y;
+      }
+
+      function getRandomRadius(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+      }
+
+      function createCircles() {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+              svgNS = svg.namespaceURI;
+
+        for (let i = 0; i < 5; i++) {
+
+          const circle = document.createElementNS(svgNS,'circle'),
+                line = document.createElementNS(svgNS,'line'),
+                fill = randomRgbaString(),
+                stroke = randomStroke(),
+                x = getRandomXPosition(),
+                y = getRandomYPosition(),
+                radius = getRandomRadius(50, 150);
+
+          circle.setAttributeNS(null, "id", "gen-circle");
+          circle.setAttributeNS(null, "cx", x);
+          circle.setAttributeNS(null, "cy", y);
+          circle.setAttributeNS(null, "r", radius);
+          if (i % 2 !== 0) {
+            circle.setAttributeNS(null, "fill", "none");
+            circle.setAttributeNS(null, "stroke", stroke);
+          } else {
+            circle.setAttributeNS(null, "fill", fill);
+            circle.setAttributeNS(null, "stroke", "transparent");
+          }
+          circle.setAttributeNS(null, "stroke-width", 2);
+
+          line.setAttributeNS(null, "id", "gen-line");
+          line.setAttribute('x1', x);
+          line.setAttribute('y1', y);
+          line.setAttribute('x2', x + 200);
+          line.setAttribute('y2', y + 200);
+          line.setAttribute("stroke", fill);
+          line.setAttribute("stroke-width", 2);
+
+          svg.appendChild(circle);
+          canvas.appendChild(svg);
+          svg.appendChild(line);
+          canvas.appendChild(svg);
+        }
+      }
+
+      createCircles();
+
       setInterval(() => {
         var chosenNumber = Math.floor(Math.random() * this.list.length);
         this.fact = this.list[chosenNumber].text;
@@ -100,28 +181,42 @@
   width: 100%;
   position: relative;
   z-index: 2;
-  bottom: -25px;
+  bottom: -32px;
   fill: var(--curve-fill);
 }
 
 // Header styles
 .header {
-  padding: 60px 0 20px;
-  background: var(--header-background);
-  background-size: 400% 400%;
-  background-position: var(--header-background-position);
+  padding: var(--padding-df);
+  // background-image: url("/images/bg.png");
+  // background-size: cover;
+  // background-position: var(--header-background-position);
   transition: 2s ease-in-out background-position;
   transition-delay: var(--header-background-delay);
-
+  position: relative;
+  overflow: hidden;
+  &--thick {
+    background-position: var(--header-background-position);
+  }
+  &--thin {
+    background-position: var(--header-background-position-thin);
+  }
+  & > .container:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__title {
     font-family: var(--ff-alt-alpha);
+    font-weight: var(--fw-base-m);
     text-align: center;
-    font-size: 3rem;
-    font-size: var(--step-3);
-    margin: 0 auto 10px;
+    padding: var(--padding-lr);
+    font-size: var(--step-2);
     position: relative;
     z-index: 2;
     color: var(--ff-color);
+    letter-spacing: -0.5px;
+    opacity: 0.85;
   }
 
   &__tagline {
@@ -143,6 +238,7 @@
     position: relative;
     box-shadow: none;
     transition: none;
+    color: currentColor;
   }
 }
 
@@ -235,6 +331,29 @@
   }
 }
 
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--header-gradient-fill) 90%);
+  }
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @keyframes borderTopGrow {
   100% {
     width: 100%;
@@ -289,28 +408,11 @@
   }
 }
 
-.header--dark {
-  &::before {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 1100px) {
   /* A mobile version for all devices that is smaller than the smalles iPad */
-  .header {
-    padding-top: 80px;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
 
-  //hero
   .hero {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: var(--grid-gap);
-    align-items: center;
-    position: relative;
+    margin: 40px 0;
     &__fact {
       color: var(--ff-color);
       padding: 0;
@@ -323,39 +425,36 @@
       z-index: 2;
 
       & span {
-        width: 100%;
         text-align: center;
       }
     }
   }
 }
 
-@media (max-width: 1100px) {
-
-  /* A mobile version for all devices that is smaller than the smalles iPad */
+@media (max-width: 992px) {
   .header {
-    margin-top: 0;
     padding-left: 0;
     padding-right: 0;
   }
-
-  .hero {
-    &__image {
-      padding: 0px;
-      margin-left: 0;
-      -webkit-transform: rotate(5deg);
-      transform: rotate(5deg);
-      grid-column: 4 / 5;
-    }
-    &__fact p {
+  .header .container:first-child {
+    flex-direction: column;
+  }
+  .header__title {
+    font-size: var(--step-0);
+    align-self: flex-start;
+    padding: 0;
+  }
+  .hero__fact {
+    & p {
       max-width: none;
-      width: 100%;
     }
   }
 }
 
-
 @media (max-width: 640px) and (orientation: portrait) {
+  .header .container:first-child {
+    flex-direction: column;
+  }
   .hero {
     grid-template-columns: repeat(4, 1fr);
 
@@ -394,28 +493,4 @@
   }
 }
 
-.header--dark .typing {
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: var(--color-third);
-  color: var(--color-third);
-}
-
-@media (max-width: 640px) {
-  .hero__fact p,
-  .hero__fact .typing {
-    font-size: var(--step--2);
-  }
-}
-
-// @keyframes typingRevealer {
-//   0% {
-//     opacity: 1;
-//   }
-//   85% {
-//     opacity: 1;
-//   }
-//   90% {
-//     opacity: 0;
-//   }
-// }
 </style>

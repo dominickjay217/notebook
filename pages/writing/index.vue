@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -26,7 +26,7 @@ import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
-import Weather from '~/components/Weather.vue'
+//import Weather from '~/components/Weather.vue'
 const client = createClient()
 
 export default {
@@ -35,7 +35,7 @@ export default {
     BlogPosts,
     SocialBar,
     ContactBar,
-    Weather,
+    //Weather,
     FooterBar
   },
   asyncData({ env }) {
@@ -65,8 +65,16 @@ export default {
 </script>
 
 <style lang="scss">
-.blog h3,
-.blog p  {
-  color: var(--ff-color);
+
+.blog {
+  h3 {
+    font-family: var(--ff-alt-alpha);
+    color: var(--ff-color);
+    font-size: var(--step-1);
+  }
+  p {
+    color: var(--ff-color);
+    font-size: var(--step-0);
+  }
 }
 </style>

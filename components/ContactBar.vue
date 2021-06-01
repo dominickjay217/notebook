@@ -3,7 +3,7 @@
     id="contact"
     class="content contact"
   >
-    <svg
+    <!-- <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       preserveAspectRatio="none"
@@ -11,9 +11,9 @@
       class="curve"
     >
       <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" />
-    </svg>
-    <h3 class="contact__heading">
-      Talk to me
+    </svg> -->
+    <h3 class="contact__heading heading heading--two">
+      Talk to Me
     </h3>
     <div class="contact__text">
       <span>Want to send me an idea, have a chat, or get me to overwrite the
@@ -43,20 +43,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.curve {
-    top: 0;
-    position: relative;
-    fill: var(--curve-fill);
-    transform: rotate(180deg);
-    z-index: 2;
-    margin-bottom: 40px;
-}
+// .curve {
+//     top: 0;
+//     position: relative;
+//     fill: var(--curve-fill);
+//     transform: rotate(180deg);
+//     z-index: 2;
+//     margin-bottom: 40px;
+// }
 
 .contact {
     position: relative;
     margin-top: 0;
-    padding-top: 0;
-    background-color: var(--footer-background);
+    padding-top: var(--padding-df);
+    // background-color: var(--footer-background);
     color: var(--ff-color);
     margin-bottom: 0;
     display: flex;
@@ -64,13 +64,11 @@ export default {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    &__heading {
-        font-family: var(--ff-alt-alpha);
-        font-size: var(--step-3);
-    }
+    z-index: 1;
     &__text {
         max-width: 992px;
         padding: 0 20px;
+        font-size: var(--step--1);
         & span {
             display: block;
             margin-bottom: 20px;

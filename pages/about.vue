@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Weather />
+    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -9,7 +9,7 @@
           <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
           <div class="about-me__content about-me__content--joke">
             <strong>
-              I love dad jokes, how about-me one of them instead?
+              I love dad jokes, how about one of them instead?
             </strong>
             <Joke />
           </div>
@@ -33,7 +33,9 @@
                 <strong>{{ music.recenttracks.track[0].name }}</strong> by
                 <strong>{{ music.recenttracks.track[0].artist['#text'] }}</strong>
               </p>
-              <div class="lastfm-info__imagewrapper">
+              <div
+                class="lastfm-info__imagewrapper"
+              >
                 <img
                   class="lastfm-info__image"
                   loading="lazy"
@@ -48,7 +50,7 @@
           </div>
         </section>
         <Spacer spacer-no="2" />
-        <section class="content work">
+        <!-- <section class="content work">
           <h2 class="content__heading heading heading--two">
             Featured Work
           </h2>
@@ -94,7 +96,7 @@
             </li>
           </ul>
         </section>
-        <Spacer spacer-no="1" />
+        <Spacer spacer-no="1" /> -->
         <section class="content testimonial">
           <Testimonial :person="person" />
         </section>
@@ -116,7 +118,8 @@ import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import VueMarkdown from 'vue-markdown'
-import Weather from '~/components/Weather.vue'
+import axios from 'axios'
+//import Weather from '~/components/Weather.vue'
 
 const client = createClient()
 
@@ -130,7 +133,7 @@ export default {
     SocialBar,
     Spacer,
     VueMarkdown,
-    Weather,
+    //Weather,
   },
   asyncData({ env }) {
     return Promise.all([
@@ -177,9 +180,9 @@ export default {
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
+    font-size: var(--step-0);
     &__intro {
         grid-column: span 4;
-        font-size: var(--step--1);
         color: var(--ff-color);
     }
     &__picture {
@@ -197,6 +200,7 @@ export default {
         &--one {
             grid-template-columns: subgrid;
             display: grid;
+            grid-column: 1 / 5;
             & p {
               padding-bottom: calc(var(--padding-df) * 2);
             }
@@ -204,7 +208,7 @@ export default {
               grid-column: 1 / 4;
             }
             & p:nth-child(2) {
-              grid-column: 2 / 4;
+              grid-column: 2 / 5;
             }
             & p:nth-child(3) {
               grid-column: 1 / 4;
@@ -286,6 +290,7 @@ export default {
     &__link {
         font-weight: var(--fw-base-m);
         color: var(--other-work-link);
+        font-size: var(--step-0);
         box-shadow: none;
         width: 100%;
         display: flex;
@@ -306,14 +311,18 @@ export default {
         }
         &:hover {
           box-shadow: none;
+          color: var(--ff-color);
           & svg {
-            transform: translateX(5px);
+            transform: translateX(10px);
           }
       }
     }
 }
 
 @media (max-width: 992px) {
+  .about-me {
+    grid-template-columns: repeat(1, 1fr);
+  }
   .work {
     grid-template-columns: repeat(1, 1fr);
     & .heading {
@@ -372,6 +381,7 @@ export default {
 
 @media (max-width: 768px) {
   .about-me {
+    padding-top: 0;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     &__intro {
       grid-column: 1 / 5;
