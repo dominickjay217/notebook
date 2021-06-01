@@ -93,10 +93,9 @@
       const canvas = document.getElementsByClassName("canvas")[0];
 
       function randomRgbaString() {
-        let r = Math.floor(Math.random() * 255);
-        let g = Math.floor(Math.random() * 255);
-        let b = Math.floor(Math.random() * 255);
-        return `rgba(${r},${g},${b},0.35)`;
+          const colors = ['rgba(252, 178, 118, 0.35)', 'rgba(96, 146, 153, 0.25)', 'rgba(157, 206, 210, 0.25)', 'rgba(254, 125, 21, 0.25)'],
+                randomColor = Math.floor(Math.random() * colors.length);
+          return colors[randomColor];
       }
 
       function randomStroke() {
@@ -149,6 +148,7 @@
             circle.setAttributeNS(null, "fill", fill);
             circle.setAttributeNS(null, "stroke", "transparent");
           }
+          circle.setAttributeNS(null, "stroke-width", 2);
 
           line.setAttributeNS(null, "id", "gen-line");
           line.setAttribute('x1', x);
@@ -156,9 +156,7 @@
           line.setAttribute('x2', x + 200);
           line.setAttribute('y2', y + 200);
           line.setAttribute("stroke", fill);
-          line.setAttribute("strokeWidth", '5');
-
-          circle.setAttributeNS(null, "strokeWidth", "5")
+          line.setAttribute("stroke-width", 2);
 
           svg.appendChild(circle);
           canvas.appendChild(svg);
