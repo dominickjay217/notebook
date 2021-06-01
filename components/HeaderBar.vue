@@ -131,6 +131,7 @@
         for (let i = 0; i < 5; i++) {
 
           const circle = document.createElementNS(svgNS,'circle'),
+                line = document.createElementNS(svgNS,'line'),
                 fill = randomRgbaString(),
                 stroke = randomStroke(),
                 x = getRandomXPosition(),
@@ -148,9 +149,20 @@
             circle.setAttributeNS(null, "fill", fill);
             circle.setAttributeNS(null, "stroke", "transparent");
           }
+
+          line.setAttributeNS(null, "id", "gen-line");
+          line.setAttribute('x1', x);
+          line.setAttribute('y1', y);
+          line.setAttribute('x2', x + 200);
+          line.setAttribute('y2', y + 200);
+          line.setAttribute("stroke", fill);
+          line.setAttribute("strokeWidth", '5');
+
           circle.setAttributeNS(null, "strokeWidth", "5")
 
           svg.appendChild(circle);
+          canvas.appendChild(svg);
+          svg.appendChild(line);
           canvas.appendChild(svg);
         }
       }
