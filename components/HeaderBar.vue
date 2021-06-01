@@ -3,6 +3,7 @@
     class="header"
     :class="[isHome ? 'header--thick' : 'header--thin']"
   >
+    <div class="canvas" />
     <div class="container">
       <h1 class="header__title heading heading--one">
         <NuxtLink
@@ -88,6 +89,74 @@
       }
     },
     mounted () {
+
+      const canvas = document.getElementsByClassName("canvas")[0];
+
+      function randomRgbaString() {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        return `rgba(${r},${g},${b},0.35)`;
+      }
+
+      function randomStroke() {
+        for (let x = 0; x < 30; x++) {
+          const stroke = randomRgbaString();
+          return stroke;
+        }
+      }
+
+      function getRandomXPosition() {
+        const width = screen.width,
+              x = Math.floor(Math.random() * width);
+        return x;
+      }
+
+      function getRandomYPosition() {
+        const height = canvas.offsetHeight,
+              y = Math.floor(Math.random() * height);
+        return y;
+      }
+
+      function getRandomRadius(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+      }
+
+      function createCircles() {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+              svgNS = svg.namespaceURI;
+
+        for (let i = 0; i < 5; i++) {
+
+          const circle = document.createElementNS(svgNS,'circle'),
+                fill = randomRgbaString(),
+                stroke = randomStroke(),
+                x = getRandomXPosition(),
+                y = getRandomYPosition(),
+                radius = getRandomRadius(50, 150);
+
+          circle.setAttributeNS(null, "id", "gen-circle");
+          circle.setAttributeNS(null, "cx", x);
+          circle.setAttributeNS(null, "cy", y);
+          circle.setAttributeNS(null, "r", radius);
+          if (i % 2 !== 0) {
+            circle.setAttributeNS(null, "fill", "none");
+            circle.setAttributeNS(null, "stroke", stroke);
+          } else {
+            circle.setAttributeNS(null, "fill", fill);
+            circle.setAttributeNS(null, "stroke", "transparent");
+          }
+          circle.setAttributeNS(null, "strokeWidth", "5")
+
+          svg.appendChild(circle);
+          canvas.appendChild(svg);
+        }
+      }
+
+      createCircles();
+
       setInterval(() => {
         var chosenNumber = Math.floor(Math.random() * this.list.length);
         this.fact = this.list[chosenNumber].text;
@@ -108,15 +177,10 @@
 
 // Header styles
 .header {
-  // margin-left: 20px;
-  // margin-right: 20px;
-  // border-radius: 20px;
   padding: var(--padding-df);
-  background: var(--header-background);
-  background-image: url("/images/bg.png");
-  // background-size: 400% 400%;
-  background-size: cover;
-  background-position: var(--header-background-position);
+  // background-image: url("/images/bg.png");
+  // background-size: cover;
+  // background-position: var(--header-background-position);
   transition: 2s ease-in-out background-position;
   transition-delay: var(--header-background-delay);
   position: relative;
@@ -127,16 +191,7 @@
   &--thin {
     background-position: var(--header-background-position-thin);
   }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, transparent 60%, var(--header-gradient-fill) 90%);
-  }
-  & > .container:first-child {
+  & > .container:nth-child(2) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -263,6 +318,29 @@
         animation: borderSidesGrow 2s forwards 6s;
       }
     }
+  }
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--header-gradient-fill) 90%);
+  }
+  & svg {
+    width: 100%;
+    height: 100%;
   }
 }
 
