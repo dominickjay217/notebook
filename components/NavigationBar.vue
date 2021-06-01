@@ -54,7 +54,7 @@ export default {
     letter-spacing: 0.5px;
     transition: none;
     font-family: var(--ff-alt-alpha);
-    font-size: var(--step-0);
+    font-size: 2rem;
     font-weight: var(--fw-base-m);
     letter-spacing: -0.5px;
     &:hover {
@@ -87,7 +87,7 @@ export default {
   .navigation {
     margin: 0;
     &__link {
-      font-size: var(--step-1);
+
     }
   }
 }

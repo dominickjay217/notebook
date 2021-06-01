@@ -88,7 +88,7 @@ export default {
   font-family: var(--ff-base);
   color: var(--ff-color);
   font-weight: var(--fw-base-lg);
-  font-size: var(--step-0);
+  font-size: 1rem;
   & > p:first-child {
     opacity: 0.85;
     font-weight: var(--fw-base-m);
@@ -99,8 +99,9 @@ export default {
     & p strong {
       color: var(--clr-third);
       padding: 0 5px;
-      font-size: var(--step-1);
-      font-style: italic;
+      font-size: 1.5rem;
+      position: relative;
+      top: -2px;
     }
   }
 }
@@ -109,20 +110,7 @@ export default {
   text-align: center;
   &__link {
     color: var(--ff-color);
-    & svg {
-      max-width: 50px;
-      transform: rotate(26deg);
-      top: 6px;
-      position: relative;
-      margin-left: 6px;
-    }
   }
 }
-
-// .template--dark .blog__link {
-//   & svg {
-//       fill: #fff;
-//   }
-// }
 
 </style>

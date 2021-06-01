@@ -180,10 +180,11 @@ export default {
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
-    font-size: var(--step-0);
+    font-size: 1rem;
     &__intro {
         grid-column: span 4;
         color: var(--ff-color);
+        font-size: 1.25rem;
     }
     &__picture {
         grid-column: 4 / span 1;
@@ -197,6 +198,11 @@ export default {
         padding-bottom: 40px;
         align-self: center;
         color: var(--ff-color);
+        & a {
+          font-family: var(--ff-base);
+          font-size: 1rem;
+          font-weight: var(--fw-base-lg);
+        }
         &--one {
             grid-template-columns: subgrid;
             display: grid;
@@ -227,6 +233,7 @@ export default {
             & strong {
                 display: block;
                 margin-bottom: 20px;
+                font-size: 1.5rem;
             }
         }
         &--lastfm {
@@ -235,6 +242,7 @@ export default {
             padding-top: 60px;
             & strong {
                 margin-bottom: 20px;
+                font-size: 1.25rem;
             }
             & img {
               margin: 20px auto;

@@ -90,7 +90,6 @@ time {
 .post {
   color: var(--ff-color);
   &__subheading {
-    font-weight: var(--fw-base-lg);
     background: var(--blog-gradient);
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -98,10 +97,10 @@ time {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     text-fill-color: transparent;
-    color: var(--clr-fifth);
     margin-bottom: 40px;
     display: block;
     text-align: center;
+    font-size: 1.5rem;
   }
   strong {
     font-weight: var(--fw-base-lg);
@@ -116,6 +115,9 @@ time {
     border-left-color: var(--aside-border);
     border-radius: 6px 6px 6px 3px;
     background-color: var(--aside-background);
+    & strong {
+      font-size: 1.5rem;
+    }
     & i {
       position: absolute;
       top: 0px;
@@ -134,6 +136,7 @@ time {
   ol {
     counter-reset: section;
     list-style: none;
+    margin-bottom: 1rem;
     margin-left: 0;
     & li {
       position: relative;
@@ -145,9 +148,9 @@ time {
       position: absolute;
       font-weight: var(--fw-base-lg);
       opacity: 0.5;
-      font-size: var(--step--2);
-      left: -25px;
-      top: 5px;
+      font-size: 0.85rem;
+      left: -20px;
+      top: -2px;
     }
   }
   h3 {

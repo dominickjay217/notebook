@@ -133,13 +133,15 @@
                 line = document.createElementNS(svgNS,'line'),
                 fill = randomRgbaString(),
                 stroke = randomStroke(),
-                x = getRandomXPosition(),
-                y = getRandomYPosition(),
+                circlePositionx = getRandomXPosition(),
+                circlePositiony = getRandomYPosition(),
+                linePositionx = getRandomXPosition(),
+                linePositiony = getRandomYPosition(),
                 radius = getRandomRadius(50, 150);
 
           circle.setAttributeNS(null, "id", "gen-circle");
-          circle.setAttributeNS(null, "cx", x);
-          circle.setAttributeNS(null, "cy", y);
+          circle.setAttributeNS(null, "cx", circlePositionx);
+          circle.setAttributeNS(null, "cy", circlePositiony);
           circle.setAttributeNS(null, "r", radius);
           if (i % 2 !== 0) {
             circle.setAttributeNS(null, "fill", "none");
@@ -151,10 +153,10 @@
           circle.setAttributeNS(null, "stroke-width", 2);
 
           line.setAttributeNS(null, "id", "gen-line");
-          line.setAttribute('x1', x);
-          line.setAttribute('y1', y);
-          line.setAttribute('x2', x + 200);
-          line.setAttribute('y2', y + 200);
+          line.setAttribute('x1', linePositionx);
+          line.setAttribute('y1', linePositiony);
+          line.setAttribute('x2', linePositionx + 200);
+          line.setAttribute('y2', linePositiony + 200);
           line.setAttribute("stroke", fill);
           line.setAttribute("stroke-width", 2);
 
@@ -185,22 +187,10 @@
   fill: var(--curve-fill);
 }
 
-// Header styles
 .header {
   padding: var(--padding-df);
-  // background-image: url("/images/bg.png");
-  // background-size: cover;
-  // background-position: var(--header-background-position);
-  transition: 2s ease-in-out background-position;
-  transition-delay: var(--header-background-delay);
   position: relative;
   overflow: hidden;
-  &--thick {
-    background-position: var(--header-background-position);
-  }
-  &--thin {
-    background-position: var(--header-background-position-thin);
-  }
   & > .container:nth-child(2) {
     display: flex;
     justify-content: space-between;
@@ -211,12 +201,14 @@
     font-weight: var(--fw-base-m);
     text-align: center;
     padding: var(--padding-lr);
-    font-size: var(--step-2);
     position: relative;
     z-index: 2;
     color: var(--ff-color);
     letter-spacing: -0.5px;
     opacity: 0.85;
+    & a {
+      font-size: 3rem;
+    }
   }
 
   &__tagline {
@@ -275,7 +267,7 @@
     & span {
       padding: 40px 20px;
       width: auto;
-      font-size: var(--step-3);
+      font-size: 2.25rem;
       text-align: center;
       position: relative;
       overflow: hidden;

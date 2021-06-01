@@ -26,7 +26,7 @@ export default {
     grid-column: 1 / 4;
   }
   & p {
-    font-size: var(--step--2);
+    font-size: 0.85rem;
     font-weight: var(--fw-base-m);
     grid-column: 1 / 4;
     text-align: center;
