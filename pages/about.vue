@@ -180,11 +180,11 @@ export default {
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     grid-auto-flow: dense;
     grid-gap: var(--grid-gap);
-    font-size: 1rem;
+    font-size: var(--step-0);
     &__intro {
-        grid-column: span 4;
-        color: var(--ff-color);
-        font-size: 1.25rem;
+      grid-column: span 4;
+      color: var(--ff-color);
+      font-size: var(--step-2);
     }
     &__picture {
         grid-column: 4 / span 1;
@@ -200,7 +200,7 @@ export default {
         color: var(--ff-color);
         & a {
           font-family: var(--ff-base);
-          font-size: 1rem;
+          font-size: var(--step-0);
           font-weight: var(--fw-base-lg);
         }
         &--one {

@@ -88,7 +88,7 @@ export default {
   font-family: var(--ff-base);
   color: var(--ff-color);
   font-weight: var(--fw-base-lg);
-  font-size: 1rem;
+  font-size: var(--step-1);
   & > p:first-child {
     opacity: 0.85;
     font-weight: var(--fw-base-m);
@@ -99,7 +99,7 @@ export default {
     & p strong {
       color: var(--clr-third);
       padding: 0 5px;
-      font-size: 1.5rem;
+      font-size: var(--step-1);
       position: relative;
       top: -2px;
     }
@@ -110,6 +110,7 @@ export default {
   text-align: center;
   &__link {
     color: var(--ff-color);
+    font-size: var(--step-2);
   }
 }
 

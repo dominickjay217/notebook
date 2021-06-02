@@ -15,7 +15,6 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  //background-color: var(--footer-background);
   color: var(--ff-color);
   padding: var(--padding-df);
   padding-bottom: 40px;
@@ -26,7 +25,7 @@ export default {
     grid-column: 1 / 4;
   }
   & p {
-    font-size: 0.85rem;
+    font-size: var(--step--1);
     font-weight: var(--fw-base-m);
     grid-column: 1 / 4;
     text-align: center;

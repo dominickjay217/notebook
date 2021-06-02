@@ -199,6 +199,7 @@
   &__title {
     font-family: var(--ff-alt-alpha);
     font-weight: var(--fw-base-m);
+    font-size: var(--step-5);
     text-align: center;
     padding: var(--padding-lr);
     position: relative;
@@ -206,23 +207,6 @@
     color: var(--ff-color);
     letter-spacing: -0.5px;
     opacity: 0.85;
-    & a {
-      font-size: 3rem;
-    }
-  }
-
-  &__tagline {
-    font-size: 0.85rem;
-    text-align: center;
-    font-family: var(--ff-base);
-    font-weight: var(--fw-base);
-    margin-top: 0;
-    color: var(--ff-color);
-    position: relative;
-    z-index: 2;
-    & p {
-      font-family: var(--ff-base);
-    }
   }
 
   &__link,
@@ -247,6 +231,7 @@
     font-family: var(--ff-base);
     font-family: var(--ff-variable);
     font-weight: var(--fw-base-xl);
+    letter-spacing: -0.5px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -254,7 +239,6 @@
     position: relative;
     z-index: 2;
     text-transform: uppercase;
-    letter-spacing: -.5px;
     &::before {
       content: "";
       border-top: 1px solid var(--clr-fifth);
@@ -267,7 +251,7 @@
     & span {
       padding: 40px 20px;
       width: auto;
-      font-size: 2.25rem;
+      font-size: var(--step-3);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -291,8 +275,7 @@
     }
     & p  {
       color: var(--ff-color);
-      font-size: 0.85rem;
-      font-size: var(--step--3);
+      font-size: var(--step-0);
       font-weight: var(--fw-base);
       max-width: 50%;
       text-align: left;
@@ -432,7 +415,6 @@
     flex-direction: column;
   }
   .header__title {
-    font-size: var(--step-0);
     align-self: flex-start;
     padding: 0;
   }
@@ -474,12 +456,14 @@
 
 .hero__fact .typing {
   color: currentColor;
-  padding: 0;
+  padding: 0 5px;
+  position: relative;
+  top: 1px;
   display: inline-flex;
   align-items: center;
   animation: typingRevealer 15s infinite 8s;
   font-weight: var(--fw-base-lg);
-  font-size: var(--step--3);
+  font-size: var(--step-0);
   &::after {
     content: none;
   }

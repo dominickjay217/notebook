@@ -43,20 +43,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .curve {
-//     top: 0;
-//     position: relative;
-//     fill: var(--curve-fill);
-//     transform: rotate(180deg);
-//     z-index: 2;
-//     margin-bottom: 40px;
-// }
 
 .contact {
     position: relative;
     margin-top: 0;
     padding-top: var(--padding-df);
-    // background-color: var(--footer-background);
     color: var(--ff-color);
     margin-bottom: 0;
     display: flex;
@@ -68,7 +59,7 @@ export default {
     &__text {
         max-width: 992px;
         padding: 0 20px;
-        font-size: var(--step--1);
+        font-size: var(--step-0);
         & span {
             display: block;
             margin-bottom: 20px;

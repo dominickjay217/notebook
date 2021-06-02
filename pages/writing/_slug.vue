@@ -116,7 +116,7 @@ time {
     border-radius: 6px 6px 6px 3px;
     background-color: var(--aside-background);
     & strong {
-      font-size: 1.5rem;
+      font-size: var(--step-2);
     }
     & i {
       position: absolute;
@@ -148,7 +148,7 @@ time {
       position: absolute;
       font-weight: var(--fw-base-lg);
       opacity: 0.5;
-      font-size: 0.85rem;
+      font-size: var(--step--1);
       left: -20px;
       top: -2px;
     }
@@ -184,7 +184,7 @@ time {
   pre code {
     display: block;
     padding: 30px 20px;
-    font-size: var(--step--2);
+    font-size: var(--step-0);
   }
   img {
     margin: 40px auto;

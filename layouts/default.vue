@@ -110,6 +110,89 @@
   );
 }
 
+@media screen and (min-width: 1140px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1024,16,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1024;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f--2-min: 11.11;
+  --f--2-max: 10.24;
+  --step--2: calc(
+    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--1-min: 13.33;
+  --f--1-max: 12.80;
+  --step--1: calc(
+    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-0-min: 16.00;
+  --f-0-max: 16.00;
+  --step-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-1-min: 19.20;
+  --f-1-max: 20.00;
+  --step-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-2-min: 23.04;
+  --f-2-max: 25.00;
+  --step-2: calc(
+    ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-3-min: 27.65;
+  --f-3-max: 31.25;
+  --step-3: calc(
+    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-4-min: 33.18;
+  --f-4-max: 39.06;
+  --step-4: calc(
+    ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-5-min: 39.81;
+  --f-5-max: 48.83;
+  --step-5: calc(
+    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+      var(--fluid-bp)
+  );
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--color-mode: 'dark';
@@ -179,7 +262,7 @@
 }
 
 body {
-  font-size: 1rem;
+  font-size: var(--step-0);
   line-height: var(--ff-lh);
   font-weight: var(--fw-base);
   padding: 0;
@@ -201,7 +284,6 @@ strong {
 
 a {
   font-family: var(--ff-alt-alpha);
-  font-size: 1.5rem;
   color: var(--ff-color);
   text-decoration: none;
   transition: var(--trn-bs);
@@ -244,14 +326,8 @@ main {
   color: var(--ff-color);
   &--two {
     text-align: center;
-    font-size: 3rem;
+    font-size: var(--step-4);
     letter-spacing: -0.5px;
-  }
-}
-
-@keyframes squiggle {
-  to {
-    stroke-dashoffset: -200;
   }
 }
 

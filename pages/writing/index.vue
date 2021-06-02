@@ -70,7 +70,7 @@ export default {
   h3 {
     font-family: var(--ff-alt-alpha);
     color: var(--ff-color);
-    font-size: var(--step-1);
+    font-size: var(--step-3);
   }
   p {
     color: var(--ff-color);

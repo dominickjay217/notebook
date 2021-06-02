@@ -92,7 +92,7 @@ export default {
 
 .post {
   --border-width: 4px;
-  font-size: 1rem;
+  font-size: var(--step-0);
   background-color: var(--post-bg);
   display: flex;
   gap: var(--grid-gap);
@@ -112,6 +112,7 @@ export default {
     flex: 1;
     padding-top: 5px;
     padding-right: var(--padding-df);
+    font-size: var(--step-0);
   }
   &__link {
     font-weight: var(--fw-base-m);
@@ -119,7 +120,7 @@ export default {
     box-shadow: none;
     display: flex;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: var(--step-2);
     &::after {
       content: "";
       position: absolute;
@@ -133,7 +134,7 @@ export default {
     min-width: 50px;
     font-weight: var(--fw-base);
     font-family: var(--ff-alt-alpha);
-    font-size: 1.25rem;
+    font-size: var(--step-1);
     opacity: 0.85;
     & span {
       padding: 0 2px;
@@ -161,7 +162,6 @@ export default {
     box-shadow: 0px 8px 16px 0px var(--box-shadow);
     z-index: 1;
     &__date {
-      font-size: var(--step--1);
     }
     &__link {
       margin-left: 0;

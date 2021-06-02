@@ -36,6 +36,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(autofill, 1fr);
     grid-gap: var(--grid-gap);
+    font-size: var(--step-0);
   }
   &__copy {
     margin-bottom: 20px;
