@@ -35,10 +35,12 @@ export default {
   margin: 0 auto;
   position: relative;
   &--1 {
-    fill: var(--clr-fifth)
+    fill: var(--clr-fifth);
+    opacity: 0.5;
   }
   &--2 {
-    fill: var(--clr-fourth)
+    fill: var(--clr-fourth);
+    opacity: 0.5;
   }
   & path {
     transform-origin: 50% 50%;

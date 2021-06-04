@@ -86,9 +86,7 @@ export default {
 @media (max-width: 992px) {
   .navigation {
     margin: 0;
-    &__link {
-
-    }
+    padding: 0 20px;
   }
 }
 

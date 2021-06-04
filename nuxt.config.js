@@ -26,7 +26,10 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js' }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
