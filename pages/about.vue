@@ -440,6 +440,15 @@ export default {
   }
 }
 
-
+@media (max-width: 640px) {
+  .lastfm-info {
+    &__imagewrapper {
+      display: none;
+    }
+  }
+  .about-me__content--lastfm {
+    padding: 0 0 20px;
+  }
+}
 
 </style>
