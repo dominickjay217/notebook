@@ -121,6 +121,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: var(--step-2);
+    line-height: 1;
     &::after {
       content: "";
       position: absolute;

@@ -42,7 +42,7 @@ import ContactBar from '~/components/ContactBar.vue'
 import FooterBar from '~/components/FooterBar.vue'
 import HeaderBar from '~/components/HeaderBar.vue'
 import SocialBar from '~/components/SocialBar.vue'
-import Spacer from '~/components/Spacer.vue'
+// import Spacer from '~/components/Spacer.vue'
 import VueMarkdown from 'vue-markdown'
 //import Weather from '~/components/Weather.vue'
 
@@ -55,7 +55,7 @@ export default {
     FooterBar,
     HeaderBar,
     SocialBar,
-    Spacer,
+    // Spacer,
     VueMarkdown,
     //Weather,
   },
@@ -99,7 +99,7 @@ export default {
     & p strong {
       color: var(--clr-third);
       padding: 0 5px;
-      font-size: var(--step-1);
+      font-size: calc(var(--step-1) * 1.5);
       position: relative;
       top: -2px;
     }
@@ -107,10 +107,18 @@ export default {
 }
 
 .blog {
+  position: relative;
+  margin: 3rem auto;
   text-align: center;
   &__link {
     color: var(--ff-color);
     font-size: var(--step-2);
+  }
+}
+
+@media (max-width: 992px) {
+  .about {
+    margin: 0 auto;
   }
 }
 

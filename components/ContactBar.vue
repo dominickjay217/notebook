@@ -64,6 +64,9 @@ export default {
             display: block;
             margin-bottom: 20px;
         }
+        & a {
+          font-size: var(--step-1);
+        }
     }
 }
 
