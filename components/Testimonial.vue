@@ -1,5 +1,8 @@
 <template>
   <div class="testimonial__content">
+    <h2 class="heading heading--two">
+      What people say about me
+    </h2>
     <div class="testimonial__copy">
       <p>
         <span
@@ -37,11 +40,15 @@ export default {
     grid-template-columns: repeat(autofill, 1fr);
     grid-gap: var(--grid-gap);
     font-size: var(--step-0);
+    & h2 {
+      grid-column: 1 / 2;
+    }
   }
   &__copy {
-    margin-bottom: 20px;
+    grid-column: 2 / 3;
     position: relative;
     padding: var(--padding-lr);
+    padding-left: 40px;
     color: var(--ff-color);
   }
   &__quote-symb {

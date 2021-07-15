@@ -4,6 +4,17 @@
       :class="[isHome ? 'blog-posts--home' : 'blog-posts--writing']"
       class="blog-posts"
     >
+      <div
+        v-if="!isHome"
+        class="blog-posts__description"
+      >
+        <span
+          class="blog-posts__heading"
+        >
+          What's New?
+        </span>
+        <p>My most recent scribblings</p>
+      </div>
       <li
         v-for="post in blogPosts"
         :key="post.fields.title"
@@ -19,12 +30,14 @@
               {{ new Date(post.fields.publishDate).getMonth() + 1 }}
             </span>
           </time>
-          <span class="post__title">
-            {{ post.fields.title }}
-          </span>
-          <span class="post__description">
-            {{ post.fields.description }}
-          </span>
+          <div>
+            <span class="post__title">
+              {{ post.fields.title }}
+            </span>
+            <span class="post__description">
+              {{ post.fields.description }}
+            </span>
+          </div>
           <nuxt-link
             :to="{
               name: 'writing-slug',
@@ -145,33 +158,56 @@ export default {
 }
 
 .blog-posts--home {
+  margin: 0 auto;
   .post__description {
     display: none;
   }
 }
 
 .blog-posts--writing {
-  --box-shadow: rgba(32, 49, 64, 0.1);
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  grid-gap: var(--grid-gap);
+  grid-template-columns: minmax(50px, 220px) minmax(500px, 1fr);
+  grid-gap: calc(var(--grid-gap) * 2);
   border-radius: 20px;
   & .post {
-    flex-direction: column;
     height: 100%;
-    box-shadow: 0px 8px 16px 0px var(--box-shadow);
     z-index: 1;
-    &__date {
+    & div {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
     }
     &__link {
       margin-left: 0;
       padding: 0;
+      min-width: 100px;
     }
     &__title {
       padding-right: 0;
     }
   }
+}
+
+
+.blog-posts--writing ul {
+  padding-left: 40px;
+}
+
+.blog-posts--writing .blog-posts__item {
+  grid-column: 2 / 3;
+}
+
+.blog-posts--writing .blog-posts__description {
+  text-align: left;
+  position: sticky;
+  top: 40px;
+}
+
+.blog-posts--writing .blog-posts__heading {
+  grid-column: 1 / 2;
+  font-size: var(--step-4);
+  font-family: var(--ff-alt-alpha);
 }
 
 @media (max-width: 992px) {
@@ -197,4 +233,5 @@ export default {
     }
   }
 }
+
 </style>

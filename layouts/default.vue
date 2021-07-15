@@ -41,8 +41,6 @@
   --clr-fifth-lt: #609299;
   --clr-fifth-dk: #4c7479;
 
-
-
   --main-background: var(--clr-base);
   --header-background: linear-gradient(to bottom, var(--clr-primary-lt) 0%, var(--clr-primary) 33%,
   var(--clr-secondary-lt) 66%, var(--clr-secondary) 100%);

@@ -1,17 +1,23 @@
 <template>
   <svg
-    class="spacer "
-    :class="[spacerNo == 1 ? 'spacer--1' : 'spacer--2']"
-    viewBox="-100 -100 200 200"
+    width="175"
+    height="59"
+    viewBox="0 0 175 59"
+    fill="none"
+    class="spacer"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      v-if="spacerNo == 1"
-      d="M45.4,-76C59.4,-70.6,71.6,-59.5,80.3,-45.9C88.9,-32.3,93.9,-16.1,89.1,-2.8C84.3,10.6,69.6,21.1,61.2,35.1C52.7,49,50.5,66.3,41.3,74.1C32.2,81.9,16.1,80.2,2.4,76.1C-11.3,71.9,-22.6,65.4,-33.7,58.7C-44.7,52,-55.5,45.1,-65.7,35.3C-75.9,25.5,-85.6,12.7,-88,-1.4C-90.4,-15.5,-85.5,-31,-75.3,-40.8C-65.1,-50.6,-49.5,-54.6,-36,-60.3C-22.6,-66,-11.3,-73.4,2.2,-77.2C15.7,-81.1,31.5,-81.4,45.4,-76Z"
+      d="M0 29.5C0 9.7 2.7 7 22.5 7C42.3 7 45 9.7 45 29.5C45 49.3 42.3 52 22.5 52C2.7 52 0 49.3 0 29.5Z"
+      fill="black"
     />
     <path
-      v-else
-      d="M48.6,-57C64.8,-44.3,81.1,-30.7,85.7,-13.7C90.4,3.3,83.5,23.8,72,39.6C60.5,55.4,44.4,66.7,27.3,71.3C10.2,75.9,-8,73.8,-26.7,68.9C-45.3,64,-64.6,56.2,-75.4,41.5C-86.2,26.9,-88.7,5.4,-81.5,-10.7C-74.2,-26.7,-57.3,-37.4,-42.1,-50.3C-26.9,-63.1,-13.4,-78.2,1.4,-79.9C16.2,-81.5,32.4,-69.7,48.6,-57Z"
+      d="M130 36.5C130 16.7 132.7 14 152.5 14C172.3 14 175 16.7 175 36.5C175 56.3 172.3 59 152.5 59C132.7 59 130 56.3 130 36.5Z"
+      fill="black"
+    />
+    <path
+      d="M65 22.5C65 2.7 67.7 0 87.5 0C107.3 0 110 2.7 110 22.5C110 42.3 107.3 45 87.5 45C67.7 45 65 42.3 65 22.5Z"
+      fill="black"
     />
   </svg>
 </template>
@@ -24,6 +30,52 @@ export default {
       type: String,
       default: null
     }
+  },
+  mounted() {
+
+      const spacer = document.getElementsByClassName("spacer");
+
+      function randomRgbaString() {
+          const colors = ['rgba(252, 178, 118, 0.35)', 'rgba(96, 146, 153, 0.25)', 'rgba(157, 206, 210, 0.25)', 'rgba(254, 125, 21, 0.25)'],
+                randomColor = Math.floor(Math.random() * colors.length);
+          return colors[randomColor];
+      }
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+      }
+
+
+      function getRandomXPosition() {
+        const width = spacer[0].width.baseVal.valueAsString,
+              x = getRandomInt(0, width / 3);
+        return x;
+      }
+
+      function getRandomYPosition() {
+        const height = spacer[0].height.baseVal.valueAsString,
+              y = getRandomInt(0, height / 2);
+        return y;
+      }
+
+      function createPath() {
+        for (let l = 0; l < spacer.length; l++) {
+          for (let i = 0; i < 3; i++) {
+            const y = getRandomYPosition(),
+                  x = getRandomXPosition(),
+                  fill = randomRgbaString();
+            spacer[l].children[i].style.transform = "translate(" + x + "px, " + y + "px)";
+            spacer[l].children[i].style.fill = fill;
+            //console.log(spacer.children[i])
+          }
+        }
+
+      }
+
+      createPath();
+
   }
 }
 </script>
@@ -31,20 +83,21 @@ export default {
 <style lang="scss" scoped>
 
 .spacer {
-  max-width: 100px;
-  margin: 0 auto;
-  position: relative;
-  &--1 {
-    fill: var(--clr-fifth);
-    opacity: 0.5;
-  }
-  &--2 {
-    fill: var(--clr-fourth);
-    opacity: 0.5;
-  }
-  & path {
-    transform-origin: 50% 50%;
-  }
+ height: 39px;
+ width: 175px;
+ margin: 0 auto;
+ & path {
+     transition: 1s ease-in-out transform;
+ }
+ &:hover {
+   & path {
+     transform: translate(0, 0) !important;
+     transition: 1s ease-in-out transform;
+     &:last-child {
+       transform: translate(0, -10px) !important;
+     }
+   }
+ }
 }
 
 </style>

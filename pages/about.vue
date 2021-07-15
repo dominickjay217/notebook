@@ -5,12 +5,24 @@
     <main>
       <div class="container">
         <section class="content about-me">
-          <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown>
-          <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown>
+          <ol
+            class="about-me__list"
+          >
+            <li><strong>Hi 👋. My name’s Dom, I’m a Front End Developer, a guitarist and comic book enthusiast, and a Dad to two awesome kids. I love making fun, creative solutions. This is my portfolio, which I’ll use as an ongoing playground and blog to keep using all sorts of tech, designs and experimentation.</strong></li>
+            <li>I’ve been in the industry for 5 years now under many different titles; Junior Web Developer, PHP Developer, Front End Developer, Space Cowboy and (currently) as a Software Engineer. From companies that have clients in local councils to theatre productions, I’ve been providing quality solutions for both. You can read my CV here</li>
+            <li>I’m Dorset-born, but traded coast for coast to live in Plymouth. I play the guitar, but have an unkept secret with wanting to play the drums. If you’d like to get in touch with me then twitter is your best channel.</li>
+            <li>I’m proficient in HTML5, CSS3 and JavaScript, and have worked in amongst various backend environments. I have a good working knowledge of build systems such as Gulp and post-processors such as SASS. I also have good working knowledge of version control systems such as Git and SVN. Experience building websites that are SEO friendly, performance optimized and accessible to a AA/WCAG 2.1 standard.</li>
+            <li>I am self-motivated and can self-manage to complete tasks and meet deadlines. I care about and take enormous pride in the work that is produced, and have a keen eye for details. I have excellent communication skills with clients and colleagues, exceptional commitment, professionalism and enthusiasm.</li>
+          </ol>
+          <!-- <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown> -->
+          <!-- <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown> -->
+          <Timeline />
           <div class="about-me__content about-me__content--joke">
-            <strong>
-              I love dad jokes, how about one of them instead?
-            </strong>
+            <div>
+              <strong>
+                I love dad jokes, how about one of them instead?
+              </strong>
+            </div>
             <Joke />
           </div>
           <div class="about-me__content about-me__content--lastfm">
@@ -50,53 +62,6 @@
           </div>
         </section>
         <Spacer spacer-no="2" />
-        <!-- <section class="content work">
-          <h2 class="content__heading heading heading--two">
-            Featured Work
-          </h2>
-          <div class="work__image-wrapper">
-            <a
-              :href="about.fields.featuredWorkUrl"
-              target="_blank"
-              relopener="noopener"
-            >
-              <img
-                class="work__image"
-                loading="lazy"
-                :src="about.fields.featuredWork.fields.file.url"
-                :alt="about.fields.featuredWork.fields.title"
-              >
-            </a>
-          </div>
-          <h2 class="content__heading heading heading--two">
-            Other Work
-          </h2>
-          <ul class="other-work__list">
-            <li
-              v-for="otherWork in about.fields.workLink"
-              :key="otherWork.fields.snippetName"
-              class="other-work__item"
-            >
-              <a
-                class="other-work__link"
-                :href="otherWork.fields.snippetLink"
-              >
-                {{ otherWork.fields.snippetName }}
-                <svg
-                  width="85"
-                  height="10"
-                  viewBox="0 0 85 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0.992188 4.48828C0.992188 4.48828 19.6624 7.69204 35.5 7.5C51.3554 7.30774 81.9923 3.50047 81.9923 3.50047" />
-                  <path d="M78.428 7.4202L77.75 6.43089L82.1195 3.43962L77.2786 1.07855L77.8047 0L84.498 3.26455L78.428 7.4202Z" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <Spacer spacer-no="1" /> -->
         <section class="content testimonial">
           <Testimonial :person="person" />
         </section>
@@ -117,9 +82,9 @@ import Joke from '~/components/Joke.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
 import Testimonial from '~/components/Testimonial.vue'
-import VueMarkdown from 'vue-markdown'
-import axios from 'axios'
-//import Weather from '~/components/Weather.vue'
+import Timeline from '~/components/Timeline.vue'
+import gsap from 'gsap'
+// import VueMarkdown from 'vue-markdown'
 
 const client = createClient()
 
@@ -132,8 +97,8 @@ export default {
     Testimonial,
     SocialBar,
     Spacer,
-    VueMarkdown,
-    //Weather,
+    Timeline
+    // VueMarkdown,
   },
   asyncData({ env }) {
     return Promise.all([
@@ -169,86 +134,98 @@ export default {
   },
   created() {
     this.interval = setInterval(() => this.$fetch(), 60000);
+  },
+  mounted() {
+
   }
 }
 </script>
 
 <style lang="scss">
+.lastfm-info {
+  & strong {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+  }
+}
 
 .about-me {
+  font-size: var(--step-0);
+  &__list {
+    padding: 0;
+    padding-left: 0;
+    margin: 40px 0;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 1fr));
-    grid-auto-flow: dense;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: auto;
     grid-gap: var(--grid-gap);
-    font-size: var(--step-0);
-    &__intro {
-      grid-column: span 4;
+    counter-reset: section;
+    list-style: none;
+    margin-left: 0;
+    & li {
+      position: relative;
+      margin-left: 35px;
+      grid-column: 2 / 3;
+      &::before {
+        counter-increment: section;
+        content: "0" counter(section);
+        position: absolute;
+        font-family: var(--ff-alt-alpha);
+        font-weight: var(--fw-base-lg);
+        opacity: 0.35;
+        font-size: var(--step-5);
+        left: -60px;
+        top: -25px;
+      }
+    }
+    & li:first-child {
       color: var(--ff-color);
       font-size: var(--step-2);
+      position: sticky;
+      margin-left: 0;
+      padding-right: 25px;
+      margin-top: -10px;
+      top: 20px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      &::before {
+        content: none;
+      }
     }
-    &__picture {
-        grid-column: 4 / span 1;
-        object-fit: cover;
-        &--two {
-          align-self: center;
-          grid-column: 2 / 3;
-        }
+  }
+  &__content--joke {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, minmax(50px, 1fr));
+    padding: 40px 0;
+    grid-gap: var(--grid-gap);
+    div:first-child {
+      color: var(--ff-color);
+      font-size: var(--step-2);
+      grid-column: 1 / 3;
     }
-    &__content {
-        padding-bottom: 40px;
-        align-self: center;
-        color: var(--ff-color);
-        & a {
-          font-family: var(--ff-base);
-          font-size: var(--step-0);
-          font-weight: var(--fw-base-lg);
-        }
-        &--one {
-            grid-template-columns: subgrid;
-            display: grid;
-            grid-column: 1 / 5;
-            & p {
-              padding-bottom: calc(var(--padding-df) * 2);
-            }
-            & p:first-child  {
-              grid-column: 1 / 4;
-            }
-            & p:nth-child(2) {
-              grid-column: 2 / 5;
-            }
-            & p:nth-child(3) {
-              grid-column: 1 / 4;
-            }
-            & p:nth-child(4) {
-              grid-column: 3 / 5;
-            }
-            & p:last-child {
-              padding-bottom: 0;
-            }
-        }
-        &--joke {
-            grid-row: 3;
-            grid-column: 2 / 4;
-            align-self: center;
-            & strong {
-                display: block;
-                margin-bottom: 20px;
-                font-size: 1.5rem;
-            }
-        }
-        &--lastfm {
-            grid-row: 4;
-            grid-column: 1/4;
-            padding-top: 60px;
-            & strong {
-                margin-bottom: 20px;
-                font-size: 1.25rem;
-            }
-            & img {
-              margin: 20px auto;
-            }
-        }
+    & #joke {
+      grid-column: 1 / 3;
     }
+  }
+}
+
+@media (max-width: 992px) {
+  .about-me__list {
+      grid-template-columns: repeat(1, minmax(150px, 1fr));
+      & li:first-child {
+        grid-column: 1 / 3;
+        position: relative;
+        margin-bottom: 40px;
+      }
+      & li {
+        grid-column: 1 / 3;
+      }
+  }
+
+  .about-me__list li::before {
+    left: -40px;
+  }
 }
 
 .work {

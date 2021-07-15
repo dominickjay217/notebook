@@ -65,9 +65,6 @@ export default {
         post: posts.items[0]
       }
     }).catch(console.error)
-  },
-  mounted() {
-
   }
 }
 </script>
