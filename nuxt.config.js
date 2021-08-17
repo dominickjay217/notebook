@@ -58,9 +58,12 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/feed',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxt/content'
   ],
-
+  content: {
+    // Options
+  },
   feed: []
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

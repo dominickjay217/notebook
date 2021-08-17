@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- <Weather /> -->
-    <HeaderBar :person="person" />
+    <!-- <HeaderBar :person="person" /> -->
     <main>
       <div class="container">
         <section class="content post">
-          <article class="blogpost__content">
+          <!-- <article class="blogpost__content">
             <h2 class="blogpost__heading heading heading--two">
               {{ post.fields.title }}
             </h2>
@@ -21,12 +21,13 @@
                 {{ ( new Date(post.fields.publishDate).toLocaleString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })) }}
               </span>
             </time>
-          </article>
+          </article> -->
+          <pre> {{ article }} </pre>
         </section>
       </div>
     </main>
-    <ContactBar :person="person" />
-    <SocialBar :person="person" />
+    <!-- <ContactBar :person="person" />
+    <SocialBar :person="person" /> -->
     <FooterBar />
   </div>
 </template>
@@ -43,28 +44,17 @@ const client = createClient()
 
 export default {
   components: {
-    HeaderBar,
-    SocialBar,
-    ContactBar,
+    // HeaderBar,
+    // SocialBar,
+    // ContactBar,
     FooterBar,
     //Weather,
-    VueMarkdown,
+    // VueMarkdown,
   },
-  asyncData({ env, params }) {
-    return Promise.all([
-      client.getEntries({
-        'sys.id': env.CTF_PERSON_ID
-      }),
-      client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        'fields.slug': params.slug
-      })
-    ]).then(([entries, posts]) => {
-      return {
-        person: entries.items[0],
-        post: posts.items[0]
-      }
-    }).catch(console.error)
+  async asyncData({ $content, params }) {
+    const article = await $content('articles', params.slug).fetch()
+
+    return { article }
   }
 }
 </script>
