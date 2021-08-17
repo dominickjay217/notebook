@@ -26,8 +26,12 @@
     "netlify-lambda": "^2.0.6",
     "nuxt": "^2.14.12",
     "nuxt-gsap": "^0.1.4",
+    "p5": "^1.4.0",
+    "svg.js": "^2.7.1",
+    "svgdom": "^0.1.8",
     "twitter": "^1.7.1",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vue-p5": "^0.8.4"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

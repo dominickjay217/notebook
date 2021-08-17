@@ -24,7 +24,7 @@
 <script>
 export default {
   props: {
-    'person': {
+    person: {
       type: Object,
       default: null
     }

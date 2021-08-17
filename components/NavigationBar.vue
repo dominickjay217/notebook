@@ -50,35 +50,18 @@ export default {
   }
   &__link {
     padding: var(--padding-lr);
-    box-shadow: none;
-    letter-spacing: 0.5px;
-    transition: none;
     font-family: var(--ff-alt-alpha);
     font-size: var(--step-3);
     font-weight: var(--fw-base-m);
     letter-spacing: -0.5px;
+    border-top: 5px solid transparent;
+    transition: var(--trn-default);
     &:hover {
       color: var(--ff-color);
     }
     &:hover,
     &--active {
-      &::before,
-      &::after {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-weight: var(--fw-base);
-      }
-      &::before {
-        content: '{';
-        left: 5px;
-        top: calc(50% - 5px);
-      }
-      &::after {
-        content: '}';
-        right: 5px;
-        top: calc(50% + 5px);
-      }
+      border-top: 5px solid #E85A4F;
     }
   }
 }

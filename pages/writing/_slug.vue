@@ -5,19 +5,19 @@
     <main>
       <div class="container">
         <section class="content post">
-          <article class="post__content">
-            <h2 class="post__heading heading heading--two">
+          <article class="blogpost__content">
+            <h2 class="blogpost__heading heading heading--two">
               {{ post.fields.title }}
             </h2>
-            <strong class="post__subheading">
+            <strong class="blogpost__subheading">
               {{ post.fields.subheading }}
             </strong>
-            <vue-markdown class="post__bodytext">
+            <vue-markdown class="blogpost__bodytext">
               {{ post.fields.body }}
             </vue-markdown>
-            <time class="post__date">
+            <time class="blogpost__date">
               <span>Published at:</span>
-              <span class="post__datetime">
+              <span class="blogpost__datetime">
                 {{ ( new Date(post.fields.publishDate).toLocaleString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })) }}
               </span>
             </time>
@@ -78,13 +78,17 @@ time {
     font-weight: var(--fw-base-xl);
     opacity: 0.5;
   }
-  & .post__datetime {
+  & .blogpost__datetime {
     opacity: 1;
     font-weight: var(--fw-base-m);
   }
 }
 
-.post {
+img[src*="#gif"] {
+   max-width: 350px;
+}
+
+.blogpost {
   color: var(--ff-color);
   &__subheading {
     background: var(--blog-gradient);
@@ -102,33 +106,6 @@ time {
   strong {
     font-weight: var(--fw-base-lg);
     color: var(--blog-ff-strong);
-  }
-  aside {
-    position: relative;
-    padding: 24px 32px;
-    margin-top: 48px;
-    margin-bottom: 64px;
-    border-left: 3px solid;
-    border-left-color: var(--aside-border);
-    border-radius: 6px 6px 6px 3px;
-    background-color: var(--aside-background);
-    & strong {
-      font-size: var(--step-2);
-    }
-    & i {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      transform: translate(-50%, -50%);
-      padding: 8px;
-      background: var(--main-background);
-      border-radius: 50%;
-      color: var(--aside-icon);
-    }
-  }
-  a {
-    font-weight: var(--fw-base-m);
-    color: var(--ff-color);
   }
   ol {
     counter-reset: section;
@@ -162,37 +139,67 @@ time {
     text-fill-color: transparent;
     color: var(--clr-fifth);
   }
-  iframe {
-    margin: 40px auto;
-  }
-  code {
-    background: #d3d3d3 none repeat scroll 0% 0%;
-    padding: 2px 6px;
-    display: inline;
-    color: var(--code-font-color);
-    margin: 0 1px;
-    font-family: var(--ff-code);
-    border-radius: 3px;
-  }
-  pre {
-    border-radius: 3px;
-    margin: 0;
-  }
-  pre code {
-    display: block;
-    padding: 30px 20px;
-    font-size: var(--step-0);
-  }
-  img {
-    margin: 40px auto;
-  }
+}
 
-  .code-block {
-    position: relative;
-    &__language {
-      background: #d3d3d3 none repeat scroll 0% 0%;
-      margin-bottom: -2px;
-    }
+iframe {
+  margin: 40px auto;
+}
+
+img {
+  margin: 40px auto;
+}
+
+pre {
+  border-radius: 3px;
+  margin: 0;
+}
+
+pre code {
+  display: block;
+  padding: 30px 20px;
+  font-size: var(--step-0);
+}
+
+code {
+  background: var(--clr-secondary-lt);
+  padding: 2px 6px;
+  display: inline;
+  color: var(--code-font-color);
+  margin: 0 1px;
+  font-family: var(--ff-code);
+  border-radius: 3px;
+}
+
+.code-block {
+  position: relative;
+  &__language {
+    background: #d3d3d3 none repeat scroll 0% 0%;
+    margin-bottom: -2px;
+  }
+}
+
+strong {
+  font-size: var(--step-2);
+}
+
+aside {
+  position: relative;
+  padding: 24px 32px;
+  margin-top: 48px;
+  margin-bottom: 64px;
+  border-left: 3px solid;
+  border-left-color: var(--aside-border);
+  border-radius: 6px 6px 6px 3px;
+  background-color: var(--aside-background);
+  & i {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%);
+    padding: 8px;
+    background: var(--main-background);
+    border-radius: 50%;
+    color: var(--aside-icon);
   }
 }
 

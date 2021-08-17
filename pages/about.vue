@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <Weather /> -->
     <HeaderBar :person="person" />
     <main>
       <div class="container">
@@ -16,7 +15,6 @@
           </ol>
           <!-- <vue-markdown class="about-me__intro">{{ about.fields.aboutIntro }}</vue-markdown> -->
           <!-- <vue-markdown class="about-me__content about-me__content--one">{{ about.fields.aboutSectionOne }}</vue-markdown> -->
-          <Timeline />
           <div class="about-me__content about-me__content--joke">
             <div>
               <strong>
@@ -82,9 +80,6 @@ import Joke from '~/components/Joke.vue'
 import SocialBar from '~/components/SocialBar.vue'
 import Spacer from '~/components/Spacer.vue'
 import Testimonial from '~/components/Testimonial.vue'
-import Timeline from '~/components/Timeline.vue'
-import gsap from 'gsap'
-// import VueMarkdown from 'vue-markdown'
 
 const client = createClient()
 
@@ -97,7 +92,6 @@ export default {
     Testimonial,
     SocialBar,
     Spacer,
-    Timeline
     // VueMarkdown,
   },
   asyncData({ env }) {
@@ -157,7 +151,7 @@ export default {
     margin: 40px 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
-    grid-template-rows: auto;
+    grid-template-rows: repeat(4, min-content);
     grid-gap: var(--grid-gap);
     counter-reset: section;
     list-style: none;
@@ -187,7 +181,7 @@ export default {
       margin-top: -10px;
       top: 20px;
       grid-column: 1 / 2;
-      grid-row: 1 / 4;
+      grid-row: 1 / 3;
       &::before {
         content: none;
       }

@@ -3,15 +3,6 @@
     id="contact"
     class="content contact"
   >
-    <!-- <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      preserveAspectRatio="none"
-      viewBox="0 0 1680 40"
-      class="curve"
-    >
-      <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" />
-    </svg> -->
     <h3 class="contact__heading heading heading--two">
       Talk to Me
     </h3>
@@ -23,11 +14,9 @@
         :href="'mailto:' + person.fields.email"
         target="_blank"
         relopener="noopener"
-        class="contact__link"
       >Send me an email</a> at hi@dominickjay.com
       or give me a shout on
       <a
-        class="contact__link"
         target="_blank"
         relopener="noopener"
         :href="person.fields.twitter"
@@ -38,7 +27,12 @@
 
 <script>
 export default {
-  props: ['person'],
+  props: {
+    person : {
+      type: Object,
+      default: null
+    }
+  },
 }
 </script>
 

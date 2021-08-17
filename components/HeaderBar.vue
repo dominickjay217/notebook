@@ -24,7 +24,7 @@
           <svg
             id="background"
             viewbox="0 0 1080 350"
-            height="240"
+            height="180"
           >
             <defs>
               <clipPath id="text-2">
@@ -224,6 +224,7 @@
   padding: var(--padding-df);
   position: relative;
   overflow: hidden;
+  background-color: #EAE7DC;
   & > .container:nth-child(2) {
     display: flex;
     justify-content: space-between;
@@ -257,6 +258,7 @@
   grid-gap: var(--grid-gap);
   align-items: center;
   position: relative;
+  padding: 80px 0;
   margin: 0 0 20px;
   &__fact {
     font-weight: var(--fw-base-xl);
@@ -264,39 +266,26 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-start;
     text-transform: uppercase;
-    & span {
-
-    }
     & p  {
       color: var(--ff-color);
-      font-size: var(--step-0);
+      font-size: var(--step-1);
       font-weight: var(--fw-base);
       max-width: 50%;
       text-align: left;
       margin: 0;
       padding: var(--padding-df);
+      padding-left: 70px;
       position: relative;
       &::before {
         content: "";
-        border-top: 1px solid var(--clr-fifth);
-        border-bottom: 1px solid var(--clr-fifth);
+        border-top: 3px solid var(--clr-fifth);
         position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 0;
-        animation: borderTopBottomGrow 1.5s forwards 4s;
-      }
-      &::after {
-        content: "";
-        border-left: 1px solid var(--clr-fifth);
-        border-right: 1px solid var(--clr-fifth);
-        position: absolute;
-        inset: 0;
-        height: 0;
-        animation: borderSidesGrow 1.5s forwards 6s;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        left: 10px;
       }
     }
   }
@@ -310,29 +299,8 @@
   bottom: 0;
   width: 100%;
   margin: 0 auto;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, transparent 60%, var(--header-gradient-fill) 90%);
-  }
   & svg {
     width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes borderTopBottomGrow {
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes borderSidesGrow {
-  100% {
     height: 100%;
   }
 }
@@ -366,6 +334,10 @@
     padding: 0;
     margin: 0;
   }
+  .hero {
+    margin: 20px auto;
+    padding: 20px 0;
+  }
   .hero__fact {
     & p {
       max-width: none;
@@ -379,7 +351,6 @@
   }
   .hero {
     grid-template-columns: repeat(4, 1fr);
-
     &__fact {
       transform: none;
       grid-column: 1 / 5;
@@ -403,19 +374,20 @@
 }
 
 .hero__fact .typing {
-  padding: 0 5px;
+  padding: 0;
   font-weight: var(--fw-base-lg);
   background: var(--hero-fact);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   text-fill-color: transparent;
+  animation: 2s ease-in-out 5s 2 infinite revealText;
 }
 
 #background {
   width: 100%;
   & path {
-    opacity: 0.95;
+    opacity: 1;
     animation-duration: 35s;
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);

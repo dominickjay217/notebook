@@ -31,7 +31,7 @@
 
   --clr-third: #fe9948;
   --clr-third-lt: #fcb276;
-  --clr-third-dk: #fe7d15;
+  --clr-third-dk: rgb(254, 125, 21);
 
   --clr-fourth: #584945;
   --clr-fourth-lt: #665550;
@@ -61,7 +61,7 @@
   --aside-background: rgba(96, 146, 153, 0.15);
   --aside-border: var(--clr-fifth-dk);
   --aside-icon: var(--clr-fifth-dk);
-  --code-font-color: var(--clr-base-dk);
+  --code-font-color: var(--clr-base-lt);
 
   /* Transitions */
 
@@ -271,7 +271,7 @@ body {
 }
 
 *:focus {
-  outline: 2px dashed var(--focus-outline-clr);
+  outline: 2px solid var(--focus-outline-clr);
 }
 
 b,
@@ -284,15 +284,20 @@ a {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
-  transition: var(--trn-bs);
-  box-shadow: var(--lnk-box-shdw);
-  padding: 0 5px;
 }
 
 a:hover {
   text-decoration: none;
-  box-shadow: var(--lnk-box-shdw-hover);
-  color: var(--ff-color-link-hover);
+}
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-color: #E85A4F;
+  text-decoration-thickness: 2px;
+  font-size: calc(var(--step-1) * 1.05);
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 main {

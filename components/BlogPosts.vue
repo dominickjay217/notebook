@@ -6,7 +6,7 @@
     >
       <div
         v-if="!isHome"
-        class="blog-posts__description"
+        class="intro"
       >
         <span
           class="blog-posts__heading"
@@ -21,7 +21,7 @@
         class="blog-posts__item"
       >
         <div class="post">
-          <time class="post__date">
+          <time>
             <span>
               {{ new Date(post.fields.publishDate).getDate() }}
             </span>
@@ -30,11 +30,14 @@
               {{ new Date(post.fields.publishDate).getMonth() + 1 }}
             </span>
           </time>
-          <div>
-            <span class="post__title">
+          <div class="post-content">
+            <span class="title">
               {{ post.fields.title }}
             </span>
-            <span class="post__description">
+            <span
+              v-if="!isHome"
+              class="description"
+            >
               {{ post.fields.description }}
             </span>
           </div>
@@ -45,7 +48,7 @@
                 slug: post.fields.slug,
               },
             }"
-            class="post__link"
+            class="post-link"
           >
             <span>Read post</span>
           </nuxt-link>
@@ -81,87 +84,72 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.blog {
-  &__link {
-    font-family: var(--ff-alt-alpha);
-    text-align: center;
-    width: 100%;
-    display: block;
-    padding: var(--padding-tb);
-    color: var(--ff-color);
-  }
-}
 
-.blog-posts {
+ul {
   list-style: none;
-  padding: calc(var(--padding-df) * 2) 0 0;
-  margin: 0;
-  &__item {
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
+  padding-left: 0;
 }
 
 .post {
-  --border-width: 4px;
   font-size: var(--step-0);
-  background-color: var(--post-bg);
   display: flex;
   gap: var(--grid-gap);
   justify-content: space-between;
+  align-items: flex-start;
   position: relative;
-  padding: calc((var(--padding-df) / 2));
-  margin-bottom: 20px;
-  border: var(--border-width) solid transparent;
+  padding: 10px;
+  padding-right: 40px;
   color: var(--ff-color);
-  transition: var(--trn-default);
   text-align: left;
-  &:hover {
-    border: var(--border-width) solid var(--clr-fifth);
-  }
-  &__title {
-    font-weight: var(--fw-base-m);
-    flex: 1;
-    padding-top: 5px;
-    padding-right: var(--padding-df);
-    font-size: var(--step-0);
-  }
-  &__link {
-    font-weight: var(--fw-base-m);
-    margin-left: auto;
-    box-shadow: none;
-    display: flex;
-    align-items: center;
-    font-size: var(--step-2);
-    line-height: 1;
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-    }
-  }
-  &__date {
-    display: flex;
-    justify-content: flex-start;
-    margin-right: 40px;
-    min-width: 50px;
-    font-weight: var(--fw-base);
-    font-family: var(--ff-alt-alpha);
-    font-size: var(--step-1);
-    opacity: 0.85;
-    & span {
-      padding: 0 2px;
-      opacity: 1;
-    }
-  }
+  overflow: hidden;
 }
 
-.blog-posts--home {
-  margin: 0 auto;
-  .post__description {
-    display: none;
-  }
+.post .title {
+  font-weight: var(--fw-base-m);
+  flex: 1;
+  padding-top: 5px;
+  font-size: var(--step-0);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.post-link {
+  min-width: 70px;
+  font-size: var(--step-1);
+  z-index: 1;
+}
+
+.post-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+time {
+  display: flex;
+  max-width: 70px;
+  font-family: var(--ff-alt-alpha);
+  font-size: var(--step-1);
+  opacity: 0.5;
+  width: 100%;
+}
+
+.intro {
+  text-align: left;
+  position: sticky;
+  top: 40px;
+}
+
+.intro span {
+  grid-column: 1 / 2;
+  font-size: var(--step-4);
+  font-family: var(--ff-alt-alpha);
 }
 
 .blog-posts--writing {
@@ -169,68 +157,42 @@ export default {
   display: grid;
   grid-template-columns: minmax(50px, 220px) minmax(500px, 1fr);
   grid-gap: calc(var(--grid-gap) * 2);
-  border-radius: 20px;
-  & .post {
-    height: 100%;
-    z-index: 1;
-    & div {
-      display: flex;
-      flex-direction: column;
-      flex: 1 1 auto;
-    }
-    &__link {
-      margin-left: 0;
-      padding: 0;
-      min-width: 100px;
-    }
-    &__title {
-      padding-right: 0;
-    }
-  }
-}
-
-
-.blog-posts--writing ul {
-  padding-left: 40px;
 }
 
 .blog-posts--writing .blog-posts__item {
   grid-column: 2 / 3;
 }
 
-.blog-posts--writing .blog-posts__description {
-  text-align: left;
-  position: sticky;
-  top: 40px;
+.blog-posts--home .post::before {
+  content: "";
+  width: 100%;
+  top: 0;
+  left: calc(-100% - 40px);
+  bottom: 0;
+  background-color: #E85A4F;
+  position: absolute;
+  transition: var(--trn-default);
+  transition-duration: 1s;
+  transform: skew(20deg);
 }
 
-.blog-posts--writing .blog-posts__heading {
-  grid-column: 1 / 2;
-  font-size: var(--step-4);
-  font-family: var(--ff-alt-alpha);
+.blog-posts--home .post:hover::before {
+  left: -15px;
+}
+
+.blog-posts--writing .post-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #E85A4F;
+  text-decoration-thickness: 2px;
 }
 
 @media (max-width: 992px) {
-  .blog-posts--writing .post {
-    height: auto;
-    &__description {
-      display: block;
-    }
+  .blog-posts--home .post:hover::before {
+    left: -20px;
   }
-}
 
-@media (max-width: 640px) and (orientation: portrait) {
-  .post {
-    justify-content: space-between;
-    place-content: var(--center);
-    padding: 0;
-    &__date {
-      display: none;
-    }
-    &__link {
-      margin-left: 0;
-      margin-bottom: 0;
-    }
+  .post-link {
+    display: none;
   }
 }
 
