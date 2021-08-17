@@ -91,8 +91,7 @@ export default {
     Joke,
     Testimonial,
     SocialBar,
-    Spacer,
-    // VueMarkdown,
+    Spacer
   },
   asyncData({ env }) {
     return Promise.all([
