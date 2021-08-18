@@ -32,13 +32,9 @@ const config: NuxtConfig = {
     extendParser: {
       '.custom': file => ({ body: file.split('\n').map(line => line.trim()) })
     },
-    markdown: {
-      remarkPlugins: [
-        '~/utils/contributors'
-      ]
-    }
   },
-  css: ['@/static/css/remedy.css']
+  css: ['@/static/css/remedy.css'],
+  target: 'static'
 };
 
 export default config;

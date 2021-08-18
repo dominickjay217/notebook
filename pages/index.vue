@@ -47,7 +47,7 @@
             </ul>
             <NuxtLink
               class="blog__link"
-              to="/writing"
+              to="/articles"
             >
               View all posts
               <svg

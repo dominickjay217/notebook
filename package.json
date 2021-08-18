@@ -4,11 +4,6 @@
   "description": "Write your content inside your Nuxt app",
   "repository": "nuxt/content",
   "license": "MIT",
-  "contributors": [
-    {
-      "name": "NuxtJS Team"
-    }
-  ],
   "workspaces": [
     "packages/*",
     "docs"
@@ -16,6 +11,7 @@
   "scripts": {
     "dev": "nuxt",
     "docs": "nuxt docs",
+    "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && lerna publish",
     "test": "yarn lint && yarn test:packages",
