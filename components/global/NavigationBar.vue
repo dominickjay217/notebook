@@ -33,10 +33,9 @@
     font-weight: var(--fw-base-m);
     letter-spacing: -0.5px;
     border-top: 5px solid transparent;
+    padding-top: 5px;
+    top: -5px;
     transition: var(--trn-default);
-    &:hover {
-      color: var(--ff-color);
-    }
     &:hover,
     &--active {
       border-top: 5px solid #E85A4F;

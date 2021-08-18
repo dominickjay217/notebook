@@ -55,10 +55,6 @@ export default {
 
 <style lang="scss">
 
-.post {
-  color: var(--ff-color);
-}
-
 time {
   display: block;
   & span {

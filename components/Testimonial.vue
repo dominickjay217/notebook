@@ -31,7 +31,6 @@
     position: relative;
     padding: var(--padding-lr);
     padding-left: 40px;
-    color: var(--ff-color);
   }
   &__quote-symb {
     font-weight: var(--fw-base-m);

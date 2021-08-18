@@ -51,11 +51,11 @@
               clip-path="url(#text-2)"
             >
               <rect
+                id="leave-it-text"
                 width="1080"
                 height="300"
                 x="0"
                 y="5"
-                style="fill:var(--clr-fifth-dk)"
               />
               <path
                 id="path-1"
@@ -134,8 +134,8 @@ export default {
     function randomStroke () {
       // eslint-disable-next-line no-unreachable-loop
       for (let x = 0; x < 30; x++) {
-        const stroke = randomRgbaString();
-        return stroke;
+        const stroke = randomRgbaString()
+        return stroke
       }
     }
 
@@ -177,7 +177,7 @@ export default {
         circle.setAttributeNS(null, 'cy', circlePositiony)
         circle.setAttributeNS(null, 'r', radius)
         if (i % 2 !== 0) {
-          circle.setAttributeNS(null, 'fill', 'none');
+          circle.setAttributeNS(null, 'fill', 'none')
           circle.setAttributeNS(null, 'stroke', stroke)
         } else {
           circle.setAttributeNS(null, 'fill', fill)
@@ -216,7 +216,7 @@ export default {
   padding: var(--padding-df);
   position: relative;
   overflow: hidden;
-  background-color: #EAE7DC;
+  background-color: var(--header-background);
   & > .container:nth-child(2) {
     display: flex;
     justify-content: space-between;
@@ -281,6 +281,10 @@ export default {
       }
     }
   }
+}
+
+#leave-it-text {
+  fill: var(--leave-it-text);
 }
 
 .canvas {

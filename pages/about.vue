@@ -87,7 +87,6 @@ export default {
       }
     }
     & li:first-child {
-      color: var(--ff-color);
       font-size: var(--step-2);
       position: sticky;
       margin-left: 0;
@@ -108,7 +107,6 @@ export default {
     padding: 40px 0;
     grid-gap: var(--grid-gap);
     div:first-child {
-      color: var(--ff-color);
       font-size: var(--step-2);
       grid-column: 1 / 3;
     }
@@ -136,110 +134,9 @@ export default {
   }
 }
 
-.work {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--grid-gap);
-    & .heading:first-child {
-        grid-column: 1 / 3;
-        grid-row: 1;
-    }
-    & .heading:last-of-type {
-        grid-column: 3 / 4;
-        grid-row: 1;
-    }
-    &__image {
-        filter: grayscale(100%);
-        transition: .25s ease-in-out filter;
-        &:hover {
-            filter: grayscale(0);
-        }
-        &-wrapper {
-            max-height: 850px;
-            overflow: hidden;
-            grid-column: 1 / 3;
-            & a {
-              box-shadow: none;
-            }
-        }
-    }
-}
-
-.other-work {
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        grid-row: 2;
-        grid-column: 3 / 4;
-    }
-    &__item {
-        padding: 0;
-        border-bottom: 1px solid var(--clr-fifth);
-        &:last-child {
-            border-bottom: 0;
-        }
-    }
-    &__link {
-        font-weight: var(--fw-base-m);
-        color: var(--other-work-link);
-        font-size: var(--step-0);
-        box-shadow: none;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--padding-df);
-        & svg {
-          max-width: 50px;
-          position: relative;
-          transition: transform 270ms cubic-bezier(0.77, 0, 0.175, 1);
-          & path {
-            fill: var(--other-work-link);
-            &:first-child {
-              stroke: var(--other-work-link);
-              fill: none;
-            }
-          }
-        }
-        &:hover {
-          box-shadow: none;
-          color: var(--ff-color);
-          & svg {
-            transform: translateX(10px);
-          }
-      }
-    }
-}
-
 @media (max-width: 992px) {
   .about-me {
     grid-template-columns: repeat(1, 1fr);
-  }
-  .work {
-    grid-template-columns: repeat(1, 1fr);
-    & .heading {
-        grid-column: 1;
-      &:first-child {
-        grid-row: 1;
-        grid-column: 1;
-      }
-      &:last-of-type {
-        grid-row: 3;
-        grid-column: 1;
-      }
-    }
-    &__image-wrapper {
-      grid-column: 1;
-      grid-row: 2;
-    }
-  }
-
-  .other-work {
-    &__list {
-        grid-column: 1;
-        grid-row: 4;
-    }
   }
 }
 

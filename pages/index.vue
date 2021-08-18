@@ -109,7 +109,6 @@ export default {
   text-align: left;
   font-family: var(--ff-base);
   font-weight: var(--fw-base-m);
-  color: var(--ff-color);
   font-size: var(--step-1);
   display: flex;
   gap: var(--grid-gap);
@@ -161,7 +160,6 @@ export default {
     }
   }
   &__link {
-    color: var(--ff-color);
     font-size: var(--step-2);
     display: inline;
     margin-top: 40px;
@@ -180,7 +178,7 @@ export default {
       right: 0;
       background: #E85A4F;
       z-index: -1;
-      transition: .25s ease-in-out all;
+      transition: var(--trn-default);
     }
     &-arrow {
       max-width: 50px;
@@ -190,12 +188,11 @@ export default {
       fill: transparent;
     }
     &:hover {
-      color: var(--ff-color);
       transition: .25s ease-in-out color;
       &::before {
         right: -50px;
         width: 50px;
-        transition: .25s ease-in-out all;
+        transition: var(--trn-default);
       }
       & .blog__link-arrow {
         fill: #fff;
@@ -229,7 +226,6 @@ export default {
   position: relative;
   padding: 10px;
   padding-right: 40px;
-  color: var(--ff-color);
   text-align: left;
   overflow: hidden;
 }

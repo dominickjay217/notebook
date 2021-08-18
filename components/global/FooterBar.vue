@@ -6,7 +6,6 @@
 
 <style lang="scss" scoped>
 .footer {
-  color: var(--ff-color);
   padding: var(--padding-df);
   padding-bottom: 40px;
   display: grid;

@@ -31,7 +31,6 @@
     position: relative;
     margin-top: 0;
     padding-top: var(--padding-df);
-    color: var(--ff-color);
     margin-bottom: 0;
     display: flex;
     justify-content: center;
