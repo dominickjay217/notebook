@@ -5,17 +5,7 @@
     </h2>
     <div class="testimonial__copy">
       <p>
-        <span
-          class="testimonial__quote-symb"
-        >
-          "
-        </span>
-        {{ person.fields.testimonials[Math.floor((Math.random() * person.fields.testimonials.length))].fields.jobTestimonial }}
-        <span
-          class="testimonial__quote-symb"
-        >
-          "
-        </span>
+        "Dom is a pleasure to have around. A friendly, passionate, motivated individual who will stop at nothing to help if needed. Dom is a self driven guy who works equally well on his own as he does as part of a team. He is always looking for better ways to create solutions to problems and is great at dissecting code to create innovative creative. Highly recommended."
       </p>
     </div>
   </div>
@@ -23,12 +13,6 @@
 
 <script>
 export default {
-  props: {
-    person: {
-      type: Object,
-      default: null
-    }
-  },
 }
 </script>
 

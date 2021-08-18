@@ -8,62 +8,56 @@
 
 <script>
 
-
 export default {
-    mounted () {
+  mounted () {
+    function createBlock () {
+      const c = document.querySelector('.square-grid')
 
-        function createBlock() {
+      for (let l = 0; l < 70; l++) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+        const newRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
+        const b = document.createElement('div')
+        b.className = 'block'
+        newRect.setAttribute('x', '0')
+        newRect.setAttribute('y', '0')
+        newRect.setAttribute('stroke', randomRgbaString())
+        newRect.setAttribute('stroke-width', 2)
+        newRect.setAttribute('width', '30')
+        newRect.setAttribute('height', '30')
+        newRect.setAttribute('fill', 'transparent')
+        const radius = getRandomInt(0, 25)
+        newRect.setAttribute('rx', radius)
+        newRect.setAttribute('ry', radius)
+        c.appendChild(b)
+        svg.appendChild(newRect)
+        b.appendChild(svg)
+      }
 
-            var c = document.querySelector('.square-grid');
+      function getRandomInt (min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min) + min)
+      }
 
-            for (let l = 0; l < 70; l++) {
-                var svg   = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                var svgNS = svg.namespaceURI;
-                let newRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                var b = document.createElement('div');
-                b.className = "block"
-                newRect.setAttribute("x", "0");
-                newRect.setAttribute("y", "0");
-                newRect.setAttribute("stroke", randomRgbaString());
-                newRect.setAttribute("stroke-width", 2);
-                newRect.setAttribute("width", "30");
-                newRect.setAttribute("height", "30");
-                newRect.setAttribute("fill", "transparent");
-                var radius = getRandomInt(0, 25);
-                newRect.setAttribute("rx", radius);
-                newRect.setAttribute("ry", radius);
-                c.appendChild(b);
-                svg.appendChild(newRect);
-                b.appendChild(svg);
-            }
+      function getRandomArbitrary (min, max) {
+        return Math.random() * (max - min) + min
+      }
 
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min) + min);
-            }
-
-            function getRandomArbitrary(min, max) {
-                return Math.random() * (max - min) + min;
-            }
-
-
-            function randomRgbaString() {
-                var opacity = getRandomArbitrary(0, 0.5);
-                const colors = [
-                    'rgba(252, 178, 118,' + opacity + ')',
-                    'rgba(96, 146, 153,' + opacity + ')',
-                    'rgba(157, 206, 210,' + opacity + ')',
-                    'rgba(254, 125, 21,' + opacity + ')'
-                ],
-                randomColor = Math.floor(Math.random() * colors.length);
-                return colors[randomColor];
-            }
-
-        }
-
-        createBlock();
+      function randomRgbaString () {
+        const opacity = getRandomArbitrary(0, 0.5)
+        const colors = [
+          'rgba(252, 178, 118,' + opacity + ')',
+          'rgba(96, 146, 153,' + opacity + ')',
+          'rgba(157, 206, 210,' + opacity + ')',
+          'rgba(254, 125, 21,' + opacity + ')'
+        ]
+        const randomColor = Math.floor(Math.random() * colors.length)
+        return colors[randomColor]
+      }
     }
+
+    createBlock()
+  }
 }
 </script>
 

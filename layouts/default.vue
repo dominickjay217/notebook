@@ -1,12 +1,15 @@
 <template>
   <div class="body">
+    <HeaderBar />
     <nuxt />
+    <ContactBar />
+    <FooterBar />
   </div>
 </template>
 
 <script></script>
 
-<style lang="scss">
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
 
@@ -61,7 +64,9 @@
   --aside-background: rgba(96, 146, 153, 0.15);
   --aside-border: var(--clr-fifth-dk);
   --aside-icon: var(--clr-fifth-dk);
+  --code-font-background: #f5f2f0;
   --code-font-color: var(--clr-base-lt);
+  --code-block-background: #d3d3d3;
 
   /* Transitions */
 
@@ -78,27 +83,16 @@
   --fw-base-lg: 700;
   --fw-base-xl: 900;
   --ff-lh: 1.8;
-
-	--color-mode: 'light';
-
+  --color-mode: 'light';
   --container-width: 1100px;
   --grid-gap: 20px;
   --padding-df: 20px;
   --padding-tb: var(--padding-df) 0;
   --padding-lr: 0 var(--padding-df);
-
-  --weather-bottom: 100vh;
-  --weather-top: 0;
-  --trn-star: .5s ease-in-out opacity;
-  --star-opacity: 0;
-  --moon-position: var(--weather-bottom);
-  --sun-position: var(--weather-top);
   --header-background-delay: 0s;
   --header-gradient-fill: var(--clr-base);
   --post-bg: var(--clr-base);
-
   --center: center;
-
   --fluid-min-width: 326;
   --fluid-max-width: 1140;
   --fluid-screen: 100vw;
@@ -192,9 +186,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--color-mode: 'dark';
-	}
+  :root {
+    --color-mode: 'dark';
+  }
 
   :root:not([data-user-color-scheme]) {
     --header-gradient-fill: var(--clr-base-dk);
@@ -214,11 +208,11 @@
     --aside-background: rgba(254, 153, 72, 0.15);
     --aside-border: var(--clr-third-dk);
     --aside-icon: var(--clr-third-dk);
-    --star-opacity: 0.5;
-    --moon-position: var(--weather-top);
-    --sun-position: var(--weather-bottom);
     --header-background-delay: 0s;
     --post-bg: var(--clr-base-dk);
+  --code-font-background: #000;
+  --code-font-color: var(--clr-base-lt);
+  --code-block-background: #000;
   }
 }
 
@@ -238,9 +232,6 @@
   --aside-background: rgba(254, 153, 72, 0.15);
   --aside-border: var(--clr-third-dk);
   --aside-icon: var(--clr-third-dk);
-  --star-opacity: 0.5;
-  --moon-position: var(--weather-top);
-  --sun-position: var(--weather-bottom);
   --header-background-delay: 0s;
 }
 
@@ -295,9 +286,10 @@ a:not([class]) {
   text-decoration-color: #E85A4F;
   text-decoration-thickness: 2px;
   font-size: calc(var(--step-1) * 1.05);
-  &:hover {
-    text-decoration: none;
-  }
+}
+
+a:not([class]):hover {
+  text-decoration: none;
 }
 
 main {
@@ -327,19 +319,20 @@ main {
 .heading {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
-  &--two {
+}
+
+.heading--two {
     text-align: center;
     font-size: var(--step-4);
-    letter-spacing: -0.5px;
-  }
-}
+    letter-spacing: -0.5px;}
 
 .content {
   padding: 40px 0;
   margin-bottom: 40px;
-  &:last-child {
-    margin-bottom: 0;
-  }
+}
+
+.content:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 640px) {

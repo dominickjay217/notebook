@@ -1,0 +1,54 @@
+<template>
+  <ul class="navigation">
+    <li class="navigation__item">
+      <nuxt-link class="navigation__link" to="/about">About</nuxt-link>
+    </li>
+    <li class="navigation__item">
+      <nuxt-link class="navigation__link" to="/articles">Articles</nuxt-link>
+    </li>
+  </ul>
+</template>
+
+<script>
+</script>
+
+<style lang="scss" scoped>
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding: var(--padding-df);
+  list-style: none;
+  position: relative;
+  z-index: 2;
+  &__item {
+    margin: 0 10px;
+    position: relative;
+  }
+  &__link {
+    padding: var(--padding-lr);
+    font-family: var(--ff-alt-alpha);
+    font-size: var(--step-3);
+    font-weight: var(--fw-base-m);
+    letter-spacing: -0.5px;
+    border-top: 5px solid transparent;
+    transition: var(--trn-default);
+    &:hover {
+      color: var(--ff-color);
+    }
+    &:hover,
+    &--active {
+      border-top: 5px solid #E85A4F;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .navigation {
+    margin: 0;
+    padding: 0 20px;
+  }
+}
+
+</style>
