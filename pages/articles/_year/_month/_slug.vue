@@ -68,7 +68,10 @@ export default {
   head () {
     return {
       meta: [
-        { name: 'description', content: this.article.description }
+        {
+          name: 'description',
+          content: this.article.description
+        }
       ]
     }
   },
