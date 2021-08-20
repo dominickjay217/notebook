@@ -1,7 +1,7 @@
 {
   "name": "nuxt-content",
   "private": true,
-  "description": "Write your content inside your Nuxt app",
+  "description": "Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.",
   "repository": "nuxt/content",
   "license": "MIT",
   "workspaces": [
@@ -44,6 +44,7 @@
     "tib": "^0.7.5"
   },
   "dependencies": {
+    "@jlengstorf/get-share-image": "^0.8.0",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/axios": "^5.13.6"
   }

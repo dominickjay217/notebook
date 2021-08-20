@@ -27,6 +27,10 @@
 </template>
 
 <script>
+
+import getShareImage from '@jlengstorf/get-share-image'
+import getSiteMeta from '~/utils/getSiteMeta.js'
+
 export default {
   async asyncData ({ $content, params, error }) {
     const { year, month, slug } = params
@@ -39,8 +43,26 @@ export default {
       error({ message: 'Article not found' })
     }
 
+    const socialImage = getShareImage({
+      title: article.title,
+      tagline: article.subtitle,
+      cloudName: 'dominickjay217',
+      imagePublicID: 'post-template.png',
+      titleFont: 'Hackney.ttf',
+      titleExtraConfig: '_line_spacing_-10',
+      taglineFont: 'Hackney.ttf',
+      titleFontSize: '72',
+      taglineFontSize: '48',
+      titleColor: 'fff',
+      taglineColor: '6CE3D4',
+      textLeftOffset: '100',
+      titleBottomOffset: '350',
+      taglineTopOffset: '380'
+    })
+
     return {
-      article
+      article,
+      socialImage
     }
   },
   head () {
@@ -48,6 +70,18 @@ export default {
       meta: [
         { name: 'description', content: this.article.description }
       ]
+    }
+  },
+  computed: {
+    meta () {
+      const metaData = {
+        type: 'article',
+        title: this.article.title,
+        description: this.article.description,
+        url: `https://dominickjay.com/articles/${this.article.year}/${this.article.month}/${this.$route.params.slug}`,
+        mainImage: this.socialImage
+      }
+      return getSiteMeta(metaData)
     }
   }
 }
