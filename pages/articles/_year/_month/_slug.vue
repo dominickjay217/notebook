@@ -32,21 +32,24 @@ import getShareImage from '@jlengstorf/get-share-image'
 import getSiteMeta from '~/utils/getSiteMeta.js'
 
 export default {
-  async asyncData ({ $content, params, error }) {
+  async asyncData ({ $content, params }) {
     const { year, month, slug } = params
 
     const article = await $content('articles', year, month, slug).fetch()
 
     const socialImage = getShareImage({
       title: article.title,
+      tagline: article.tags,
       cloudName: 'dominickjay217',
-      cloudinaryUrlBase: 'https://res.cloudinary.com/dominickjay217/image/upload/v1629480339/post-template.png',
+      imagePublicID: 'post-template',
+      titleColor: '203140',
+      titleLeftOffset: '250',
       titleFont: 'Hackney.ttf',
-      titleExtraConfig: '_line_spacing_-10',
-      titleFontSize: '72',
-      titleColor: 'fff',
-      textLeftOffset: '100',
-      titleBottomOffset: '350'
+      titleExtraConfig: '_bold',
+      titleFontSize: '100',
+      taglineFont: 'Hackney.ttf',
+      taglineFontSize: '50',
+      taglineLeftOffset: '250'
     })
 
     return {
@@ -78,7 +81,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: `https://dominickjay.com/articles/${this.article.year}/${this.article.month}/${this.$route.params.slug}`
+          href: `https://dominickjay.com/articles/${this.$route.params.year}/${this.$route.params.month}/${this.$route.params.slug}`
         }
       ]
     }
@@ -89,7 +92,7 @@ export default {
         type: 'article',
         title: this.article.title,
         description: this.article.description,
-        url: `https://dominickjay.com/articles/${this.article.year}/${this.article.month}/${this.$route.params.slug}`,
+        url: `https://dominickjay.com/articles/${this.$route.params.year}/${this.$route.params.month}/${this.$route.params.slug}`,
         mainImage: this.socialImage
       }
       return getSiteMeta(metaData)
