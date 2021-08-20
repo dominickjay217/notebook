@@ -10,7 +10,7 @@
             {{ article.description }}
           </strong>
           <nuxt-content :document="article" />
-          <div class="article-pagination">
+          <!-- <div class="article-pagination">
             <nuxt-link
               v-if="prev"
               :to="{ name: 'articles-slug', params: { slug: prev.slug } }"
@@ -19,7 +19,7 @@
               v-if="next"
               :to="{ name: 'articles-slug', params: { slug: next.slug } }"
             >{{ next.title }} &gt;</nuxt-link>
-          </div>
+          </div> -->
         </article>
       </section>
     </div>
@@ -35,29 +35,18 @@ export default {
   async asyncData ({ $content, params, error }) {
     const { year, month, slug } = params
 
-    let article
-
-    try {
-      article = await $content('articles', year, month, slug).fetch()
-    } catch (e) {
-      error({ message: 'Article not found' })
-    }
+    const article = await $content('articles', year, month, slug).fetch()
 
     const socialImage = getShareImage({
       title: article.title,
-      tagline: article.subtitle,
       cloudName: 'dominickjay217',
-      imagePublicID: 'post-template.png',
+      cloudinaryUrlBase: 'https://res.cloudinary.com/dominickjay217/image/upload/v1629480339/post-template.png',
       titleFont: 'Hackney.ttf',
       titleExtraConfig: '_line_spacing_-10',
-      taglineFont: 'Hackney.ttf',
       titleFontSize: '72',
-      taglineFontSize: '48',
       titleColor: 'fff',
-      taglineColor: '6CE3D4',
       textLeftOffset: '100',
-      titleBottomOffset: '350',
-      taglineTopOffset: '380'
+      titleBottomOffset: '350'
     })
 
     return {
@@ -67,10 +56,29 @@ export default {
   },
   head () {
     return {
+      title: this.article.title,
       meta: [
+        ...this.meta,
         {
-          name: 'description',
-          content: this.article.description
+          property: 'article:published_time',
+          content: this.article.createdAt
+        },
+        {
+          property: 'article:tag',
+          content: this.article.tags ? this.article.tags.toString() : ''
+        },
+        { name: 'twitter:label1', content: 'Written by' },
+        { name: 'twitter:data1', content: 'Dominick Jay' },
+        {
+          name: 'twitter:data2',
+          content: this.article.tags ? this.article.tags.toString() : ''
+        }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://dominickjay.com/articles/${this.article.year}/${this.article.month}/${this.$route.params.slug}`
         }
       ]
     }
