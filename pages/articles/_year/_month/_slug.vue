@@ -10,7 +10,7 @@
             {{ article.description }}
           </strong>
           <nuxt-content :document="article" />
-          <div class="article-pagination">
+          <!-- <div class="article-pagination">
             <nuxt-link
               v-if="prev"
               :to="{ name: 'articles-slug', params: { slug: prev.slug } }"
@@ -19,7 +19,7 @@
               v-if="next"
               :to="{ name: 'articles-slug', params: { slug: next.slug } }"
             >{{ next.title }} &gt;</nuxt-link>
-          </div>
+          </div> -->
         </article>
       </section>
     </div>
@@ -27,27 +27,78 @@
 </template>
 
 <script>
+
+import getShareImage from '@jlengstorf/get-share-image'
+import getSiteMeta from '~/utils/getSiteMeta.js'
+
 export default {
-  async asyncData ({ $content, params, error }) {
+  async asyncData ({ $content, params }) {
     const { year, month, slug } = params
 
-    let article
+    const article = await $content('articles', year, month, slug).fetch()
 
-    try {
-      article = await $content('articles', year, month, slug).fetch()
-    } catch (e) {
-      error({ message: 'Article not found' })
-    }
+    const socialImage = getShareImage({
+      title: article.title,
+      tagline: article.tags,
+      cloudName: 'dominickjay217',
+      imagePublicID: 'post-template',
+      textAreaWidth: '850',
+      titleColor: '203140',
+      titleBottomOffset: '300',
+      titleLeftOffset: '220',
+      titleFont: 'Hackney.ttf',
+      titleExtraConfig: '_bold',
+      titleFontSize: '100',
+      taglineFont: 'Hackney.ttf',
+      taglineFontSize: '45',
+      taglineLeftOffset: '225',
+      taglineTopOffset: '450'
+    })
 
     return {
-      article
+      article,
+      socialImage
     }
   },
   head () {
     return {
+      title: this.article.title,
       meta: [
-        { name: 'description', content: this.article.description }
+        ...this.meta,
+        {
+          property: 'article:published_time',
+          content: this.article.createdAt
+        },
+        {
+          property: 'article:tag',
+          content: this.article.tags ? this.article.tags.toString() : ''
+        },
+        { name: 'twitter:label1', content: 'Written by' },
+        { name: 'twitter:data1', content: 'Dominick Jay' },
+        {
+          name: 'twitter:data2',
+          content: this.article.tags ? this.article.tags.toString() : ''
+        }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://dominickjay.com/articles/${this.$route.params.year}/${this.$route.params.month}/${this.$route.params.slug}`
+        }
       ]
+    }
+  },
+  computed: {
+    meta () {
+      const metaData = {
+        type: 'article',
+        title: this.article.title,
+        description: this.article.description,
+        url: `https://dominickjay.com/articles/${this.$route.params.year}/${this.$route.params.month}/${this.$route.params.slug}`,
+        mainImage: this.socialImage
+      }
+      return getSiteMeta(metaData)
     }
   }
 }
