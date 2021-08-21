@@ -15,10 +15,10 @@ const config: NuxtConfig = {
       { hid: 'og:title', property: 'og:title', content: 'Dominick Jay - Creative Front End Developer'},
       { hid: 'og:description', property: 'og:description', content: 'Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.'},
       { hid: 'og:url', property: 'og:url', content: 'https://dominickjay.com'},
-      { hid: 'og:image', property: 'og:image', content: 'https://styling-fixes.dominickjay.com/images/card-image.png'},
+      { hid: 'og:image', property: 'og:image', content: 'https://dominickjay.com/images/card-image.png'},
       { hid: 'twitter:title', property: 'twitter:title', content: 'Dominick Jay - Creative Front End Developer'},
       { hid: 'twitter:description', property: 'twitter:description', content: 'Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.'},
-      { hid: 'twitter:image', property: 'twitter:image', content: 'https://styling-fixes.dominickjay.com/images/card-image.png'},
+      { hid: 'twitter:image', property: 'twitter:image', content: 'https://dominickjay.com/images/card-image.png'},
       { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image'},
       { hid: 'twitter:url', property: 'twitter:url', content: 'https://dominickjay.com'}
     ],
