@@ -148,7 +148,7 @@ export default {
   .blog-posts--writing {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: var(--grid-gap);
-    grid-template-rows: repeat(3, minmax(80px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(80px,1fr))
 }
 
 }
