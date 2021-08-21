@@ -231,6 +231,9 @@ export default {
   .about-me__content--lastfm {
     padding: 0 0 20px;
   }
+  .about-me__list li::before {
+    left: -45px;
+  }
 }
 
 </style>

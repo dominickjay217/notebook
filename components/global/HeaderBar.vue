@@ -23,8 +23,6 @@
         <span class="hero__fact">
           <svg
             id="background"
-            viewbox="0 0 1080 180"
-            height="180"
           >
             <defs>
               <clipPath id="text-2">
@@ -53,7 +51,6 @@
               <rect
                 id="leave-it-text"
                 width="1080"
-                height="300"
                 x="0"
                 y="5"
               />
@@ -283,8 +280,13 @@ export default {
   }
 }
 
+svg {
+  height: 180px;
+}
+
 #leave-it-text {
   fill: var(--leave-it-text);
+  height: 180px;
 }
 
 .canvas {
@@ -347,6 +349,7 @@ export default {
   }
   .hero {
     grid-template-columns: repeat(4, 1fr);
+    padding: 0;
     &__fact {
       transform: none;
       grid-column: 1 / 5;
@@ -501,8 +504,40 @@ export default {
 }
 
 @media (max-width: 640px) {
+
   #betterthanyoufoundit {
     font-size: 2rem;
+  }
+
+  .header > .container:nth-child(2) {
+    margin-bottom: 20px;
+  }
+
+  .hero__fact p {
+    padding-left: 40px;
+    font-size: var(--step-0);
+  }
+
+  .hero__fact p::before {
+    width: 30px;
+    left: 0;
+  }
+
+  // #background {
+  //   overflow: visible;
+  // }
+
+  svg,
+  #leave-it-text {
+    height: 100px;
+  }
+
+  #betterthanyoufoundit {
+    transform: translateY(-30px);
+  }
+
+  #betterthanyoufoundit:last-child {
+    transform: translateY(-60px);
   }
 }
 

@@ -18,7 +18,7 @@
           <Generative />
         </div>
       </section>
-      <Spacer spacer-no="1" />
+      <Spacer />
       <section class="content blog">
         <h2 class="content__heading heading heading--two">
           Recently Published
@@ -61,7 +61,6 @@
           </div>
         </div>
       </section>
-      <Spacer spacer-no="2" />
     </div>
   </main>
 </template>
@@ -76,7 +75,6 @@ export default {
 
     if (q) {
       query = query.search(q)
-      // OR query = query.search('title', q)
     }
 
     const articles = await query.fetch()
@@ -296,6 +294,21 @@ time {
 
   .post-link {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .post {
+    padding: 10px 0;
+  }
+
+  time {
+    max-width: 30px;
+  }
+
+  .blog__link {
+    align-self: center;
+    left: 0;
   }
 }
 

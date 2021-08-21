@@ -130,4 +130,23 @@ export default {
   text-decoration-color: #E85A4F;
   text-decoration-thickness: 2px;
 }
+
+@media (max-width: 640px) {
+
+  .blog-posts--writing .blog-posts__item {
+    grid-column: 1 / -1;
+  }
+
+  .intro {
+    grid-column: 1 / -1;
+    top: 0;
+    position: relative;
+  }
+
+  .blog-posts--writing {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: var(--grid-gap);
+}
+
+}
 </style>
