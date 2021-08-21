@@ -118,6 +118,10 @@ export default {
   grid-column: 2 / 3;
 }
 
+.blog-posts--writing .blog-posts__item:nth-child(2) {
+  margin-top: 70px;
+}
+
 .blog-posts--writing .post-link:hover {
   text-decoration: underline;
   text-decoration-color: #E85A4F;
@@ -128,6 +132,10 @@ export default {
 
   .blog-posts--writing .blog-posts__item {
     grid-column: 1 / -1;
+  }
+
+  .blog-posts--writing .blog-posts__item:nth-child(2) {
+    margin-top: 0;
   }
 
   .intro {
