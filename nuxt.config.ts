@@ -11,11 +11,16 @@ const config: NuxtConfig = {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      { hid: 'og:type', property: 'og:type', content: 'website'},
       { hid: 'og:title', property: 'og:title', content: 'Dominick Jay - Creative Front End Developer'},
-      { hid: 'og:image', property: 'og:image', content: '/images/card-image.png'},
+      { hid: 'og:description', property: 'og:description', content: 'Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.'},
+      { hid: 'og:url', property: 'og:url', content: 'https://dominickjay.com'},
+      { hid: 'og:image', property: 'og:image', content: 'https://dominickjay.com/images/card-image.png'},
       { hid: 'twitter:title', property: 'twitter:title', content: 'Dominick Jay - Creative Front End Developer'},
-      { hid: 'twitter:image', property: 'twitter:image', content: '/images/card-image.png'},
-      { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image'}
+      { hid: 'twitter:description', property: 'twitter:description', content: 'Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.'},
+      { hid: 'twitter:image', property: 'twitter:image', content: 'https://dominickjay.com/images/card-image.png'},
+      { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image'},
+      { hid: 'twitter:url', property: 'twitter:url', content: 'https://dominickjay.com'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
