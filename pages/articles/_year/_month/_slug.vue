@@ -199,6 +199,10 @@ pre code {
   font-size: var(--step-0);
 }
 
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: var(--code-font-background);
+}
+
 .code-block {
   position: relative;
   &__language {
