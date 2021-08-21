@@ -183,12 +183,6 @@ pre {
   margin: 0;
 }
 
-pre code {
-  display: block;
-  padding: 30px 20px;
-  font-size: var(--step-0);
-}
-
 code {
   background: var(--code-font-background);
   padding: 2px 6px;
@@ -196,6 +190,12 @@ code {
   margin: 0 1px;
   font-family: var(--ff-code);
   border-radius: 3px;
+}
+
+pre code {
+  display: block;
+  padding: 30px 20px;
+  font-size: var(--step-0);
 }
 
 .code-block {
