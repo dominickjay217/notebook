@@ -75,7 +75,6 @@ export default {
 
     if (q) {
       query = query.search(q)
-      // OR query = query.search('title', q)
     }
 
     const articles = await query.fetch()
