@@ -256,7 +256,7 @@ export default {
 }
 
 time {
-  display: flex;
+  text-align: right;
   max-width: 70px;
   font-family: var(--ff-alt-alpha);
   font-size: var(--step-1);
