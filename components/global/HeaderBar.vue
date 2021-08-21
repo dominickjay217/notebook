@@ -496,13 +496,32 @@ export default {
 
 @media (max-width: 992px) {
   #betterthanyoufoundit {
-    font-size: 3rem;
+    font-size: 6rem;
   }
 }
 
 @media (max-width: 640px) {
-  #betterthanyoufoundit {
-    font-size: 2rem;
+
+  .header > .container:nth-child(2) {
+    margin-bottom: 20px;
+  }
+
+  .hero__fact p {
+    padding-left: 40px;
+    font-size: var(--step-0);
+  }
+
+  .hero__fact p::before {
+    width: 30px;
+    left: 0;
+  }
+
+  #background {
+    overflow: visible;
+  }
+
+  #betterthanyoufoundit:last-child {
+    transform: translateY(42px);
   }
 }
 

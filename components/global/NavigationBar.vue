@@ -34,7 +34,6 @@
     letter-spacing: -0.5px;
     border-top: 5px solid transparent;
     padding-top: 5px;
-    top: -5px;
     transition: var(--trn-default);
     &:hover,
     &--active {
@@ -47,6 +46,22 @@
   .navigation {
     margin: 0;
     padding: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navigation {
+    width: 100%;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .navigation__item {
+    margin: 0 30px 0 0;
+  }
+
+  .navigation__link {
+    padding: 5px 0 0 0;
   }
 }
 

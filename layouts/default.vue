@@ -2,6 +2,7 @@
   <div class="body">
     <HeaderBar />
     <nuxt />
+    <Spacer />
     <ContactBar />
     <FooterBar />
   </div>

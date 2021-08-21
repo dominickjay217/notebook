@@ -54,8 +54,11 @@
 
 @media (max-width: 620px) and (orientation: portrait) {
     .contact {
-        padding-left: 20px;
-        padding-right: 20px;
+      padding: var(--padding-lr);
+    }
+
+    .contact__text {
+      padding: 0;
     }
 }
 

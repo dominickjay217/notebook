@@ -42,12 +42,14 @@
   .testimonial {
     &__content {
       align-items: center;
+      grid-gap: 0;
     }
     &__copy {
-      grid-row: 1;
+      grid-row: 2;
+      grid-column: 1 / -1;
       padding: 0;
     }
   }
-
 }
+
 </style>
