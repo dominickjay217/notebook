@@ -10,18 +10,18 @@
 import axios from 'axios'
 
 export default {
-    data() {
-        return {
-            newJoke: null,
-        }
-    },
-  mounted() {
-      // This needs improving/refactoring to use fetch()
+  data () {
+    return {
+      newJoke: null
+    }
+  },
+  mounted () {
+    // This needs improving/refactoring to use fetch()
     axios
       .get('https://icanhazdadjoke.com/', {
         headers: {
-          Accept: 'application/json',
-        },
+          Accept: 'application/json'
+        }
       })
       .then((response) => {
         this.newJoke = response.data.joke

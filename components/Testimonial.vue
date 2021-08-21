@@ -1,32 +1,17 @@
 <template>
   <div class="testimonial__content">
+    <h2 class="heading heading--two">
+      What people say about me
+    </h2>
     <div class="testimonial__copy">
       <p>
-        <span
-          class="testimonial__quote-symb"
-        >
-          "
-        </span>
-        {{ person.fields.testimonials[Math.floor((Math.random() * person.fields.testimonials.length))].fields.jobTestimonial }}
-        <span
-          class="testimonial__quote-symb"
-        >
-          "
-        </span>
+        "Dom is a pleasure to have around. A friendly, passionate, motivated individual who will stop at nothing to help if needed. Dom is a self driven guy who works equally well on his own as he does as part of a team. He is always looking for better ways to create solutions to problems and is great at dissecting code to create innovative creative. Highly recommended."
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    'person': {
-      type: Object,
-      default: null
-    }
-  },
-}
 </script>
 
 <style lang="scss">
@@ -37,12 +22,15 @@ export default {
     grid-template-columns: repeat(autofill, 1fr);
     grid-gap: var(--grid-gap);
     font-size: var(--step-0);
+    & h2 {
+      grid-column: 1 / 2;
+    }
   }
   &__copy {
-    margin-bottom: 20px;
+    grid-column: 2 / 3;
     position: relative;
     padding: var(--padding-lr);
-    color: var(--ff-color);
+    padding-left: 40px;
   }
   &__quote-symb {
     font-weight: var(--fw-base-m);
@@ -54,12 +42,14 @@ export default {
   .testimonial {
     &__content {
       align-items: center;
+      grid-gap: 0;
     }
     &__copy {
-      grid-row: 1;
+      grid-row: 2;
+      grid-column: 1 / -1;
       padding: 0;
     }
   }
-
 }
+
 </style>

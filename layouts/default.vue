@@ -1,12 +1,16 @@
 <template>
   <div class="body">
+    <HeaderBar />
     <nuxt />
+    <Spacer />
+    <ContactBar />
+    <FooterBar />
   </div>
 </template>
 
 <script></script>
 
-<style lang="scss">
+<style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
 
@@ -31,7 +35,7 @@
 
   --clr-third: #fe9948;
   --clr-third-lt: #fcb276;
-  --clr-third-dk: #fe7d15;
+  --clr-third-dk: rgb(254, 125, 21);
 
   --clr-fourth: #584945;
   --clr-fourth-lt: #665550;
@@ -41,35 +45,26 @@
   --clr-fifth-lt: #609299;
   --clr-fifth-dk: #4c7479;
 
-
-
   --main-background: var(--clr-base);
-  --header-background: linear-gradient(to bottom, var(--clr-primary-lt) 0%, var(--clr-primary) 33%,
-  var(--clr-secondary-lt) 66%, var(--clr-secondary) 100%);
-  --header-background-position: 0 0;
-  --header-background-position-thin: 0 50%;
+  --header-background: #EAE7DC;
+  --leave-it-text: var(--clr-fifth-dk);
   --footer-background: var(--clr-base-lt);
-  --banner-background: var(--clr-base);
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
-  --curve-fill: var(--clr-base);
   --hero-fact: linear-gradient(var(--clr-fifth-lt), var(--clr-fifth-dk));
-  --lnk-box-shdw: inset 0 -0.07em 0 var(--clr-third);
-  --lnk-box-shdw-hover: inset 0 -1.5em 0 var(--clr-third);
   --social-media-icon: var(--clr-base-dk);
-  --other-work-link: var(--clr-fourth);
   --blog-gradient: linear-gradient(var(--clr-fifth), var(--clr-fifth-dk));
   --blog-ff-strong: var(--clr-fifth);
   --focus-outline-clr: var(--clr-base-dk);
   --aside-background: rgba(96, 146, 153, 0.15);
   --aside-border: var(--clr-fifth-dk);
   --aside-icon: var(--clr-fifth-dk);
-  --code-font-color: var(--clr-base-dk);
+  --code-font-background: #f5f2f0;
+  --code-font-color: var(--clr-base-lt);
+  --code-block-background: #d3d3d3;
 
   /* Transitions */
 
   --trn-default: .25s ease-in-out all;
-  --trn-bs: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
-
   --ff-color: var(--clr-base-dk);
   --ff-color-link-hover: var(--clr-base-dk);
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
@@ -80,27 +75,14 @@
   --fw-base-lg: 700;
   --fw-base-xl: 900;
   --ff-lh: 1.8;
-
-	--color-mode: 'light';
-
+  --color-mode: 'light';
   --container-width: 1100px;
   --grid-gap: 20px;
   --padding-df: 20px;
   --padding-tb: var(--padding-df) 0;
   --padding-lr: 0 var(--padding-df);
-
-  --weather-bottom: 100vh;
-  --weather-top: 0;
-  --trn-star: .5s ease-in-out opacity;
-  --star-opacity: 0;
-  --moon-position: var(--weather-bottom);
-  --sun-position: var(--weather-top);
-  --header-background-delay: 0s;
-  --header-gradient-fill: var(--clr-base);
   --post-bg: var(--clr-base);
-
   --center: center;
-
   --fluid-min-width: 326;
   --fluid-max-width: 1140;
   --fluid-screen: 100vw;
@@ -194,56 +176,45 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--color-mode: 'dark';
-	}
+  :root {
+    --color-mode: 'dark';
+  }
 
   :root:not([data-user-color-scheme]) {
-    --header-gradient-fill: var(--clr-base-dk);
-    --curve-fill: var(--clr-base-dk);
-    --banner-background: var(--clr-base-dk);
-    --header-background-position: 0 50%;
-    --header-background-position-thin: 0 0;
+    --header-background: var(--clr-secondary-lt);
+    --leave-it-text: #FFF;
     --main-background: var(--clr-base-dk);
     --ff-color: var(--clr-base-lt);
     --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
     --footer-background: var(--clr-secondary-dk);
     --social-media-icon: var(--clr-base-lt);
-    --other-work-link: var(--ff-color);
     --blog-gradient: linear-gradient(var(--clr-third), var(--clr-third-lt));
     --blog-ff-strong: var(--clr-third);
     --focus-outline-clr: var(--clr-base-lt);
     --aside-background: rgba(254, 153, 72, 0.15);
     --aside-border: var(--clr-third-dk);
     --aside-icon: var(--clr-third-dk);
-    --star-opacity: 0.5;
-    --moon-position: var(--weather-top);
-    --sun-position: var(--weather-bottom);
-    --header-background-delay: 0s;
     --post-bg: var(--clr-base-dk);
+    --code-font-background: #000;
+    --code-font-color: var(--clr-base-lt);
+    --code-block-background: #000;
   }
 }
 
 [data-user-color-scheme='dark'] {
-  --curve-fill: var(--clr-base-dk);
-  --banner-background: var(--clr-base-dk);
+  --header-background: var(--clr-secondary-lt);
+  --leave-it-text: #FFF;
   --main-background: var(--clr-base-dk);
-  --header-background-position: 0 100%;
   --ff-color: var(--clr-base-lt);
   --hero-fact: linear-gradient(var(--clr-third-lt), var(--clr-third-dk));
   --footer-background: var(--clr-secondary-dk);
   --social-media-icon: var(--clr-base-lt);
-  --other-work-link: var(--ff-color);
   --blog-gradient: linear-gradient(var(--clr-third), var(--clr-third-lt));
   --blog-ff-strong: var(--clr-third);
   --focus-outline-clr: var(--clr-base-lt);
   --aside-background: rgba(254, 153, 72, 0.15);
   --aside-border: var(--clr-third-dk);
   --aside-icon: var(--clr-third-dk);
-  --star-opacity: 0.5;
-  --moon-position: var(--weather-top);
-  --sun-position: var(--weather-bottom);
-  --header-background-delay: 0s;
 }
 
 @media screen and (min-width: 1140px) {
@@ -270,10 +241,11 @@ body {
   font-family: var(--ff-base);
   overflow-x: hidden;
   background-color: var(--main-background);
+  color: var(--ff-color);
 }
 
 *:focus {
-  outline: 2px dashed var(--focus-outline-clr);
+  outline: 2px solid var(--focus-outline-clr);
 }
 
 b,
@@ -286,15 +258,21 @@ a {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
-  transition: var(--trn-bs);
-  box-shadow: var(--lnk-box-shdw);
-  padding: 0 5px;
 }
 
 a:hover {
   text-decoration: none;
-  box-shadow: var(--lnk-box-shdw-hover);
-  color: var(--ff-color-link-hover);
+}
+
+a:not([class]) {
+  text-decoration: underline;
+  text-decoration-color: #E85A4F;
+  text-decoration-thickness: 2px;
+  font-size: calc(var(--step-1) * 1.05);
+}
+
+a:not([class]):hover {
+  text-decoration: none;
 }
 
 main {
@@ -323,20 +301,20 @@ main {
 
 .heading {
   font-family: var(--ff-alt-alpha);
-  color: var(--ff-color);
-  &--two {
+}
+
+.heading--two {
     text-align: center;
     font-size: var(--step-4);
-    letter-spacing: -0.5px;
-  }
-}
+    letter-spacing: -0.5px;}
 
 .content {
   padding: 40px 0;
   margin-bottom: 40px;
-  &:last-child {
-    margin-bottom: 0;
-  }
+}
+
+.content:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 640px) {
