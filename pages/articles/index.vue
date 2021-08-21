@@ -2,11 +2,7 @@
   <main>
     <div class="container">
       <section class="content blog">
-        <h3 class="content__heading">
-          I’ve written {{ articles.length }} posts about development and setups.
-        </h3>
-        <p>I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.</p>
-        <ul class="blog-posts blog-posts--writing">
+        <ul class="blog-posts blog-posts--writing" :style="{ '--gridRow': articles.length }">
           <div
             class="intro"
           >
@@ -15,7 +11,7 @@
             >
               What's New?
             </span>
-            <p>My most recent scribblings</p>
+            <p>I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.</p>
           </div>
           <li v-for="article in articles" :key="article.slug" class="blog-posts__item">
             <div class="post">
@@ -41,10 +37,6 @@
       </section>
     </div>
   </main>
-<!--
-    <input id="search" v-model="q" placeholder="Search..." />
-
-  </div> -->
 </template>
 
 <script>
@@ -57,7 +49,6 @@ export default {
 
     if (q) {
       query = query.search(q)
-      // OR query = query.search('title', q)
     }
 
     const articles = await query.fetch()
@@ -100,10 +91,11 @@ export default {
   text-align: left;
   position: sticky;
   top: 40px;
+  grid-column: 1 / 2;
+  grid-row: 1 / span all;
 }
 
 .intro span {
-  grid-column: 1 / 2;
   font-size: var(--step-4);
   font-family: var(--ff-alt-alpha);
 }
@@ -118,11 +110,16 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: minmax(50px, 220px) minmax(500px, 1fr);
-  grid-gap: calc(var(--grid-gap) * 2);
+  grid-gap: var(--grid-gap);
+  grid-template-rows: repeat(var(--gridRow), auto);
 }
 
 .blog-posts--writing .blog-posts__item {
   grid-column: 2 / 3;
+}
+
+.blog-posts--writing .blog-posts__item:nth-child(2) {
+  margin-top: 70px;
 }
 
 .blog-posts--writing .post-link:hover {
@@ -137,8 +134,13 @@ export default {
     grid-column: 1 / -1;
   }
 
+  .blog-posts--writing .blog-posts__item:nth-child(2) {
+    margin-top: 0;
+  }
+
   .intro {
     grid-column: 1 / -1;
+    grid-row: 1 / span all;
     top: 0;
     position: relative;
   }
@@ -146,6 +148,7 @@ export default {
   .blog-posts--writing {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: var(--grid-gap);
+    grid-template-rows: repeat(auto-fill, minmax(80px,1fr))
 }
 
 }
