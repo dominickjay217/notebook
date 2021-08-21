@@ -10,16 +10,6 @@
             {{ article.description }}
           </strong>
           <nuxt-content :document="article" />
-          <!-- <div class="article-pagination">
-            <nuxt-link
-              v-if="prev"
-              :to="{ name: 'articles-slug', params: { slug: prev.slug } }"
-            >&lt; {{ prev.title }}</nuxt-link>
-            <nuxt-link
-              v-if="next"
-              :to="{ name: 'articles-slug', params: { slug: next.slug } }"
-            >{{ next.title }} &gt;</nuxt-link>
-          </div> -->
         </article>
       </section>
     </div>
@@ -121,6 +111,10 @@ time {
 
 img[src*="#gif"] {
    max-width: 350px;
+}
+
+.content.post {
+  padding: 10px 0;
 }
 
 .blogpost {
