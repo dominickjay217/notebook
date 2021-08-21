@@ -250,4 +250,11 @@ aside {
   text-shadow: none;
   color: var(--ff-color);
 }
+
+@media (max-width: 640px) {
+  .content.post {
+    display: block;
+  }
+}
+
 </style>
