@@ -37,10 +37,6 @@
       </section>
     </div>
   </main>
-<!--
-    <input id="search" v-model="q" placeholder="Search..." />
-
-  </div> -->
 </template>
 
 <script>
