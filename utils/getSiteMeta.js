@@ -3,6 +3,7 @@ const url = 'https://dominickjay.com'
 const title = 'Dominick Jay - Creative Front End Developer'
 const description = 'Dominick Jay is an experienced creative Front-End Developer from Plymouth, UK, that specializes in fun, creative solutions.'
 const mainImage = 'https://res.cloudinary.com/dominickjay217/image/upload/v1629481799/main-image.png'
+const twitterCard = 'summary_large_image'
 
 export default (meta) => {
   return [
@@ -55,6 +56,11 @@ export default (meta) => {
       hid: 'twitter:image',
       name: 'twitter:image',
       content: (meta && meta.mainImage) || mainImage
+    },
+    {
+      hid: 'twitter:card',
+      name: 'twitter:card',
+      content: (meta && meta.twitterCard) || twitterCard
     }
   ]
 }
