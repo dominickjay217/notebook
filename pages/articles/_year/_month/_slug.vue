@@ -195,6 +195,7 @@ code {
 pre code {
   display: block;
   padding: 30px 20px;
+  background: var(--code-font-background);
   font-size: var(--step-0);
 }
 
