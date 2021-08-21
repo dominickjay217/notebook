@@ -11,7 +11,9 @@ const config: NuxtConfig = {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
-      { hid: 'og:image', property: 'og:image', content: '/images/card-image.png'}
+      { hid: 'og:image', property: 'og:image', content: '/images/card-image.png'},
+      { hid: 'twitter:image', property: 'twitter:image', content: '/images/card-image.png'},
+      { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
