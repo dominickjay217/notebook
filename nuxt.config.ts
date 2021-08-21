@@ -12,6 +12,9 @@ const config: NuxtConfig = {
         content: process.env.npm_package_description || '',
       },
     ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
+    ]
   },
   modules: [
     '@nuxt/content',

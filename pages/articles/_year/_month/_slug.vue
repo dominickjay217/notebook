@@ -42,14 +42,17 @@ export default {
       tagline: article.tags,
       cloudName: 'dominickjay217',
       imagePublicID: 'post-template',
+      textAreaWidth: '850',
       titleColor: '203140',
-      titleLeftOffset: '250',
+      titleBottomOffset: '300',
+      titleLeftOffset: '220',
       titleFont: 'Hackney.ttf',
       titleExtraConfig: '_bold',
       titleFontSize: '100',
       taglineFont: 'Hackney.ttf',
-      taglineFontSize: '50',
-      taglineLeftOffset: '250'
+      taglineFontSize: '45',
+      taglineLeftOffset: '225',
+      taglineTopOffset: '450'
     })
 
     return {
