@@ -97,8 +97,10 @@ One of the benefits of custom properties, is that they can be changed based on t
 
 In this example, the first h2 element we see uses the custom properties for `color` and `background-color`;
 
+```css
   color: var(--changeColour, hotpink);
   background-color: var(--changeBgColour, black);
+```
 
 But, they are not defined yet so they use the fallback colours instead. On the second h2 element, we then use the `.add-styles` class to define these custom properties of `changeColour` and `changeBgColour`, which in turn, allows this element to fullfil where they were originally being used, rather than using the fallback. Clever, eh? A great example I've seen of this is [this post](https://piccalil.li/tutorial/create-a-user-controlled-dark-or-light-mode/ "A post by Andy Bell for User Controlled Dark or Light Mode") by Andy Bell, where it is being used within the `prefers-color-scheme` media query.
 
