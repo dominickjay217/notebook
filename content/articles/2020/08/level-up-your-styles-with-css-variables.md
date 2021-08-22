@@ -14,6 +14,7 @@ CSS variables - otherwise known as custom properties - are specific values that 
 
 ## Basic Usage
 
+```css
     :root {
       --primaryColour: hsla(4, 99%, 66%, 1);
       --backgroundColour: hsla(207, 100%, 96%, 1);
@@ -30,6 +31,7 @@ CSS variables - otherwise known as custom properties - are specific values that 
       color: var(--primaryColour);
       text-align: center;
     }
+```
 
 There. Nice, quick example there - you can see this working below.
 
