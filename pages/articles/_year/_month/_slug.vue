@@ -178,36 +178,181 @@ img {
   margin: 40px auto;
 }
 
-pre {
-  border-radius: 3px;
-  margin: 0;
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-block-background);
+  text-shadow: none;
 }
 
-code {
-  background: var(--code-font-background);
-  padding: 2px 6px;
-  display: inline;
-  margin: 0 1px;
-  font-family: var(--ff-code);
-  border-radius: 3px;
+.token.regex,
+.token.important,
+.token.variable {
+  color: #bb8117;
 }
 
-pre code {
-  display: block;
-  padding: 30px 20px;
-  background: var(--code-font-background);
-  font-size: var(--step-0);
+p > code {
+  background: var(--code-block-background);
+  padding: 2px 4px;
+  font-weight: var(--fw-base-lg);
 }
 
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-  background: var(--code-font-background);
+@media (prefers-color-scheme: dark) {
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
 
-.code-block {
-  position: relative;
-  &__language {
-    background: var(--code-block-background);
-    margin-bottom: -2px;
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-block-background);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #d4d0ab;
+}
+
+.token.punctuation {
+  color: #fefefe;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ffa07a;
+}
+
+.token.boolean,
+.token.number {
+  color: #00e0e0;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #abe338;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #00e0e0;
+  background: none;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #ffd700;
+}
+
+.token.keyword {
+  color: #00e0e0;
+}
+
+.token.regex,
+.token.important {
+  color: #ffd700;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+@media screen and (-ms-high-contrast: active) {
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: windowText;
+      background: window;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+      background: window;
+    }
+
+    .token.important {
+      background: highlight;
+      color: window;
+      font-weight: normal;
+    }
+
+    .token.atrule,
+    .token.attr-value,
+    .token.function,
+    .token.keyword,
+    .token.operator,
+    .token.selector {
+      font-weight: bold;
+    }
+
+    .token.attr-value,
+    .token.comment,
+    .token.doctype,
+    .token.function,
+    .token.keyword,
+    .token.operator,
+    .token.property,
+    .token.string {
+      color: highlight;
+    }
+
+    .token.attr-value,
+    .token.url {
+      font-weight: normal;
+    }
   }
 }
 
@@ -241,19 +386,14 @@ aside {
   justify-content: space-between;
   font-size: var(--step-2);
   & a:hover {
-     text-decoration: underline;
-      text-decoration-color: #E85A4F;
-      text-decoration-thickness: 2px;
+    text-decoration: underline;
+    text-decoration-color: #E85A4F;
+    text-decoration-thickness: 2px;
   }
 }
 
 .articles-slug {
   padding: 40px 0;
-}
-
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-  text-shadow: none;
-  color: var(--ff-color);
 }
 
 @media (max-width: 640px) {
