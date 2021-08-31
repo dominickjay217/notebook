@@ -267,6 +267,7 @@ a:not([class]) {
   text-decoration-color: #E85A4F;
   text-decoration-thickness: 2px;
   font-size: calc(var(--step-1) * 1.05);
+  line-height: 1;
 }
 
 a:not([class]):hover {
