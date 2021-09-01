@@ -6,33 +6,73 @@
           <div
             class="intro"
           >
-            <span
-              class="blog-posts__heading"
+            <div
+              v-if="showDrafts"
             >
-              What's New?
-            </span>
-            <p>I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.</p>
-          </div>
-          <li v-for="article in articles" :key="article.slug" class="blog-posts__item">
-            <div class="post">
-              <time>
-                <span>
-                  {{ formatDate(article.date) }}
-                </span>
-              </time>
-              <div class="post-content">
-                <span class="title">
-                  {{ article.title }}
-                </span>
-                <span class="description">
-                  {{ article.description }}
-                </span>
-              </div>
-              <nuxt-link class="post-link" :to="article.path">
-                <span>Read post</span>
-              </nuxt-link>
+              <span
+                class="blog-posts__heading"
+              >
+                What's New?
+              </span>
+              <p>
+                I write about technologies that I'm currently diving into, my development on this site, setups and goals. In these posts, I go through problems, solutions and how I am - infact - not Batman.
+              </p>
+              <p>See what posts I'm thinking of writing about <button @click="swapDrafts()">here</button>.</p>
             </div>
-          </li>
+            <div
+              v-else
+            >
+              <span
+                class="blog-posts__heading"
+              >
+                Coming Up...
+              </span>
+              <p>
+                This is what I'm <i>thinking</i> of writing about. Any ideas, ping me a message on <a
+                  target="_blank"
+                  relopener="noopener"
+                  href="//twitter.com/dominickjay217"
+                >Twitter</a>.
+              </p>
+              <p>See what posts I <i>have</i> written about <button @click="swapDrafts()">here</button>.</p>
+            </div>
+          </div>
+          <div v-if="!showDrafts">
+            <li v-for="draft in drafts" :key="draft.slug" class="blog-posts__item blog-posts__item--draft">
+              <div class="post">
+                <div class="post-content">
+                  <span class="title">
+                    {{ draft.title }}
+                  </span>
+                  <span class="description">
+                    {{ draft.description }}
+                  </span>
+                </div>
+              </div>
+            </li>
+          </div>
+          <div v-if="showDrafts">
+            <li v-for="article in articles" :key="article.slug" class="blog-posts__item">
+              <div class="post">
+                <time>
+                  <span>
+                    {{ formatDate(article.date) }}
+                  </span>
+                </time>
+                <div class="post-content">
+                  <span class="title">
+                    {{ article.title }}
+                  </span>
+                  <span class="description">
+                    {{ article.description }}
+                  </span>
+                </div>
+                <nuxt-link class="post-link" :to="article.path">
+                  <span>Read post</span>
+                </nuxt-link>
+              </div>
+            </li>
+          </div>
         </ul>
       </section>
     </div>
@@ -47,6 +87,9 @@ export default {
     let query = $content('articles', { deep: true })
       .sortBy('date', 'desc')
 
+    const drafts = await $content('drafts')
+      .fetch()
+
     if (q) {
       query = query.search(q)
     }
@@ -55,7 +98,13 @@ export default {
 
     return {
       q,
-      articles
+      articles,
+      drafts
+    }
+  },
+  data () {
+    return {
+      showDrafts: true
     }
   },
   watch: {
@@ -68,6 +117,9 @@ export default {
     formatDate (date) {
       const options = { day: 'numeric', month: 'numeric' }
       return new Date(date).toLocaleDateString('en-GB', options)
+    },
+    swapDrafts () {
+      this.showDrafts = !this.showDrafts
     }
   }
 }
@@ -84,6 +136,12 @@ export default {
   p {
     color: var(--ff-color);
     font-size: var(--step-0);
+  }
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
   }
 }
 
@@ -118,7 +176,11 @@ export default {
   grid-column: 2 / 3;
 }
 
-.blog-posts--writing .blog-posts__item:nth-child(2) {
+.blog-posts--writing .blog-posts__item--draft {
+  padding-left: 90px;
+}
+
+.blog-posts--writing > div:nth-child(2) {
   margin-top: 70px;
 }
 
