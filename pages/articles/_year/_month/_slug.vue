@@ -132,10 +132,6 @@ img[src*="#gif"] {
     text-align: center;
     font-size: 1.5rem;
   }
-  strong {
-    font-weight: var(--fw-base-lg);
-    color: var(--blog-ff-strong);
-  }
   ol {
     counter-reset: section;
     list-style: none;

@@ -13,9 +13,9 @@
         </ol>
         <div class="about-me__content about-me__content--joke">
           <div>
-            <strong>
+            <h3 class="heading heading--three">
               I love dad jokes, how about one of them instead?
-            </strong>
+            </h3>
           </div>
           <Joke />
         </div>
@@ -48,13 +48,6 @@ export default {
 </script>
 
 <style lang="scss">
-.lastfm-info {
-  & strong {
-    margin-bottom: 20px;
-    font-size: 1.25rem;
-  }
-}
-
 .about-me {
   font-size: var(--step-0);
   &__list {
@@ -95,6 +88,10 @@ export default {
       grid-row: 1 / 3;
       &::before {
         content: none;
+      }
+      & strong {
+        background: none;
+        padding: 0;
       }
     }
   }

@@ -118,17 +118,6 @@ export default {
     opacity: 0.85;
     text-align: left;
   }
-  &-intro {
-    & strong {
-      color: var(--clr-third);
-      color: #E85A4F;
-      padding: 0 5px;
-      font-size: calc(var(--step-1) * 1.5);
-      position: relative;
-      line-height: 1.3;
-      top: -2px;
-    }
-  }
 }
 
 .blog {
@@ -187,6 +176,7 @@ export default {
     }
     &:hover {
       transition: .25s ease-in-out color;
+      color: var(--ff-base);
       &::before {
         right: -50px;
         width: 50px;
@@ -194,6 +184,7 @@ export default {
       }
       & .blog__link-arrow {
         fill: #fff;
+        height: auto;
       }
     }
   }
