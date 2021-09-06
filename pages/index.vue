@@ -176,6 +176,7 @@ export default {
     }
     &:hover {
       transition: .25s ease-in-out color;
+      color: var(--ff-base);
       &::before {
         right: -50px;
         width: 50px;
@@ -183,6 +184,7 @@ export default {
       }
       & .blog__link-arrow {
         fill: #fff;
+        height: auto;
       }
     }
   }
