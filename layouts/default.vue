@@ -262,24 +262,29 @@ strong {
   line-height: 1;
 }
 
-a {
+a,
+button {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+button:Hover {
   text-decoration: none;
 }
 
-a:not([class]) {
+a:not([class]),
+button {
   text-decoration: underline;
   text-decoration-color: #E85A4F;
   text-decoration-thickness: 2px;
   font-size: calc(var(--step-1) * 1.05);
+  line-height: 1;
 }
 
-a:not([class]):hover {
+a:not([class]):hover,
+button:hover {
   text-decoration: none;
 }
 

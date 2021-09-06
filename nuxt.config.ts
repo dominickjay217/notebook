@@ -24,6 +24,15 @@ const config: NuxtConfig = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
+    ],
+    // Analytics from https://app.thesemetrics.org
+    script: [
+      {
+         hid: "thesemetrics",
+         src: "https://unpkg.com/thesemetrics@latest",
+         async: true,
+         type: "text/javascript",
+      },
     ]
   },
   modules: [
