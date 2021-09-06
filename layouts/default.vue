@@ -252,6 +252,16 @@ strong {
   letter-spacing: 0.5px;
 }
 
+strong {
+  background-color: var(--clr-third);
+  color: var(--ff-base);
+  font-weight: var(--fw-base);
+  padding: 0 5px;
+  font-size: calc(var(--step-1) * 1.25);
+  position: relative;
+  line-height: 1;
+}
+
 a {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
@@ -299,12 +309,17 @@ main {
 
 .heading {
   font-family: var(--ff-alt-alpha);
+  letter-spacing: -0.5px;
 }
 
 .heading--two {
-    text-align: center;
-    font-size: var(--step-4);
-    letter-spacing: -0.5px;}
+  font-size: var(--step-4);
+  text-align: center;
+}
+
+.heading--three {
+  font-size: var(--step-3);
+}
 
 .content {
   padding: 40px 0;
