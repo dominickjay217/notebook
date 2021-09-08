@@ -2,7 +2,7 @@
   <main>
     <div class="container">
       <section class="content now">
-        <nuxt-content :document="markdown" />
+        <nuxt-content :document="nowPage" />
         <strong>My most recently played song/podcast</strong> episode is <a :href="music.recenttracks.track[0].url">
           {{ music.recenttracks.track[0].name }}
         </a> by {{ music.recenttracks.track[0].artist['#text'] }}
@@ -17,9 +17,9 @@
 <script lang="ts">
 export default {
   async asyncData ({ $content }) {
-    const markdown = await $content('now-page').fetch()
+    const nowPage = await $content('now-page').fetch()
     return {
-      markdown
+      nowPage
     }
   },
   data () {
