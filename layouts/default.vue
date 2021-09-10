@@ -253,7 +253,7 @@ strong {
 }
 
 strong {
-  background-color: var(--clr-third);
+  background-color: var(--clr-third-lt);
   color: var(--ff-base);
   font-weight: var(--fw-base);
   padding: 0 5px;
@@ -294,10 +294,16 @@ main {
   background-color: var(--main-background);
 }
 
+@media (max-width: 640px) {
+  ul:not([class]) {
+    padding-left: 20px;
+  }
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .accessibility {
