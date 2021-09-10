@@ -11,4 +11,4 @@ date: 2021-08-31
 - **Always improving and tweaking this website** towards making it visually compelling, faster, and fun.
 - **Learning** React and generating patterns/artwork with SVG and JS.
 - **Reading a lot more** with my current book being *The Girl in the Spider's Web* by David Lagercrantz
-- **I am looking forward to** both the [Agile on the Beach 2021](https://events.agileonthebeach.com/event/15740756-f9c3-4fcc-8348-ba191b63bb53/summary) conference in Falmouth and a week away with the family at Butlins.
+- **I am looking forward to** some screen downtime soon - it's been busy!.
