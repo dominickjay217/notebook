@@ -196,7 +196,7 @@ export default {
     grid-column: 1 / -1;
   }
 
-  .blog-posts--writing .blog-posts__item:nth-child(2) {
+  .blog-posts--writing > div:nth-child(2) {
     margin-top: 0;
   }
 
@@ -211,7 +211,11 @@ export default {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: var(--grid-gap);
     grid-template-rows: repeat(auto-fill, minmax(80px,1fr))
-}
+  }
+
+  .blog-posts--writing .blog-posts__item--draft {
+    padding-left: 0;
+  }
 
 }
 </style>
