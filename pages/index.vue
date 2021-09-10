@@ -287,6 +287,7 @@ time {
     max-width: 0;
     overflow: hidden;
     min-width: 0;
+    height: 0;
   }
 }
 

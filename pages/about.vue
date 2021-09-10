@@ -31,19 +31,6 @@
 <script>
 
 export default {
-  data () {
-    return {
-      music: []
-    }
-  },
-  async fetch () {
-    this.music = await fetch(
-      'https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=' + process.env.LASTFM_API_KEY + '&format=json'
-    ).then(res => res.json())
-  },
-  created () {
-    this.interval = setInterval(() => this.$fetch(), 60000)
-  }
 }
 </script>
 

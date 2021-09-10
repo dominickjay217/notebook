@@ -186,6 +186,10 @@ pre[class*="language-"] {
   color: #bb8117;
 }
 
+p + h2 {
+  margin-top: 40px;
+}
+
 p > code {
   background: var(--code-block-background);
   padding: 2px 4px;
@@ -358,23 +362,19 @@ strong {
 
 aside {
   position: relative;
-  padding: 24px 32px;
-  margin-top: 48px;
-  margin-bottom: 64px;
-  border-left: 3px solid;
+  padding: 20px 40px;
+  margin: 40px 0;
+  border-left: 5px solid;
+}
+
+aside.info {
   border-left-color: var(--aside-border);
-  border-radius: 6px 6px 6px 3px;
   background-color: var(--aside-background);
-  & i {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    transform: translate(-50%, -50%);
-    padding: 8px;
-    background: var(--main-background);
-    border-radius: 50%;
-    color: var(--aside-icon);
-  }
+}
+
+aside strong {
+  background: none;
+  padding: 0;
 }
 
 .article-pagination {
