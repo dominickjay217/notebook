@@ -253,7 +253,7 @@ strong {
 }
 
 strong {
-  background-color: var(--clr-third);
+  background-color: var(--clr-third-lt);
   color: var(--ff-base);
   font-weight: var(--fw-base);
   padding: 0 5px;
@@ -292,6 +292,12 @@ main {
   position: relative;
   z-index: 2;
   background-color: var(--main-background);
+}
+
+@media (max-width: 640px) {
+  ul:not([class]) {
+    padding-left: 20px;
+  }
 }
 
 .container {
