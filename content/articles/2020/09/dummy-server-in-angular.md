@@ -14,7 +14,7 @@ One "real-life" scenario that could occur; lack of an API endpoint that could be
 
 ## Let's Get Started!
 
-I've set up a repo [here](https://github.com/dominickjay/local-json-server) with a basic out-of-the-box Angular application, with [Angular Material](https://material.angular.io/) installed for styling. Normally I would do my own, but we're not focusing on that here, so happy to lean on a framework for this one.
+I've set up a branch on a repo [here](https://github.com/dominickjay/local-json-server/tree/01---Set-up-the-local-development-server) with a basic out-of-the-box Angular application, with [Angular Material](https://material.angular.io/) installed for styling. Normally I would do my own, but we're not focusing on that here, so happy to lean on a framework for this one.
 
 ## Installing from NPM/Yarn
 
@@ -75,4 +75,4 @@ Hopefully this was helpful, but if you would like to know more about what you ca
 
  [How to create a local API server & REST API for testing](https://medium.com/chaya-thilakumara/how-to-create-a-local-api-server-rest-api-for-testing-945bbb2d31b7)
 
- [The repo used in this post](https://github.com/dominickjay/local-json-server)
+ [The repo used in this post](https://github.com/dominickjay/local-json-server/tree/01---Set-up-the-local-development-server)
