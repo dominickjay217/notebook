@@ -24,7 +24,7 @@
           Recently Published
         </h2>
         <div>
-          <GenPattern />
+          <div></div>
           <div>
             <ul class="blog-posts blog-posts--home">
               <li v-for="article in articles.slice(0, 3)" :key="article.slug" class="blog-posts__item">
@@ -118,17 +118,6 @@ export default {
     opacity: 0.85;
     text-align: left;
   }
-  &-intro {
-    & strong {
-      color: var(--clr-third);
-      color: #E85A4F;
-      padding: 0 5px;
-      font-size: calc(var(--step-1) * 1.5);
-      position: relative;
-      line-height: 1.3;
-      top: -2px;
-    }
-  }
 }
 
 .blog {
@@ -142,7 +131,7 @@ export default {
     & > div {
       width: calc(100% / 3 * 2);
       flex-shrink: 0;
-      padding-left: 40px;
+      margin-left: -15px;
     }
     & > div:first-child {
       width: calc(100% / 3);
@@ -187,6 +176,7 @@ export default {
     }
     &:hover {
       transition: .25s ease-in-out color;
+      color: var(--ff-base);
       &::before {
         right: -50px;
         width: 50px;
@@ -194,6 +184,7 @@ export default {
       }
       & .blog__link-arrow {
         fill: #fff;
+        height: auto;
       }
     }
   }
@@ -296,6 +287,7 @@ time {
     max-width: 0;
     overflow: hidden;
     min-width: 0;
+    height: 0;
   }
 }
 

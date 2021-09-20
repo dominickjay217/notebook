@@ -9,7 +9,19 @@
           <strong class="blogpost__subheading">
             {{ article.description }}
           </strong>
-          <nuxt-content :document="article" />
+          <div class="content-wrapper">
+            <ul class="toc">
+              <h2>Table of Contents</h2>
+              <li
+                v-for="link of article.toc"
+                :key="link.id"
+                :class="{ 'toc2': link.depth === 2, 'toc3': link.depth === 3 }"
+              >
+                <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+              </li>
+            </ul>
+            <nuxt-content :document="article" />
+          </div>
         </article>
       </section>
     </div>
@@ -113,12 +125,25 @@ img[src*="#gif"] {
    max-width: 350px;
 }
 
+h2 {
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+p + h2 {
+  margin-top: 40px;
+}
+
 .content.post {
   padding: 10px 0;
 }
 
 .blogpost {
   color: var(--ff-color);
+  &__heading {
+    font-weight: 900;
+  }
   &__subheading {
     background: var(--blog-gradient);
     -webkit-background-clip: text;
@@ -131,10 +156,7 @@ img[src*="#gif"] {
     display: block;
     text-align: center;
     font-size: 1.5rem;
-  }
-  strong {
-    font-weight: var(--fw-base-lg);
-    color: var(--blog-ff-strong);
+    line-height: 1.6;
   }
   ol {
     counter-reset: section;
@@ -357,28 +379,24 @@ pre[class*="language-"] {
 }
 
 strong {
-  font-size: var(--step-2);
+  font-size: var(--step-1);
 }
 
 aside {
   position: relative;
-  padding: 24px 32px;
-  margin-top: 48px;
-  margin-bottom: 64px;
-  border-left: 3px solid;
+  padding: 20px 40px;
+  margin: 40px 0;
+  border-left: 5px solid;
+}
+
+aside.info {
   border-left-color: var(--aside-border);
-  border-radius: 6px 6px 6px 3px;
   background-color: var(--aside-background);
-  & i {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    transform: translate(-50%, -50%);
-    padding: 8px;
-    background: var(--main-background);
-    border-radius: 50%;
-    color: var(--aside-icon);
-  }
+}
+
+aside strong {
+  background: none;
+  padding: 0;
 }
 
 .article-pagination {
@@ -394,6 +412,38 @@ aside {
 
 .articles-slug {
   padding: 40px 0;
+}
+
+.toc {
+  position: sticky;
+  margin-left: 0;
+  margin: 0;
+  margin-top: -10px;
+  top: 20px;
+  list-style: none;
+  flex: 1 1 auto;
+  min-width: 250px;
+  float: right;
+}
+
+.toc li {
+  margin-bottom: 10px;
+}
+
+.toc a  {
+  text-decoration: none;
+  font-size: calc(var(--step-1) * 1.05);
+  line-height: 1;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+  text-decoration-color: #E85A4F;
+  text-decoration-thickness: 2px;
+}
+
+.nuxt-content-container {
+  max-width: calc(100% - 250px);
 }
 
 @media (max-width: 640px) {

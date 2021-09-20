@@ -23,13 +23,13 @@
   position: relative;
   z-index: 2;
   &__item {
-    margin: 0 10px;
+    margin: 0 15px;
     position: relative;
   }
   &__link {
     padding: var(--padding-lr);
-    font-family: var(--ff-alt-alpha);
-    font-size: var(--step-3);
+    font-family: var(--ff-heading);
+    font-size: var(--step-2);
     font-weight: var(--fw-base-m);
     letter-spacing: -0.5px;
     border-top: 5px solid transparent;

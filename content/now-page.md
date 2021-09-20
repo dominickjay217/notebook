@@ -11,4 +11,3 @@ date: 2021-08-31
 - **Always improving and tweaking this website** towards making it visually compelling, faster, and fun.
 - **Learning** Angular and generating patterns/artwork with SVG and JS.
 - **Reading a lot more** with my current book being *The Girl in the Spider's Web* by David Lagercrantz
-- **I am looking forward to** a week away with the family at Butlins.

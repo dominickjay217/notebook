@@ -35,6 +35,7 @@ export default {
 
 .uses strong {
     font-size: var(--step-2);
+    background-color: transparent;
 }
 
 </style>

@@ -20,6 +20,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: var(--ff-heading);
+  src: url("/fonts/Faune-DisplayBlack.otf")  format("truetype");
+  font-display: swap;
+}
+
 :root {
   --clr-base:    #f9f9f9;
   --clr-base-lt: #ffffff;
@@ -46,7 +52,7 @@
   --clr-fifth-dk: #4c7479;
 
   --main-background: var(--clr-base);
-  --header-background: #EAE7DC;
+  --header-background: var(--clr-base);
   --leave-it-text: var(--clr-fifth-dk);
   --footer-background: var(--clr-base-lt);
   --border-gradient: linear-gradient(to left, var(--clr-fourth), var(--clr-third));
@@ -67,6 +73,7 @@
   --ff-color-link-hover: var(--clr-base-dk);
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
   --ff-alt-alpha: 'Hackney';
+  --ff-heading: 'Faune';
   --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   --fw-base: 300;
   --fw-base-m: 500;
@@ -179,7 +186,7 @@
   }
 
   :root:not([data-user-color-scheme]) {
-    --header-background: var(--clr-secondary-lt);
+    --header-background: var(--clr-base-dk);
     --leave-it-text: #FFF;
     --main-background: var(--clr-base-dk);
     --ff-color: var(--clr-base-lt);
@@ -200,7 +207,7 @@
 }
 
 [data-user-color-scheme='dark'] {
-  --header-background: var(--clr-secondary-lt);
+  --header-background: var(--clr-base-dk);
   --leave-it-text: #FFF;
   --main-background: var(--clr-base-dk);
   --ff-color: var(--clr-base-lt);
@@ -248,21 +255,37 @@ body {
 
 b,
 strong {
-  font-family: var(--ff-alt-alpha);
+  font-family: var(--ff-heading);
   letter-spacing: 0.5px;
 }
 
-a {
+strong {
+  color: var(--ff-base);
+  font-weight: var(--fw-base);
+  font-size: calc(var(--step-1) * 1.25);
+  position: relative;
+  line-height: 1;
+}
+
+p > strong {
+  background-color: var(--clr-third-lt);
+  padding: 0 5px;
+}
+
+a,
+button {
   font-family: var(--ff-alt-alpha);
   color: var(--ff-color);
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+button:Hover {
   text-decoration: none;
 }
 
-a:not([class]) {
+a:not([class]),
+button {
   text-decoration: underline;
   text-decoration-color: #E85A4F;
   text-decoration-thickness: 2px;
@@ -270,7 +293,8 @@ a:not([class]) {
   line-height: 1;
 }
 
-a:not([class]):hover {
+a:not([class]):hover,
+button:hover {
   text-decoration: none;
 }
 
@@ -280,10 +304,16 @@ main {
   background-color: var(--main-background);
 }
 
+@media (max-width: 640px) {
+  ul:not([class]) {
+    padding-left: 20px;
+  }
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .accessibility {
@@ -299,13 +329,26 @@ main {
 }
 
 .heading {
-  font-family: var(--ff-alt-alpha);
+  font-family: var(--ff-heading);
+  letter-spacing: -0.5px;
+  background-color: #2b4162;
+  background-image: linear-gradient(to bottom, var(--clr-fifth-lt) 0%, var(--clr-base-dk) 90%);
+  background-clip: text;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .heading--two {
-    text-align: center;
-    font-size: var(--step-4);
-    letter-spacing: -0.5px;}
+  font-size: var(--step-4);
+  text-align: center;
+}
+
+.heading--three {
+  font-size: var(--step-3);
+}
 
 .content {
   padding: 40px 0;

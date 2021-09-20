@@ -6,16 +6,16 @@
           class="about-me__list"
         >
           <li><strong>Hi 👋. My name’s Dom, I’m a Front End Developer, a guitarist and comic book enthusiast, and a Dad to two awesome kids. I love making fun, creative solutions. This is my portfolio, which I’ll use as an ongoing playground and blog to keep using all sorts of tech, designs and experimentation.</strong></li>
-          <li>I’ve been in the industry for 5 years now under many different titles; Junior Web Developer, PHP Developer, Front End Developer, Space Cowboy and (currently) as a Software Engineer. From companies that have clients in local councils to theatre productions, I’ve been providing quality solutions for both. You can read my CV <a href="docs/resume.pdf" target="_blank" rel="noopener">Here</a> and find out what I'm currently up to <a href="/now">here!</a></li>
+          <li>I’ve been in the industry for 5 years now under many different titles; Junior Web Developer, PHP Developer, Front End Developer, Space Cowboy and (currently) as a Software Engineer. From companies that have clients in local councils to theatre productions, I’ve been providing quality solutions for both. You can read my CV <a href="/docs/resume.pdf" target="_blank" rel="noopener">Here</a> and find out what I'm currently up to <a href="/now">here!</a></li>
           <li>I’m Dorset-born, but traded coast for coast to live in Plymouth. I play the guitar, but have an unkept secret with wanting to play the drums. If you’d like to get in touch with me then twitter is your best channel.</li>
           <li>I’m proficient in HTML5, CSS3 and JavaScript, and have worked in amongst various backend environments. I have a good working knowledge of build systems such as Gulp and post-processors such as SASS. I also have good working knowledge of version control systems such as Git and SVN. Experience building websites that are SEO friendly, performance optimized and accessible to a AA/WCAG 2.1 standard. As far as hardware/software that I use, you can find out about it <a href="/uses">here!</a></li>
           <li>I am self-motivated and can self-manage to complete tasks and meet deadlines. I care about and take enormous pride in the work that is produced, and have a keen eye for details. I have excellent communication skills with clients and colleagues, exceptional commitment, professionalism and enthusiasm.</li>
         </ol>
         <div class="about-me__content about-me__content--joke">
           <div>
-            <strong>
+            <h3 class="heading heading--three">
               I love dad jokes, how about one of them instead?
-            </strong>
+            </h3>
           </div>
           <Joke />
         </div>
@@ -31,30 +31,10 @@
 <script>
 
 export default {
-  data () {
-    return {
-      music: []
-    }
-  },
-  async fetch () {
-    this.music = await fetch(
-      'https://ws.audioscrobbler.com/2.0?method=user.getRecentTracks&user=zerosandones217&limit=1&api_key=' + process.env.LASTFM_API_KEY + '&format=json'
-    ).then(res => res.json())
-  },
-  created () {
-    this.interval = setInterval(() => this.$fetch(), 60000)
-  }
 }
 </script>
 
 <style lang="scss">
-.lastfm-info {
-  & strong {
-    margin-bottom: 20px;
-    font-size: 1.25rem;
-  }
-}
-
 .about-me {
   font-size: var(--step-0);
   &__list {
@@ -85,7 +65,6 @@ export default {
       }
     }
     & li:first-child {
-      font-size: var(--step-2);
       position: sticky;
       margin-left: 0;
       padding-right: 25px;
@@ -95,6 +74,12 @@ export default {
       grid-row: 1 / 3;
       &::before {
         content: none;
+      }
+      & strong {
+        background: none;
+        padding: 0;
+        font-size: var(--step-2);
+        line-height: 1.6;
       }
     }
   }
