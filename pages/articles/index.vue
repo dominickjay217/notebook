@@ -156,8 +156,8 @@ export default {
 }
 
 .intro span {
-  font-size: var(--step-4);
-  font-family: var(--ff-alt-alpha);
+  font-size: var(--step-3);
+  font-family: var(--ff-heading);
 }
 
 .blog-posts--writing {

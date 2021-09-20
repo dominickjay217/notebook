@@ -24,7 +24,7 @@
           Recently Published
         </h2>
         <div>
-          <GenPattern />
+          <div></div>
           <div>
             <ul class="blog-posts blog-posts--home">
               <li v-for="article in articles.slice(0, 3)" :key="article.slug" class="blog-posts__item">
@@ -131,7 +131,7 @@ export default {
     & > div {
       width: calc(100% / 3 * 2);
       flex-shrink: 0;
-      padding-left: 40px;
+      margin-left: -15px;
     }
     & > div:first-child {
       width: calc(100% / 3);

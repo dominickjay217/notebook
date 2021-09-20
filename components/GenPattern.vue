@@ -83,35 +83,31 @@
 <script>
 
 export default {
-    mounted() {
-        function createBlock() {
+  mounted () {
+    function createBlock () {
+      const cell = document.getElementsByClassName('pattern-cell clr')
 
-            var cell = document.getElementsByClassName('pattern-cell clr');
+      for (let l = 0; l < cell.length; l++) {
+        cell[l].className = 'pattern-cell clr'
+        const random = getRandomInt(1, 6)
+        const randomClr = getRandomInt(0, 5)
+        cell[l].classList.add('pattern-cell--' + random)
+        cell[l].classList.add('clr--' + randomClr)
+      }
 
-            for (var l = 0; l < cell.length; l++) {
-                cell[l].className = "pattern-cell clr";
-                var random = getRandomInt(1, 6);
-                var randomClr = getRandomInt(0, 5);
-                cell[l].classList.add('pattern-cell--'+ random);
-                cell[l].classList.add('clr--'+ randomClr);
-            }
-
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min) + min);
-            }
-
-        }
-
-        var c = document.querySelector('.pattern');
-
-        createBlock();
-
-        setInterval(() => {
-            createBlock();
-        }, 50000);
+      function getRandomInt (min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min) + min)
+      }
     }
+
+    createBlock()
+
+    setInterval(() => {
+      createBlock()
+    }, 50000)
+  }
 }
 </script>
 
@@ -121,9 +117,10 @@ export default {
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 1fr);
         transform: rotate(-5deg);
-        opacity: 0.25;
+        opacity: 0.15;
         transform-origin: center;
         max-width: 350px;
+        max-height: 350px;
         clip-path: polygon(0 0, 100% 0%, 65% 100%, 0% 100%);
         &-cell {
             width: 100%;

@@ -11,6 +11,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   z-index: 1;
+  font-family: var(--ff-heading);
   & .navigation {
     grid-column: 1 / 4;
   }

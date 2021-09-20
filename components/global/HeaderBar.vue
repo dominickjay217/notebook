@@ -238,6 +238,7 @@ export default {
     box-shadow: none;
     transition: none;
     color: currentColor;
+    -webkit-text-fill-color: currentColor;
   }
 }
 
@@ -247,8 +248,8 @@ export default {
   grid-gap: var(--grid-gap);
   align-items: center;
   position: relative;
-  padding: 80px 0;
-  margin: 0 0 20px;
+  padding: 80px 0 0;
+  margin: 0;
   &__fact {
     font-weight: var(--fw-base-xl);
     letter-spacing: -0.5px;
