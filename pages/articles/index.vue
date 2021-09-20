@@ -8,6 +8,7 @@
           >
             <div
               v-if="showDrafts"
+              id="articles"
             >
               <span
                 class="blog-posts__heading"
@@ -21,6 +22,7 @@
             </div>
             <div
               v-else
+              id="drafts"
             >
               <span
                 class="blog-posts__heading"
