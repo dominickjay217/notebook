@@ -87,6 +87,7 @@
   --padding-tb: var(--padding-df) 0;
   --padding-lr: 0 var(--padding-df);
   --post-bg: var(--clr-base);
+  --heading-gradient: linear-gradient(to bottom, var(--clr-fifth-lt) 0%, var(--clr-base-dk) 90%);
   --center: center;
   --fluid-min-width: 326;
   --fluid-max-width: 1140;
@@ -203,6 +204,7 @@
     --code-font-background: #000;
     --code-font-color: var(--clr-base-lt);
     --code-block-background: #000;
+    --heading-gradient: linear-gradient(to bottom, var(--clr-third-lt) 0%, var(--clr-base) 80%);
   }
 }
 
@@ -220,6 +222,11 @@
   --aside-background: rgba(254, 153, 72, 0.15);
   --aside-border: var(--clr-third-dk);
   --aside-icon: var(--clr-third-dk);
+  --post-bg: var(--clr-base-dk);
+  --code-font-background: #000;
+  --code-font-color: var(--clr-base-lt);
+  --code-block-background: #000;
+  --heading-gradient: linear-gradient(to bottom, var(--clr-third-lt) 0%, var(--clr-base) 80%);
 }
 
 @media screen and (min-width: 1140px) {
@@ -262,7 +269,7 @@ strong {
 strong {
   color: var(--ff-base);
   font-weight: var(--fw-base);
-  font-size: calc(var(--step-1) * 1.25);
+  font-size: var(--step-1);
   position: relative;
   line-height: 1;
 }
@@ -302,6 +309,7 @@ main {
   position: relative;
   z-index: 2;
   background-color: var(--main-background);
+  margin-bottom: 40px;
 }
 
 @media (max-width: 640px) {
@@ -331,8 +339,7 @@ main {
 .heading {
   font-family: var(--ff-heading);
   letter-spacing: -0.5px;
-  background-color: #2b4162;
-  background-image: linear-gradient(to bottom, var(--clr-fifth-lt) 0%, var(--clr-base-dk) 90%);
+  background-image: var(--heading-gradient);
   background-clip: text;
   background-size: 100%;
   -webkit-background-clip: text;

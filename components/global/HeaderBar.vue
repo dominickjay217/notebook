@@ -248,7 +248,7 @@ export default {
   grid-gap: var(--grid-gap);
   align-items: center;
   position: relative;
-  padding: 80px 0 0;
+  padding: 80px 0 40px;
   margin: 0;
   &__fact {
     font-weight: var(--fw-base-xl);
@@ -257,7 +257,7 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    text-transform: uppercase;
+    text-transform: lowercase;
     & p  {
       color: var(--ff-color);
       font-size: var(--step-1);

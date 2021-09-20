@@ -251,7 +251,7 @@ time {
   max-width: 70px;
   font-family: var(--ff-alt-alpha);
   font-size: var(--step-1);
-  opacity: 0.5;
+  opacity: 0.75;
   width: 100%;
 }
 
