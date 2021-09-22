@@ -28,7 +28,7 @@
   }
   &__link {
     padding: var(--padding-lr);
-    font-family: var(--ff-heading);
+    font-family: var(--ff-heading-tb);
     font-size: var(--step-2);
     font-weight: var(--fw-base-m);
     letter-spacing: -0.5px;
@@ -54,6 +54,7 @@
     width: 100%;
     padding: 0;
     justify-content: flex-start;
+    margin-bottom: 40px;
   }
 
   .navigation__item {

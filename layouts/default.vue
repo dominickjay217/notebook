@@ -26,6 +26,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: var(--ff-heading-tb);
+  src: url("/fonts/Faune-TextBold.otf")  format("truetype");
+  font-display: swap;
+}
+
 :root {
   --clr-base:    #f9f9f9;
   --clr-base-lt: #ffffff;
@@ -74,6 +80,7 @@
   --ff-base: 'Poppins', helvetica, arial, sans-serif;
   --ff-alt-alpha: 'Hackney';
   --ff-heading: 'Faune';
+  --ff-heading-tb: 'Faune TB';
   --ff-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   --fw-base: 300;
   --fw-base-m: 500;
