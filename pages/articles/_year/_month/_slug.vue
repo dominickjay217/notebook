@@ -426,13 +426,17 @@ aside strong {
   float: right;
 }
 
+.toc h2 {
+  font-size: var(--step-1);
+}
+
 .toc li {
   margin-bottom: 10px;
 }
 
 .toc a  {
   text-decoration: none;
-  font-size: calc(var(--step-1) * 1.05);
+  font-size: calc(var(--step-0) * 1.25);
   line-height: 1;
 }
 

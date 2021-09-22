@@ -102,7 +102,7 @@ export default {
 <style lang="scss">
 
 .about {
-  padding: 120px 0;
+  padding: 60px 0;
   margin: 0 auto;
   text-align: left;
   font-family: var(--ff-base);
@@ -141,9 +141,6 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      & > div {
-        width: 100%;
-      }
     }
   }
   &__link {
@@ -251,7 +248,7 @@ time {
   max-width: 70px;
   font-family: var(--ff-alt-alpha);
   font-size: var(--step-1);
-  opacity: 0.5;
+  opacity: 0.75;
   width: 100%;
 }
 
@@ -289,9 +286,16 @@ time {
     min-width: 0;
     height: 0;
   }
+
+  .blog > div {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
+  .about {
+    padding: 20px 0;
+  }
   .post {
     padding: 10px 0;
   }
