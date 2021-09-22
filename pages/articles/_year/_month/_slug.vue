@@ -112,7 +112,7 @@ export default {
   border: none;
   background: none;
   box-shadow: none;
-  margin-top: 40px;
+  margin-top: 20px;
   cursor: pointer;
   font-size: var(--step-1);
   position: relative;
@@ -170,6 +170,9 @@ img[src*="#gif"] {
 
 .blogpost {
   color: var(--ff-color);
+  &__heading {
+    margin-top: 0;
+  }
   &__subheading {
     background: var(--blog-gradient);
     -webkit-background-clip: text;
