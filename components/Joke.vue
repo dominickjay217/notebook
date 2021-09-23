@@ -12,11 +12,10 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      newJoke: null
+      newJoke: '5/4 of people admit they’re bad at fractions.'
     }
   },
   mounted () {
-    // This needs improving/refactoring to use fetch()
     axios
       .get('https://icanhazdadjoke.com/', {
         headers: {

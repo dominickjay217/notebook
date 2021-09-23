@@ -7,7 +7,6 @@ tags:
   - Javascript
 ---
 
-
 ## Why would we need this?
 
 One "real-life" scenario that could occur; lack of an API endpoint that could be called - maybe it's still in development - but waiting for that to finish before getting it into the front-end side of the application isn't an option.
@@ -58,7 +57,7 @@ Now we've got our dummy JSON at `server/db.json`, we can add a command into the 
 
 <aside class="info">
 
-  **FYI** - As I was working on this, the original attempt at running this command didn't work. Due to this site running locally on port 3000, and the local server attempting to do the same (as it's default), I needed to add the following flag to the command in the `package.json` file: `--port 3004`. This means that the whole command now reads as `json-server --watch server/db.json --port 3004`. I'm going to continue to reference this port number change throughout the rest of the post.
+**FYI** - As I was working on this, the original attempt at running this command didn't work. Due to this site running locally on port 3000, and the local server attempting to do the same (as it's default), I needed to add the following flag to the command in the `package.json` file: `--port 3004`. This means that the whole command now reads as `json-server --watch server/db.json --port 3004`. I'm going to continue to reference this port number change throughout the rest of the post.
 
 </aside>
 
@@ -66,13 +65,12 @@ After running this command, we can access the data in our server at `http://loca
 
 On from this, I've tended to change the command further based on what [Lukas Ruebbelke](https://twitter.com/simpulton?lang=en) has setup in his [Angular course](https://frontendmasters.com/courses/angular-9/). This meant creating a new command that starts both the local Angular application and the local server by adding `"server:all": "concurrently \"npm run server\" \"ng serve\""` to the package json. **Do not** replace the original `server` command. This runs both scripts one after another, using the [Concurrently](https://www.npmjs.com/package/concurrently) npm package.
 
-As it's Part 1, actually *getting* the data into an Angular application will be involved in the next post. But this was a good start into how it can be setup at the beginning stages.
+As it's Part 1, actually _getting_ the data into an Angular application will be involved in the next post. But this was a good start into how it can be setup at the beginning stages.
 
 Hopefully this was helpful, but if you would like to know more about what you can do with the json-server, you might want to take a look at these links;
 
+[json-server - npm](https://www.npmjs.com/package/json-server)
 
- [json-server - npm](https://www.npmjs.com/package/json-server)
+[How to create a local API server & REST API for testing](https://medium.com/chaya-thilakumara/how-to-create-a-local-api-server-rest-api-for-testing-945bbb2d31b7)
 
- [How to create a local API server & REST API for testing](https://medium.com/chaya-thilakumara/how-to-create-a-local-api-server-rest-api-for-testing-945bbb2d31b7)
-
- [The repo used in this post](https://github.com/dominickjay/local-json-server/tree/01---Set-up-the-local-development-server)
+[The repo used in this post](https://github.com/dominickjay/local-json-server/tree/01---Set-up-the-local-development-server)

@@ -88,7 +88,7 @@
   --fw-base-xl: 900;
   --ff-lh: 1.8;
   --color-mode: 'light';
-  --container-width: 1100px;
+  --container-width: 1280px;
   --grid-gap: 20px;
   --padding-df: 20px;
   --padding-tb: var(--padding-df) 0;
@@ -96,8 +96,8 @@
   --post-bg: var(--clr-base);
   --heading-gradient: linear-gradient(to bottom, var(--clr-fifth-lt) 0%, var(--clr-base-dk) 90%);
   --center: center;
-  --fluid-min-width: 326;
-  --fluid-max-width: 1140;
+  --fluid-min-width: 320;
+  --fluid-max-width: 1280;
   --fluid-screen: 100vw;
   --fluid-bp: calc(
     (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
@@ -115,8 +115,7 @@
 
 :root {
   --fluid-min-width: 320;
-  --fluid-max-width: 1024;
-
+  --fluid-max-width: 1280;
   --fluid-screen: 100vw;
   --fluid-bp: calc(
     (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
